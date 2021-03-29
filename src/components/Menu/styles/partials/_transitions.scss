@@ -33,7 +33,7 @@
   }
 
   .menu:before {
-    transition: all var(--transition-fast);
+    transition: all var(--transition-fast) cubic-bezier(0.45, 0.98, 0.7, 1.39);
   }
 
   .main-menu {

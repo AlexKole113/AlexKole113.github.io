@@ -280,7 +280,7 @@ body {
   transition: bottom .3s, right .3s; }
 
 .menu-opened .menu:before {
-  transition: all var(--transition-fast); }
+  transition: all var(--transition-fast) cubic-bezier(0.45, 0.98, 0.7, 1.39); }
 
 .menu-opened .main-menu__items_item {
   transition: all 0s; }
