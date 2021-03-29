@@ -1,0 +1,110 @@
+@import "../../../styles/partials/mixins";
+
+.menu {
+  padding-top: .5rem;
+  padding-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: -9.875rem;
+    height: 237%;
+    background-color: #f4f4f4;
+    z-index: -1;
+    border-radius: 0 0 140% 111%;
+    width: 113%;
+    filter: drop-shadow(0px 0px 3px gray);
+  }
+
+  &-top {
+    display: grid;
+    grid-template-columns: 2rem 1fr 2rem;
+    height: 2rem;
+    align-items: center;
+    margin-bottom: 2.575rem;
+
+    &__hum {
+      width: 2rem;
+      .hamburger {
+        font-size: 1.3rem;
+        display: inline-block;
+        transform-origin: 50% 50%;
+      }
+    }
+
+    &__page-title {
+      .page-title {
+        margin: 0;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: var(--font-family-title);
+        font-weight: var(--font-weight-title);
+        font-size: 1.25rem;
+      }
+    }
+
+  }
+
+  &-main-group {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+}
+
+.mobile-wrapper:before{
+  content: '';
+  position: absolute;
+  background: linear-gradient(
+                  135deg
+          , var(--red-link), var(--violet-link));
+  z-index: 1;
+  opacity: .6;
+  left: -1.5rem;
+  top: -2.3125rem;
+  height: 10.5rem;
+  border-radius: 0 0 400% 251%;
+  width: 94%;
+}
+
+//menu opened
+.menu-opened {
+  .hamburger {
+    transform: rotate(90deg);
+  }
+}
+
+.menu-opened .mobile-wrapper:before{
+  left:0;
+  opacity: .6;
+  transform: scale(10);
+}
+
+.menu {
+  &.menu-opened {
+    height: 100%;
+    padding-bottom: 2.2rem;
+  }
+
+  &.menu-opened:before {
+    height: 228%;
+    left: -45%;
+    top: 0;
+    background-color: #f4f4f4;
+    z-index: -1;
+    border-radius: 0 0 100% 70%;
+    width: 150%;
+    filter: drop-shadow(0px 0px 3px gray);
+  }
+
+}
+
+
+@import "partials/main-menu";
+@import "partials/additional-menu";
+@import "partials/transitions";

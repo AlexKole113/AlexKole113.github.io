@@ -1,0 +1,28 @@
+.brand-body {
+  --background: linear-gradient(180deg, var(--light-orange), var(--pink));
+}
+
+.default-body {
+  --background: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: var(--content-size);
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.container {
+  padding-left: 26px;
+  padding-right: 26px;
+}

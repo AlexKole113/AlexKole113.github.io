@@ -1,0 +1,63 @@
+.app-btn {
+   text-decoration: none;
+   color: var(--black-text);
+   padding: .65rem;
+   background: #ffffff;
+   border-radius: 2rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: .7rem;
+   transform: translateZ(0);
+   transition: transform .1s ease-in-out, box-shadow var(--transition-fast);
+
+   &__icon {
+      width: .8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &__text {
+      font-family: var(--font-family-regular);
+      font-weight: var(--font-weight-title);
+      padding-left: .5rem;
+   }
+
+
+   &.active-btn {
+       transform: scale(1.2);
+   }
+
+   &.shadow {
+      &-pink {
+         box-shadow: 1px 4px 8px var(--shadow-pink);
+      }
+      &-green {
+         box-shadow: 1px 4px 8px var(--shadow-green);
+      }
+      &-blue {
+         box-shadow: 1px 4px 8px var(--shadow-blue);
+      }
+      &-violet{
+         box-shadow: 1px 4px 8px var(--shadow-violet);
+      }
+   }
+
+   &.active-btn.shadow {
+      &-pink {
+         box-shadow: 1px 1px 10px var(--shadow-pink);
+      }
+      &-green {
+         box-shadow: 1px 1px 10px var(--shadow-green);
+      }
+      &-blue {
+         box-shadow: 1px 1px 10px var(--shadow-blue);
+      }
+      &-violet{
+         box-shadow: 1px 1px 10px var(--shadow-violet);
+      }
+   }
+
+
+}
