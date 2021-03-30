@@ -3,8 +3,8 @@
       display: flex;
       flex-wrap: nowrap;
       overflow-x: scroll;
-      margin: 0 -20% 0;
-      padding: .8rem;
+      margin: 0 -20%;
+      padding: .8rem 0;
 
       .app-btn {
         margin-right: 1.1rem;
@@ -15,7 +15,7 @@
       }
 
       .app-btn:first-child {
-        margin-left: 11%;
+        margin-left: calc(20% - 1rem)
       }
   }
 }

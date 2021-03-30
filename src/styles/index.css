@@ -43,6 +43,18 @@
   --font-weight-title: 700;
   --font-weight-regular: 400; }
 
+.shadow-pink {
+  box-shadow: 1px 4px 8px var(--shadow-pink); }
+
+.shadow-green {
+  box-shadow: 1px 4px 8px var(--shadow-green); }
+
+.shadow-blue {
+  box-shadow: 1px 4px 8px var(--shadow-blue); }
+
+.shadow-violet {
+  box-shadow: 1px 4px 8px var(--shadow-violet); }
+
 .brand-body {
   --background: linear-gradient(180deg, var(--light-orange), var(--pink)); }
 
@@ -63,8 +75,8 @@ body {
   background: var(--background); }
 
 .container {
-  padding-left: 26px;
-  padding-right: 26px; }
+  padding-left: 1rem;
+  padding-right: 1rem; }
 
 .menu {
   padding-top: .5rem;
@@ -304,15 +316,15 @@ body {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
-  margin: 0 -20% 0;
-  padding: .8rem; }
+  margin: 0 -20%;
+  padding: .8rem 0; }
   .category-list__items .app-btn {
     margin-right: 1.1rem;
     opacity: .6; }
     .category-list__items .app-btn.active-btn {
       opacity: 1; }
   .category-list__items .app-btn:first-child {
-    margin-left: 11%; }
+    margin-left: calc(20% - 1rem); }
 
 .app-btn {
   text-decoration: none;
@@ -337,14 +349,6 @@ body {
     padding-left: .5rem; }
   .app-btn.active-btn {
     transform: scale(1.2); }
-  .app-btn.shadow-pink {
-    box-shadow: 1px 4px 8px var(--shadow-pink); }
-  .app-btn.shadow-green {
-    box-shadow: 1px 4px 8px var(--shadow-green); }
-  .app-btn.shadow-blue {
-    box-shadow: 1px 4px 8px var(--shadow-blue); }
-  .app-btn.shadow-violet {
-    box-shadow: 1px 4px 8px var(--shadow-violet); }
   .app-btn.active-btn.shadow-pink {
     box-shadow: 1px 1px 10px var(--shadow-pink); }
   .app-btn.active-btn.shadow-green {
@@ -353,3 +357,15 @@ body {
     box-shadow: 1px 1px 10px var(--shadow-blue); }
   .app-btn.active-btn.shadow-violet {
     box-shadow: 1px 1px 10px var(--shadow-violet); }
+
+.search {
+  padding: .6rem 0; }
+  .search__input {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    padding: 0 10px;
+    font-family: var(--font-family-regular);
+    font-size: .9rem; }

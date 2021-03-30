@@ -1,0 +1,14 @@
+.shadow {
+  &-pink {
+    box-shadow: 1px 4px 8px var(--shadow-pink);
+  }
+  &-green {
+    box-shadow: 1px 4px 8px var(--shadow-green);
+  }
+  &-blue {
+    box-shadow: 1px 4px 8px var(--shadow-blue);
+  }
+  &-violet{
+    box-shadow: 1px 4px 8px var(--shadow-violet);
+  }
+}

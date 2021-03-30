@@ -29,21 +29,6 @@
        transform: scale(1.2);
    }
 
-   &.shadow {
-      &-pink {
-         box-shadow: 1px 4px 8px var(--shadow-pink);
-      }
-      &-green {
-         box-shadow: 1px 4px 8px var(--shadow-green);
-      }
-      &-blue {
-         box-shadow: 1px 4px 8px var(--shadow-blue);
-      }
-      &-violet{
-         box-shadow: 1px 4px 8px var(--shadow-violet);
-      }
-   }
-
    &.active-btn.shadow {
       &-pink {
          box-shadow: 1px 1px 10px var(--shadow-pink);
