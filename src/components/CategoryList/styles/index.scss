@@ -1,21 +1,35 @@
 .category-list {
+  max-width: 100%;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
   &__items {
       display: flex;
       flex-wrap: nowrap;
-      overflow-x: scroll;
-      margin: 0 -20%;
-      padding: .8rem 0;
-
+      width: auto;
+      padding: .85rem 0;
       .app-btn {
         margin-right: 1.1rem;
         opacity: .6;
         &.active-btn {
           opacity: 1;
         }
+        &__icon {
+          svg {
+            width: 15px;
+          }
+        }
       }
 
       .app-btn:first-child {
-        margin-left: calc(20% - 1rem)
+        margin-left: 1.4rem;
       }
   }
 }

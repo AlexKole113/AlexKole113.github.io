@@ -11,13 +11,23 @@
 <body class="brand-body">
 
     <section class="mobile-wrapper">
-
-
         <section class="menu">
             <div class="container">
                 <div class="menu-top">
                     <div class="menu-top__hum">
-                        <span class="hamburger">&#9776;</span>
+                        <div class="hamburger">
+                            <svg class="ham hamRotate ham-item" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+                                <path
+                                        class="line top"
+                                        d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />
+                                <path
+                                        class="line middle"
+                                        d="m 30,50 h 40" />
+                                <path
+                                        class="line bottom"
+                                        d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
+                            </svg>
+                        </div>
                     </div>
                     <div class="menu-top__page-title">
                         <h1 class="page-title">explore</h1>
@@ -96,47 +106,50 @@
         </nav>
 
         <section class="category-list">
-            <div class="container">
-                <div class="category-list__items">
-                    <a href="#" class="app-btn active-btn shadow-pink">
+            <div class="category-list__items">
+                <a href="#" class="app-btn active-btn shadow-pink">
                         <span class="app-btn__icon">
                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="seedling" class="svg-inline--fa fa-seedling fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg>
                         </span>
-                        <span class="app-btn__text">
+                    <span class="app-btn__text">
                              Flowers
                         </span>
-                    </a>
-                    <a href="#" class="app-btn shadow-green">
+                </a>
+                <a href="#" class="app-btn shadow-green">
                         <span class="app-btn__icon">
                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="seedling" class="svg-inline--fa fa-seedling fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg>
                         </span>
-                        <span class="app-btn__text">
+                    <span class="app-btn__text">
                              Plants
                         </span>
-                    </a>
-                    <a href="#" class="app-btn shadow-blue">
+                </a>
+                <a href="#" class="app-btn shadow-blue">
                         <span class="app-btn__icon">
-                           <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="seedling" class="svg-inline--fa fa-seedling fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg>
+                           <img src="../src/components/CategoryList/assets/preloader.gif" />
                         </span>
-                        <span class="app-btn__text">
+                    <span class="app-btn__text">
                              Fruits
                         </span>
-                    </a>
-                    <a href="#" class="app-btn shadow-violet">
+                </a>
+                <a href="#" class="app-btn shadow-violet">
                         <span class="app-btn__icon">
                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="seedling" class="svg-inline--fa fa-seedling fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg>
                         </span>
-                        <span class="app-btn__text">
+                    <span class="app-btn__text">
                              Popular
                         </span>
-                    </a>
-                </div>
+                </a>
             </div>
         </section>
 
         <section class="search">
             <div class="container">
-                <input type="text" class="search__input shadow-pink" placeholder="Search" />
+                <div class="search__group shadow-pink">
+                    <input type="text" class="search__group_input" placeholder="Search" />
+                    <a class="search__group_input_btn" href="#">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
+                    </a>
+                </div>
             </div>
         </section>
 

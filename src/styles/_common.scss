@@ -1,5 +1,5 @@
 .brand-body {
-  --background: linear-gradient(180deg, var(--light-orange), var(--pink));
+  --background: var(--brand-linear-gradient);
 }
 
 .default-body {
@@ -20,6 +20,7 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   background: var(--background);
+
 }
 
 .container {
