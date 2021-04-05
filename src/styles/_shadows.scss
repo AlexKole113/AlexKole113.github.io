@@ -11,4 +11,9 @@
   &-violet{
     box-shadow: 1px 4px 8px var(--shadow-violet);
   }
+  &-theme {
+    box-shadow: var(--shadow-theme);
+  }
 }
+
+

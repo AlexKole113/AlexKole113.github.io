@@ -1,8 +1,11 @@
 .app-btn {
+   --box-shadow-state-active: 1px 1px 10px;
+   --box-shadow-state-loading: 0px 0px 5px;
+
    text-decoration: none;
    color: var(--black-text);
    padding: .65rem;
-   background: #ffffff;
+   background: var(--white);
    border-radius: 2rem;
    display: flex;
    justify-content: center;
@@ -25,24 +28,42 @@
    }
 
 
-   &.active-btn {
+   &.state-active {
        transform: scale(1.2);
    }
 
-   &.active-btn.shadow {
+   &.state-loading {
+      opacity: 1;
+   }
+
+   &.state-active.shadow {
       &-pink {
-         box-shadow: 1px 1px 10px var(--shadow-pink);
+         box-shadow: var(--box-shadow-state-active) var(--shadow-pink);
       }
       &-green {
-         box-shadow: 1px 1px 10px var(--shadow-green);
+         box-shadow: var(--box-shadow-state-active) var(--shadow-green);
       }
       &-blue {
-         box-shadow: 1px 1px 10px var(--shadow-blue);
+         box-shadow: var(--box-shadow-state-active) var(--shadow-blue);
       }
       &-violet{
-         box-shadow: 1px 1px 10px var(--shadow-violet);
+         box-shadow: var(--box-shadow-state-active) var(--shadow-violet);
       }
    }
 
+   &.state-loading.shadow {
+      &-pink {
+         box-shadow: var(--box-shadow-state-loading) var(--shadow-pink) inset;
+      }
+      &-green {
+         box-shadow: var(--box-shadow-state-loading) var(--shadow-green) inset;
+      }
+      &-blue {
+         box-shadow: var(--box-shadow-state-loading) var(--shadow-blue) inset;
+      }
+      &-violet{
+         box-shadow: var(--box-shadow-state-loading) var(--shadow-violet) inset;
+      }
+   }
 
 }

@@ -7,7 +7,6 @@
   z-index: 1;
   margin-bottom: 1.5rem;
 
-
   &:before {
     content: '';
     position: absolute;
@@ -53,25 +52,13 @@
 
 }
 
-.mobile-wrapper:before{
-  content: '';
-  position: absolute;
-  background: linear-gradient(
-                  135deg
-          , var(--red-link), var(--violet-link));
-  z-index: 1;
-  opacity: .6;
-  left: -0.5rem;
-  top: -2.3125rem;
-  height: 10.3rem;
-  border-radius: 0 0 180% 95%;
-  width: 86%;
-  box-shadow: -2px 3px 10px #0000004a;
-}
-
 //menu opened
-body.menu-opened {
+html.menu-opened {
   overflow: hidden;
+  height: 100vh;
+  body {
+    overflow: hidden;
+  }
   .hamburger {
     transform: rotate(90deg);
   }
