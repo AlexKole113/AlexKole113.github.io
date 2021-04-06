@@ -23,9 +23,6 @@
       font-size: .9rem;
       color: var(--gray-text);
       outline: none;
-      &:focus {
-        box-shadow: 1px 1px 1px var(--color-theme);
-      }
 
       &_btn {
         position: absolute;
