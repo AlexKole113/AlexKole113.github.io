@@ -1,4 +1,8 @@
 .category-list-transition {
+  --timing-transition-1: .6s;
+  --timing-transition-2: .9s;
+
+
   position: relative;
   background: transparent;
   &-group {
@@ -23,58 +27,65 @@
       position: absolute;
       left:0;
       top:0;
+
+
       .search {
-        transition: all .8s;
+        transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
         opacity: 1;
         transform: translateY(0rem);
       }
 
+
       .product-card:nth-child(1) {
-        transition: all .8s;
+        transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
         opacity: 1;
         transform: translateY(0rem);
       }
       .product-card:nth-child(2) {
-        transition: all 1.2s;
+        transition: transform var(--timing-transition-2), opacity var(--timing-transition-2);
         opacity: 1;
         transform: translateY(0rem);
       }
       .product-card:nth-child(3) {
-        transition: all 1.6s;
+        transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
         opacity: 1;
         transform: translateY(0rem);
       }
       .product-card:nth-child(4) {
-        transition: all 2s;
+        transition: transform var(--timing-transition-2), opacity var(--timing-transition-2);
         opacity: 1;
         transform: translateY(0rem);
       }
+
     }
 
     &.category-group-transition-end {
+
+
       .search {
-        transition: all .8s;
+        transition: transform var(--timing-transition-1), opacity .4s;
         opacity: 0;
         transform: translateY(16.35rem);
       }
 
+
       .product-card:nth-child(1) {
-        transition: all .8s;
+        transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
         opacity: 0;
         transform: translateY(16.35rem);
       }
       .product-card:nth-child(2) {
-        transition: all 1.4s;
+        transition: transform var(--timing-transition-2), opacity var(--timing-transition-2);
         opacity: 0;
         transform: translateY(16.35rem);
       }
       .product-card:nth-child(3) {
-        transition: all 1.6s;
+        transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
         opacity: 0;
         transform: translateY(16.35rem);
       }
       .product-card:nth-child(4) {
-        transition: all 2s;
+        transition: transform var(--timing-transition-2), opacity var(--timing-transition-2);
         opacity: 0;
         transform: translateY(16.35rem);
       }

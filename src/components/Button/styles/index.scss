@@ -34,6 +34,9 @@
 
    &.state-loading {
       opacity: 1;
+      img {
+         width: 15px;
+      }
    }
 
    &.state-active.shadow {

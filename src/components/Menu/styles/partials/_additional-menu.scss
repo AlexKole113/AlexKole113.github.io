@@ -2,7 +2,7 @@
   position: absolute;
   top: 5rem;
   right: 1.55rem;
-  z-index: 2;
+  z-index: 10;
   &__items {
     position: relative;
     padding: 0;
@@ -14,11 +14,12 @@
       position: absolute;
       width: 50px;
       height: 50px;
-      background-color: rebeccapurple;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 100%;
+
+      overflow: visible;
+      backface-visibility: hidden;
 
       svg {
         width: 20px;
@@ -29,10 +30,15 @@
         top: -3.4rem;
         width: 3.5rem;
         height: 3.5rem;
-        background: linear-gradient(180deg, var(--blue-link) 60%, var(--violet-link) 120%);
+
 
         @media (min-width: 520px ) {
-          top: -3.4rem;
+          top: -4.4rem;
+        }
+
+        .additional-menu__link {
+          background: linear-gradient(180deg, var(--blue-link) 60%, var(--violet-link) 120%);
+          border-radius: 100%;
         }
 
         svg {
@@ -45,15 +51,21 @@
         bottom: -1.5rem;
         width: 2.5rem;
         height: 2.5rem;
-        background: linear-gradient(180deg, var(--red-link) 60%, var(--violet-link) 120%);
+
+
         @media (min-width: 520px ) {
           right: 3.3rem;
-          bottom: -1rem;
-        }
-        @include md {
-          bottom: -7px;
+          bottom: 0rem;
         }
 
+        @media (min-width: 1050px){
+          bottom: .5rem;
+        }
+
+        .additional-menu__link {
+          background: linear-gradient(180deg, var(--red-link) 60%, var(--violet-link) 120%);
+          border-radius: 100%;
+        }
 
 
         svg {
@@ -68,20 +80,20 @@
   &__link {
     color: #ffff;
     position: absolute;
-    top:0;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
 }
 
 
 //menu opened
 .menu-opened {
+
   .additional-menu__items_item:first-child {
     right: -.25rem;
     top: -1.187rem;

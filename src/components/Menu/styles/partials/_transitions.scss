@@ -1,7 +1,8 @@
 :root {
   --transition-main: .6s;
-  --transition-fast: .3s;
-  --custom-bezier: cubic-bezier(0, 0, 0, 1.59);
+  --transition-fast: .4s;
+  --custom-bezier-menu-items: cubic-bezier(0, 0, 0, 1.59);
+  --custom-bezier-open-menu: cubic-bezier(0, 0, 0.4, 1.65);
 }
 
 .mobile-wrapper:before {
@@ -18,7 +19,7 @@
 
 .additional-menu__items_item:first-child {
   will-change: right, top;
-  transition: top .4s .1s, right .4s;
+  transition: top .3s .1s, right .3s;
 }
 
 .additional-menu__items_item:last-child {
@@ -36,12 +37,12 @@
   }
 
   .menu:before {
-    will-change: left, top,width, height;
+    will-change: left, top, width, height;
     transition:
-            left var(--transition-fast) cubic-bezier(0.45, 0.98, 0.7, 1.39),
-            top var(--transition-fast) cubic-bezier(0.45, 0.98, 0.7, 1.39),
-            width var(--transition-fast) cubic-bezier(0.45, 0.98, 0.7, 1.39),
-            height var(--transition-fast) cubic-bezier(0.45, 0.98, 0.7, 1.39)
+            left var(--transition-fast) cubic-bezier(0, 0, 0.4, 1.65),
+            top var(--transition-fast) var(--custom-bezier-open-menu),
+            width var(--transition-fast) var(--custom-bezier-open-menu),
+            height var(--transition-fast) var(--custom-bezier-open-menu)
 
   ;
   }
@@ -53,23 +54,23 @@
     }
     &__items_item:nth-child(1) {
       will-change: opacity;
-      transition: opacity var(--transition-fast) .1s, transform .4s .1s var(--custom-bezier);
+      transition: opacity var(--transition-fast) .1s, transform .4s .1s var(--custom-bezier-menu-items);
     }
     &__items_item:nth-child(2) {
       will-change: opacity;
-      transition: opacity var(--transition-fast) .2s, transform .4s .2s var(--custom-bezier);
+      transition: opacity var(--transition-fast) .2s, transform .4s .2s var(--custom-bezier-menu-items);
     }
     &__items_item:nth-child(3) {
       will-change: opacity;
-      transition: opacity var(--transition-fast) .3s, transform .4s .3s var(--custom-bezier);
+      transition: opacity var(--transition-fast) .3s, transform .4s .3s var(--custom-bezier-menu-items);
     }
     &__items_item:nth-child(4) {
       will-change: opacity;
-      transition: opacity var(--transition-fast) .4s, transform .4s .4s var(--custom-bezier);
+      transition: opacity var(--transition-fast) .4s, transform .4s .4s var(--custom-bezier-menu-items);
     }
     &__items_item:nth-child(5) {
       will-change: opacity;
-      transition: opacity var(--transition-fast) .5s, transform .4s .5s var(--custom-bezier);
+      transition: opacity var(--transition-fast) .5s, transform .4s .5s var(--custom-bezier-menu-items);
     }
   }
 
