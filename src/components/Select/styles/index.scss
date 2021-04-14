@@ -1,0 +1,14 @@
+.select-control {
+  --width: 3.75rem;
+  --height: 2rem;
+  border-radius: 2.125rem;
+  font-size: 1.2rem;
+  width: 100%;
+  border: 1px solid var(--gray-settings-control);
+  height: var(--height);
+  padding: 4px;
+
+  &.settings-select {
+    color: var(--gray-settings-control);
+  }
+}

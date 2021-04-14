@@ -1,18 +1,28 @@
 :root {
-  --light-orange: #eec499;
+  --orange-light: #eec499;
+
   --pink: #ff66a3;
+
   --white: #ffffff;
+
   --green: #46821b;
-  --light-green:#a2cc72;
+  --green-light:#a2cc72;
 
+  --black: #000000;
   --black-text: #444444;
-  --gray-text: #979797;
-  --violet-text: #7660ff;
 
-  --blue-link:#508eff;
-  --red-link: #fd5760;
+
+  --gray-text: #979797;
+  --gray-main-menu-back: #f4f4f4;
+  --gray-settings-control: #e4e4e4;
+
+  --violet-text: #7660ff;
   --violet-link:#bd94fb;
 
+  --blue-link:#508eff;
+  --blue-switcher-default-active: #4983ee;
+
+  --red-link: #fd5760;
 
   --shadow-pink:#ff66a3;
   --shadow-green: #13c313;
@@ -23,6 +33,6 @@
   --dark-footer-background: #4a4a4a;
   --light-footer-text-color: #a9a9a9;
 
-
-  --brand-linear-gradient: linear-gradient(180deg, var(--light-orange), var(--pink));
+  --back-switcher-default: linear-gradient(114deg, #ffff, #f4f4f4);
+  --brand-linear-gradient: linear-gradient(180deg, var(--orange-light), var(--pink));
 }

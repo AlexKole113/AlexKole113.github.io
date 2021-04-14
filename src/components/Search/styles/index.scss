@@ -15,15 +15,6 @@
     position: relative;
 
     &_input {
-      border:none;
-      flex: 1;
-      padding: 0 1rem;
-      text-align: center;
-      letter-spacing: .5px;
-      font-size: .9rem;
-      color: var(--gray-text);
-      outline: none;
-
       &_btn {
         position: absolute;
         top: 4px;
@@ -32,7 +23,7 @@
         background: var(--btn-theme);
         width: calc(2.5rem - 8px );
         height: calc(2.5rem - 8px );
-        color: var(--black-text);
+        color: var(--text-color-theme);
         display: flex;
         align-items: center;
         justify-content: center;

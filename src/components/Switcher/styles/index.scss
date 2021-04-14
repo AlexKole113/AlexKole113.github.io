@@ -1,0 +1,62 @@
+.switch-control {
+  --width: 3.75rem;
+  --height: 2rem;
+  border-radius: 2.125rem;
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background-color: var(--blue-switcher-default-active) ;
+    }
+    &:checked + .slider:before {
+      -webkit-transform: translateX(calc(var(--height) - 4px));
+      -ms-transform: translateX(calc(var(--height) - 4px));
+      transform: translateX(calc(var(--height) - 4px));
+    }
+
+  }
+
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--white);
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: calc(var(--height) - 2px);
+      width: calc(var(--height) - 2px);
+      left: 1px;
+      bottom: 1px;
+      -webkit-transition: .4s;
+      transition: .4s;
+
+    }
+
+    &.round {
+      border-radius: 34px;
+      box-shadow: 0px 0px 6px 1px #0000001a inset;
+      &:before {
+        border-radius: 50%;
+        background: var( --back-switcher-default );
+        box-shadow: 1px 1px 2px 1px #d3d3d3ad;;
+      }
+    }
+  }
+
+}
+
+
+

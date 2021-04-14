@@ -1,0 +1,30 @@
+.settings-control {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 4rem 1fr;
+  padding: 1rem 0;
+  &__input {
+    font-size: 1.2rem;
+  }
+
+
+  &__caption {
+    color: var(--text-color-theme);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    &__text {
+      font-family: var(--font-family-regulare);
+      text-transform: capitalize;
+      letter-spacing: 1.25px;
+      color: var(--text-color-theme);
+      font-weight: 300;
+    }
+  }
+
+
+
+}
+

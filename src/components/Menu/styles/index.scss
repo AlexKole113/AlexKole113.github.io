@@ -80,7 +80,7 @@ html.menu-opened {
     height: 264%;
     left: -45%;
     top: -2rem;
-    background-color: #f4f4f4;
+    background-color: var(--gray-main-menu-back);
     z-index: -1;
     border-radius: 0 0 100% 70%;
     width: 153%;

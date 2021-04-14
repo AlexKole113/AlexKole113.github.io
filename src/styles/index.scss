@@ -3,6 +3,7 @@
 @import "fonts";
 @import "shadows";
 @import "common";
+@import "themes";
 
 @import "../components/Menu/styles/index.scss";
 @import "../components/CategoryList/styles/index.scss";
@@ -11,3 +12,10 @@
 @import "../components/ProductCard/styles/index.scss";
 @import "../components/Preloader/styles/index.scss";
 @import "../components/Footer/styles/index.scss";
+
+@import "../components/SettingsGroup/styles/index.scss";
+@import "../components/ProfileGroup/styles/index.scss";
+@import "../components/SettingsControl/styles/index.scss";
+@import "../components/Select/styles/index.scss";
+@import "../components/Switcher/styles/index.scss";
+@import "../components/Input/styles/index.scss";

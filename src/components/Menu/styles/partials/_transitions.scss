@@ -2,7 +2,7 @@
   --transition-main: .6s;
   --transition-fast: .4s;
   --custom-bezier-menu-items: cubic-bezier(0, 0, 0, 1.59);
-  --custom-bezier-open-menu: cubic-bezier(0, 0, 0.4, 1.65);
+  --custom-bezier-open-menu: cubic-bezier(0, 1.53, 1, 1);
 }
 
 .mobile-wrapper:before {
@@ -39,12 +39,10 @@
   .menu:before {
     will-change: left, top, width, height;
     transition:
-            left var(--transition-fast) cubic-bezier(0, 0, 0.4, 1.65),
-            top var(--transition-fast) var(--custom-bezier-open-menu),
-            width var(--transition-fast) var(--custom-bezier-open-menu),
-            height var(--transition-fast) var(--custom-bezier-open-menu)
-
-  ;
+            left var(--transition-fast) cubic-bezier(0.22, 0.61, 0.36, 1),
+            top var(--transition-fast) cubic-bezier(0.66, 0.56, 0.36, 1),
+            width var(--transition-fast) cubic-bezier(0, 1.48, 0.6, 1.29),
+            height var(--transition-fast) cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
   .main-menu {
