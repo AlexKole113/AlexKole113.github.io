@@ -154,18 +154,24 @@
                     </section>
                     <section class="profile-group__profile-collection">
 
-                        <!-- Input -->
-                        <div class="input-control profile-input">
+                        <!-- Input + state-loading -->
+                        <div class="input-control profile-input state-loading">
                             <input class="input-control__input" type="text" placeholder="Street, house ">
+                            <span class="input-control__state">
+                                <img src="../src/components/Preloader/assets/preloader-for-btn.gif" />
+                            </span>
                         </div>
 
-                        <!-- Input -->
-                        <div class="input-control profile-input">
+                        <!-- Input + state-success -->
+                        <div class="input-control profile-input state-success">
                             <input class="input-control__input" type="text" placeholder="Country, City">
+                            <span class="input-control__state success-check">
+                               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>
+                            </span>
                         </div>
 
                         <!-- Input -->
-                        <div class="input-control profile-input">
+                        <div class="input-control profile-input state-reject">
                             <input class="input-control__input" type="number" placeholder="Code">
                         </div>
 
@@ -185,14 +191,28 @@
                     </section>
                     <section class="profile-group__profile-collection">
 
-                        <!-- Input -->
-                        <div class="input-control profile-input">
-                            <input class="input-control__input" type="password" placeholder="password">
+                        <!-- input-with-btn -->
+                        <div class="input-with-btn profile-input">
+                            <!--  Input -->
+                            <div class="input-control">
+                                <input class="input-control__input" type="text" placeholder="New password" >
+                            </div>
+                            <a class="input-with-btn_input_btn" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </a>
                         </div>
 
-                        <!-- Input -->
-                        <div class="input-control profile-input">
-                            <input class="input-control__input" type="password" placeholder="repeat password">
+                        <!-- input-with-btn -->
+                        <div class="input-with-btn profile-input state-loading">
+                            <!--  Input -->
+                            <div class="input-control">
+                                <input class="input-control__input" type="text" placeholder="Repeat password">
+                            </div>
+                            <a class="input-with-btn_input_btn" href="#">
+                                <img src="../src/components/Preloader/assets/preloader-for-btn.gif" />
+                            </a>
                         </div>
 
 
