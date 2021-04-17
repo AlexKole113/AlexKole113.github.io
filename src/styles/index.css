@@ -396,7 +396,7 @@ html.menu-opened {
 
 :root {
   --transition-main: .6s;
-  --transition-fast: .4s;
+  --transition-fast: .5s;
   --custom-bezier-menu-items: cubic-bezier(0, 0, 0, 1.59);
   --custom-bezier-open-menu: cubic-bezier(0, 1.53, 1, 1); }
 
@@ -415,7 +415,7 @@ html.menu-opened {
 
 .additional-menu__items_item:last-child {
   will-change: bottom, right;
-  transition: bottom .25s .05s, right .25s; }
+  transition: bottom .25s .12s, right .25s .12s; }
 
 .menu-opened .additional-menu__items_item:last-child {
   will-change: bottom, right;
@@ -423,7 +423,7 @@ html.menu-opened {
 
 .menu-opened .menu:before {
   will-change: left, top, width, height;
-  transition: left var(--transition-fast) cubic-bezier(0.22, 0.61, 0.36, 1), top var(--transition-fast) cubic-bezier(0.66, 0.56, 0.36, 1), width var(--transition-fast) cubic-bezier(0, 1.48, 0.6, 1.29), height var(--transition-fast) cubic-bezier(0.22, 0.61, 0.36, 1); }
+  transition: left var(--transition-fast) cubic-bezier(0.33, 0.92, 0.64, 1.41), top var(--transition-fast) cubic-bezier(0.66, 0.56, 0.36, 1), width var(--transition-fast) cubic-bezier(0, 1.48, 0.6, 1.29), height var(--transition-fast) cubic-bezier(0.22, 0.61, 0.36, 1); }
 
 .menu-opened .main-menu__items_item {
   transition: all 0s; }
