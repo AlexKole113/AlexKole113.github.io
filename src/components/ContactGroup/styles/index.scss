@@ -1,0 +1,33 @@
+.contact-group {
+  &__group {
+
+  }
+
+  &__title-block {
+
+    padding: .25rem;
+    border-bottom: 1px solid var(--text-color-theme);
+    margin: 3rem 0 2rem;
+
+    &_title {
+      font-family: var(--font-family-regular);
+      font-weight: var(--font-weight-title);
+      text-transform: none;
+      font-size: 1.8rem;
+      letter-spacing: .5px;
+      color: var(--text-color-theme);
+    }
+
+  }
+
+
+  &__contacts-collection {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+
+  }
+
+
+
+}

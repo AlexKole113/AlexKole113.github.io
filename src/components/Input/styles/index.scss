@@ -1,11 +1,13 @@
 .input-control {
   letter-spacing: .5px;
   background-color: var(--white);
+  border: 1px solid var(--white);
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  font-size: .9rem;
 
   &__input {
     font-family: var(--font-family-regular);
@@ -15,6 +17,29 @@
     font-size: 1rem;
     border: 0px;
     outline: none;
+
+    &:focus + .input-control__placeholder {
+      transform: translateY(-2rem);
+      opacity: .4;
+
+    }
+
+  }
+
+  &__placeholder {
+    font-family: var(--font-family-regular);
+    transition: transform .6s, opacity .8s;
+    position: absolute;
+    top: calc(50% - .5rem);
+    left: .75rem;
+    height: .9rem;
+    opacity: .4;
+
+
+    &.field-has-content {
+      transform: translateY(-2rem);
+    }
+
   }
 
   &__state {
@@ -29,7 +54,12 @@
     }
 
     &.success-check {
-      color: var(--green-light);
+      color: var(--green-middle);
+    }
+
+    svg {
+      width: .9rem;
+      height: .9rem;
     }
 
   }
@@ -56,8 +86,21 @@
     }
   }
 
-  &.state-loading {
+  &.state-received {
 
+  }
+
+  &.state-invalid {
+    background-color: var(--red-invalid-field);
+    color: var(--white);
+    input {
+      background-color: var(--red-invalid-field);
+      color: var(--white);
+    }
+  }
+
+  &.with-placeholder-movement {
+    margin: 1.5rem 0 .5rem;
   }
 
 }
