@@ -1,0 +1,63 @@
+.shop-group-transition {
+  --timing-transition-1: .6s;
+  --timing-transition-2: .9s;
+  position: relative;
+  background: transparent; }
+  .shop-group-transition-group {
+    transition: all .6s; }
+    .shop-group-transition-group.shop-group-hidden {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1; }
+      .shop-group-transition-group.shop-group-hidden .product-card,
+      .shop-group-transition-group.shop-group-hidden .search {
+        transform: translateY(-16.35rem);
+        opacity: 0; }
+    .shop-group-transition-group.shop-group-current {
+      opacity: 1;
+      z-index: 0; }
+    .shop-group-transition-group.category-group-transition-start {
+      position: absolute;
+      left: 0;
+      top: 0; }
+      .shop-group-transition-group.category-group-transition-start .search {
+        transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
+        opacity: 1;
+        transform: translateY(0rem); }
+      .shop-group-transition-group.category-group-transition-start .product-card:nth-child(1) {
+        transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
+        opacity: 1;
+        transform: translateY(0rem); }
+      .shop-group-transition-group.category-group-transition-start .product-card:nth-child(2) {
+        transition: transform var(--timing-transition-2), opacity var(--timing-transition-2);
+        opacity: 1;
+        transform: translateY(0rem); }
+      .shop-group-transition-group.category-group-transition-start .product-card:nth-child(3) {
+        transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
+        opacity: 1;
+        transform: translateY(0rem); }
+      .shop-group-transition-group.category-group-transition-start .product-card:nth-child(4) {
+        transition: transform var(--timing-transition-2), opacity var(--timing-transition-2);
+        opacity: 1;
+        transform: translateY(0rem); }
+    .shop-group-transition-group.category-group-transition-end .search {
+      transition: transform var(--timing-transition-1), opacity 0.4s;
+      opacity: 0;
+      transform: translateY(16.35rem); }
+    .shop-group-transition-group.category-group-transition-end .product-card:nth-child(1) {
+      transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
+      opacity: 0;
+      transform: translateY(16.35rem); }
+    .shop-group-transition-group.category-group-transition-end .product-card:nth-child(2) {
+      transition: transform var(--timing-transition-2), opacity var(--timing-transition-2);
+      opacity: 0;
+      transform: translateY(16.35rem); }
+    .shop-group-transition-group.category-group-transition-end .product-card:nth-child(3) {
+      transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
+      opacity: 0;
+      transform: translateY(16.35rem); }
+    .shop-group-transition-group.category-group-transition-end .product-card:nth-child(4) {
+      transition: transform var(--timing-transition-2), opacity var(--timing-transition-2);
+      opacity: 0;
+      transform: translateY(16.35rem); }

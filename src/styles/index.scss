@@ -13,12 +13,16 @@
 @import "../components/Preloader/styles/index.scss";
 @import "../components/Footer/styles/index.scss";
 
-@import "../components/SettingsGroup/styles/index.scss";
-@import "../components/ProfileGroup/styles/index.scss";
+@import "../pages/Settings/styles/index.scss";
+@import "../pages/Profile/styles/index.scss";
+@import "../pages/Contact/styles/index.scss";
+@import "../pages/Shop/styles/index.scss";
+@import "../pages/Cart/styles/index.scss";
+
 @import "../components/SettingsControl/styles/index.scss";
 @import "../components/Select/styles/index.scss";
 @import "../components/Switcher/styles/index.scss";
 @import "../components/Input/styles/index.scss";
 @import "../components/InputWithButton/styles/index.scss";
-@import "../components/ContactGroup/styles/index.scss";
 @import "../components/ContactItem/styles/index.scss";
+@import "../components/CartItem/styles/index.scss";

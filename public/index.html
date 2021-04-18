@@ -97,7 +97,7 @@
             <nav class="additional-menu">
                 <ul class="additional-menu__items">
                     <li class="additional-menu__items_item">
-                        <a class="additional-menu__link link-cart" href="#">
+                        <a class="additional-menu__link link-cart" href="cart.html">
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
                         </a>
                     </li>
@@ -111,343 +111,367 @@
         </header>
 
         <section class="content">
-            <section class="category-list">
-                <div class="category-list__items">
-                    <!-- app-btn -->
-                    <a href="#" class="app-btn shadow-pink state-active">
+            <div class="shop-group">
+                <section class="category-list">
+                    <div class="category-list__items">
+                        <!-- app-btn -->
+                        <a href="#" class="app-btn shadow-pink state-active">
                         <span class="app-btn__icon">
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="seedling" class="svg-inline--fa fa-seedling fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg>
                         </span>
-                        <span class="app-btn__text">
+                            <span class="app-btn__text">
                             Flowers
                         </span>
-                    </a>
+                        </a>
 
-                    <!-- app-btn -->
-                    <a href="#" class="app-btn shadow-green">
+                        <!-- app-btn -->
+                        <a href="#" class="app-btn shadow-green">
                         <span class="app-btn__icon">
                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="seedling" class="svg-inline--fa fa-seedling fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg>
                         </span>
-                        <span class="app-btn__text">
+                            <span class="app-btn__text">
                             Plants
                         </span>
-                    </a>
+                        </a>
 
-                    <!-- app-btn + state loading  -->
-                    <a href="#" class="app-btn shadow-blue state-loading">
+                        <!-- app-btn + state loading  -->
+                        <a href="#" class="app-btn shadow-blue state-loading">
                         <span class="app-btn__icon">
                            <img src="../src/components/Preloader/assets/preloader-for-btn.gif" />
                         </span>
-                        <span class="app-btn__text">
+                            <span class="app-btn__text">
                             Fruits
                         </span>
-                    </a>
+                        </a>
 
-                    <!-- app-btn -->
-                    <a href="#" class="app-btn shadow-violet">
+                        <!-- app-btn -->
+                        <a href="#" class="app-btn shadow-violet">
                         <span class="app-btn__icon">
                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="seedling" class="svg-inline--fa fa-seedling fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z"></path></svg>
                         </span>
-                        <span class="app-btn__text">
+                            <span class="app-btn__text">
                             Popular
                         </span>
-                    </a>
-                </div>
-            </section>
-            <section class="category-list-transition">
-                <section class="category-list-transition-group category-group-hidden">
+                        </a>
+                    </div>
+                </section>
+                <section class="shop-group-transition">
+                    <section class="shop-group-transition-group shop-group-hidden">
 
-                    <!--  Search -->
-                    <section class="search">
-                        <div class="container">
-                            <!-- input-with-btn  -->
-                            <div class="input-with-btn shadow-theme">
-                                <!--  Input -->
-                                <div class="input-control search-input">
-                                    <input class="input-control__input" type="text" placeholder="Search" >
+                        <!--  Search -->
+                        <section class="search">
+                            <div class="container">
+                                <!-- input-with-btn  -->
+                                <div class="input-with-btn shadow-theme">
+                                    <!--  Input -->
+                                    <div class="input-control search-input">
+                                        <input class="input-control__input" type="text" placeholder="Search" >
+                                    </div>
+                                    <a class="input-with-btn_input_btn" href="#">
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
+                                    </a>
                                 </div>
-                                <a class="input-with-btn_input_btn" href="#">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
-                                </a>
                             </div>
+                        </section>
 
-                        </div>
+                        <section class="shop-grouped">
+                            <div class="container">
+                                <div class="shop-grouped__collection">
+
+                                    <!--  product-card  -->
+                                    <div class="product-card">
+                                        <div class="product-card__buttons">
+                                            <a href="" class="product-card__buttons_item add-to-fav">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
+                                            </a>
+                                            <a href="" class="product-card__buttons_item add-to-cart">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
+                                            </a>
+                                        </div>
+                                        <div class="product-card__image">
+                                            <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
+                                        </div>
+                                        <div class="product-card__info">
+                                            <span class="product-card__info_title">Red Rose</span>
+                                            <span class="product-card__info_params">
+                                <span class="product-card__info_params-name">Length:</span>
+                                <span class="product-card__info_params-value">50cm</span>
+                            </span>
+                                            <span class="product-card__info_price">
+                                <span class="product-card__info_price-currency">$</span>
+                                <span class="product-card__info_price-value">9.05</span>
+                            </span>
+                                        </div>
+                                        <div class="product-card__additional-info">
+                            <span class="product-card__additional-info_params">
+                                <span class="product-card__additional-info_params-name">Bunch of</span>
+                                <span class="product-card__additional-info_params-value">20</span>
+                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!--  product-card  -->
+                                    <div class="product-card">
+                                        <div class="product-card__buttons">
+                                            <a href="" class="product-card__buttons_item add-to-fav">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
+                                            </a>
+                                            <a href="" class="product-card__buttons_item add-to-cart">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
+                                            </a>
+                                        </div>
+                                        <div class="product-card__image">
+                                            <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
+                                        </div>
+                                        <div class="product-card__info">
+                                            <span class="product-card__info_title">Red Rose</span>
+                                            <span class="product-card__info_params">
+                                <span class="product-card__info_params-name">Length:</span>
+                                <span class="product-card__info_params-value">50cm</span>
+                            </span>
+                                            <span class="product-card__info_price">
+                                <span class="product-card__info_price-currency">$</span>
+                                <span class="product-card__info_price-value">9.05</span>
+                            </span>
+                                        </div>
+                                        <div class="product-card__additional-info">
+                            <span class="product-card__additional-info_params">
+                                <span class="product-card__additional-info_params-name">Bunch of</span>
+                                <span class="product-card__additional-info_params-value">20</span>
+                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!--  product-card  -->
+                                    <div class="product-card">
+                                        <div class="product-card__buttons">
+                                            <a href="" class="product-card__buttons_item add-to-fav">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
+                                            </a>
+                                            <a href="" class="product-card__buttons_item add-to-cart">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
+                                            </a>
+                                        </div>
+                                        <div class="product-card__image">
+                                            <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
+                                        </div>
+                                        <div class="product-card__info">
+                                            <span class="product-card__info_title">Red Rose</span>
+                                            <span class="product-card__info_params">
+                                <span class="product-card__info_params-name">Length:</span>
+                                <span class="product-card__info_params-value">50cm</span>
+                            </span>
+                                            <span class="product-card__info_price">
+                                <span class="product-card__info_price-currency">$</span>
+                                <span class="product-card__info_price-value">9.05</span>
+                            </span>
+                                        </div>
+                                        <div class="product-card__additional-info">
+                            <span class="product-card__additional-info_params">
+                                <span class="product-card__additional-info_params-name">Bunch of</span>
+                                <span class="product-card__additional-info_params-value">20</span>
+                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!--  product-card  -->
+                                    <div class="product-card">
+                                        <div class="product-card__buttons">
+                                            <a href="" class="product-card__buttons_item add-to-fav">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
+                                            </a>
+                                            <a href="" class="product-card__buttons_item add-to-cart">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
+                                            </a>
+                                        </div>
+                                        <div class="product-card__image">
+                                            <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
+                                        </div>
+                                        <div class="product-card__info">
+                                            <span class="product-card__info_title">Red Rose</span>
+                                            <span class="product-card__info_params">
+                                <span class="product-card__info_params-name">Length:</span>
+                                <span class="product-card__info_params-value">50cm</span>
+                            </span>
+                                            <span class="product-card__info_price">
+                                <span class="product-card__info_price-currency">$</span>
+                                <span class="product-card__info_price-value">9.05</span>
+                            </span>
+                                        </div>
+                                        <div class="product-card__additional-info">
+                            <span class="product-card__additional-info_params">
+                                <span class="product-card__additional-info_params-name">Bunch of</span>
+                                <span class="product-card__additional-info_params-value">20</span>
+                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
                     </section>
+                    <section class="shop-group-transition-group shop-group-current">
 
-                    <section class="product-card-grouped">
-                        <div class="container">
-                            <div class="product-card-grouped__collection">
-                                <div class="product-card">
-                                    <div class="product-card__buttons">
-                                        <a href="" class="product-card__buttons_item add-to-fav">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
-                                        </a>
-                                        <a href="" class="product-card__buttons_item add-to-cart">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
-                                        </a>
+                        <!--  Search -->
+                        <section class="search">
+                            <div class="container">
+                                <div class="input-with-btn shadow-theme">
+
+                                    <!--  Input -->
+                                    <div class="input-control search-input state-loading">
+                                        <input class="input-control__input" type="text" placeholder="Search" >
                                     </div>
-                                    <div class="product-card__image">
-                                        <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
-                                    </div>
-                                    <div class="product-card__info">
-                                        <span class="product-card__info_title">Red Rose</span>
-                                        <span class="product-card__info_params">
-                                <span class="product-card__info_params-name">Length:</span>
-                                <span class="product-card__info_params-value">50cm</span>
-                            </span>
-                                        <span class="product-card__info_price">
-                                <span class="product-card__info_price-currency">$</span>
-                                <span class="product-card__info_price-value">9.05</span>
-                            </span>
-                                    </div>
-                                    <div class="product-card__additional-info">
-                            <span class="product-card__additional-info_params">
-                                <span class="product-card__additional-info_params-name">Bunch of</span>
-                                <span class="product-card__additional-info_params-value">20</span>
-                            </span>
-                                    </div>
-                                </div>
-                                <div class="product-card">
-                                    <div class="product-card__buttons">
-                                        <a href="" class="product-card__buttons_item add-to-fav">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
-                                        </a>
-                                        <a href="" class="product-card__buttons_item add-to-cart">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
-                                        </a>
-                                    </div>
-                                    <div class="product-card__image">
-                                        <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
-                                    </div>
-                                    <div class="product-card__info">
-                                        <span class="product-card__info_title">Red Rose</span>
-                                        <span class="product-card__info_params">
-                                <span class="product-card__info_params-name">Length:</span>
-                                <span class="product-card__info_params-value">50cm</span>
-                            </span>
-                                        <span class="product-card__info_price">
-                                <span class="product-card__info_price-currency">$</span>
-                                <span class="product-card__info_price-value">9.05</span>
-                            </span>
-                                    </div>
-                                    <div class="product-card__additional-info">
-                            <span class="product-card__additional-info_params">
-                                <span class="product-card__additional-info_params-name">Bunch of</span>
-                                <span class="product-card__additional-info_params-value">20</span>
-                            </span>
-                                    </div>
-                                </div>
-                                <div class="product-card">
-                                    <div class="product-card__buttons">
-                                        <a href="" class="product-card__buttons_item add-to-fav">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
-                                        </a>
-                                        <a href="" class="product-card__buttons_item add-to-cart">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
-                                        </a>
-                                    </div>
-                                    <div class="product-card__image">
-                                        <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
-                                    </div>
-                                    <div class="product-card__info">
-                                        <span class="product-card__info_title">Red Rose</span>
-                                        <span class="product-card__info_params">
-                                <span class="product-card__info_params-name">Length:</span>
-                                <span class="product-card__info_params-value">50cm</span>
-                            </span>
-                                        <span class="product-card__info_price">
-                                <span class="product-card__info_price-currency">$</span>
-                                <span class="product-card__info_price-value">9.05</span>
-                            </span>
-                                    </div>
-                                    <div class="product-card__additional-info">
-                            <span class="product-card__additional-info_params">
-                                <span class="product-card__additional-info_params-name">Bunch of</span>
-                                <span class="product-card__additional-info_params-value">20</span>
-                            </span>
-                                    </div>
-                                </div>
-                                <div class="product-card">
-                                    <div class="product-card__buttons">
-                                        <a href="" class="product-card__buttons_item add-to-fav">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
-                                        </a>
-                                        <a href="" class="product-card__buttons_item add-to-cart">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
-                                        </a>
-                                    </div>
-                                    <div class="product-card__image">
-                                        <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
-                                    </div>
-                                    <div class="product-card__info">
-                                        <span class="product-card__info_title">Red Rose</span>
-                                        <span class="product-card__info_params">
-                                <span class="product-card__info_params-name">Length:</span>
-                                <span class="product-card__info_params-value">50cm</span>
-                            </span>
-                                        <span class="product-card__info_price">
-                                <span class="product-card__info_price-currency">$</span>
-                                <span class="product-card__info_price-value">9.05</span>
-                            </span>
-                                    </div>
-                                    <div class="product-card__additional-info">
-                            <span class="product-card__additional-info_params">
-                                <span class="product-card__additional-info_params-name">Bunch of</span>
-                                <span class="product-card__additional-info_params-value">20</span>
-                            </span>
-                                    </div>
+
+                                    <a class="input-with-btn_input_btn" href="#">
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
+                        </section>
+
+                        <section class="shop-grouped">
+                            <div class="container">
+                                <div class="shop-grouped__collection">
+
+                                    <!--  product-card  -->
+                                    <div class="product-card">
+                                        <div class="product-card__buttons">
+                                            <a href="" class="product-card__buttons_item add-to-fav">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
+                                            </a>
+                                            <a href="" class="product-card__buttons_item add-to-cart">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
+                                            </a>
+                                        </div>
+                                        <div class="product-card__image">
+                                            <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
+                                        </div>
+                                        <div class="product-card__info">
+                                            <span class="product-card__info_title">Red Rose</span>
+                                            <span class="product-card__info_params">
+                                <span class="product-card__info_params-name">Length:</span>
+                                <span class="product-card__info_params-value">50cm</span>
+                            </span>
+                                            <span class="product-card__info_price">
+                                <span class="product-card__info_price-currency">$</span>
+                                <span class="product-card__info_price-value">9.05</span>
+                            </span>
+                                        </div>
+                                        <div class="product-card__additional-info">
+                                        <span class="product-card__additional-info_params">
+                                            <span class="product-card__additional-info_params-name">Bunch of</span>
+                                            <span class="product-card__additional-info_params-value">20</span>
+                                        </span>
+                                        </div>
+                                    </div>
+
+                                    <!--  product-card + state-in-cart -->
+                                    <div class="product-card">
+                                        <div class="product-card__buttons">
+                                            <a href="" class="product-card__buttons_item add-to-fav">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
+                                            </a>
+                                            <a href="" class="product-card__buttons_item add-to-cart state-in-cart">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
+                                            </a>
+                                        </div>
+                                        <div class="product-card__image">
+                                            <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
+                                        </div>
+                                        <div class="product-card__info">
+                                            <span class="product-card__info_title">Red Rose</span>
+                                            <span class="product-card__info_params">
+                                <span class="product-card__info_params-name">Length:</span>
+                                <span class="product-card__info_params-value">50cm</span>
+                            </span>
+                                            <span class="product-card__info_price">
+                                <span class="product-card__info_price-currency">$</span>
+                                <span class="product-card__info_price-value">9.05</span>
+                            </span>
+                                        </div>
+                                        <div class="product-card__additional-info">
+                                            <div class="in-cart-option">
+                                                <a href="#" class="in-cart-option__minus" >-</a>
+                                                <input class="in-cart-option__now" type="number" value="1">
+                                                <a href="#" class="in-cart-option__plus" >+</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--  product-card  -->
+                                    <div class="product-card">
+                                        <div class="product-card__buttons">
+                                            <a href="" class="product-card__buttons_item add-to-fav">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
+                                            </a>
+                                            <a href="" class="product-card__buttons_item add-to-cart">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
+                                            </a>
+                                        </div>
+                                        <div class="product-card__image">
+                                            <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
+                                        </div>
+                                        <div class="product-card__info">
+                                            <span class="product-card__info_title">Red Rose</span>
+                                            <span class="product-card__info_params">
+                                <span class="product-card__info_params-name">Length:</span>
+                                <span class="product-card__info_params-value">50cm</span>
+                            </span>
+                                            <span class="product-card__info_price">
+                                <span class="product-card__info_price-currency">$</span>
+                                <span class="product-card__info_price-value">9.05</span>
+                            </span>
+                                        </div>
+                                        <div class="product-card__additional-info">
+                            <span class="product-card__additional-info_params">
+                                <span class="product-card__additional-info_params-name">Bunch of</span>
+                                <span class="product-card__additional-info_params-value">20</span>
+                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!--  product-card  -->
+                                    <div class="product-card">
+                                        <div class="product-card__buttons">
+                                            <a href="" class="product-card__buttons_item add-to-fav">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
+                                            </a>
+                                            <a href="" class="product-card__buttons_item add-to-cart">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
+                                            </a>
+                                        </div>
+                                        <div class="product-card__image">
+                                            <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
+                                        </div>
+                                        <div class="product-card__info">
+                                            <span class="product-card__info_title">Red Rose</span>
+                                            <span class="product-card__info_params">
+                                <span class="product-card__info_params-name">Length:</span>
+                                <span class="product-card__info_params-value">50cm</span>
+                            </span>
+                                            <span class="product-card__info_price">
+                                <span class="product-card__info_price-currency">$</span>
+                                <span class="product-card__info_price-value">9.05</span>
+                            </span>
+                                        </div>
+                                        <div class="product-card__additional-info">
+                            <span class="product-card__additional-info_params">
+                                <span class="product-card__additional-info_params-name">Bunch of</span>
+                                <span class="product-card__additional-info_params-value">20</span>
+                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
                     </section>
                 </section>
-                <section class="category-list-transition-group category-group-current">
+            </div>
 
-                    <!--  Search -->
-                    <section class="search">
-                        <div class="container">
-                            <div class="input-with-btn shadow-theme">
 
-                                <!--  Input -->
-                                <div class="input-control search-input state-loading">
-                                    <input class="input-control__input" type="text" placeholder="Search" >
-                                </div>
 
-                                <a class="input-with-btn_input_btn" href="#">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="product-card-grouped">
-                        <div class="container">
-                            <div class="product-card-grouped__collection">
-                                <div class="product-card">
-                                    <div class="product-card__buttons">
-                                        <a href="" class="product-card__buttons_item add-to-fav">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
-                                        </a>
-                                        <a href="" class="product-card__buttons_item add-to-cart">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
-                                        </a>
-                                    </div>
-                                    <div class="product-card__image">
-                                        <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
-                                    </div>
-                                    <div class="product-card__info">
-                                        <span class="product-card__info_title">Red Rose</span>
-                                        <span class="product-card__info_params">
-                                <span class="product-card__info_params-name">Length:</span>
-                                <span class="product-card__info_params-value">50cm</span>
-                            </span>
-                                        <span class="product-card__info_price">
-                                <span class="product-card__info_price-currency">$</span>
-                                <span class="product-card__info_price-value">9.05</span>
-                            </span>
-                                    </div>
-                                    <div class="product-card__additional-info">
-                            <span class="product-card__additional-info_params">
-                                <span class="product-card__additional-info_params-name">Bunch of</span>
-                                <span class="product-card__additional-info_params-value">20</span>
-                            </span>
-                                    </div>
-                                </div>
-                                <div class="product-card">
-                                    <div class="product-card__buttons">
-                                        <a href="" class="product-card__buttons_item add-to-fav">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
-                                        </a>
-                                        <a href="" class="product-card__buttons_item add-to-cart">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
-                                        </a>
-                                    </div>
-                                    <div class="product-card__image">
-                                        <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
-                                    </div>
-                                    <div class="product-card__info">
-                                        <span class="product-card__info_title">Red Rose</span>
-                                        <span class="product-card__info_params">
-                                <span class="product-card__info_params-name">Length:</span>
-                                <span class="product-card__info_params-value">50cm</span>
-                            </span>
-                                        <span class="product-card__info_price">
-                                <span class="product-card__info_price-currency">$</span>
-                                <span class="product-card__info_price-value">9.05</span>
-                            </span>
-                                    </div>
-                                    <div class="product-card__additional-info">
-                            <span class="product-card__additional-info_params">
-                                <span class="product-card__additional-info_params-name">Bunch of</span>
-                                <span class="product-card__additional-info_params-value">20</span>
-                            </span>
-                                    </div>
-                                </div>
-                                <div class="product-card">
-                                    <div class="product-card__buttons">
-                                        <a href="" class="product-card__buttons_item add-to-fav">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
-                                        </a>
-                                        <a href="" class="product-card__buttons_item add-to-cart">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
-                                        </a>
-                                    </div>
-                                    <div class="product-card__image">
-                                        <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
-                                    </div>
-                                    <div class="product-card__info">
-                                        <span class="product-card__info_title">Red Rose</span>
-                                        <span class="product-card__info_params">
-                                <span class="product-card__info_params-name">Length:</span>
-                                <span class="product-card__info_params-value">50cm</span>
-                            </span>
-                                        <span class="product-card__info_price">
-                                <span class="product-card__info_price-currency">$</span>
-                                <span class="product-card__info_price-value">9.05</span>
-                            </span>
-                                    </div>
-                                    <div class="product-card__additional-info">
-                            <span class="product-card__additional-info_params">
-                                <span class="product-card__additional-info_params-name">Bunch of</span>
-                                <span class="product-card__additional-info_params-value">20</span>
-                            </span>
-                                    </div>
-                                </div>
-                                <div class="product-card">
-                                    <div class="product-card__buttons">
-                                        <a href="" class="product-card__buttons_item add-to-fav">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
-                                        </a>
-                                        <a href="" class="product-card__buttons_item add-to-cart">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
-                                        </a>
-                                    </div>
-                                    <div class="product-card__image">
-                                        <img class="product-card__image_img" src="https://source.unsplash.com/user/erondu/300x300" alt="some alt" title="some title" />
-                                    </div>
-                                    <div class="product-card__info">
-                                        <span class="product-card__info_title">Red Rose</span>
-                                        <span class="product-card__info_params">
-                                <span class="product-card__info_params-name">Length:</span>
-                                <span class="product-card__info_params-value">50cm</span>
-                            </span>
-                                        <span class="product-card__info_price">
-                                <span class="product-card__info_price-currency">$</span>
-                                <span class="product-card__info_price-value">9.05</span>
-                            </span>
-                                    </div>
-                                    <div class="product-card__additional-info">
-                            <span class="product-card__additional-info_params">
-                                <span class="product-card__additional-info_params-name">Bunch of</span>
-                                <span class="product-card__additional-info_params-value">20</span>
-                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </section>
-            </section>
         </section>
 
         <footer class="footer">
@@ -528,14 +552,14 @@
              document.querySelector('html').classList.toggle('flowers-theme');
              document.querySelector('html').classList.toggle('plants-theme');
 
-             document.querySelectorAll('.category-list-transition-group').forEach((item)=>{
-                 if( item.classList.contains('category-group-hidden') ) {
-                     item.classList.toggle('category-group-hidden')
-                     item.classList.toggle('category-group-transition-start')
+             document.querySelectorAll('.shop-group-transition-group').forEach((item)=>{
+                 if( item.classList.contains('shop-group-hidden') ) {
+                     item.classList.toggle('shop-group-hidden')
+                     item.classList.toggle('shop-group-transition-start')
                  }
-                 if( item.classList.contains('category-group-current') ) {
-                     item.classList.toggle('category-group-current')
-                     item.classList.toggle('category-group-transition-end')
+                 if( item.classList.contains('shop-group-current') ) {
+                     item.classList.toggle('shop-group-current')
+                     item.classList.toggle('shop-group-transition-end')
                  }
              })
 

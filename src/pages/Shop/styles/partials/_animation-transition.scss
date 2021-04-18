@@ -1,17 +1,17 @@
-.category-list-transition {
+.shop-group-transition {
   --timing-transition-1: .6s;
   --timing-transition-2: .9s;
-
 
   position: relative;
   background: transparent;
   &-group {
     transition: all .6s;
 
-    &.category-group-hidden {
+    &.shop-group-hidden {
       position: absolute;
       left:0;
       top:0;
+      z-index: -1;
       .product-card,
       .search {
         transform: translateY(-16.35rem);
@@ -19,11 +19,12 @@
       }
     }
 
-    &.category-group-current {
+    &.shop-group-current {
       opacity: 1;
+      z-index: 0;
     }
 
-    &.category-group-transition-start {
+    &.shop-group-transition-start {
       position: absolute;
       left:0;
       top:0;
@@ -59,7 +60,7 @@
 
     }
 
-    &.category-group-transition-end {
+    &.shop-group-transition-end {
 
 
       .search {

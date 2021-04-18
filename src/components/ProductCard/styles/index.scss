@@ -1,5 +1,3 @@
-@import "partials/groupped-cards";
-
 .product-card {
   background-color: var(--white);
   padding: 1rem .75rem .75rem;
@@ -33,6 +31,10 @@
 
       &.add-to-cart {
         color: var(--blue-link);
+        &.state-in-cart {
+          color: var(--orange-light);
+          transform: scale(1.5);
+        }
       }
     }
   }
@@ -42,6 +44,7 @@
     height: 7rem;
     border-radius: 1rem;
     overflow: hidden;
+    z-index: 0;
 
     &_img {
       width: 100%;
@@ -86,6 +89,36 @@
     text-align: center;
     margin-top: auto;
     font-size: .65rem;
+  }
+
+  .in-cart-option {
+    display: grid;
+    grid-template-columns: 2rem 1fr 2rem;
+    text-align: center;
+
+
+    &__minus {
+      color: var(--pink);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__now {
+      width: 100%;
+      text-align: center;
+    }
+    &__plus {
+      color: var(--blue-link);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
 }

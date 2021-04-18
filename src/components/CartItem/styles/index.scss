@@ -1,0 +1,21 @@
+.cart-item {
+  display: grid;
+  grid-template-columns: 1rem 2rem 1fr 1fr 1fr 1rem;
+  align-items: center;
+  font-family: var(--font-family-regular);
+  text-align: center;
+
+  &__amount {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr 1.5rem;
+
+
+    &_current {
+      width: 100%;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
