@@ -25,6 +25,17 @@
   --text-color-theme: var(--white);
 }
 
+.cart-theme:root {
+  --background-theme:  linear-gradient(180deg, #7092ff 20%, #3990d6 80%);
+  --mobile-wrapper-menu-theme: var(--black-text);
+  --shadow-theme:1px 4px 8px var(--black-text);
+  --btn-theme: linear-gradient(180deg, var(--orange-light), var(--pink));
+  --color-theme: var(--black-text);
+  --text-color-theme: var(--white);
+}
+
+//category
+
 .flowers-theme:root {
   --background-theme: linear-gradient(180deg, var(--orange-light), var(--pink));
   --mobile-wrapper-menu-theme: linear-gradient(135deg, var(--red-link), var(--violet-link));
