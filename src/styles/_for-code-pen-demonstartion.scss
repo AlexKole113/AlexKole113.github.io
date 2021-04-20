@@ -1,0 +1,103 @@
+@media (min-width: 1366px ) {
+
+  :root {
+    --content-size: 16px;
+  }
+
+  body {
+
+    &:after {
+      content: ' ';
+      width: 437px;
+      height: 812px;
+      position: absolute;
+      top: -3px;
+      left: calc(50% - 218px);
+      background-image: url(../../demo-assets/phone_demo.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+  }
+
+  .mobile-wrapper {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    min-height: 260px;
+    width: 320px;
+    height: 691px;
+    left: calc(50% - 160px);
+    top: 44px;
+    border-radius: 28px;
+
+    &.state {
+      &-loading {
+        overflow: hidden;
+      }
+    }
+
+    &.menu-opened {
+      overflow: hidden;
+    }
+
+    #preloader {
+      background-color: #ffffff;
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      img {
+        width: 150px;
+      }
+
+    }
+
+    .additional-menu {
+      &__items {
+        &_item {
+          &:first-child {
+            right: -0.5rem;
+            top: -3.4rem;
+            width: 3.5rem;
+            height: 3.5rem;
+          }
+
+          &:last-child {
+            right: 3rem;
+            bottom: -1.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+
+        }
+      }
+    }
+
+    .shop-grouped__collection {
+      grid-template-columns: 1fr 1fr;
+    }
+
+
+    //scroll
+    &::-webkit-scrollbar { width: 0; }
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+
+  }
+
+}
+
+
+
+
+
+
+

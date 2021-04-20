@@ -5,8 +5,9 @@
   align-items: center;
   font-family: var(--font-family-regular);
   text-align: center;
-  margin: .05rem 0;
-  border: 1px solid var(--border-color);
+  margin: .8rem 0;
+  border: 1px solid var(--color-theme);
+  box-shadow: 0px 0px 5px 0px var(--color-theme);
 
   &__img {
     height: 100%;
@@ -51,21 +52,21 @@
     &_minus {
       color: var(--text-color-theme);
       font-family: var(--font-family-regular);
-      font-weight: var(--font-weight-title);
+      font-weight: var(--font-weight-regular);
       font-size: 1.25rem;
     }
 
     &_plus {
       color: var(--text-color-theme);
       font-family: var(--font-family-regular);
-      font-weight: var(--font-weight-title);
+      font-weight: var(--font-weight-regular);
       font-size: 1.25rem;
     }
 
     &_current {
       color: var(--text-color-theme);
       font-family: var(--font-family-regular);
-      font-weight: var(--font-weight-title);
+      font-weight: var(--font-weight-regular);
       width: 100%;
       text-align: center;
       border: none;
@@ -76,7 +77,7 @@
   &__total {
     color: var(--text-color-theme);
     font-family: var(--font-family-price);
-    font-weight: var(--font-weight-title);
+    font-weight: 300;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,7 +100,7 @@
     &_del {
       font-size: 1.5rem;
       text-decoration: none;
-      color: #ffb2b7;
+      color: var(--red-link);
     }
 
   }

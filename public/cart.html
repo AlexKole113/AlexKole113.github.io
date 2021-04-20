@@ -9,10 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-<div id="preloader">
-    <img src="../src/components/Preloader/assets/preloader-for-page.gif" />
-</div>
 <section class="mobile-wrapper">
+    <div id="preloader">
+        <img src="../src/components/Preloader/assets/preloader-for-page.gif" />
+    </div>
 
     <header class="header">
         <section class="menu">
@@ -111,7 +111,6 @@
     </header>
 
     <section class="content">
-
         <section class="cart-group">
             <div class="container">
                 <div class="cart-group__group">
@@ -293,6 +292,21 @@
                         </div>
 
                     </section>
+                    <section class="promocode-group">
+
+                        <!-- input-with-btn -->
+                        <div class="input-with-btn with-placeholder-movement cart-input">
+                            <!--  Input -->
+                            <label class="input-control">
+                                <input class="input-control__input" type="text" />
+                                <span class="input-control__placeholder">Promocode (test code: SALE)</span>
+                            </label>
+                            <a class="input-with-btn_input_btn" href="#">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                            </a>
+                        </div>
+
+                    </section>
                     <section class="total-in-cart">
                        <span class="total-in-cart__text">
                            Total:
@@ -313,7 +327,6 @@
                 </div>
             </div>
         </section>
-
     </section>
 
     <footer class="footer">
@@ -387,12 +400,31 @@
     document.querySelector('.menu-top__hum').addEventListener('click', ()=>{
         document.querySelector('html').classList.toggle('menu-opened');
         document.querySelector('.menu').classList.toggle('menu-opened');
+        document.querySelector('.mobile-wrapper').classList.toggle('menu-opened');
     })
 
 
     //preloader
     window.addEventListener('load',() => {
-        document.querySelector('#preloader').remove()
+        document.querySelector('#preloader').remove();
+        document.body.classList.remove('state-loading');
+        document.querySelector('.mobile-wrapper').classList.remove('state-loading');
+    })
+
+    //imitation of typing in input with react
+    document.querySelectorAll('.input-control__input').forEach((item)=>{
+        item.addEventListener('input', ( e ) => {
+
+            item.setAttribute( 'value', item.value + e.data);
+
+            if ( item.value.length === 0 ) {
+                item.setAttribute( 'value','' );
+                item.nextElementSibling.classList.remove( 'field-has-content' )
+            } else {
+                item.nextElementSibling.classList.add( 'field-has-content' )
+            }
+
+        })
     })
 
 

@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="../src/styles/index.css">
     <title>Document</title>
 </head>
-<body>
-<div id="preloader">
-    <img src="../src/components/Preloader/assets/preloader-for-page.gif" />
-</div>
-<section class="mobile-wrapper">
+<body class="state-loading">
+
+<section class="mobile-wrapper state-loading">
+
+    <div id="preloader">
+        <img src="../src/components/Preloader/assets/preloader-for-page.gif" />
+    </div>
 
     <header class="header">
         <section class="menu">
@@ -303,12 +305,15 @@
     document.querySelector('.menu-top__hum').addEventListener('click', ()=>{
         document.querySelector('html').classList.toggle('menu-opened');
         document.querySelector('.menu').classList.toggle('menu-opened');
+        document.querySelector('.mobile-wrapper').classList.toggle('menu-opened');
     })
 
 
     //preloader
     window.addEventListener('load',() => {
-        document.querySelector('#preloader').remove()
+        document.querySelector('#preloader').remove();
+        document.body.classList.remove('state-loading');
+        document.querySelector('.mobile-wrapper').classList.remove('state-loading');
     })
 
 

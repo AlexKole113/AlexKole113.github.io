@@ -9,10 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="preloader">
-        <img src="../src/components/Preloader/assets/preloader-for-page.gif" />
-    </div>
     <section class="mobile-wrapper">
+        <div id="preloader">
+            <img src="../src/components/Preloader/assets/preloader-for-page.gif" />
+        </div>
 
         <header class="header">
             <section class="menu">
@@ -545,6 +545,7 @@
          document.querySelector('.menu-top__hum').addEventListener('click', ()=>{
              document.querySelector('html').classList.toggle('menu-opened');
              document.querySelector('.menu').classList.toggle('menu-opened');
+             document.querySelector('.mobile-wrapper').classList.toggle('menu-opened');
          })
 
          // category transition
@@ -566,11 +567,11 @@
          })
 
          //preloader
-         // https://icons8.com/preloaders/en/miscellaneous/rhombus/
          window.addEventListener('load',() => {
-             document.querySelector('#preloader').remove()
+             document.querySelector('#preloader').remove();
+             document.body.classList.remove('state-loading');
+             document.querySelector('.mobile-wrapper').classList.remove('state-loading');
          })
-
 
 
      </script>

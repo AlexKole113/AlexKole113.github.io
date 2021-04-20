@@ -1,6 +1,6 @@
 .total-in-cart {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   margin: 1.5rem 0;
   font-size: 1.5rem;
 
@@ -20,13 +20,13 @@
     font-weight: var(--font-weight-title);
     display: grid;
     grid-template-columns: 1fr 1.25rem;
-    text-align: center;
+    text-align: left;
     &_number {
 
     }
 
     &_currency {
-
+      text-align: left;
     }
   }
 }

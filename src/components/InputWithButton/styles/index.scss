@@ -41,7 +41,8 @@
     left: .25rem;
   }
 
-  &.profile-input {
+  &.profile-input,
+  &.cart-input {
     padding: .5rem;
     margin: .5rem 0;
     height: 2.5rem;

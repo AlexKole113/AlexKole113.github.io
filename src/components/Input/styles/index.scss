@@ -86,6 +86,17 @@
     }
   }
 
+  &.cart-input {
+    padding: .5rem;
+    margin: .5rem 0;
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    .input-control__input {
+      font-size: .9rem;
+      padding: .25rem;
+    }
+  }
+
   &.state-received {
 
   }
