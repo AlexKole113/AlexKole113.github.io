@@ -50,6 +50,7 @@
     grid-template-columns: 1fr 1fr 1fr;
 
     &_minus {
+      cursor: pointer;
       color: var(--text-color-theme);
       font-family: var(--font-family-regular);
       font-weight: var(--font-weight-regular);
@@ -57,6 +58,7 @@
     }
 
     &_plus {
+      cursor: pointer;
       color: var(--text-color-theme);
       font-family: var(--font-family-regular);
       font-weight: var(--font-weight-regular);

@@ -109,6 +109,8 @@
     &__now {
       width: 100%;
       text-align: center;
+      border: none;
+      font-weight: 800;
     }
     &__plus {
       color: var(--blue-link);

@@ -42,11 +42,16 @@
   }
 
   &.profile-input,
+
   &.cart-input {
     padding: .5rem;
     margin: .5rem 0;
     height: 2.5rem;
     border-radius: 1.25rem;
+
+    &.state-active {
+
+    }
 
     input {
       text-align: left;
