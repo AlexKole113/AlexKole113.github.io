@@ -17,9 +17,7 @@
       letter-spacing: .5px;
       color: var(--text-color-theme);
     }
-
   }
-
 
   &__profile-collection {
     display: grid;
@@ -27,7 +25,6 @@
     grid-template-columns: 1fr;
 
   }
-
-
-
 }
+
+@import "partials/animation-transition";

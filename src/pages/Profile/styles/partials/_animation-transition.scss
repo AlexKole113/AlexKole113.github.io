@@ -1,0 +1,29 @@
+.profile-group-transition {
+  min-height: 350px;
+
+  .profile-group-hidden {
+    // get from API
+    // данные только что были получены с сервера - класс присваивается сразу
+  }
+
+  .profile-group-current {
+    // current group
+    // активная группа сейчас
+  }
+
+  .profile-group-transition-start {
+    // this class replace .profile-group-hidden (get from api)
+    // animation is started
+    // анимирует появление данных после получения с сервера и добавление класса .profile-group-hidden
+    // класс присваеивается через timeout
+
+  }
+
+  .profile-group-transition-end {
+    // this class replace old data group
+    // анимирует скрытие ненужной группы
+    // класс присваеивается через timeout синхронно с profile-group-transition-start
+  }
+
+
+}
