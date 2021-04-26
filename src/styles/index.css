@@ -587,6 +587,8 @@ html.menu-opened {
     font-family: var(--font-family-regular);
     font-weight: var(--font-weight-title);
     padding-left: .5rem; }
+  .app-btn.check-out-btn, .app-btn.cart-btn {
+    margin: 1.5rem; }
   .app-btn.text-color-black {
     color: var(--black); }
   .app-btn.state-active {
@@ -995,6 +997,8 @@ html.menu-opened {
       letter-spacing: 1.25px;
       color: var(--text-color-theme);
       font-weight: 300; }
+  .settings-control:last-child {
+    padding-bottom: .5rem; }
 
 .select-control {
   --width: 3.75rem;
@@ -1198,7 +1202,7 @@ html.menu-opened {
 .cart-item {
   --border-color: #4444442b;
   display: grid;
-  grid-template-columns: 3rem 1fr 1.25rem;
+  grid-template-columns: 3rem 1fr 2.25rem;
   align-items: center;
   font-family: var(--font-family-regular);
   text-align: center;

@@ -27,6 +27,11 @@
       padding-left: .5rem;
    }
 
+   &.check-out-btn,
+   &.cart-btn {
+      margin: 1.5rem;
+   }
+
    &.text-color-black {
       color: var(--black);
    }
