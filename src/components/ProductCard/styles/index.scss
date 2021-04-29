@@ -27,13 +27,31 @@
 
       &.add-to-fav {
         color: var(--red-link);
+
+        &.state-in-favorites {
+          color: var(--red-link);
+          //transform: scale(1.25);
+          position: relative;
+
+          svg {
+            filter: drop-shadow(0px 1px 0.15rem #626262);
+            transform: scale(1.65);
+          }
+        }
       }
 
       &.add-to-cart {
         color: var(--blue-link);
         &.state-in-cart {
-          color: var(--orange-light);
-          transform: scale(1.5);
+          color: var(--blue-link);
+          //transform: scale(1.25);
+          position: relative;
+
+          svg {
+            filter: drop-shadow(0px 1px 0.15rem #626262);
+            transform: scale(1.65);
+          }
+
         }
       }
     }
