@@ -10,11 +10,6 @@
     "lint:css": "stylelint src/**/*.css --fix",
     "server": "node server.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.(ts|tsx)": "npm run lint:ts",
     "*.css": "npm run lint:css"

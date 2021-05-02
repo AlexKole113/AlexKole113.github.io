@@ -2,9 +2,15 @@
 
   :root {
     --content-size: 16px;
+    --body-perspective: 1400px
   }
 
   body {
+    perspective: var(--body-perspective);
+    backface-visibility: hidden;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+
 
     &:after {
       content: ' ';
@@ -93,8 +99,82 @@
 
   }
 
+  .demo-preloader {
+    &__1 {
+      position: absolute;
+      top: 50%;
+      left: 15%;
+      width: 300px;
+      height: 300px;
+      transform: rotate3d( 0, 1, 0, 0deg );
+
+    &_top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      transform: rotate3d(1, 1, 0,
+              0deg
+      ) translate(0) translateZ(0px) rotate(
+                      0deg
+      );
+      transition: all .8s;
+      border-radius: 100%;
+      border-top: 5px solid violet;
+      //animation: load 2s infinite;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+      background: linear-gradient(
+                      90deg
+              , #ff00ff05 10%, #ee82ee57 50%, #ee82ee1a 90%);
+        width: 100%;
+        height: 60px;
+        left: 0;
+        top: 0;
+        transform: rotate3d(1, 1, 1,
+                -0deg
+        );
+      }
+
+
+    }
+    &__2 {
+
+    }
+  }
 }
 
+
+
+@keyframes load {
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg) translate(0) translateZ(0px);
+    z-index: -1;
+  }
+
+  45% {
+    z-index: 1000;
+  }
+
+  50% {
+    transform: rotate3d(0, 1, 0, 90deg) translate(150px) translateZ(600px);
+    z-index: 1000;
+  }
+
+  55% {
+    z-index: -1;
+  }
+
+  100% {
+    transform: rotate3d(0, 1, 0, 180deg) translate(0px) translateZ(0px);
+    z-index: -1;
+  }
+
+}
 
 
 
