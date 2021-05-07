@@ -1,3 +1,5 @@
+@import "../../../styles/partials/_mixins.scss";
+
 .shop-grouped {
   padding: 1.7rem 0;
 
@@ -16,7 +18,9 @@
     @include lg {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
+    @media (min-width: 1366px) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
-
 }
 

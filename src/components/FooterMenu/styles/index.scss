@@ -1,0 +1,18 @@
+
+.footer-app-menu {
+  text-transform: uppercase;
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    &_item {
+      padding-top: .5rem;
+
+      &_link{
+        color: var(--light-footer-text-color);
+        text-decoration: none;
+        font-size: .75rem;
+      }
+    }
+  }
+}

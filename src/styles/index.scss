@@ -1,9 +1,10 @@
 @import "layout";
 @import "colors";
+@import "themes";
 @import "fonts";
 @import "shadows";
 @import "common";
-@import "themes";
+
 
 //codepen demo
 @import "for-code-pen-demonstartion";
@@ -25,7 +26,7 @@
 @import "../components/SettingsControl/styles/index.scss";
 @import "../components/Select/styles/index.scss";
 @import "../components/Switcher/styles/index.scss";
-@import "../components/Input/styles/index.scss";
+@import "../components/InputControl/styles/index.scss";
 @import "../components/InputWithButton/styles/index.scss";
 @import "../components/ContactItem/styles/index.scss";
 @import "../components/CartItem/styles/index.scss";

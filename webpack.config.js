@@ -31,11 +31,15 @@ module.exports = function (env, argv) {
     module: {
       rules: [
         {
-          test: /\.css$/i,
+          test: /\.scss$/i,
           use: [
             MiniCssExtractPlugin.loader,
-            { loader: 'css-loader', options: { modules: true } },
-            'postcss-loader',
+            { loader:  'css-loader',
+              options: {
+                  modules: true,
+              }
+            },
+            'postcss-loader', 'sass-loader'
           ],
         },
         {

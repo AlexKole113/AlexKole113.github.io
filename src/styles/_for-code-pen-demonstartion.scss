@@ -27,6 +27,15 @@
   }
 
   .mobile-wrapper {
+    background: var(--background-theme);
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+            "header"
+            "content"
+            "footer";
+
     overflow-x: hidden;
     overflow-y: scroll;
     position: absolute;
@@ -36,6 +45,34 @@
     left: calc(50% - 160px);
     top: 44px;
     border-radius: 28px;
+
+
+
+    .content {
+      grid-area: content;
+      max-width: 100vw;
+      margin-bottom: 5rem;
+    }
+
+
+
+
+
+
+
+    &:before {
+      content: '';
+      position: absolute;
+      background: var(--mobile-wrapper-menu-theme);
+      z-index: 1;
+      opacity: .6;
+      left: -0.5rem;
+      top: -2.3125rem;
+      height: 10.3rem;
+      border-radius: 0 0 180% 95%;
+      width: 86%;
+      box-shadow: -2px 3px 10px #0000004a;
+    }
 
     &.state {
       &-loading {
@@ -47,7 +84,7 @@
       overflow: hidden;
     }
 
-    #preloader {
+    .preloader {
       background-color: #ffffff;
       position: absolute;
       z-index: 9999;
@@ -100,6 +137,7 @@
   }
 
   .demo-preloader {
+    display: block;
     &__1 {
       position: absolute;
       top: 50%;
