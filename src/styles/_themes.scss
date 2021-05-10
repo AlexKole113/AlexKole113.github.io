@@ -34,6 +34,15 @@
   --text-color-theme:  var(--black-text);
 }
 
+.favorites-theme:root {
+  --background-theme:  linear-gradient(180deg, #cfdaff 20%, #b7dbfa 80%);
+  --mobile-wrapper-menu-theme: var(--black-text);
+  --shadow-theme:1px 4px 8px var(--black-text);
+  --btn-theme: linear-gradient(135deg, var(--violet-link), #6097f1);
+  --color-theme: #94b9ff;
+  --text-color-theme:  var(--black-text);
+}
+
 //category
 
 .flowers-theme:root {

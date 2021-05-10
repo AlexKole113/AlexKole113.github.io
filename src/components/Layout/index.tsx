@@ -22,7 +22,7 @@ import "@/pages/Contact/styles/index.scss";
 import "@/pages/Cart/styles/index.scss";
 
 import "@/components/SettingsControl/styles/index.scss";
-import "@/components/Select/styles/index.scss";
+//import "@/components/Select/styles/index.scss";
 import "@/components/Switcher/styles/index.scss";
 //import "@/components/Input/styles/index.scss";
 import "@/components/InputWithButton/styles/index.scss";

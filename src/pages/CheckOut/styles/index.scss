@@ -1,4 +1,5 @@
-.contact-group {
+.check-out-group {
+  //a
   &__group {
 
   }
@@ -17,26 +18,25 @@
       letter-spacing: .5px;
       color: var(--text-color-theme);
     }
-
   }
 
-
-  &__contacts-collection {
+  &__profile-collection {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
 
   }
 
+  &__collection {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
 
-  &-map {
-    margin-top: -10rem;
-
-    &__iframe-wrapper {
-      margin-top: 2rem;
-      height: 24rem;
-    }
   }
 
-
+  .app-btn {
+    font-size: 1.25rem;
+    background: var(--btn-theme);
+    color: var(--white);
+  }
 }
