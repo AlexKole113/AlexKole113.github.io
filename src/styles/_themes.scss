@@ -1,4 +1,4 @@
-.settings-theme:root {
+.settings-theme {
   --background-theme: linear-gradient(180deg, var(--blue-link) 20%, var(--violet-link) 450%);
   --mobile-wrapper-menu-theme: linear-gradient(135deg, var(--violet-link), #6097f1);
   --shadow-theme: 1px 4px 8px var(--shadow-pink);
@@ -7,7 +7,7 @@
   --text-color-theme: var(--white);
 }
 
-.profile-theme:root {
+.profile-theme {
   --background-theme:  linear-gradient(180deg, #7dad50 20%, var(--green) 80%);
   --mobile-wrapper-menu-theme: linear-gradient(135deg, var( --green-light), var(--green));
   --shadow-theme:1px 4px 8px var(--shadow-green);
@@ -16,7 +16,7 @@
   --text-color-theme: var(--white);
 }
 
-.contact-theme:root {
+.contact-theme {
   --background-theme:  linear-gradient(180deg, var(--red-link) 20%, var(--red-link) 80%);
   --mobile-wrapper-menu-theme: linear-gradient(135deg, var(--white), var(--red-link) );
   --shadow-theme:1px 4px 8px var(--shadow-pink);
@@ -25,7 +25,7 @@
   --text-color-theme: var(--white);
 }
 
-.cart-theme:root {
+.cart-theme {
   --background-theme:  linear-gradient(180deg, #cfdaff 20%, #b7dbfa 80%);
   --mobile-wrapper-menu-theme: var(--black-text);
   --shadow-theme:1px 4px 8px var(--black-text);
@@ -34,7 +34,7 @@
   --text-color-theme:  var(--black-text);
 }
 
-.favorites-theme:root {
+.favorites-theme {
   --background-theme:  linear-gradient(180deg, #cfdaff 20%, #b7dbfa 80%);
   --mobile-wrapper-menu-theme: var(--black-text);
   --shadow-theme:1px 4px 8px var(--black-text);
@@ -45,7 +45,7 @@
 
 //category
 
-.flowers-theme:root {
+.flowers-theme {
   --background-theme: linear-gradient(180deg, var(--orange-light), var(--pink));
   --mobile-wrapper-menu-theme: linear-gradient(135deg, var(--red-link), var(--violet-link));
   --shadow-theme:1px 4px 8px var(--shadow-pink);
@@ -54,7 +54,7 @@
   --text-color-theme: var(--black-text);
 }
 
-.plants-theme:root {
+.plants-theme {
   --background-theme:  linear-gradient(180deg, var( --green-light) 20%, var(--green) 80%);
   --mobile-wrapper-menu-theme: linear-gradient(135deg, var( --green-light), var(--green));
   --shadow-theme:1px 4px 8px var(--shadow-green);

@@ -1,17 +1,15 @@
 import InputControl from "@/components/InputControl";
 import SettingsControl from "@/components/SettingsControl";
+import Switcher from "@/components/Switcher";
 
 import checkOutCss from './styles/index.scss'
 import commonCss from '@/styles/_common.scss'
 import btnCss from '@/components/Button/styles/index.scss'
 
 
-//temporary
-import themes from '@/styles/_themes.scss';
-import Switcher from "@/components/Switcher";
-window.onload = () => {
-    document?.querySelector('html')?.classList.add(themes['cart-theme'])
-}
+
+
+
 
 const CheckOut = () => (
     <>

@@ -1,14 +1,16 @@
 import commonStyles from '@/styles/index.scss';
 import menuStyles from  "./styles/index.scss";
 
-const Menu = () => (
-    <>
-        <section className={menuStyles.menu}>
-            <div className={commonStyles.container}>
+const Menu = ({toggleMenuCallback}:{toggleMenuCallback: () => void }) => {
+
+    return (<>
+        <section className={menuStyles['menu']}>
+            <div className={commonStyles['container']}>
                 <div className={menuStyles['menu-top']}>
-                    <div className={menuStyles['menu-top__hum']}>
+                    <div onClick={toggleMenuCallback} className={menuStyles['menu-top__hum']}>
                         <div className={menuStyles['hamburger']}>
-                            <svg className={`${menuStyles.ham} ${menuStyles.hamRotate} ${menuStyles['ham-item']}`} viewBox="0 0 100 100" width="80">
+                            <svg className={`${menuStyles.ham} ${menuStyles.hamRotate} ${menuStyles['ham-item']}`}
+                                 viewBox="0 0 100 100" width="80">
                                 <path
                                     className={`${menuStyles['line']} ${menuStyles['top']}`}
                                     d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"/>
@@ -41,7 +43,8 @@ const Menu = () => (
                                         profile
                                     </span>
                                     <span className={menuStyles['main-menu__link-extra']}>
-                                       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
+                                       <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                            data-icon="arrow-right"
                                             className="svg-inline--fa fa-arrow-right fa-w-14" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path
                                            fill="currentColor"
@@ -52,12 +55,13 @@ const Menu = () => (
                             <li className={` ${menuStyles['main-menu__items_item']} ${menuStyles['active-menu-item']}`}>
                                 <a className={menuStyles['main-menu__link']} href="index.html">
                                             <span className={menuStyles['main-menu__link-icon']}>
-                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list"
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="list"
                                                      className="svg-inline--fa fa-list fa-w-16" role="img"
                                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path
                                                     fill="currentColor"
                                                     d="M80 368H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 64v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16zm0 160H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm416 176H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"></path></svg>                                </span>
-                                            <span className={menuStyles['main-menu__link-text']}>
+                                    <span className={menuStyles['main-menu__link-text']}>
                                                 explore
                                             </span>
                                     <span className={menuStyles['main-menu__link-extra']}>
@@ -73,7 +77,8 @@ const Menu = () => (
                             <li className={menuStyles['main-menu__items_item']}>
                                 <a className={menuStyles['main-menu__link']} href="settings.html">
                                     <span className={menuStyles['main-menu__link-icon']}>
-                                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cog"
+                                                <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                     data-icon="cog"
                                                      className="svg-inline--fa fa-cog fa-w-16" role="img"
                                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path
                                                     fill="currentColor"
@@ -82,7 +87,8 @@ const Menu = () => (
                                                 settings
                                             </span>
                                     <span className={menuStyles['main-menu__link-extra']}>
-                                       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
+                                       <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                            data-icon="arrow-right"
                                             className="svg-inline--fa fa-arrow-right fa-w-14" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path
                                            fill="currentColor"
@@ -91,18 +97,21 @@ const Menu = () => (
                                 </a>
                             </li>
                             <li className={menuStyles['main-menu__items_item']}>
-                                <a className={menuStyles['main-menu__link']}  href="contact.html">
+                                <a className={menuStyles['main-menu__link']} href="contact.html">
                                             <span className={menuStyles['main-menu__link-icon']}>
                                                 <svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                                     data-icon="phone-alt" className="svg-inline--fa fa-phone-alt fa-w-16"
-                                                     role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path
+                                                     data-icon="phone-alt"
+                                                     className="svg-inline--fa fa-phone-alt fa-w-16"
+                                                     role="img" xmlns="http://www.w3.org/2000/svg"
+                                                     viewBox="0 0 512 512"><path
                                                     fill="currentColor"
                                                     d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>                                </span>
                                     <span className={menuStyles['main-menu__link-text']}>
                                                 contact
                                             </span>
                                     <span className={menuStyles['main-menu__link-extra']}>
-                                       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
+                                       <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                            data-icon="arrow-right"
                                             className="svg-inline--fa fa-arrow-right fa-w-14" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path
                                            fill="currentColor"
@@ -116,31 +125,32 @@ const Menu = () => (
             </div>
         </section>
         <nav className={menuStyles['additional-menu']}>
-        <ul className={menuStyles['additional-menu__items']}>
-            <li className={menuStyles['additional-menu__items_item']}>
-                <a className={`${menuStyles['additional-menu__link']} ${menuStyles['link-cart']}`} href="cart.html">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart"
-                         className="svg-inline--fa fa-shopping-cart fa-w-18" role="img"
-                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                        <path fill="currentColor"
-                              d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path>
-                    </svg>
-                    <span className={menuStyles['link-cart__in-cart-now']}> 1 </span>
-                </a>
-            </li>
-            <li className={menuStyles['additional-menu__items_item']}>
-                <a className={`${menuStyles['additional-menu__link']} ${menuStyles['link-favorites']}`} href="favorites.html">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                         className="svg-inline--fa fa-heart fa-w-16" role="img"
-                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                              d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-                    </svg>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    </>
-);
+            <ul className={menuStyles['additional-menu__items']}>
+                <li className={menuStyles['additional-menu__items_item']}>
+                    <a className={`${menuStyles['additional-menu__link']} ${menuStyles['link-cart']}`} href="cart.html">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart"
+                             className="svg-inline--fa fa-shopping-cart fa-w-18" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path fill="currentColor"
+                                  d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path>
+                        </svg>
+                        <span className={menuStyles['link-cart__in-cart-now']}> 1 </span>
+                    </a>
+                </li>
+                <li className={menuStyles['additional-menu__items_item']}>
+                    <a className={`${menuStyles['additional-menu__link']} ${menuStyles['link-favorites']}`}
+                       href="favorites.html">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                             className="svg-inline--fa fa-heart fa-w-16" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor"
+                                  d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </>)
+};
 
 export default Menu;

@@ -1,14 +1,10 @@
-import cartCss from './styles/index.scss'
-import commonCss from '@/styles/_common.scss'
-
-
-//temporary
-import themes from '@/styles/_themes.scss';
 import CartItem from "@/components/CartItem";
 import InputWithButton from "@/components/InputWithButton";
 import TotalInCart from "@/components/TotalInCart";
 import btnCss from "@/components/Button/styles/index.scss";
-window.onload = () => document?.querySelector('html')?.classList.add(themes['cart-theme'])
+import cartCss from './styles/index.scss'
+import commonCss from '@/styles/_common.scss'
+
 
 const Cart = () => (
     <section className={cartCss['cart-group']}>

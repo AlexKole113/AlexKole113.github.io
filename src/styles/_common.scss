@@ -1,3 +1,10 @@
+:root {
+  --transition-main: .6s;
+  --transition-fast: .5s;
+  --custom-bezier-menu-items: cubic-bezier(0, 0, 0, 1.59);
+  --custom-bezier-open-menu: cubic-bezier(0, 1.53, 1, 1);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

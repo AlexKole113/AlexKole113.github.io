@@ -49,47 +49,41 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
   }
-
 }
 
 //menu opened
-html.menu-opened {
+.menu-opened {
   overflow: hidden;
   height: 100vh;
-  body {
-    overflow: hidden;
+  display: none;
+
+  &:before {
+    transition: transform .6s;
+
+    left: 0;
+    opacity: .6;
+    transform: scale(13.5);
   }
-  .hamburger {
-    transform: rotate(90deg);
-  }
-}
 
-.menu-opened .mobile-wrapper:before{
-  left:0;
-  opacity: .6;
-  transform: scale(13.5);
-}
-
-
-.menu {
-  &.menu-opened {
+  .menu {
     height: 100%;
+    &:before {
+      height: 264%;
+      left: -45%;
+      top: -2rem;
+      background-color: var(--gray-main-menu-back);
+      z-index: -1;
+      border-radius: 0 0 100% 70%;
+      width: 153%;
+      filter: drop-shadow(0px 0px 3px gray);
+      max-height: 18.5625rem;
+    }
   }
-
-  &.menu-opened:before {
-    height: 264%;
-    left: -45%;
-    top: -2rem;
-    background-color: var(--gray-main-menu-back);
-    z-index: -1;
-    border-radius: 0 0 100% 70%;
-    width: 153%;
-    filter: drop-shadow(0px 0px 3px gray);
-    max-height: 18.5625rem;
-
-  }
-
 }
+
+
+
+
 
 
 @import "partials/main-menu";

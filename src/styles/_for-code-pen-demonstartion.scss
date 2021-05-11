@@ -54,13 +54,9 @@
       margin-bottom: 5rem;
     }
 
-
-
-
-
-
-
     &:before {
+      transition: transform .6s;
+
       content: '';
       position: absolute;
       background: var(--mobile-wrapper-menu-theme);
