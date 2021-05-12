@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartItem from "@/components/CartItem";
 import InputWithButton from "@/components/InputWithButton";
 import TotalInCart from "@/components/TotalInCart";
@@ -32,9 +33,10 @@ const Cart = () => (
 
                 <TotalInCart />
 
-                <a href="check-out.html" className={`${btnCss['app-btn']} ${btnCss['check-out-btn']}`}>
+
+                <Link to="/check-out" className={`${btnCss['app-btn']} ${btnCss['check-out-btn']}`}>
                     Next
-                </a>
+                </Link>
 
             </div>
         </div>

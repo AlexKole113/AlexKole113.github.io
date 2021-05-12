@@ -18,6 +18,7 @@
     border-radius: 0 0 242% 126%;
     width: 115%;
     box-shadow: -2px 3px 10px #0000004a;
+
   }
 
   &-top {
@@ -33,14 +34,7 @@
     }
 
     &__page-title {
-      .page-title {
-        margin: 0;
-        text-align: center;
-        text-transform: uppercase;
-        font-family: var(--font-family-title);
-        font-weight: var(--font-weight-title);
-        font-size: 1.25rem;
-      }
+      @import "../../PageTitle/styles/index.scss";
     }
 
   }
@@ -51,22 +45,20 @@
   }
 }
 
-//menu opened
 .menu-opened {
-  overflow: hidden;
+  overflow: hidden !important;
   height: 100vh;
   display: none;
 
   &:before {
-    transition: transform .6s;
-
     left: 0;
     opacity: .6;
-    transform: scale(13.5);
+    transform: scale(10);
   }
 
   .menu {
     height: 100%;
+
     &:before {
       height: 264%;
       left: -45%;
@@ -81,12 +73,6 @@
   }
 }
 
-
-
-
-
-
+@import "../components/Hamburger/styles/index";
 @import "partials/main-menu";
-@import "partials/hamburger";
 @import "partials/additional-menu";
-@import "partials/transitions";

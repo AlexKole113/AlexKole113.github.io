@@ -6,7 +6,6 @@ import Preloader from "@/components/Preloader";
 import themesCss from '@/styles/_themes.scss'
 import codePenDemoCss from '@/styles/_for-code-pen-demonstartion.scss'
 import menuStyles from  "@/components/Menu/styles/index.scss";
-import commonStyles from '@/styles/index.scss';
 import {LayoutContext} from "@/components/App";
 
 
@@ -14,8 +13,6 @@ interface LayoutProps {
     children:ReactNode,
     toggleMenuCallback: () => void
 }
-
-console.log(commonStyles)
 
 const Layout = ({ children, toggleMenuCallback }: LayoutProps) => {
     const { theme, menuOpened } = useContext( LayoutContext )
