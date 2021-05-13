@@ -33,7 +33,6 @@ const Cart = () => (
 
                 <TotalInCart />
 
-
                 <Link to="/check-out" className={`${btnCss['app-btn']} ${btnCss['check-out-btn']}`}>
                     Next
                 </Link>

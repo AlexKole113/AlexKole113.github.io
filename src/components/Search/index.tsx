@@ -8,7 +8,7 @@ const Search = () =>
         <section className={searchCss['search']}>
             <div className={mainCss['container']}>
 
-                <InputWithButton />
+                <InputWithButton styling={'search-input'} />
 
             </div>
         </section>

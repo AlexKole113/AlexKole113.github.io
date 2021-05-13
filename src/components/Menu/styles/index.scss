@@ -1,10 +1,10 @@
 @import "../../../styles/partials/mixins";
 
 .menu {
-  padding-top: .4rem;
-  padding-bottom: 2rem;
+  padding-top: .55rem;
+  padding-bottom: 1.85rem;
   position: relative;
-  z-index: 5;
+  z-index: 200;
   margin-bottom: 1.5rem;
 
   &:before {
@@ -19,6 +19,7 @@
     width: 115%;
     box-shadow: -2px 3px 10px #0000004a;
 
+    transition: left .6s, top .6s, height .6s, width .6s;
   }
 
   &-top {
@@ -60,6 +61,9 @@
     height: 100%;
 
     &:before {
+
+      transition: left .6s, top .6s, height .6s, width .6s;
+
       height: 264%;
       left: -45%;
       top: -2rem;
@@ -73,6 +77,7 @@
   }
 }
 
+@import "partials/transitions";
 @import "../components/Hamburger/styles/index";
 @import "partials/main-menu";
 @import "partials/additional-menu";
