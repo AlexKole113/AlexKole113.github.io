@@ -8,10 +8,18 @@ import commonCss from '@/styles/_common.scss'
 
 const Profile = () => {
 
+    const categories = [
+        {id: 1, value:'Profile', icon:'plant', styling: 'shadow-pink'},
+        {id: 2, value:'History', icon:'plant', styling: 'shadow-green'},
+        {id: 3, value:'Payments', icon:'plant', styling: 'shadow-green'},
+        {id: 4, value:'Address', icon:'plant', styling: 'shadow-blue'},
+    ];
+
+
     return (
         <div className={profileCss['profile-group']}>
 
-            <CategoryList/>
+            <CategoryList categories={categories} />
 
             <section className={profileCss['profile-group-transition']}>
                 <section

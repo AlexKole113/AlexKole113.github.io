@@ -3,7 +3,7 @@ import buttonSpinner from './assets/preloader-for-btn.gif'
 import Plant from "@/components/Button/components/plant";
 
 
-const Button = ( { value, icon, styling, statement }:{value:string, icon:string, styling:string, statement?:string} ) => {
+const Button = ( { value, icon, styling, statement }:{value:string, icon:string, styling?:string, statement?:string} ) => {
 
     const iconsCollection = new Map([
         ['plant', <Plant />]
