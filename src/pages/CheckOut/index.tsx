@@ -24,17 +24,17 @@ const CheckOut = () => (
                     <section className={checkOutCss['check-out-group__profile-collection']}>
 
 
-                        <InputControl state={'received'} />
+                        <InputControl name={'test'} type={'text'} placeholder={'test placeholder'} />
 
                         <SettingsControl>
                             <Switcher />
                         </SettingsControl>
 
-                        <InputControl state={'received'} />
+                        <InputControl name={'test'} type={'password'} placeholder={'test placeholder'} />
 
-                        <InputControl state={'received'} />
+                        <InputControl name={'test'} type={'text'} placeholder={'test placeholder'} />
 
-                        <InputControl state={'received'} />
+                        <InputControl name={'test'} type={'text'} placeholder={'test placeholder'} />
 
                     </section>
                 </div>

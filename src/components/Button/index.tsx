@@ -3,7 +3,7 @@ import buttonSpinner from './assets/preloader-for-btn.gif'
 import Plant from "@/components/Button/components/plant";
 
 
-const Button = ( { value, icon, styling, statement }:{value:string, icon:string, styling?:string, statement?:string} ) => {
+const Button = ( { value, icon, styling, statement, updateActiveItem }:{value:string, icon:string, styling?:string, statement?:string, updateActiveItem: ()=> void } ) => {
 
     const iconsCollection = new Map([
         ['plant', <Plant />]
@@ -14,7 +14,7 @@ const Button = ( { value, icon, styling, statement }:{value:string, icon:string,
     const image             = ( !icon ) ? '' : iconsCollection.get(icon) ?? '' ;
 
     return(
-        <a href="#" className={`${css['app-btn']} ${stylingCssClass} ${statementCssClass}`} >
+        <a onClick={()=>{updateActiveItem()}} href="#" className={`${css['app-btn']} ${stylingCssClass} ${statementCssClass}`} >
             <span className={css['app-btn__icon']}>
                 { statement === 'loading' ? <img src={buttonSpinner} /> : image }
             </span>

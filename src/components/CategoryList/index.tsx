@@ -5,18 +5,19 @@ interface ICategories {
     id:number,
     value: string,
     icon: string,
-    styling?:string
+    styling?:string,
+    active?: string
 }
 
 
-const CategoryList = ({categories}:{categories:ICategories[]}) => (
+const CategoryList = ({categories,updateActiveItem}:{categories:ICategories[], updateActiveItem: (id:number) => void }) => (
 
 
 
     <section className={css['category-list']}>
         <div className={css['category-list__items']}>
 
-            {categories.map(( {value,icon,styling} ) => <Button value={value} icon={icon} styling={styling} />)}
+            {categories.map(( {id,value,icon,styling, active} ) => <Button key={id} updateActiveItem={()=>{updateActiveItem(id)} } value={value} icon={icon} styling={styling} statement={active} />)}
             {/*<Button value={'Flowers'} icon={'plant'} styling={'shadow-pink'} statement={'active'} />*/}
             {/*<Button value={'Trees'} icon={'plant'} styling={'shadow-blue'} statement={'loading'} />*/}
 
