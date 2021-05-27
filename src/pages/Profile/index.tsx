@@ -12,7 +12,6 @@ const Profile = () => {
 
     const categories = [
         {id: 1, value:'Profile', icon:'plant', styling: 'shadow-pink' , active: 'active' },
-        {id: 2, value:'History', icon:'plant', styling: 'shadow-green'},
         {id: 3, value:'Payments', icon:'plant', styling: 'shadow-green'},
         {id: 4, value:'Address', icon:'plant', styling: 'shadow-blue' },
     ];
@@ -49,9 +48,8 @@ const Profile = () => {
 
     const getProfileGroups = ( fields , activeID ) => {
         const groups = [];
-        for(let groupName in fields ){
-            groups.push(<ProfileGroup key={groupName} name={groupName} fields={ fields[groupName].fields } active={ (activeID === fields[groupName].id) ? 'active' : ''} />);
-        }
+        for(let groupName in fields ) groups.push(<ProfileGroup key={groupName} name={groupName} fields={ fields[groupName].fields } active={ (activeID === fields[groupName].id) ? 'active' : ''} />);
+
         return groups;
     }
 

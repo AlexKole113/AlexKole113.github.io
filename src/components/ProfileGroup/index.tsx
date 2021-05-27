@@ -1,15 +1,17 @@
 import profileCss from "@/pages/Profile/styles/index.scss";
 import commonCss from "@/styles/_common.scss";
 import InputControl from "@/components/InputControl";
-
+import {classNameAnimationSwitcher} from "@/utils/classNameAnimationSwitcher";
+import {useEffect} from "react";
 
 const ProfileGroup = ( { name, fields, active }:{name:string, fields:{name:string, type:string, placeholder: string}[], active?:string } ) => {
 
-
+    useEffect(()=>{
+        classNameAnimationSwitcher(name, active,900)
+    },[ active ] );
 
     return(
-        <section
-            className={`${ (active === 'active') ? profileCss['profile-group-current'] :  profileCss['profile-group-hidden'] }`}>
+        <section data-fields-group={name} >
 
             <div className={commonCss['container']}>
                 <div className={profileCss['profile-group__group']}>
