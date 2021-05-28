@@ -4,7 +4,7 @@ import ClearIcon from "@/components/InputControl/components/ClearIcon";
 import SuccessIcon from "@/components/InputControl/components/SuccessIcon";
 import profileCss from "@/pages/Profile/styles/index.scss";
 
-const InputControl = ({name,type,placeholder}:{name:string,type:string,placeholder:string}) => {
+const InputControl = ({name,type,placeholder, state = 'recieved' }:{name:string,type:string,placeholder:string, state?:string }) => {
 
     const iconsCollection = new Map([
         ['received', <ClearIcon />],
@@ -12,8 +12,7 @@ const InputControl = ({name,type,placeholder}:{name:string,type:string,placehold
         ['loading', <img src={buttonSpinner} alt={'loader'} />]
     ]);
 
-    const state = 'received';
-    const icon = iconsCollection.get(state) ?? '';
+    const icon = iconsCollection.get( state ) ?? '';
     const cssStateClass = inputCss[`state-${state}`] ?? '' ;
 
     return (

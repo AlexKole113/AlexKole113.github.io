@@ -3,15 +3,16 @@ import commonCss from "@/styles/_common.scss";
 import InputControl from "@/components/InputControl";
 import {classNameAnimationSwitcher} from "@/utils/classNameAnimationSwitcher";
 import {useEffect} from "react";
+import {IProfilePageState} from "@/pages/Profile/interface";
 
-const ProfileGroup = ( { name, fields, active }:{name:string, fields:{name:string, type:string, placeholder: string}[], active?:string } ) => {
+const ProfileGroup = ( { name, fields, active, updatePageState  }:{name:string, fields:{name:string, type:string, placeholder: string}[], active:string, updatePageState:()=>void, pageState:IProfilePageState } ) => {
 
-    useEffect(()=>{
-        classNameAnimationSwitcher(name, active,900)
+    useEffect(() => {
+      classNameAnimationSwitcher(name, active, updatePageState,1000);
     },[ active ] );
 
     return(
-        <section data-fields-group={name} >
+        <section data-fields-group={name} className={profileCss['profile-group-hidden']} >
 
             <div className={commonCss['container']}>
                 <div className={profileCss['profile-group__group']}>
