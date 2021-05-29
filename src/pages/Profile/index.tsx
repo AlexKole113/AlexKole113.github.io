@@ -34,7 +34,7 @@ const fields = {
         fields: [
             {name: 'address_str_house', type: 'text', placeholder: 'Street, house'},
             {name: 'address_country_city', type: 'text', placeholder: 'Country, City'},
-            {name: 'address_zip_code', type: 'number', placeholder: 'Zip Code'},
+            //{name: 'address_zip_code', type: 'number', placeholder: 'Zip Code'},
         ],
     },
 }
