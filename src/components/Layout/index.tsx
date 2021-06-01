@@ -19,11 +19,11 @@ const Layout = ({ children, toggleMenuCallback }: LayoutProps) => {
 
     return(
         <main className={themesCss[theme]}>
-            <div className={codePenDemoCss['demo-preloader']}>
-                <div className={codePenDemoCss['demo-preloader__1']}>
-                    <span className={codePenDemoCss['demo-preloader__1_top']}></span>
-                </div>
-            </div>
+            {/*<div className={codePenDemoCss['demo-preloader']}>*/}
+            {/*    <div className={codePenDemoCss['demo-preloader__1']}>*/}
+            {/*        <span className={codePenDemoCss['demo-preloader__1_top']}></span>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <section className={`${codePenDemoCss['mobile-wrapper']} ${(menuOpened) ? menuStyles['menu-opened'] : ''}`}>
 
                 <Preloader/>

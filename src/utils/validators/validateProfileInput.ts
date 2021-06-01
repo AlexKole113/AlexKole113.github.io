@@ -1,1 +1,1 @@
-export const validateProfileInput = (data:string) => ( data ) ? true : false;
+export const validateProfileInput = (data:string) => ( typeof data === 'string' ) ? true : false;
