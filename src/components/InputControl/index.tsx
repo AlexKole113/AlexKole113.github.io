@@ -23,6 +23,9 @@ const InputControl = ({name,type,placeholder}:{ name:string, type:string, placeh
                     return;
                 }
                 setState((state) => ({ ...state, state : 'received', message: '' }));
+
+                //  SHOW SUCCESS STATUS
+
                 // if( state.state === 'success' ) return;
                 // new Promise((res)=>{
                 //     setState((state) => ({ ...state, state : 'success', message: '' }));
@@ -31,6 +34,7 @@ const InputControl = ({name,type,placeholder}:{ name:string, type:string, placeh
                 // .then(()=>{
                 //     setState((state) => ({ ...state, state : 'received', message: '' }));
                 // })
+
             })
             .catch((message)=>{
                 setState((state) => ({...state, state : 'invalid', message }));
