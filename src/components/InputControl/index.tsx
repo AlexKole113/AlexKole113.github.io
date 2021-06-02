@@ -1,6 +1,6 @@
 import ClearIcon from "@/components/InputControl/components/ClearIcon";
 import SuccessIcon from "@/components/InputControl/components/SuccessIcon";
-import {FormEvent, useState} from "react";
+import {FormEvent, useEffect, useState} from "react";
 import {validateProfileInput} from "@/utils/validators/validateProfileInput";
 import {sendDataFromInput} from "../../../mocks/sendDataFromInput";
 import InvalidIcon from "@/components/InputControl/components/InvalidIcon";
@@ -14,33 +14,29 @@ const InputControl = ({name,type,placeholder}:{ name:string, type:string, placeh
 
     const [ state, setState ] = useState({ state : '', message: '' , value: '' } );
 
+    useEffect(()=>{
+        const { value, state: statement } = state;
+        if(!value && (statement !== '') ){
+            setState((prevState)=>({...prevState, state: ''}) )
+        }
+    },[state.value])
+
     const sendAndChooseState = ( newState:{ state : string, message: string , value: string } ) => {
         setState((prevState) => ({...prevState, ...newState }));
         sendDataFromInput( newState.value )
             .then(( value ) => {
+
                 if( !value ) {
                     setState({ state: '',  message: '', value: '' });
                     return;
                 }
+
                 setState((state) => ({ ...state, state : 'received', message: '' }));
-
-                //  SHOW SUCCESS STATUS
-
-                // if( state.state === 'success' ) return;
-                // new Promise((res)=>{
-                //     setState((state) => ({ ...state, state : 'success', message: '' }));
-                //     setTimeout(res,2000);
-                // })
-                // .then(()=>{
-                //     setState((state) => ({ ...state, state : 'received', message: '' }));
-                // })
-
             })
             .catch((message)=>{
                 setState((state) => ({...state, state : 'invalid', message }));
             })
     }
-
 
     const clear = () => { sendAndChooseState({ state : 'loading', message: '', value: '' }) }
 

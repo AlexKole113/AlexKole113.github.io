@@ -8,7 +8,7 @@ import {IProfilePageState} from "@/pages/Profile/interface";
 const ProfileGroup = ( { name, fields, active, updatePageState  }:{name:string, fields:{name:string, type:string, placeholder: string}[], active:string, updatePageState:()=>void, pageState:IProfilePageState } ) => {
 
     useEffect(() => {
-      classNameAnimationSwitcher(name, active, updatePageState,700 );
+      classNameAnimationSwitcher(name, active, updatePageState,1000 );
     },[ active ] );
 
     return(

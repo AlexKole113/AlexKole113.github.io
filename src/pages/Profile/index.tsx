@@ -2,7 +2,7 @@
 import CategoryList from "@/components/CategoryList";
 import profileCss from './styles/index.scss';
 import ProfileGroup from "@/components/ProfileGroup";
-import {useState} from "react";
+import {useMemo, useState} from "react";
 
 
 // data --- |||| ---
@@ -26,7 +26,7 @@ const fields = {
             {name: 'card_number', type: 'number', placeholder: 'Card number'},
             {name: 'card_date', type: 'text', placeholder: 'Card Date'},
             {name: 'card_name_surname', type: 'text', placeholder: 'Name Surname'},
-            {name: 'card_cvv', type: 'password', placeholder: 'Card CVV'},
+             {name: 'card_cvv', type: 'password', placeholder: 'Card CVV'},
         ],
     },
     Address: {
@@ -42,9 +42,10 @@ const fields = {
 
 const Profile = () => {
 
+
     const[ actualCategories, updateActualCategories] = useState( categories );
     const[ state, setState] = useState( { loading: false, error: false, init: true } );
-
+    const singleFieldSize = 100;
 
     const getProfileGroups = ( fields , activeID ) => {
         const groups = [];
@@ -76,12 +77,20 @@ const Profile = () => {
 
     }
 
+    const componentHeight = useMemo(() => {
+        let maxFieldsCount = 0;
+        for( let fieldGroup in fields ) {
+            maxFieldsCount = ( fields[fieldGroup]['fields']?.length > maxFieldsCount) ? fields[fieldGroup]['fields']?.length : maxFieldsCount;
+        }
+        return Math.round( maxFieldsCount * singleFieldSize );
+    }, [ categories.length ]);
+
     return (
         <div className={profileCss['profile-group']}>
 
             <CategoryList categories={actualCategories} updateActiveItem={setActive} pageState={state} />
 
-            <section className={profileCss['profile-group-transition']}>
+            <section style={{minHeight: `${componentHeight}px`}} className={profileCss['profile-group-transition']}>
 
                 { getProfileGroups( fields, getActiveID( actualCategories ) ) }
 
