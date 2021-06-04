@@ -5,7 +5,7 @@ import {classNameAnimationSwitcher} from "@/utils/classNameAnimationSwitcher";
 import {useEffect} from "react";
 import {IProfilePageState} from "@/pages/Profile/interface";
 
-const ProfileGroup = ( { name, fields, active, updatePageState  }:{name:string, fields:{name:string, type:string, placeholder: string}[], active:string, updatePageState:()=>void, pageState:IProfilePageState } ) => {
+const ProfileGroup = ( { name, fields, active, updatePageState  }:{name:string, fields:{name:string, type:string, placeholder: string}[], active:string, updatePageState:CallableFunction, pageState:IProfilePageState } ) => {
 
     useEffect(() => {
       classNameAnimationSwitcher(name, active, updatePageState,1000 );

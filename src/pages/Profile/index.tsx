@@ -1,62 +1,23 @@
-//@ts-nocheck
 import CategoryList from "@/components/CategoryList";
 import profileCss from './styles/index.scss';
 import ProfileGroup from "@/components/ProfileGroup";
 import {useMemo, useState} from "react";
-
-
-// data --- |||| ---
-const categories = [
-    {id: 1, value:'Profile', icon:'plant', styling: 'shadow-pink' , active: 'active' },
-    {id: 3, value:'Payments', icon:'plant', styling: 'shadow-green'},
-    {id: 4, value:'Address', icon:'plant', styling: 'shadow-blue' },
-];
-const fields = {
-    Profile: {
-        id: 1,
-        fields: [
-            {name: 'name', type: 'text', placeholder: 'Name and Surname'},
-            {name: 'phone', type: 'number', placeholder: 'Phone'},
-            {name: 'email', type: 'email', placeholder: 'Email'},
-        ],
-    },
-    Payments: {
-        id: 3,
-        fields: [
-            {name: 'card_number', type: 'number', placeholder: 'Card number'},
-            {name: 'card_date', type: 'text', placeholder: 'Card Date'},
-            {name: 'card_name_surname', type: 'text', placeholder: 'Name Surname'},
-             {name: 'card_cvv', type: 'password', placeholder: 'Card CVV'},
-        ],
-    },
-    Address: {
-        id: 4,
-        fields: [
-            {name: 'address_str_house', type: 'text', placeholder: 'Street, house'},
-            {name: 'address_country_city', type: 'text', placeholder: 'Country, City'},
-            //{name: 'address_zip_code', type: 'number', placeholder: 'Zip Code'},
-        ],
-    },
-}
-// -------- |||| ---
+import { fakeProfileCategories as categories, fakeProfileFields as fields, IFakeProfileFields, IFakeProfileCategories, IFakeProfileCategory } from "../../../mocks/fakeData/profile";
 
 const Profile = () => {
-
-
     const[ actualCategories, updateActualCategories] = useState( categories );
     const[ state, setState] = useState( { loading: false, error: false, init: true } );
     const singleFieldSize = 100;
 
-    const getProfileGroups = ( fields , activeID ) => {
+    const getProfileGroups = ( fields:IFakeProfileFields , activeID:number ) => {
         const groups = [];
-        for(let groupName in fields ) groups.push(<ProfileGroup key={groupName} name={groupName} fields={ fields[groupName].fields } active={ (activeID === fields[groupName].id) ? 'active' : ''} pageState={state} updatePageState={ setState } />);
-
+        for( let groupName in fields ) groups.push(<ProfileGroup key={groupName} name={groupName} fields={ fields[groupName].fields } active={ (activeID === fields[groupName].id) ? 'active' : ''} pageState={state} updatePageState={ setState } />);
         return groups;
     }
 
-    const getActiveID = ( categories ) => categories.filter(({ active }) => active && active === 'active' )[0].id
+    const getActiveID = ( categories:IFakeProfileCategories ) => categories.filter(({ active }:IFakeProfileCategory ) => active && active === 'active' )[0].id
 
-    const setActive = ( id ) => {
+    const setActive = ( id:number ) => {
         if( state.loading ) return;
         const currentActualID = actualCategories.filter(({active}) => active === 'active' )[0].id;
         if( id === currentActualID ) return;
@@ -74,7 +35,6 @@ const Profile = () => {
         })
 
         updateActualCategories( updState )
-
     }
 
     const componentHeight = useMemo(() => {

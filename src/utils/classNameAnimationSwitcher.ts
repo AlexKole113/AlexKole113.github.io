@@ -34,7 +34,7 @@ const hideGroup = ( target:Element|null, delay:number ) => {
     })
 }
 
-const classNameAnimationSwitcher = ( name:string, active:string, updatePageState:() => void, delay:number = 1000 ) => {
+const classNameAnimationSwitcher = ( name:string, active:string, updatePageState:CallableFunction, delay:number = 1000 ) => {
     const target = document.querySelector(`[data-fields-group='${name}']`);
 
     if( active === 'active' ){

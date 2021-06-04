@@ -196,7 +196,20 @@
 
   }
 
+  &.shadow-pink {
+    box-shadow: 1px 4px 8px var(--shadow-pink); }
 
+  &.shadow-green {
+    box-shadow: 1px 4px 8px var(--shadow-green); }
+
+  &.shadow-blue {
+    box-shadow: 1px 4px 8px var(--shadow-blue); }
+
+  &.shadow-violet {
+    box-shadow: 1px 4px 8px var(--shadow-violet); }
+
+  &.shadow-theme {
+    box-shadow: var(--shadow-theme); }
 }
 
 
