@@ -1,8 +1,9 @@
 import styles from "./styles/index.scss";
+import spinner from './assets/preloader-for-page.gif'
 
 const Preloader = () => (
     <div id="preloader" className={styles.preloader}>
-        <img src="../src/components/Preloader/assets/preloader-for-page.gif"/>
+        <img src={spinner} />
     </div>
 );
 

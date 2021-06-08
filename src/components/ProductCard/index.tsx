@@ -1,7 +1,21 @@
 import productCardCss from './styles/index.scss'
+import {IFakeProductItem} from "../../../mocks/fakeData/shop";
 
 
-const ProductCard = () => (
+const ProductCard = ( { product }:{product:IFakeProductItem} ) => {
+    const {title,image,data,price,currency,stock} = product;
+    const params = data.map(( item:{[key:string]:string|number} )=>{
+        const param = Object.keys(item)[0];
+        return(
+            <span key={param}>
+                <span className={productCardCss['product-card__info_params-name']} >{param}:</span>
+                <span className={productCardCss['product-card__info_params-value']} >{item[param]}</span>
+            </span>
+        );
+    })
+
+
+    return (
     <div className={productCardCss['product-card']}>
         <div className={productCardCss['product-card__buttons']}>
             <a href="" className={`${productCardCss['product-card__buttons_item']} ${productCardCss['add-to-fav']}`}>
@@ -25,27 +39,26 @@ const ProductCard = () => (
         </div>
         <div className={productCardCss['product-card__image']} >
             <img className={productCardCss['product-card__image_img']}
-                 src="https://source.unsplash.com/user/erondu/300x300"
-                 alt="some alt" title="some title"/>
+                 src={image}
+                 alt={title} title={title} />
         </div>
         <div className={productCardCss['product-card__info']}>
-            <span className={productCardCss['product-card__info_title']} >Red Rose</span>
+            <span className={productCardCss['product-card__info_title']} >{title}</span>
             <span className={productCardCss['product-card__info_params']} >
-                <span className={productCardCss['product-card__info_params-name']} >Length:</span>
-                <span className={productCardCss['product-card__info_params-value']} >50cm</span>
+                {params}
             </span>
             <span className={productCardCss['product-card__info_price']} >
-                <span className={productCardCss['product-card__info_price-currency']} >$</span>
-                <span className={productCardCss['product-card__info_price-value']} >9.05</span>
+                <span className={productCardCss['product-card__info_price-currency']} >{currency}</span>
+                <span className={productCardCss['product-card__info_price-value']} >{price}</span>
             </span>
         </div>
         <div className={productCardCss['product-card__additional-info']} >
             <span className={productCardCss['product-card__additional-info_params']} >
                 <span className={productCardCss['product-card__additional-info_params-name']} >Bunch of</span>
-                <span className={productCardCss['product-card__additional-info_params-value']} >20</span>
+                <span className={productCardCss['product-card__additional-info_params-value']} >{stock}</span>
             </span>
         </div>
     </div>
-)
+)}
 
 export default ProductCard;

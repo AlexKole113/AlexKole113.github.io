@@ -7,6 +7,7 @@
     background: transparent;
     &-group {
       transition: all .6s;
+      min-height: 28rem;
 
       &.shop-group-hidden {
         position: absolute;
@@ -62,7 +63,6 @@
       }
 
       &.shop-group-transition-end {
-
 
         .search {
           transition: transform var(--timing-transition-1), opacity .4s;

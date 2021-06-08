@@ -5,8 +5,10 @@ import cssShopAnimation from './styles/index.scss';
 import { fakeCategories as categories, getProductsByCategoryID } from "../../../mocks/fakeData/shop";
 import {useEffect, useState} from "react";
 import {IShopState} from "@/pages/Shop/interface";
+import {IFakeProductItem} from "../../../mocks/fakeData/shop";
+import ErrorAlert from "@/components/ErrorAlert";
+import Preloader from "@/components/Preloader";
 //import {classNameAnimationSwitcher} from "@/utils/classNameAnimationSwitcher";
-
 
 
 const Shop = () => {
@@ -22,18 +24,23 @@ const Shop = () => {
      */
 
     const[ actualCategories, updateActualCategories] = useState( categories );
-    const[ state, setState ] = useState<IShopState>( { loading: false, error: false, init: true, actualID: null } );
+    const[ actualProducts, updateActualProducts ] = useState<IFakeProductItem[]>([])
+    const[ state, setState ] = useState<IShopState>( { loading: false, error: false, init: true, actualID: 1 } );
     useEffect(() => {
+
+        setState((prevState)=>({...prevState, loading: true}));
+
         //classNameAnimationSwitcher(name, active, updatePageState,1000 );
         getProductsByCategoryID( state.actualID )
         .then( ( responseFromServer ) => {
             if( typeof responseFromServer === 'object' && responseFromServer?.hasOwnProperty('items' ) && responseFromServer.items?.length ){
                const { items } = responseFromServer;
-               console.log( items );
+               setState((prevState)=>({...prevState, loading: false, error: false, init:false }))
+               updateActualProducts(items  )
             }
         })
-        .catch((e)=>{
-            throw new Error(e);
+        .catch(()=>{
+            setState((prevState)=>({...prevState, loading: false, error: true, init:false }))
         })
     },[ state.actualID ] );
 
@@ -59,7 +66,6 @@ const Shop = () => {
         })
 
         updateActualCategories( updState )
-
     }
 
 
@@ -71,19 +77,17 @@ const Shop = () => {
             <section className={cssShopAnimation['shop-group-transition']}>
 
                 <section className={`${cssShopAnimation['shop-group-transition-group']}  ${cssShopAnimation['shop-group-hidden']}`}>
-
                     <Search styling={'shadow-theme'} />
-                    <GroupedCards />
-
+                    { ( state.init ) && <Preloader /> }
+                    { ( state.error ) ? <ErrorAlert text={'Something went wrong...'} /> : <GroupedCards products={actualProducts} /> }
                 </section>
+
 
                 <section className={`${cssShopAnimation['shop-group-transition-group']} ${cssShopAnimation['shop-group-current']}`}>
-
                     <Search styling={'shadow-theme'} />
-                    <GroupedCards />
-
+                    { ( state.init ) && <Preloader /> }
+                    { ( state.error ) ? <ErrorAlert text={'Something went wrong...'} /> : <GroupedCards products={actualProducts} /> }
                 </section>
-
 
             </section>
         </div>

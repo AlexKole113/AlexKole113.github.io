@@ -109,7 +109,8 @@
         right: .5rem;
         width: 1.25rem;
         height: 1.25rem;
-        background: var(--red-link);
+        background: linear-gradient(var(--red-link) 20%,#ee3b45 80%);
+        box-shadow: 0px 0px 3px 0px #000000a3;
         border-radius: 100%;
       }
     }
@@ -125,8 +126,9 @@
         right: 0;
         width: 1rem;
         height: 1rem;
-        background: var(--blue-link);
         border-radius: 100%;
+        background: linear-gradient(var(--blue-link) 20%, #3c74db 80%);
+        box-shadow: 0px 0px 3px 0px #000000a3;
       }
     }
 
