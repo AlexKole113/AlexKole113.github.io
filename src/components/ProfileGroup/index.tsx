@@ -8,7 +8,21 @@ import {IProfilePageState} from "@/pages/Profile/interface";
 const ProfileGroup = ( { name, fields, active, updatePageState  }:{name:string, fields:{name:string, type:string, placeholder: string}[], active:string, updatePageState:CallableFunction, pageState:IProfilePageState } ) => {
 
     useEffect(() => {
-      classNameAnimationSwitcher(name, active, updatePageState,1000 );
+      classNameAnimationSwitcher(
+         `[data-fields-group='${name}']`,
+          active,
+          updatePageState,
+      )(
+          {
+              showGroupClasses: [ 'profile-group-hidden', 'profile-group-transition-start', 'profile-group-current' ],
+              hideGroupClasses: [ 'profile-group-current', 'profile-group-transition-end', 'profile-group-hidden' ]
+          },
+          {
+              error:false,
+              loading:false
+          },
+          1000
+      );
     },[ active ] );
 
     return(
@@ -26,10 +40,6 @@ const ProfileGroup = ( { name, fields, active, updatePageState  }:{name:string, 
                     <section className={profileCss['profile-group__profile-collection']}>
 
                         {fields.map( ({name,type,placeholder}) => <InputControl key={name} name={name} type={type} placeholder={placeholder} /> )}
-
-
-                        {/*<InputControl state={'received'} />*/}
-                        {/*<InputControl state={'invalid'} />*/}
 
                     </section>
                 </div>

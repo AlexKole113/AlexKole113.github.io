@@ -1,46 +1,56 @@
 import profileCss from "@/pages/Profile/styles/index.scss";
 
-const showGroup = ( target:Element|null, updatePageState:any, delay:number) => {
+const showGroup = ( target:Element|null, updatePageState:any, state:{[key:string]:any}, showGroupClasses:string[], delay:number ) => {
     new Promise(( res ) => {
         setTimeout(() => {
-            target?.classList.remove( profileCss['profile-group-hidden'] );
-            target?.classList.add( profileCss['profile-group-transition-start'] );
+            target?.classList.remove( profileCss[showGroupClasses[0]] );
+            target?.classList.add( profileCss[showGroupClasses[1]] );
             res(1)
         }, 0 )
     }).then(()=>{
         setTimeout(() => {
-            target?.classList.remove( profileCss['profile-group-transition-start'] );
-            target?.classList.add( profileCss['profile-group-current'] );
-            updatePageState({
-                error:false,
-                loading:false
-            })
+            target?.classList.remove( profileCss[showGroupClasses[1]] );
+            target?.classList.add( profileCss[showGroupClasses[2]] );
+            updatePageState( state )
         }, delay )
     })
 }
 
-const hideGroup = ( target:Element|null, delay:number ) => {
+const hideGroup = ( target:Element|null, hideGroupClasses:string[], delay:number ) => {
     new Promise(( res ) => {
         setTimeout(() => {
-            target?.classList.remove( profileCss['profile-group-current'] );
-            target?.classList.add( profileCss['profile-group-transition-end'] );
+            target?.classList.remove( profileCss[ hideGroupClasses[0] ] );
+            target?.classList.add( profileCss[ hideGroupClasses[1] ] );
             res(1)
         }, 0 )
     }).then(()=>{
         setTimeout(() => {
-            target?.classList.remove( profileCss['profile-group-transition-end'] );
-            target?.classList.add( profileCss['profile-group-hidden'] );
+            target?.classList.remove( profileCss[ hideGroupClasses[1] ] );
+            target?.classList.add( profileCss[ hideGroupClasses[2] ] );
         }, delay )
     })
 }
 
-const classNameAnimationSwitcher = ( name:string, active:string, updatePageState:CallableFunction, delay:number = 1000 ) => {
-    const target = document.querySelector(`[data-fields-group='${name}']`);
+const validate = ( selector:string, updatePageState:CallableFunction, classNamesChain:{ showGroupClasses:string[], hideGroupClasses:string[] } ) => {
 
-    if( active === 'active' ){
-        showGroup(target,updatePageState,delay);
-    } else {
-        hideGroup(target,delay);
+    if ( classNamesChain.showGroupClasses.length !== 3 || classNamesChain.hideGroupClasses.length !== 3 ){
+        throw new Error('there should be 3 animation classes');
+    }
+    if (!selector || !updatePageState ){
+        throw new Error('no selector or updatePageState');
+    }
+}
+
+const classNameAnimationSwitcher = ( selector:string, active:string, updatePageState:CallableFunction ) => {
+    const target = document.querySelector( selector );
+    return ( classNamesChain:{ showGroupClasses:string[], hideGroupClasses:string[] },   state:{[key:string]:any}, delay:number = 1000) => {
+        validate( selector, updatePageState, classNamesChain );
+        const { showGroupClasses, hideGroupClasses } = classNamesChain;
+        if( active === 'active' ){
+            showGroup( target, updatePageState, state, showGroupClasses, delay );
+        } else {
+            hideGroup( target, hideGroupClasses, delay );
+        }
     }
 }
 
