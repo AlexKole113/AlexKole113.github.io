@@ -7,11 +7,13 @@
   &-group {
     transition: all .6s;
     min-height: 28rem;
+    width: 100%;
 
     &.shop-group-hidden {
       position: absolute;
       left:0;
       top:0;
+      width: 100%;
       z-index: -1;
       .product-card,
       .search {
@@ -22,6 +24,7 @@
 
     &.shop-group-current {
       opacity: 1;
+      width: 100%;
       z-index: 0;
     }
 
@@ -93,7 +96,6 @@
 
 
     }
-
 
   }
 }

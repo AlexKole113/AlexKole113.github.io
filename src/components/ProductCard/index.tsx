@@ -1,4 +1,5 @@
-import productCardCss from './styles/index.scss'
+import productCardCss from './styles/index.scss';
+import cssShopAnimation from "@/styles/shop-animation.scss";
 import {IFakeProductItem} from "../../../mocks/fakeData/shop";
 
 
@@ -16,7 +17,7 @@ const ProductCard = ( { product }:{product:IFakeProductItem} ) => {
 
 
     return (
-    <div className={productCardCss['product-card']}>
+    <div className={`${productCardCss['product-card']} ${cssShopAnimation['product-card']}`}>
         <div className={productCardCss['product-card__buttons']}>
             <a href="" className={`${productCardCss['product-card__buttons_item']} ${productCardCss['add-to-fav']}`}>
                 <svg aria-hidden="true" focusable="false" data-prefix="fas"
