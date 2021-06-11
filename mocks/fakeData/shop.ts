@@ -89,7 +89,7 @@ const fakeProductsTrees:IFakeProducts = {
     ],
 };
 const fakeProductsPopular:IFakeProducts = (()=> {
-    return { id: 4, items: [fakeProductsFlowers.items[0],fakeProductsPlants.items[1],fakeProductsTrees.items[2],fakeProductsTrees.items[3]],}
+    return { id: 4, items: [fakeProductsFlowers.items[0],fakeProductsPlants.items[1],fakeProductsTrees.items[2],fakeProductsFlowers.items[3]],}
 } )();
 
 
@@ -103,7 +103,7 @@ const getProductsByCategoryID = (id:number|null = 1):Promise<IFakeProducts|undef
     )
 
     return new Promise(( res, rej ) => {
-        const randomNetworkError = ( Math.random() > .99 ) ? true : false;
+        const randomNetworkError = ( Math.random() > .9999 ) ? true : false;
         setTimeout(()=>{
             if( !randomNetworkError ){
                 res( allProductsGroups.get(`${id}`) )

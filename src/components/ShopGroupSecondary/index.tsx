@@ -6,7 +6,7 @@ import GroupedCards from "@/components/GroupedCards";
 import {IFakeProductItem} from "../../../mocks/fakeData/shop";
 import {useCallback, useEffect, useState} from "react";
 
-const ShopGroupSecondary = ( { pageState, products }:{ pageState:{init:boolean,error:boolean, [key:string]: any}, products:IFakeProductItem[] } ) => {
+const ShopGroupSecondary = ( { pageState, products, animationSteps }:{ pageState:{init:boolean,error:boolean, [key:string]: any}, products:IFakeProductItem[], animationSteps:number[] } ) => {
 
     const { init, error }  = pageState;
     const { actualID } = pageState;
@@ -15,21 +15,32 @@ const ShopGroupSecondary = ( { pageState, products }:{ pageState:{init:boolean,e
     // ANIMATION LOGIC useAnimationStates()
     const [ state, setState ] = useState({ animationStep: 0 })
     const useAnimationStates = useCallback(() => {
+
+
         new Promise(( res ) => {
-            setState((prevState) => ({...prevState, animationStep: 0 }))
             setTimeout(()=>{
+                setState((prevState) => ({...prevState, animationStep: 0 }))
                 res(1) // end
-            },1400 )
+            }, animationSteps[0] )
         })
-            .then( animationStep => {
+        .then( animationStep => {
+
+            return new Promise(( res ) => {
+                setTimeout(()=>{
+                    // @ts-ignore
+                    setState((prevState) => ({...prevState, animationStep }))
+                    res(2) // current
+                }, animationSteps[1] )
+            })
+        })
+        .then( animationStep => {
+            // @ts-ignore
+            setTimeout(() => {
                 // @ts-ignore
                 setState((prevState) => ({...prevState, animationStep }))
-                return new Promise(( res ) => {
-                    setTimeout(()=>{
-                        res(2) // current
-                    },800)
-                })
-            })
+            },animationSteps[2])
+        })
+
 
 
     },[]);
@@ -42,6 +53,9 @@ const ShopGroupSecondary = ( { pageState, products }:{ pageState:{init:boolean,e
             break;
         case 1:
             cssAnimationCalssName = 'shop-group-hidden'
+            break
+        case 2:
+            cssAnimationCalssName = 'shop-group-transition-start'
             break
     }
 

@@ -1,5 +1,8 @@
 import CategoryList from "@/components/CategoryList";
-import cssShopAnimation from './styles/index.scss';
+
+//import cssShopAnimation from './styles/index.scss';
+import cssShopAnimation from "@/styles/shop-animation.scss";
+
 import { fakeCategories as categories, getProductsByCategoryID } from "../../../mocks/fakeData/shop";
 import {useEffect, useState} from "react";
 import {IShopState} from "@/pages/Shop/interface";
@@ -9,7 +12,7 @@ import ShopGroupSecondary from "@/components/ShopGroupSecondary";
 
 const Shop = () => {
 
-    let oldItems:IFakeProductItem[]|[] = [];
+    //let oldItems:IFakeProductItem[]|[] = [];
 
     const[ actualCategories, updateActualCategories] = useState( categories );
     const[ actualProducts, updateActualProducts ] = useState<IFakeProductItem[]>([])
@@ -21,10 +24,7 @@ const Shop = () => {
             if( typeof responseFromServer === 'object' && responseFromServer?.hasOwnProperty('items' ) && responseFromServer.items?.length ){
                const { items } = responseFromServer;
                setState(( prevState)=>({...prevState, loading: false, error: false, init:false }))
-               updateActualProducts( items  )
-               setTimeout(()=>{
-                   oldItems = items;
-               },1400 )
+                updateActualProducts( items  )
             }
         })
         .catch(()=>{
@@ -63,8 +63,8 @@ const Shop = () => {
 
             <section className={cssShopAnimation['shop-group-transition']}>
 
-                <ShopGroupSecondary pageState={state} products={actualProducts} />
-                <ShopGroupPrimary pageState={state} products={actualProducts} />
+                <ShopGroupSecondary pageState={state} products={ actualProducts } animationSteps={[100,200,800]} />
+                <ShopGroupPrimary pageState={state} products={ actualProducts } animationSteps={[100,200,800]} />
 
             </section>
         </div>
