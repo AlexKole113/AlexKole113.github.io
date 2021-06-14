@@ -60,8 +60,6 @@ const ShopGroupSecondary = ( { pageState, products, animationSteps }:{ pageState
     }
 
 
-    console.log(cssAnimationCalssName)
-
     return(
         <section className={`${cssShopAnimation['shop-group-transition-group']}  ${cssShopAnimation[ cssAnimationCalssName ]}`}>
             <Search styling={'shadow-theme'} />

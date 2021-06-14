@@ -56,9 +56,6 @@ const ShopGroupPrimary = ( { pageState, products, animationSteps }:{ pageState:{
     }
 
 
-
-
-
     return(
         <section className={`${cssShopAnimation['shop-group-transition-group']}  ${cssShopAnimation[ cssAnimationCalssName ]}`}>
             <Search styling={'shadow-theme'} />
