@@ -6,6 +6,7 @@ import {IShopState} from "@/pages/Shop/interface";
 import ShopGroupPrimary from "@/components/ShopGroupPrimary";
 import ShopGroupSecondary from "@/components/ShopGroupSecondary";
 import useShopAnimation from "@/hooks/useShopAnimation";
+import ProductGroupSlice from "@/components/ProductGroupSlice";
 
 const Shop = () => {
 
@@ -41,6 +42,8 @@ const Shop = () => {
             <CategoryList categories={categories} updateActiveItem={setActive} pageState={state} />
 
             <section className={cssShopAnimation['shop-group-transition']}>
+
+                <ProductGroupSlice cats={categories} />
 
                 <ShopGroupSecondary pageState={ state } products={ actualProducts } animationSteps={[0,150,500]} />
                 <ShopGroupPrimary pageState={ state } products={ oldItems } animationSteps={[0,150,500]} />
