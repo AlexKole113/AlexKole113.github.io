@@ -36,12 +36,11 @@ const useShopAnimation =  (shopStateUpdate:CallableFunction, showAnimation:strin
     useEffect(()=>{
         switch ( showAnimation ){
             case 'showFromTop' :
-                showFromTop(setAnimationClassName,[ 600, 800 ])
+                showFromTop(setAnimationClassName,[ 850, 850 ])
                 break;
             case  'hideToBottom' :
-                hideToBottom(setAnimationClassName,[ 600, 800 ])
+                hideToBottom(setAnimationClassName,[ 850, 850 ])
                 break;
-
         }
     },[showAnimation]);
 
