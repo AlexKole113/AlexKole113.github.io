@@ -1,31 +1,51 @@
-import { useEffect, useMemo, useState } from "react";
-import { getProductsByCategoryID, IFakeProductItem } from "../../../mocks/fakeData/shop";
+import {useEffect, useState} from "react";
 
-
-const useShopAnimation = ( setState:CallableFunction , state:{[key:string]:any} ) => {
-
-    const[ actualProducts, updateActualProducts ] = useState<IFakeProductItem[]>([]);
-    let oldItems:IFakeProductItem[]|[] = useMemo(() => actualProducts , [ state.actualID ] );
-
-    useEffect(() => {
-        setState((prevState:{[key:string]:any})=>({...prevState, loading: true}));
-
-        getProductsByCategoryID( state.actualID )
-            .then( ( responseFromServer ) => {
-                if( typeof responseFromServer === 'object' && responseFromServer?.hasOwnProperty( 'items' ) && responseFromServer.items?.length ){
-                    const { items } = responseFromServer;
-                    updateActualProducts( items )
-                    setState(( prevState:{ [key:string]:any } ) => ({...prevState, loading: false, error: false, init:false }))
-                }
-            })
-            .catch(()=>{
-                setState(( prevState:{[key:string]:any} ) => ({...prevState, loading: false, error: true, init:false }))
+const useShopAnimation =  (shopStateUpdate:CallableFunction, showAnimation:string ) => {
+    const [ animationClassName, setAnimationClassName ] = useState('shop-group-hidden');
+    const showFromTop = (setAnimationClassName:CallableFunction, steps:number[]) => {
+        new Promise((res) => {
+            setTimeout(()=>{
+                setAnimationClassName('shop-group-transition-start');
+                res(null)
+            }, steps[0])
+        })
+            .then(()=>{
+                setTimeout(()=>{
+                    setAnimationClassName('shop-group-current');
+                    shopStateUpdate((prevState:{[key:string]:any})=>({
+                        ...prevState,
+                        loading:false
+                    }));
+                }, steps[1])
             })
 
-    },[ state.actualID ] );
+    }
+    const hideToBottom = ( setAnimationClassName:CallableFunction, steps:number[] ) =>{
+        new Promise((res) => {
+            setTimeout(()=>{
+                setAnimationClassName('shop-group-transition-end');
+                res(null)
+            }, steps[0])
+        })
+            .then(()=>{
+                setTimeout(()=>{
+                    setAnimationClassName('shop-group-hidden');
+                }, steps[1])
+            })
+    }
+    useEffect(()=>{
+        switch ( showAnimation ){
+            case 'showFromTop' :
+                showFromTop(setAnimationClassName,[ 600, 800 ])
+                break;
+            case  'hideToBottom' :
+                hideToBottom(setAnimationClassName,[ 600, 800 ])
+                break;
 
+        }
+    },[showAnimation]);
 
-    return { oldItems, actualProducts , state }
+    return animationClassName;
 }
 
 export default useShopAnimation;

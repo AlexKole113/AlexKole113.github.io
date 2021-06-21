@@ -1,7 +1,7 @@
 .shop-group-transition {
   --timing-transition-1: .6s;
   --timing-transition-2: .9s;
-
+  min-height: 28rem;
   position: relative;
   background: transparent;
   &-group {

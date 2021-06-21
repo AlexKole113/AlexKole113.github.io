@@ -1,18 +1,14 @@
 import CategoryList from "@/components/CategoryList";
 import cssShopAnimation from "@/styles/shop-animation.scss";
 import { fakeCategories as categories } from "../../../mocks/fakeData/shop";
-import { useState } from "react";
+import {useState} from "react";
 import {IShopState} from "@/pages/Shop/interface";
-import ShopGroupPrimary from "@/components/ShopGroupPrimary";
-import ShopGroupSecondary from "@/components/ShopGroupSecondary";
-import useShopAnimation from "@/hooks/useShopAnimation";
 import ProductGroupSlice from "@/components/ProductGroupSlice";
 
 const Shop = () => {
 
-    const[ state, setState ] = useState<IShopState>( { loading: false, error: false, init: true, actualID: 1 } );
+    const[ state, setState ] = useState<IShopState>( { loading: false, error: false, init: true, actualID: 1, lastActualID: null } );
     const[ actualCategories, updateActualCategories ] = useState( categories );
-    const{ oldItems, actualProducts } = useShopAnimation( setState, state );
 
 
     const setActive = ( id:number ) => {
@@ -20,12 +16,13 @@ const Shop = () => {
         const currentActualID = actualCategories.filter(({active}) => active === 'active' )[0].id;
         if( id === currentActualID ) return;
 
-        setState({
-            ...state,
+        setState((prevState)=> ({
+            ...prevState,
             init: false,
             loading: true,
+            lastActualID: prevState.actualID,
             actualID: id
-        } )
+        }) );
 
         const updState = actualCategories.map( ( item) => {
             item.active = undefined;
@@ -33,7 +30,7 @@ const Shop = () => {
             return item;
         })
 
-        updateActualCategories( updState )
+        updateActualCategories( () => updState );
     }
 
     return (
@@ -43,10 +40,7 @@ const Shop = () => {
 
             <section className={cssShopAnimation['shop-group-transition']}>
 
-                <ProductGroupSlice cats={categories} />
-
-                <ShopGroupSecondary pageState={ state } products={ actualProducts } animationSteps={[0,150,500]} />
-                <ShopGroupPrimary pageState={ state } products={ oldItems } animationSteps={[0,150,500]} />
+                <ProductGroupSlice cats={categories} show={state.actualID} hide={state.lastActualID} shopStateUpdate={setState} />
 
             </section>
 
