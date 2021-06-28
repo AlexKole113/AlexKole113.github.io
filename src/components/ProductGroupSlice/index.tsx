@@ -25,7 +25,7 @@ const ProductGroupSlice = ( {cats, show, hide, shopStateUpdate }:{cats:IFakeShop
      <>
          { (state.items) ? state.items.map( ( {items,id} ) => {
              const showAnimation =  ( id === show ) ? 'showFromTop' :  ( id === hide ) ? 'hideToBottom' : '';
-             return ( <ShopGroup key={id} products={items} showAnimation={showAnimation} shopStateUpdate={shopStateUpdate} actualCat={show} /> )
+             return ( <ShopGroup key={id} catId={id} products={items} showAnimation={showAnimation} shopStateUpdate={shopStateUpdate} actualCat={show} /> )
          } ) : ''     }
      </>);
 }

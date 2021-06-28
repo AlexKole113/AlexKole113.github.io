@@ -4,7 +4,8 @@ import ProductCard from "@/components/ProductCard";
 import {IFakeProductItem} from "../../../mocks/fakeData/shop";
 import ProductItemSlice from "@/components/ProductItemSlice";
 
-const GroupedCards = ({products,actualCat}:{products:IFakeProductItem[],actualCat:number}) => {
+const GroupedCards = ({products, actualCat, catId }:{products:IFakeProductItem[],actualCat:number,catId:number}) => {
+
 
     const productsCollection = products.map( (item) => <ProductCard key={ item.id } product={item} /> )
 
@@ -13,7 +14,7 @@ const GroupedCards = ({products,actualCat}:{products:IFakeProductItem[],actualCa
             <div className={mainCss['container']} >
                 <div className={groupedCardsCss['shop-grouped__collection']}>
                     { productsCollection }
-                    <ProductItemSlice actualCat={actualCat} />
+                    { ( catId === actualCat ) ? <ProductItemSlice actualCat={actualCat} /> : ''}
                 </div>
             </div>
         </section>

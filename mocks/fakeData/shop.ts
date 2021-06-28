@@ -207,10 +207,10 @@ const fakeProductsPopular:IFakeProducts = (()=> {
 
 const getProductsByCategoryID = (id:number|null = 1):Promise<IFakeProducts|undefined> => {
     const allProductsGroups = new Map([
-        ['1', fakeProductsFlowers],
-        ['2', fakeProductsPlants],
-        ['3', fakeProductsTrees],
-        ['4', fakeProductsPopular],
+            ['1', fakeProductsFlowers],
+            ['2', fakeProductsPlants],
+            ['3', fakeProductsTrees],
+            ['4', fakeProductsPopular],
         ]
     )
 

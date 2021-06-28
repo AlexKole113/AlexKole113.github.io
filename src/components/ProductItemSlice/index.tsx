@@ -1,4 +1,5 @@
 import useScrollLoadProduct from "@/hooks/useScrollLoadProduct/useScrollLoadProduct";
+import ProductCard from "@/components/ProductCard";
 
 
 const ProductItemSlice = ({actualCat}:{actualCat:number}) => {
@@ -6,10 +7,15 @@ const ProductItemSlice = ({actualCat}:{actualCat:number}) => {
     // add hook useScrollLoadProducts() V
     // add CardWithLoading component
 
-    useScrollLoadProduct( actualCat );
+    const products = useScrollLoadProduct( actualCat );
 
 
-    return(<span data-cat={actualCat}></span>);
+    return(
+        <>
+            {products.map( (item) => <ProductCard key={ item.id } product={item} /> )}
+            <span data-cat={actualCat}></span>
+        </>
+    );
 }
 
 export default ProductItemSlice;

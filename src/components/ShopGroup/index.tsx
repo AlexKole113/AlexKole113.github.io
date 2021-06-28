@@ -5,7 +5,7 @@ import {IFakeProductItem} from "../../../mocks/fakeData/shop";
 import useShopAnimation from "@/hooks/useShopAnimation";
 
 
-const ShopGroup = ( { products , showAnimation, shopStateUpdate, actualCat }:{ products:IFakeProductItem[], showAnimation:string, shopStateUpdate:CallableFunction, actualCat:number } ) => {
+const ShopGroup = ( { products , showAnimation, shopStateUpdate, actualCat, catId }:{ products:IFakeProductItem[], showAnimation:string, shopStateUpdate:CallableFunction, actualCat:number, catId:number } ) => {
 
     const animationClassName = useShopAnimation( shopStateUpdate, showAnimation );
 
@@ -13,7 +13,7 @@ const ShopGroup = ( { products , showAnimation, shopStateUpdate, actualCat }:{ p
     return(
         <section className={`${cssShopAnimation['shop-group-transition-group']} ${cssShopAnimation[animationClassName ?? 'shop-group-hidden']}`}>
             <Search styling={'shadow-theme'} />
-            <GroupedCards products={ products } actualCat={actualCat} />
+            <GroupedCards products={ products } actualCat={actualCat} catId={catId} />
         </section>
     );
 }
