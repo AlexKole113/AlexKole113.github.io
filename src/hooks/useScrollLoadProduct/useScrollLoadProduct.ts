@@ -11,7 +11,6 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
 
         if( triggerElm?.getBoundingClientRect()?.top < screenElm?.offsetHeight ){
             if( state.loading ) return;
-            console.log('||||||||||')
             setState((prevState) => ({ ...prevState, loading:true }));
         }
     }
