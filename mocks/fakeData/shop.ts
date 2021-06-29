@@ -5,7 +5,7 @@ interface IFakeShopCategory {
 }
 interface IFakeShopCategories extends Array<IFakeShopCategory>{};
 interface IFakeProductItem {
-    id: number,
+    id: number|string,
     sku: number,
     title: string,
     image: string,
@@ -14,6 +14,8 @@ interface IFakeProductItem {
     currency: '$' | '€',
     stock:number
 }
+
+
 interface IFakeProducts {
     id: number,
     items: IFakeProductItem[]
@@ -204,8 +206,7 @@ const fakeProductsPopular:IFakeProducts = (()=> {
     }
 } )();
 
-
-const getProductsByCategoryID = (id:number|null = 1):Promise<IFakeProducts|undefined> => {
+const getProductsByCategoryID = (id:number|null = 1, delay =300):Promise<IFakeProducts|undefined> => {
     const allProductsGroups = new Map([
             ['1', fakeProductsFlowers],
             ['2', fakeProductsPlants],
@@ -222,7 +223,7 @@ const getProductsByCategoryID = (id:number|null = 1):Promise<IFakeProducts|undef
             } else {
                 rej('Surprise :) It was randomNetworkError')
             }
-        },300 )
+        },delay )
 
     })
 }

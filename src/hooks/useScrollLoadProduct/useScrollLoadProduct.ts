@@ -1,15 +1,18 @@
 import {useEffect, useState} from "react";
 import getCatProductsSlice from "@/utils/getCatProductsSlice";
+import {IFakeProductItem} from "../../../mocks/fakeData/shop";
+import addPreloadingData from "@/utils/addPreloadingData";
 
 
-const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2 ) => {
-    const [state,setState] = useState({ actualCat, currentIndex, prods:[], loading:false, error:false, success:false});
+const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2 ) :[IFakeProductItem[],boolean] => {
+    const [state,setState] = useState<{actualCat:number, currentIndex:number, loading:boolean, done:boolean, [key:string]:any}>({ actualCat, currentIndex, prods:[], loading:false, error:false, success:false, done:false });
+    const isNeedStartLoadingOnScroll = (triggerElm:Element, screenElm:HTMLElement) => (triggerElm?.getBoundingClientRect()?.top < screenElm?.offsetHeight)
 
     const getProdsOnScroll = ( screenElm:HTMLElement|null ) => {
         const triggerElm = document.querySelector(`[data-cat="${actualCat}"]`);
         if( !triggerElm || !screenElm ) return;
 
-        if( triggerElm?.getBoundingClientRect()?.top < screenElm?.offsetHeight ){
+        if( isNeedStartLoadingOnScroll( triggerElm, screenElm ) ){
             if( state.loading ) return;
             setState((prevState) => ({ ...prevState, loading:true }));
         }
@@ -17,28 +20,33 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
 
 
     useEffect(() => {
-        if(!state.loading) return;
+        if(!state.loading || state.done ) return;
         setState((prevState) => ({
             ...prevState,
             currentIndex: prevState.currentIndex + sliceSize,
+            prods:  [...addPreloadingData( prevState.prods , sliceSize )]
         }))
 
         getCatProductsSlice(actualCat, state.currentIndex, state.currentIndex + sliceSize )
             .then((prods) => {
-                const updatedProds = [];
-                state.prods.forEach(( item ) => {
-                    updatedProds.push( item )
-                })
-                prods?.forEach(( item ) => {
-                    updatedProds.push( item )
-                })
+                if ( !prods ) return;
 
-                setState((prevState) => ({
-                    ...prevState,
-                    prods: updatedProds,
-                    success: true,
-                    loading: false
-                }))
+                if ( prods.done || prods?.items?.length < 1 ) {
+                    setState((prevState) => ({
+                        ...prevState,
+                        prods: [...state.prods.filter(({id}:{id:number|string}) => ( typeof id !== 'string' || !id?.startsWith('loading') ) )],
+                        done: true,
+                        success: true,
+                        loading: false
+                    }))
+                } else {
+                    setState((prevState) => ({
+                        ...prevState,
+                        prods: [...state.prods, ...prods.items ],
+                        success: true,
+                        loading: false
+                    }))
+                }
             })
     },[ state.loading ] )
 
@@ -51,8 +59,7 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
     },[]);
 
 
-    console.log( state.prods, state.currentIndex )
-    return state.prods;
+    return [ state.prods, state.done ];
 }
 
 export default useScrollLoadProduct;
