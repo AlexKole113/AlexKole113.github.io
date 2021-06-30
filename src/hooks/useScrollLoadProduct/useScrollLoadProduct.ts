@@ -18,7 +18,6 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
         }
     }
 
-
     useEffect(() => {
         if(!state.loading || state.done ) return;
         setState((prevState) => ({
@@ -30,7 +29,6 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
         getCatProductsSlice(actualCat, state.currentIndex, state.currentIndex + sliceSize )
             .then((prods) => {
                 if ( !prods ) return;
-
                 if ( prods.done || prods?.items?.length < 1 ) {
                     setState((prevState) => ({
                         ...prevState,
@@ -48,8 +46,7 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
                     }))
                 }
             })
-    },[ state.loading ] )
-
+    },[ state.loading ] );
 
     useEffect(() => {
         const screenElm:HTMLElement|null = document.querySelector(`#content-group`);

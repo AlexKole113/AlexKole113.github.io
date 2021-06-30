@@ -206,7 +206,7 @@ const fakeProductsPopular:IFakeProducts = (()=> {
     }
 } )();
 
-const getProductsByCategoryID = (id:number|null = 1, delay =300):Promise<IFakeProducts|undefined> => {
+const getProductsByCategoryID = (id:number|null = 1, delay = 200 ):Promise<IFakeProducts|undefined> => {
     const allProductsGroups = new Map([
             ['1', fakeProductsFlowers],
             ['2', fakeProductsPlants],
