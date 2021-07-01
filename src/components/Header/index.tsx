@@ -3,7 +3,7 @@ import styles from './styles/index.scss'
 
 const Header = ({children}:any) => (
 
-    <header className={styles.header}>
+    <header id={'header'} className={styles.header}>
         {children}
     </header>
 

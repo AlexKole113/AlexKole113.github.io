@@ -10,9 +10,8 @@ const ProductItemSlice = ({actualCat}:{actualCat:number}) => {
         <>
             {products.map( item => ( typeof item.id === 'string' && item.id.startsWith('loading') ) ? <ProductCardLoading key={ item.id } /> : <ProductCard key={ item.id } product={item} /> )}
             {
-                done ? <span className={styles.noProductsToDisplay}>These are all products</span> :  <span data-cat={actualCat}></span>
+                done ? <span className={styles.noProductsToDisplay}>These are all products</span> :  <span style={{width:'1px',height:'1px', display: 'block', marginTop:'-2rem'}}data-cat={actualCat}></span>
             }
-
         </>
     );
 }

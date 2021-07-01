@@ -1,7 +1,7 @@
 .shop-group-transition {
   --timing-transition-1: .6s;
   --timing-transition-2: .9s;
-  min-height: 40rem;
+  min-height: 45rem;
   position: relative;
   background: transparent;
   &-group {
@@ -14,7 +14,7 @@
       left:0;
       top:0;
       width: 100%;
-      z-index: -1;
+      visibility: hidden;
       .product-card,
       .search {
         transform: translateY(-16.35rem);
@@ -25,7 +25,7 @@
     &.shop-group-current {
       opacity: 1;
       width: 100%;
-      z-index: 0;
+      visibility: visible;
     }
 
     &.shop-group-transition-start {

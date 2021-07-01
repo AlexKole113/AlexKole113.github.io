@@ -6,17 +6,24 @@ import addPreloadingData from "@/utils/addPreloadingData";
 
 const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2 ) :[IFakeProductItem[],boolean] => {
     const [state,setState] = useState<{actualCat:number, currentIndex:number, loading:boolean, done:boolean, [key:string]:any}>({ actualCat, currentIndex, prods:[], loading:false, error:false, success:false, done:false });
-    const isNeedStartLoadingOnScroll = (triggerElm:Element, screenElm:HTMLElement) => (triggerElm?.getBoundingClientRect()?.top < screenElm?.offsetHeight)
-
+    const isNeedStartLoadingOnScroll = (triggeredHeight?:number , totalHeight?:number ) => ( (triggeredHeight && totalHeight) && triggeredHeight < totalHeight )
+    const screenElm:HTMLElement|null = document.querySelector(`#content-group`);
+    let triggerElm:HTMLElement|null  = null;
     const getProdsOnScroll = ( screenElm:HTMLElement|null ) => {
-        const triggerElm = document.querySelector(`[data-cat="${actualCat}"]`);
-        if( !triggerElm || !screenElm ) return;
-
-        if( isNeedStartLoadingOnScroll( triggerElm, screenElm ) ){
+        console.log(triggerElm?.getBoundingClientRect()?.top, screenElm?.offsetHeight )
+        if( isNeedStartLoadingOnScroll( triggerElm?.getBoundingClientRect()?.top, screenElm?.offsetHeight ) ){
             if( state.loading ) return;
             setState((prevState) => ({ ...prevState, loading:true }));
         }
     }
+
+    useEffect(()=>{
+        if( state.done ){
+            document?.querySelector('#footer')?.style.display = 'flex';
+        } else {
+            document?.querySelector('#footer')?.style.display = 'none';
+        }
+    },[ state.done ])
 
     useEffect(() => {
         if(!state.loading || state.done ) return;
@@ -49,7 +56,7 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
     },[ state.loading ] );
 
     useEffect(() => {
-        const screenElm:HTMLElement|null = document.querySelector(`#content-group`);
+        triggerElm = document.querySelector(`[data-cat="${actualCat}"]`);
         const scrollHandler = () => { getProdsOnScroll( screenElm ) }
         screenElm?.addEventListener( 'scroll', scrollHandler );
         return () => screenElm?.removeEventListener('scroll', scrollHandler ) ;
