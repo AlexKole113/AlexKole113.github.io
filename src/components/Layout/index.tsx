@@ -6,7 +6,7 @@ import Preloader from "@/components/Preloader";
 import themesCss from '@/styles/_themes.scss'
 import codePenDemoCss from '@/styles/_for-code-pen-demonstartion.scss'
 import menuStyles from  "@/components/Menu/styles/index.scss";
-import {LayoutContext} from "@/components/App";
+import { LayoutContext } from "@/components/App";
 
 
 interface LayoutProps {

@@ -14,8 +14,6 @@ interface IFakeProductItem {
     currency: '$' | '€',
     stock:number
 }
-
-
 interface IFakeProducts {
     id: number,
     items: IFakeProductItem[]
@@ -227,5 +225,7 @@ const getProductsByCategoryID = (id:number|null = 1, delay = 200 ):Promise<IFake
 
     })
 }
+
+
 
 export { getProductsByCategoryID, fakeCategories, fakeProductsFlowers, fakeProductsPlants, fakeProductsTrees, fakeProductsPopular, IFakeShopCategories, IFakeProductItem, IFakeProducts }

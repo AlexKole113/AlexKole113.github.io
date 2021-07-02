@@ -13,26 +13,29 @@ import Preloader from "@/components/Preloader";
 
 
 
-const themeAndMenuStatusDefault = {theme: 'flowers-theme', menuOpened: false }
+const themeAndMenuStatusDefault = { theme: 'flowers-theme', menuOpened: false, setTheme: (theme:string) => theme, toggleMenu:()=>{} }
 export const LayoutContext = React.createContext( themeAndMenuStatusDefault )
 
 export default () => {
 
-    const [ themeAndMenu, setMenuAndTheme ] = useState( themeAndMenuStatusDefault )
-
-    const toggleMenu = () => {
-        setMenuAndTheme({
-            ...themeAndMenu,
-            menuOpened: !themeAndMenu.menuOpened
-        })
+    const setTheme = ( theme:string ) => {
+        setMenuAndTheme((prevState)=>({
+            ...prevState,
+            theme
+        }))
+        return theme;
     }
+    const toggleMenu = () => {
+        setMenuAndTheme((prevState)=>({
+            ...prevState,
+            menuOpened: !themeAndMenu.menuOpened
+        }))
+    }
+    const [ themeAndMenu, setMenuAndTheme ] = useState( { ...themeAndMenuStatusDefault, setTheme, toggleMenu } )
 
-
-  return (
-
-
+    return (
       <LayoutContext.Provider value={themeAndMenu}>
-              <Router>
+          <Router>
                   <Layout toggleMenuCallback={toggleMenu} >
                       <ErrorBoundary>
                           <Suspense fallback={<Preloader/>}>
