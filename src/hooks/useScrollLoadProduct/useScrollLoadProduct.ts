@@ -10,7 +10,6 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
     const screenElm:HTMLElement|null = document.querySelector(`#content-group`);
     let triggerElm:HTMLElement|null  = null;
     const getProdsOnScroll = ( screenElm:HTMLElement|null ) => {
-        console.log(triggerElm?.getBoundingClientRect()?.top, screenElm?.offsetHeight )
         if( isNeedStartLoadingOnScroll( triggerElm?.getBoundingClientRect()?.top, screenElm?.offsetHeight ) ){
             if( state.loading ) return;
             setState((prevState) => ({ ...prevState, loading:true }));
@@ -18,10 +17,12 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
     }
 
     useEffect(()=>{
+        const footer:HTMLElement|null = document.querySelector('#footer');
+        if(!footer) return
         if( state.done ){
-            document?.querySelector('#footer')?.style.display = 'flex';
+            footer.style.display = 'flex';
         } else {
-            document?.querySelector('#footer')?.style.display = 'none';
+            footer.style.display = 'none';
         }
     },[ state.done ])
 
@@ -61,7 +62,6 @@ const useScrollLoadProduct = ( actualCat:number, currentIndex = 4, sliceSize = 2
         screenElm?.addEventListener( 'scroll', scrollHandler );
         return () => screenElm?.removeEventListener('scroll', scrollHandler ) ;
     },[]);
-
 
     return [ state.prods, state.done ];
 }

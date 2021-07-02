@@ -7,7 +7,6 @@
             "header"
             "content"
             "footer";
-
   overflow-x: hidden;
   overflow-y: scroll;
   position: absolute;
@@ -17,6 +16,7 @@
   left: calc(50% - 160px);
   top: 44px;
   border-radius: 28px;
+  overscroll-behavior-y: none;
 
 
   .content {
