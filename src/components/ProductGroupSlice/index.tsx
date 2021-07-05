@@ -20,7 +20,6 @@ const ProductGroupSlice = ( {cats, show, hide, shopStateUpdate }:{cats:IFakeShop
 
     },[]);
 
-
     return(
      <>
          { (state.items) ? state.items.map( ( {items,id} ) => {

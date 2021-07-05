@@ -18,7 +18,6 @@
   border-radius: 28px;
   overscroll-behavior-y: none;
 
-
   .content {
     grid-area: content;
     max-width: 100vw;
@@ -26,8 +25,8 @@
   }
 
   &:before {
-    transition: all var(--transition-main);
     content: '';
+    transition: all var(--transition-main);
     position: absolute;
     background: var(--mobile-wrapper-menu-theme);
     z-index: 100;
@@ -45,7 +44,6 @@
       overflow: hidden;
     }
   }
-
 
   .preloader {
     background-color: #ffffff;
@@ -96,5 +94,4 @@
   &::-webkit-scrollbar { width: 0; }
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
-
 }

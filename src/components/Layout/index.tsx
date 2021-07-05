@@ -20,19 +20,14 @@ const Layout = ({ children, toggleMenuCallback }: LayoutProps) => {
     return(
         <main className={themesCss[theme]}>
             <section className={`${codePenDemoCss['mobile-wrapper']} ${(menuOpened) ? menuStyles['menu-opened'] : ''}`} id={`content-group`} >
-
                 <Preloader/>
-
                 <Header>
                     <Menu toggleMenuCallback={toggleMenuCallback} />
                 </Header>
-
                 <section className={codePenDemoCss.content}>
                     {children}
                 </section>
-
                 <Footer/>
-
             </section>
         </main>
     );

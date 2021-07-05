@@ -8,7 +8,6 @@ const CategoryList = ({categories,updateActiveItem, pageState }:{ categories:IFa
 
     <section className={css['category-list']}>
         <div className={css['category-list__items']}>
-
             {categories.map(( {id,value,icon,styling, active} ) => <Button
                key={id}
                updateActiveItem={()=>{updateActiveItem(id)} }
@@ -16,10 +15,6 @@ const CategoryList = ({categories,updateActiveItem, pageState }:{ categories:IFa
                styling={styling}
                statement={ ( pageState?.loading && active ) ? 'loading' : active }
             />)}
-
-            {/*<Button value={'Flowers'} icon={'plant'} styling={'shadow-pink'} statement={'active'} />*/}
-            {/*<Button value={'Trees'} icon={'plant'} styling={'shadow-blue'} statement={'loading'} />*/}
-
         </div>
     </section>
 

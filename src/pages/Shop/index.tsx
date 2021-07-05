@@ -37,15 +37,10 @@ const Shop = () => {
 
     return (
         <div className={cssShopAnimation['shop-group']}>
-
             <CategoryList categories={categories} updateActiveItem={setActive} pageState={state} />
-
             <section className={cssShopAnimation['shop-group-transition']}>
-
                 <ProductGroupSlice cats={categories} show={state.actualID} hide={state.lastActualID} shopStateUpdate={setState} />
-
             </section>
-
         </div>
     );
 
