@@ -1,5 +1,5 @@
 .settings-theme {
-  --background-theme: linear-gradient(180deg, var(--blue-link) 20%, var(--violet-link) 450%);
+  --background-theme: linear-gradient(180deg, rgb(80,142,255) 20%, rgb(189,148,251) 450%);
   --mobile-wrapper-menu-theme: linear-gradient(135deg, var(--violet-link), #6097f1);
   --shadow-theme: 1px 4px 8px var(--shadow-pink);
   --btn-theme: linear-gradient(180deg, var(--orange-light), var(--pink));
@@ -8,7 +8,7 @@
 }
 
 .profile-theme {
-  --background-theme:  linear-gradient(180deg, #7dad50 20%, var(--green) 80%);
+  --background-theme:  var(--background-gradient-cat-2);
   --mobile-wrapper-menu-theme: linear-gradient(135deg, var( --green-light), var(--green));
   --shadow-theme:1px 4px 8px var(--shadow-green);
   --btn-theme:linear-gradient(180deg, #a6d367, #67b443 );
@@ -17,7 +17,7 @@
 }
 
 .contact-theme {
-  --background-theme:  linear-gradient(180deg, var(--red-link) 20%, var(--red-link) 80%);
+  --background-theme:  linear-gradient(180deg, rgb(253,87,96) 20%, rgb(253,87,96) 80%);
   --mobile-wrapper-menu-theme: linear-gradient(135deg, var(--white), var(--red-link) );
   --shadow-theme:1px 4px 8px var(--shadow-pink);
   --btn-theme: linear-gradient(180deg, var(--orange-light), var(--pink));
@@ -26,7 +26,7 @@
 }
 
 .cart-theme {
-  --background-theme:  linear-gradient(180deg, #cfdaff 20%, #b7dbfa 80%);
+  --background-theme:  linear-gradient(180deg, rgb(207,218,255) 20%, rgb(183,219,250) 80%);
   --mobile-wrapper-menu-theme: var(--black-text);
   --shadow-theme:1px 4px 8px var(--black-text);
   --btn-theme: linear-gradient(135deg, var(--violet-link), #6097f1);
@@ -35,13 +35,15 @@
 }
 
 .favorites-theme {
-  --background-theme:  linear-gradient(180deg, #cfdaff 20%, #b7dbfa 80%);
+  --background-theme:  linear-gradient(180deg, rgb(207,218,255) 20%, rgb(183,219,250) 80%);
   --mobile-wrapper-menu-theme: var(--black-text);
   --shadow-theme:1px 4px 8px var(--black-text);
   --btn-theme: linear-gradient(135deg, var(--violet-link), #6097f1);
   --color-theme: #94b9ff;
   --text-color-theme:  var(--black-text);
 }
+
+
 
 //category
 .flowers-theme {

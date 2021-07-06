@@ -17,9 +17,9 @@
   --gray-settings-control: #e4e4e4;
 
   --violet-text: #7660ff;
-  --violet-link:#bd94fb;
+  --violet-link: #bd94fb;
 
-  --blue-link:#508eff;
+  --blue-link: #508eff;
   --blue-switcher-default-active: #4983ee;
 
   --red-link: #fd5760;
@@ -37,8 +37,10 @@
   --back-switcher-default: linear-gradient(114deg, #ffff, #f4f4f4);
   --brand-linear-gradient: linear-gradient(180deg, var(--orange-light), var(--pink));
 
-  --background-gradient-cat-1: linear-gradient(180deg, var(--orange-light), var(--pink)) ;
-  --background-gradient-cat-2: linear-gradient(180deg, var( --green-light) 20%, var(--green) 80%);
-  --background-gradient-cat-3: linear-gradient(180deg, rgb(183, 248, 219) 20%, rgb(80,167,194) 80%);
-  --background-gradient-cat-4: linear-gradient(180deg, rgb(255,88,88) 20%, rgb(240,152,25) 80%);
+  --background-gradient-cat-1: linear-gradient(180deg, rgb(238,196,153)20%, rgb(255,102,163)80%) ;
+  --background-gradient-cat-2: linear-gradient(180deg, rgb(162,204,114)20%, rgb(70,130,27)80%);
+  --background-gradient-cat-3: linear-gradient(180deg, rgb(183,248,219)20%, rgb(80,167,194)80%);
+  --background-gradient-cat-4: linear-gradient(180deg, rgb(255,88,88)20%,   rgb(240,152,25)80%);
 }
+
+
