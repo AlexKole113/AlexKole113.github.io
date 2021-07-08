@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const useShopAnimation =  (shopStateUpdate:CallableFunction, showAnimation:string ) => {
+const useShopAnimation =  (shopStateUpdate:CallableFunction, showAnimation:string, delays = [ 800, 800 ] ) => {
     const [ animationClassName, setAnimationClassName ] = useState('shop-group-hidden');
     const showFromTop = (setAnimationClassName:CallableFunction, steps:number[]) => {
         new Promise((res) => {
@@ -36,10 +36,10 @@ const useShopAnimation =  (shopStateUpdate:CallableFunction, showAnimation:strin
     useEffect(()=>{
         switch ( showAnimation ){
             case 'showFromTop' :
-                showFromTop(setAnimationClassName,[ 850, 850 ])
+                showFromTop(setAnimationClassName,delays)
                 break;
             case  'hideToBottom' :
-                hideToBottom(setAnimationClassName,[ 850, 850 ])
+                hideToBottom(setAnimationClassName,delays)
                 break;
         }
     },[showAnimation]);
