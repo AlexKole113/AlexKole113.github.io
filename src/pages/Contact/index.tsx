@@ -2,10 +2,11 @@
 import ContactItem from "@/components/ContactItem";
 import contactCss from './styles/index.scss';
 import commonCss from '@/styles/_common.scss'
+import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 
 
 const Contact = () => {
-
+    useThemeSwitcher('contact-theme' );
     return (
        <>
            <div className={contactCss['contact-group-map']} >

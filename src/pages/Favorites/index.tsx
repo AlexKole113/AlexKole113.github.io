@@ -2,12 +2,13 @@
 import Search from "@/components/Search";
 import GroupedCards from "@/components/GroupedCards";
 import favoritesCss from './styles/index.scss';
+import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 
 
 
 
 const Favorites = () => {
-
+    useThemeSwitcher('favorites-theme' );
     return (
         <div className={favoritesCss['shop-group']}>
 

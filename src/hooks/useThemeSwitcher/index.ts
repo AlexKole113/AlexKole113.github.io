@@ -1,23 +1,60 @@
-import {useEffect, useState} from "react";
-import getThemeByID from "../../../mocks/fakeData/themes";
-import changeCssTheme from "@/utils/changeCssTheme";
+import { useContext, useEffect, useState } from 'react';
+import changeCssTheme from '@/utils/changeCssTheme';
+import { LayoutContext } from '@/components/App';
+import getThemeByID from '../../../mocks/fakeData/themes';
 
-const useThemeSwitcher = ( id:number|string, rgbDefault= [[238,196,153],[255,102,163]], delay = 800 ) => {
+const useThemeSwitcher = (id:string, delay = 800) => {
+  const startRGB = [[238, 196, 153], [255, 102, 163]];
+  const { themeID, setThemeID } = useContext(LayoutContext);
+  const [themeRGB, setThemeRGB] = useState<null|number[][]>(null);
 
-    const [ currentTheme, setTheme ] = useState<number[][]>( rgbDefault );
+  useEffect(() => {
+    if (themeID === null) {
+      getThemeByID(id)
+        .then((themeColorsArray) => {
+          if (themeColorsArray && Array.isArray(themeColorsArray)) {
+            setThemeID(`${id}`);
+            setThemeRGB(() => themeColorsArray);
+            changeCssTheme(startRGB, themeColorsArray, document.querySelector('main'), delay);
+          }
+        })
+        .catch((e) => {
+          throw new Error(`theme error: ${e}`);
+        });
+    }
 
-    useEffect(()=>{
-        getThemeByID(id)
-            .then(( themeColorsArray ) => {
-                if( Array.isArray(themeColorsArray) ){
-                    changeCssTheme( currentTheme, themeColorsArray, document.querySelector('main'), delay );
-                    setTheme( themeColorsArray )
-                }
-            })
-            .catch( e =>{
-                throw new Error('theme error: ' + e)
-            })
-    },[id])
-}
+    if (themeRGB === null) {
+      getThemeByID(themeID ?? id)
+        .then((oldThemeRGB) => {
+          getThemeByID(id)
+            .then((themeColorsArray) => {
+              if ((themeColorsArray && Array.isArray(themeColorsArray))
+                  && (oldThemeRGB && Array.isArray(oldThemeRGB))) {
+                setThemeID(`${id}`);
+                setThemeRGB(() => themeColorsArray);
+                changeCssTheme(oldThemeRGB, themeColorsArray, document.querySelector('main'), delay);
+              }
+            });
+        })
+        .catch((e) => {
+          throw new Error(`theme error: ${e}`);
+        });
+
+      return;
+    }
+
+    getThemeByID(id)
+      .then((themeColorsArray) => {
+        if (themeColorsArray && Array.isArray(themeColorsArray)) {
+          setThemeID(`${id}`);
+          setThemeRGB(() => themeColorsArray);
+          changeCssTheme(themeRGB, themeColorsArray, document.querySelector('main'), delay);
+        }
+      })
+      .catch((e) => {
+        throw new Error(`theme error: ${e}`);
+      });
+  }, [id]);
+};
 
 export default useThemeSwitcher;

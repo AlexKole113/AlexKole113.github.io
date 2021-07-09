@@ -4,11 +4,12 @@ import SettingsControl from "@/components/SettingsControl";
 import SelectSettings from "@/components/SelectSettings";
 import settingsCss from './styles/index.scss';
 import commonCss from '@/styles/_common.scss'
+import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 
 
 
 const Settings = () => {
-
+    useThemeSwitcher('settings-theme' );
     return (
         <>
             <section class={settingsCss['settings-group']} >

@@ -34,12 +34,13 @@ module.exports = function (env, argv) {
           test: /\.scss$/i,
           use: [
             MiniCssExtractPlugin.loader,
-            { loader:  'css-loader',
+            {
+              loader: 'css-loader',
               options: {
-                  modules: true,
-              }
+                modules: true,
+              },
             },
-            'postcss-loader', 'sass-loader'
+            'postcss-loader', 'sass-loader',
           ],
         },
         {
