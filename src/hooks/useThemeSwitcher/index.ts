@@ -11,9 +11,7 @@ const useThemeSwitcher = (id:string, delay = 800) => {
   const [themeRGB, setThemeRGB] = useState<null|number[][]>(null);
 
   useEffect(() => {
-    console.log(menuOpened);
     if (menuOpened) toggleMenu();
-
     if (themeID === null) {
       getThemeByID(id)
         .then((themeColorsArray) => {

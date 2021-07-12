@@ -7,9 +7,6 @@ import useThemeSwitcher from '@/hooks/useThemeSwitcher';
 import { fakeCategories as categories } from '../../../mocks/fakeData/shop';
 
 const Shop = () => {
-  const [state, setState] = useState<IShopState>({
-    loading: false, error: false, init: true, actualID: 1, lastActualID: null,
-  });
   const [actualCategories, updateActualCategories] = useState(categories);
   const setActive = (id:number) => {
     if (state.loading) return;
@@ -32,6 +29,9 @@ const Shop = () => {
 
     updateActualCategories(() => updState);
   };
+  const [state, setState] = useState<IShopState>({
+    loading: false, error: false, init: true, actualID: actualCategories.filter(({ active }) => active === 'active')[0].id, lastActualID: null,
+  });
 
   useThemeSwitcher(`${state.actualID}`);
   return (
