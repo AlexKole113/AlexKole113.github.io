@@ -22,15 +22,13 @@ const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
               <Hamburger />
             </div>
             <div className={menuStyles['menu-top__page-title']}>
-
               <PageTitle value="explore" />
-
             </div>
           </div>
           <div className={menuStyles['menu-main-group']}>
             <nav className={menuStyles['main-menu']}>
               <ul className={menuStyles['main-menu__items']}>
-                {menu.map(({ title, path }) => <MainMenuItem key={path} value={title} path={path} active="active" />)}
+                {menu.map(({ title, path }) => <MainMenuItem key={path} value={title} path={path} />)}
               </ul>
             </nav>
           </div>

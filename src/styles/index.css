@@ -518,9 +518,9 @@ body {
           padding-right: .45rem; }
           .main-menu__items_item .main-menu__link-extra svg {
             width: .6rem; }
-      .main-menu__items_item.active-menu-item .main-menu__link-text,
-      .main-menu__items_item.active-menu-item .main-menu__link-extra {
-        color: var(--violet-text); }
+        .main-menu__items_item .main-menu__link.active-menu-item .main-menu__link-text,
+        .main-menu__items_item .main-menu__link.active-menu-item .main-menu__link-extra {
+          color: var(--violet-text); }
 
 .menu-opened .main-menu {
   height: 100%;

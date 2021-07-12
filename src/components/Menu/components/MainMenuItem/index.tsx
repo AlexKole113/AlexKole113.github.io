@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import ListIcon from '@/components/Menu/components/MainMenuItem/components/ListIcon';
 import UserIcon from '@/components/Menu/components/MainMenuItem/components/UserIcon';
 import CogIcon from '@/components/Menu/components/MainMenuItem/components/CogIcon';
 import PhoneIcon from '@/components/Menu/components/MainMenuItem/components/PhoneIcon';
 import menuStyles from '@/components/Menu/styles/index.scss';
 
-const MainMenuItem = ({ value, path, active }:{value:string, path:string, active?:string}) => {
+const MainMenuItem = ({ value, path }:{value:string, path:string}) => {
   const iconsCollection = new Map([
     ['explore', <ListIcon />],
     ['profile', <UserIcon />],
@@ -17,8 +17,8 @@ const MainMenuItem = ({ value, path, active }:{value:string, path:string, active
   const image = (!value) ? '' : iconsCollection.get(`${value}`) ?? '';
 
   return (
-    <li className={` ${menuStyles['main-menu__items_item']} ${(active === 'active') ? menuStyles['active-menu-item'] : ''}`}>
-      <Link className={menuStyles['main-menu__link']} to={path}>
+    <li className={menuStyles['main-menu__items_item']}>
+      <NavLink activeClassName={menuStyles['active-menu-item']} className={menuStyles['main-menu__link']} to={path}>
         <span className={menuStyles['main-menu__link-icon']}>
           {image}
         </span>
@@ -42,7 +42,7 @@ const MainMenuItem = ({ value, path, active }:{value:string, path:string, active
             />
           </svg>
         </span>
-      </Link>
+      </NavLink>
     </li>
   );
 };

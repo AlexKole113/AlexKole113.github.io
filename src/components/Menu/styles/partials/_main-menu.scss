@@ -47,14 +47,16 @@
               width: .6rem;
             }
         }
-      }
 
-      &.active-menu-item {
-        .main-menu__link-text,
-        .main-menu__link-extra {
-          color: var(--violet-text);
+        &.active-menu-item {
+          .main-menu__link-text,
+          .main-menu__link-extra {
+            color: var(--violet-text);
+          }
         }
       }
+
+
     }
   }
 }
