@@ -13,6 +13,7 @@ import Shop from '@/pages/Shop';
 import Profile from '@/pages/Profile';
 import Preloader from '@/components/Preloader';
 
+// TODO: addActivePageID
 const themeAndMenuStatusDefault:{themeID:string|null, menuOpened:boolean, [key:string]:any} = {
   themeID: null, menuOpened: false,
 };
@@ -35,6 +36,8 @@ export default () => {
       }));
     },
   });
+
+  // TODO: add Lazyload from "Snake"
 
   return (
     <LayoutContext.Provider value={themeAndMenu}>
