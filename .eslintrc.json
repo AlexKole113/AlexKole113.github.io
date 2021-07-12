@@ -20,6 +20,6 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
-    "max-len": [2, 150, 4, {"ignoreUrls": true}]
+    "max-len": [2, 175, 4, {"ignoreUrls": true}]
   }
 }

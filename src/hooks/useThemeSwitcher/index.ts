@@ -5,10 +5,15 @@ import getThemeByID from '../../../mocks/fakeData/themes';
 
 const useThemeSwitcher = (id:string, delay = 800) => {
   const startRGB = [[238, 196, 153], [255, 102, 163]];
-  const { themeID, setThemeID } = useContext(LayoutContext);
+  const {
+    themeID, setThemeID, toggleMenu, menuOpened,
+  } = useContext(LayoutContext);
   const [themeRGB, setThemeRGB] = useState<null|number[][]>(null);
 
   useEffect(() => {
+    console.log(menuOpened);
+    if (menuOpened) toggleMenu();
+
     if (themeID === null) {
       getThemeByID(id)
         .then((themeColorsArray) => {
