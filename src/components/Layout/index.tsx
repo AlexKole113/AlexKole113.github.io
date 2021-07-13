@@ -22,7 +22,6 @@ const Layout = ({ children, toggleMenuCallback }: LayoutProps) => {
   const [pageThemeID, setPageThemeID] = useState('1');
 
   // TODO: ThemeMap there
-
   useEffect(() => {
     getThemeByPath(getPath()).then((theme) => {
       if (theme && typeof theme === 'string') {
