@@ -23,4 +23,27 @@ const getThemeByID = (id:number|string|null = 1, delay = 200) => {
     }, delay);
   });
 };
-export default getThemeByID;
+
+const getThemeByPath = (path:string|null, delay = 0) => {
+  const pathThemesMap = new Map([
+    ['shop', '1'],
+    ['profile', 'profile-theme'],
+    ['contacts', 'contact-theme'],
+    ['settings', 'settings-theme'],
+    ['cart', 'cart-theme'],
+  ]);
+
+  return new Promise((res, rej) => {
+    const randomNetworkError = (Math.random() > 0.9999);
+    setTimeout(() => {
+      if (!randomNetworkError) {
+        res(pathThemesMap.get(`${path}`));
+      } else {
+        // eslint-disable-next-line prefer-promise-reject-errors
+        rej('Surprise :) It was randomNetworkError');
+      }
+    }, delay);
+  });
+};
+
+export { getThemeByID, getThemeByPath };

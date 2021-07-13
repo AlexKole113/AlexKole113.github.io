@@ -1,4 +1,6 @@
-import { ReactNode, useContext } from 'react';
+import {
+  ReactNode, useContext, useEffect, useState,
+} from 'react';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Menu from '@/components/Menu';
@@ -7,6 +9,8 @@ import themesCss from '@/styles/_themes.scss';
 import codePenDemoCss from '@/styles/_for-code-pen-demonstartion.scss';
 import menuStyles from '@/components/Menu/styles/index.scss';
 import { LayoutContext } from '@/components/App';
+import getPath from '@/utils/getPath';
+import { getThemeByPath } from '../../../mocks/fakeData/themes';
 
 interface LayoutProps {
   children:ReactNode,
@@ -14,9 +18,20 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, toggleMenuCallback }: LayoutProps) => {
-  const { themeID, menuOpened } = useContext(LayoutContext);
+  const { menuOpened } = useContext(LayoutContext);
+  const [pageThemeID, setPageThemeID] = useState('1');
 
-  const theme = themesCss[`cat-${themeID}`] ?? themesCss[themeID ?? 'flowers-theme'];
+  // TODO: ThemeMap there
+
+  useEffect(() => {
+    getThemeByPath(getPath()).then((theme) => {
+      if (theme && typeof theme === 'string') {
+        setPageThemeID(theme);
+      }
+    });
+  }, []);
+
+  const theme = themesCss[`cat-${pageThemeID}`] ?? themesCss[pageThemeID ?? ''];
 
   return (
     <main className={theme}>

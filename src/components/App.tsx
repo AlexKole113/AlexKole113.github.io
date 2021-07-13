@@ -13,7 +13,6 @@ import Shop from '@/pages/Shop';
 import Profile from '@/pages/Profile';
 import Preloader from '@/components/Preloader';
 
-// TODO: addActivePageID
 const themeAndMenuStatusDefault:{themeID:string|null, pageID:string|null, menuOpened:boolean, [key:string]:any} = {
   themeID: null, pageID: null, menuOpened: false,
 };
@@ -22,7 +21,7 @@ export const LayoutContext = React.createContext(themeAndMenuStatusDefault);
 export default () => {
   const [themeAndMenu, setMenuAndTheme] = useState({
     ...themeAndMenuStatusDefault,
-    setThemeID: (themeID:string = '1') => {
+    setThemeID: (themeID:string|null) => {
       setMenuAndTheme((prevState) => ({
         ...prevState,
         themeID,

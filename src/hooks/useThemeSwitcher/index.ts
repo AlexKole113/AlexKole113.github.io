@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import changeCssTheme from '@/utils/changeCssTheme';
 import { LayoutContext } from '@/components/App';
-import getThemeByID from '../../../mocks/fakeData/themes';
+import { getThemeByID } from '../../../mocks/fakeData/themes';
 
 // TODO: fix start RGB when page loaded first time
 const useThemeSwitcher = (id:string, delay = 800) => {
   const startRGB = [[238, 196, 153], [255, 102, 163]];
+
   const {
     themeID, setThemeID, toggleMenu, menuOpened,
   } = useContext(LayoutContext);
