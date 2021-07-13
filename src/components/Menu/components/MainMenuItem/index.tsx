@@ -4,21 +4,35 @@ import UserIcon from '@/components/Menu/components/MainMenuItem/components/UserI
 import CogIcon from '@/components/Menu/components/MainMenuItem/components/CogIcon';
 import PhoneIcon from '@/components/Menu/components/MainMenuItem/components/PhoneIcon';
 import menuStyles from '@/components/Menu/styles/index.scss';
+import { useContext } from 'react';
+import { LayoutContext } from '@/components/App';
 
-const MainMenuItem = ({ value, path }:{value:string, path:string}) => {
+const MainMenuItem = ({ value, path }:{ value:string, path:string}) => {
+  let isActivePath = false;
+  const { setPageID } = useContext(LayoutContext);
+
   const iconsCollection = new Map([
     ['explore', <ListIcon />],
     ['profile', <UserIcon />],
     ['settings', <CogIcon />],
     ['contact', <PhoneIcon />],
-
   ]);
 
   const image = (!value) ? '' : iconsCollection.get(`${value}`) ?? '';
 
   return (
     <li className={menuStyles['main-menu__items_item']}>
-      <NavLink activeClassName={menuStyles['active-menu-item']} className={menuStyles['main-menu__link']} to={path}>
+      <NavLink
+        activeClassName={menuStyles['active-menu-item']}
+        isActive={(match) => {
+          if (!match) return false;
+          isActivePath = true;
+          return isActivePath;
+        }}
+        onClick={() => { setPageID(value); }}
+        className={menuStyles['main-menu__link']}
+        to={path}
+      >
         <span className={menuStyles['main-menu__link-icon']}>
           {image}
         </span>

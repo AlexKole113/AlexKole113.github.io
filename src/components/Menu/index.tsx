@@ -22,7 +22,7 @@ const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
               <Hamburger />
             </div>
             <div className={menuStyles['menu-top__page-title']}>
-              <PageTitle value="explore" />
+              <PageTitle />
             </div>
           </div>
           <div className={menuStyles['menu-main-group']}>
