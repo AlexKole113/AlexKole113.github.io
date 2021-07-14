@@ -10,7 +10,6 @@ import codePenDemoCss from '@/styles/_for-code-pen-demonstartion.scss';
 import menuStyles from '@/components/Menu/styles/index.scss';
 import { LayoutContext } from '@/components/App';
 import getPath from '@/utils/getPath';
-import { getThemeByPath } from '../../../mocks/fakeData/themes';
 
 interface LayoutProps {
   children:ReactNode,
@@ -21,19 +20,24 @@ const Layout = ({ children, toggleMenuCallback }: LayoutProps) => {
   const { menuOpened } = useContext(LayoutContext);
   const [pageThemeID, setPageThemeID] = useState('1');
 
-  // TODO: ThemeMap there
+  const pathThemesMap = new Map([
+    ['shop', '1'],
+    ['profile', 'profile-theme'],
+    ['contacts', 'contact-theme'],
+    ['settings', 'settings-theme'],
+    ['cart', 'cart-theme'],
+  ]);
+
   useEffect(() => {
-    getThemeByPath(getPath()).then((theme) => {
-      if (theme && typeof theme === 'string') {
-        setPageThemeID(theme);
-      }
-    });
+    const path = getPath();
+    const themeID = pathThemesMap.get(`${path}`);
+    if (themeID && typeof themeID === 'string') {
+      setPageThemeID(() => themeID);
+    }
   }, []);
 
-  const theme = themesCss[`cat-${pageThemeID}`] ?? themesCss[pageThemeID ?? ''];
-
   return (
-    <main className={theme}>
+    <main className={themesCss[`cat-${pageThemeID}`] ?? themesCss[pageThemeID ?? '']}>
       <section className={`${codePenDemoCss['mobile-wrapper']} ${(menuOpened) ? menuStyles['menu-opened'] : ''}`} id="content-group">
         <Preloader />
         <Header>

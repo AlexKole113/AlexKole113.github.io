@@ -4,9 +4,7 @@ import { LayoutContext } from '@/components/App';
 import { getThemeByID } from '../../../mocks/fakeData/themes';
 
 // TODO: fix start RGB when page loaded first time
-const useThemeSwitcher = (id:string, delay = 800) => {
-  const startRGB = [[238, 196, 153], [255, 102, 163]];
-
+const useThemeSwitcher = (id:string, delay = 700) => {
   const {
     themeID, setThemeID, toggleMenu, menuOpened,
   } = useContext(LayoutContext);
@@ -18,9 +16,10 @@ const useThemeSwitcher = (id:string, delay = 800) => {
       getThemeByID(id)
         .then((themeColorsArray) => {
           if (themeColorsArray && Array.isArray(themeColorsArray)) {
+            const oldThemeRGB = themeColorsArray;
             setThemeID(`${id}`);
             setThemeRGB(() => themeColorsArray);
-            changeCssTheme(startRGB, themeColorsArray, document.querySelector('main'), delay);
+            changeCssTheme(oldThemeRGB, themeColorsArray, document.querySelector('main'), delay);
           }
         })
         .catch((e) => {
