@@ -5,9 +5,15 @@ import App from './components/App';
 
 import './styles/index.scss';
 
-// TODO: hocs needed
-// 1. WithContext - Themes, menus
-// 2. WithAPIService - data
+// TODO: reorganize project:
+//  API
+//  1.1 Create common API class with static functions
+//  1.2 Add hoc withAPIService - data
+//  1.3 add hoc withContext - Themes, menus
+// TODO: add redux
+//  2.1 Wrap needed components withAPIService and connect to redux;
+//  2.2 add redux funcs actions, mapDispatch..,mapState..
+// TODO: add sagas
 
 ReactDOM.render(
   <Provider store={store}>
