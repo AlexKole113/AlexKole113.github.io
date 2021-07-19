@@ -43,7 +43,6 @@ export default () => {
   });
 
   // TODO: add Lazyload from "Snake"
-
   return (
     <LayoutContext.Provider value={themeAndMenu}>
       <Router>

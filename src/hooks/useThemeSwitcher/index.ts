@@ -3,7 +3,6 @@ import changeCssTheme from '@/utils/changeCssTheme';
 import { LayoutContext } from '@/components/App';
 import { getThemeByID } from '../../../mocks/fakeData/themes';
 
-// TODO: fix start RGB when page loaded first time
 const useThemeSwitcher = (id:string, delay = 700) => {
   const {
     themeID, setThemeID, toggleMenu, menuOpened,
