@@ -1,5 +1,5 @@
 import { sendDataFromInput } from './fakeData/sendDataFromInput';
-import { getProductsByCategoryID } from './fakeData/shop';
+import { getProductsByCategoryID, getCategories } from './fakeData/shop';
 import { getThemeByID, getThemeByPath } from './fakeData/themes';
 
 class IApi {
@@ -18,6 +18,8 @@ class APIService implements IApi {
   static getThemeByID = (id:number|string|null = 1) => getThemeByID(id);
 
   static getThemeByPath = (path:string|null) => getThemeByPath(path);
+
+  static getCategories = () => getCategories();
 }
 
 export default APIService;

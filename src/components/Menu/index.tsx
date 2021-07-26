@@ -37,7 +37,7 @@ const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
       <nav className={menuStyles['additional-menu']}>
         <ul className={menuStyles['additional-menu__items']}>
 
-          <AdditionalMenuItem value="cart" amount={5} />
+          <AdditionalMenuItem value="categories" amount={5} />
           <AdditionalMenuItem value="favorites" amount={3} />
 
         </ul>

@@ -1,12 +1,23 @@
 import CategoryList from '@/components/CategoryList';
 import cssShopAnimation from '@/styles/shop-animation.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IShopState } from '@/pages/Shop/interface';
 import ProductGroupSlice from '@/components/ProductGroupSlice';
 import useThemeSwitcher from '@/hooks/useThemeSwitcher';
+import { categoriesInfoAction } from '@/actions/categories';
+import { useDispatch, useSelector } from 'react-redux';
 import { fakeCategories as categories } from '../../../mocks/fakeData/shop';
 
 const Shop = () => {
+  // TEST
+  const globalState = useSelector((state:any) => state);
+  const dispatch = useDispatch();
+  console.log(globalState);
+  useEffect(() => {
+    dispatch(categoriesInfoAction.request());
+  }, []);
+  // \TEST
+
   const [actualCategories, updateActualCategories] = useState(categories);
   const setActive = (id:number) => {
     if (state.loading) return;
@@ -34,6 +45,7 @@ const Shop = () => {
   });
 
   useThemeSwitcher(`${state.actualID}`);
+
   return (
     <div className={cssShopAnimation['shop-group']}>
       <CategoryList categories={categories} updateActiveItem={setActive} pageState={state} />

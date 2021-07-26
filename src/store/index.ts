@@ -1,6 +1,62 @@
-import { createStore } from 'redux';
-import shopReducer from '@/reducers';
+import {
+  configureStore,
+  ConfigureStoreOptions,
+} from '@reduxjs/toolkit';
+import rootReducer, { RootState } from '@/reducers';
+import {
+  createBrowserHistory,
+  // eslint-disable-next-line import/no-extraneous-dependencies
+} from 'history';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import type { SagaMiddleware } from '@redux-saga/core';
+import { routerMiddleware } from 'connected-react-router';
 
-const store = createStore(shopReducer);
+interface ICreateStore {
+  sagaMiddleware: SagaMiddleware;
+  client?: boolean;
+  initialState?: object;
+  url?: string;
+}
 
-export default store;
+const createStore = ({
+  client = true,
+  initialState,
+  sagaMiddleware,
+}: ICreateStore) => {
+  const history = createBrowserHistory();
+
+  let options: ConfigureStoreOptions<any, any, any> = {
+    reducer: rootReducer(history),
+    middleware: [sagaMiddleware, routerMiddleware(history)],
+  };
+
+  if (client) {
+    options = {
+      ...options,
+      // eslint-disable-next-line no-underscore-dangle
+      preloadedState: undefined,
+      devTools: process.env.NODE_ENV !== 'production',
+    };
+  }
+
+  if (initialState) {
+    options = {
+      ...options,
+      preloadedState: initialState,
+    };
+  }
+
+  const store = configureStore<RootState>(options);
+
+  if (process.env.NODE_ENV === 'development' && (module as any).hot) {
+    (module as any).hot.accept('./reducers', () => {
+      // eslint-disable-next-line global-require
+      const newRootReducer = require('./reducers').default;
+      store.replaceReducer(newRootReducer);
+    });
+  }
+
+  return { store, history };
+};
+
+export default createStore;

@@ -1,9 +1,17 @@
+import { ConnectedRouter } from 'connected-react-router';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from '@/store';
+
+import createStore from '@/store';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from '@/saga';
 import App from './components/App';
 
 import './styles/index.scss';
+
+const sagaMiddleware = createSagaMiddleware();
+const { store, history } = createStore({ sagaMiddleware });
+sagaMiddleware.run(rootSaga);
 
 // TODO: reorganize project:
 //  API
@@ -18,7 +26,9 @@ import './styles/index.scss';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </Provider>,
   document.querySelector('#app'),
 );

@@ -1,20 +1,13 @@
-import { IFakeProductItem } from '../../mocks/fakeData/shop';
+import { combineReducers } from 'redux';
+import { connectRouter } from 'connected-react-router';
+import categories from '@/reducers/categories';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import type { History } from 'history';
 
-const initialState:{products:IFakeProductItem[], favorites:IFakeProductItem[], cart:IFakeProductItem[]} = {
-  products: [],
-  favorites: [],
-  cart: [],
-};
+const rootReducer = (history: History) => combineReducers({
+  categories,
+  router: connectRouter(history),
+});
 
-const shopReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'PRODUCTS_LOADED':
-      return {
-        products: action.payload,
-      };
-    default:
-      return state;
-  }
-};
-
-export default shopReducer;
+export type RootState = ReturnType<ReturnType<typeof rootReducer>>;
+export default rootReducer;

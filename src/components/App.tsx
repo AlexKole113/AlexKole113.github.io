@@ -54,7 +54,7 @@ export default () => {
                 <Route path="/" component={Shop} exact />
                 <Route path="/check-out" component={CheckOut} />
                 {/* Thank U page */}
-                <Route path="/cart" component={Cart} />
+                <Route path="/categories" component={Cart} />
                 <Route path="/favorites" component={Favorites} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/shop" component={Shop} />

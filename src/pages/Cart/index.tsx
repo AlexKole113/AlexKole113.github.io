@@ -29,7 +29,7 @@ const Cart = () => {
           </section>
           <section className={cartCss['promocode-group']}>
 
-            <InputWithButton styling="cart-input" />
+            <InputWithButton styling="categories-input" />
 
           </section>
 

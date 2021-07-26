@@ -1,6 +1,6 @@
-import { spawn } from 'redux-saga/effects';
-import userSaga from '@/saga/user';
+import { fork } from 'redux-saga/effects';
+import { categoriesSaga } from '@/saga/categories';
 
 export default function* rootSaga() {
-  yield spawn(userSaga);
+  yield fork(categoriesSaga);
 }

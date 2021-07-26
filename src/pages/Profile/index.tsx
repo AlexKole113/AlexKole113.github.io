@@ -9,7 +9,7 @@ import {
 
 import profileCss from './styles/index.scss';
 
-const Profile = ({ apiService }:{apiService:any}) => {
+const Profile = () => {
   const [actualCategories, updateActualCategories] = useState(categories);
   const [state, setState] = useState({ loading: false, error: false, init: true });
   const singleFieldSize = 100;
