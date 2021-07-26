@@ -286,5 +286,5 @@ const getCategories = (delay = 200) :Promise<IFakeShopCategory[]|undefined> => n
 });
 
 export {
-  getProductsByCategoryID, getCategories, fakeCategories, fakeProductsFlowers, fakeProductsPlants, fakeProductsTrees, fakeProductsPopular, IFakeShopCategories, IFakeProductItem, IFakeProducts,
+  getProductsByCategoryID, getCategories, fakeCategories, fakeProductsFlowers, fakeProductsPlants, fakeProductsTrees, fakeProductsPopular, IFakeShopCategories, IFakeShopCategory, IFakeProductItem, IFakeProducts,
 };

@@ -18,8 +18,6 @@ export function* loadData(
 ) {
   try {
     const response = yield call(api, action.payload?.params);
-
-    console.log('1', response);
     yield put(creator.success({ status: response.status, data: response }));
     if (notifications?.success !== undefined) {
       console.log(notifications.success);

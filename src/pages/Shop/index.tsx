@@ -6,22 +6,36 @@ import ProductGroupSlice from '@/components/ProductGroupSlice';
 import useThemeSwitcher from '@/hooks/useThemeSwitcher';
 import { categoriesInfoAction } from '@/actions/categories';
 import { useDispatch, useSelector } from 'react-redux';
-import { fakeCategories as categories } from '../../../mocks/fakeData/shop';
+import { categoriesStateSelector } from '@/selectors/categories';
+import getActualIDFromCategories from '@/utils/getActualIDFromCategories';
+import setActualIDInCategory from '@/utils/setActualIDInCategorie';
+import { IFakeShopCategories } from '../../../mocks/fakeData/shop';
 
 const Shop = () => {
-  // TEST
-  const globalState = useSelector((state:any) => state);
   const dispatch = useDispatch();
-  console.log(globalState);
+  const allCategories = useSelector(categoriesStateSelector);
+  const [categories, updateCategories] = useState<IFakeShopCategories|[]>([]);
+  const [state, setState] = useState<IShopState>({
+    loading: false, error: false, init: true, actualID: 1, lastActualID: null,
+  });
+
   useEffect(() => {
     dispatch(categoriesInfoAction.request());
   }, []);
-  // \TEST
 
-  const [actualCategories, updateActualCategories] = useState(categories);
+  useEffect(() => {
+    if (!allCategories.length) return;
+    updateCategories(() => allCategories);
+    setState((prevState) => ({
+      ...prevState,
+      actualID: getActualIDFromCategories(allCategories),
+    }));
+  }, [allCategories]);
+
   const setActive = (id:number) => {
-    if (state.loading) return;
-    const currentActualID = actualCategories.filter(({ active }) => active === 'active')[0].id;
+    if (state.loading || !categories.length) return;
+    const currentActualID = getActualIDFromCategories(categories);
+
     if (id === currentActualID) return;
 
     setState((prevState) => ({
@@ -32,20 +46,13 @@ const Shop = () => {
       actualID: id,
     }));
 
-    const updState = actualCategories.map((item) => {
-      item.active = undefined;
-      if (item.id === id) item.active = 'active';
-      return item;
-    });
-
-    updateActualCategories(() => updState);
+    // TODO: current Active id add in URL
+    updateCategories(() => setActualIDInCategory(categories, id));
   };
-  const [state, setState] = useState<IShopState>({
-    loading: false, error: false, init: true, actualID: actualCategories.filter(({ active }) => active === 'active')[0].id, lastActualID: null,
-  });
 
   useThemeSwitcher(`${state.actualID}`);
 
+  if (!categories.length) return null;
   return (
     <div className={cssShopAnimation['shop-group']}>
       <CategoryList categories={categories} updateActiveItem={setActive} pageState={state} />
