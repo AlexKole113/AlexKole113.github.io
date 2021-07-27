@@ -14,15 +14,18 @@ const { store, history } = createStore({ sagaMiddleware });
 sagaMiddleware.run(rootSaga);
 
 // TODO: reorganize project:
-//  API
+//  1. API
 //  (V) 1.1 Create common API class with static functions
 //  (V) 1.2 Add hoc withAPIService - data
-//  1.3 add hoc withContext - Themes, menus
-// TODO: add redux
-//  2.1 Wrap needed components withAPIService and connect to redux;
-//  2.2 add redux funcs actions, mapDispatch..,mapState..
-// TODO: add sagas
-// TODO: add cypress
+//      1.2 Add hoc withAUserData - data
+//  2. SAGA + REDUX
+//      2.1 Replace direct API handling to Saga handling
+//  3. CART + Favorites functionalities
+//  4. Settings functionalities
+//  5. Search functions
+//  6. Create pages: Demo page, 404, 505, Thank U
+//  7. Add PWA
+//  8. Cypress testing, browser testing
 
 ReactDOM.render(
   <Provider store={store}>
