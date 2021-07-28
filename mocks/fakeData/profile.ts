@@ -30,7 +30,7 @@ const fakeProfileCategories:IFakeProfileCategories = [
 ];
 
 const fakeProfileFields:IFakeProfileFields = {
-  Profile: {
+  profile: {
     id: 1,
     fields: [
       { name: 'name', type: 'text', placeholder: 'Name and Surname' },
@@ -38,21 +38,20 @@ const fakeProfileFields:IFakeProfileFields = {
       { name: 'email', type: 'email', placeholder: 'Email' },
     ],
   },
-  Payments: {
+  payments: {
     id: 3,
     fields: [
-      { name: 'card_number', type: 'number', placeholder: 'Card number' },
-      { name: 'card_date', type: 'text', placeholder: 'Card Date' },
-      { name: 'card_name_surname', type: 'text', placeholder: 'Name Surname' },
-      { name: 'card_cvv', type: 'password', placeholder: 'Card CVV' },
+      { name: 'number', type: 'tel', placeholder: 'Card number' },
+      { name: 'date', type: 'text', placeholder: 'Card Date' },
+      { name: 'name', type: 'text', placeholder: 'Name Surname' },
+      { name: 'cvv', type: 'password', placeholder: 'Card CVV' },
     ],
   },
-  Address: {
+  address: {
     id: 4,
     fields: [
-      { name: 'address_str_house', type: 'text', placeholder: 'Street, house' },
-      { name: 'address_country_city', type: 'text', placeholder: 'Country, City' },
-      // {name: 'address_zip_code', type: 'number', placeholder: 'Zip Code'},
+      { name: 'streetHouse', type: 'text', placeholder: 'Street, house' },
+      { name: 'countyCity', type: 'text', placeholder: 'Country, City' },
     ],
   },
 };

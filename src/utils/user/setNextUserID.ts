@@ -1,2 +1,2 @@
-const setNextUserID = () => Math.random() * 1000;
+const setNextUserID = () => Math.round(Math.random() * 1000);
 export default setNextUserID;

@@ -2,7 +2,6 @@ import CategoryList from '@/components/CategoryList';
 import ProfileGroup from '@/components/ProfileGroup';
 import { useMemo, useState } from 'react';
 import useThemeSwitcher from '@/hooks/useThemeSwitcher';
-import withAPIService from '@/hocs/withAPIService';
 import {
   fakeProfileCategories as categories, fakeProfileFields as fields, IFakeProfileFields, IFakeProfileCategories, IFakeProfileCategory,
 } from '../../../mocks/fakeData/profile';
@@ -56,4 +55,4 @@ const Profile = () => {
   );
 };
 
-export default withAPIService(Profile);
+export default Profile;

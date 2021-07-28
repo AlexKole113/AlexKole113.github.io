@@ -4,14 +4,23 @@ import { FormEvent, useEffect, useState } from 'react';
 import { validateProfileInput } from '@/utils/validators/validateProfileInput';
 import InvalidIcon from '@/components/InputControl/components/InvalidIcon';
 import { trottler } from '@/utils/trottler';
+import withUserData from '@/hocs/withUserData';
 
 import profileCss from '@/pages/Profile/styles/index.scss';
 import { sendDataFromInput } from '../../../mocks/fakeData/sendDataFromInput';
 import inputCss from './styles/index.scss';
 import buttonSpinner from './assets/preloader-for-btn.gif';
 
-const InputControl = ({ name, type, placeholder }:{ name:string, type:string, placeholder:string }) => {
-  const [state, setState] = useState({ state: '', message: '', value: '' });
+const InputControl = ({
+  groupName, name, type, placeholder, userData,
+}:{groupName:string, name:string, type:string, placeholder:string, userData:{[key:string]:any} }) => {
+  if (!userData.data[groupName]) return null;
+
+  // temporary field check
+  // TODO: Create payment input + card expires input
+  const userDataFromStore = (typeof userData.data[groupName][name] === 'undefined') ? ((groupName === 'payments') ? userData.data[groupName].cards[0][name] : '') : userData.data[groupName][name];
+
+  const [state, setState] = useState({ state: userDataFromStore ? 'received' : '', message: '', value: userDataFromStore });
 
   useEffect(() => {
     const { value, state: statement } = state;
@@ -71,7 +80,9 @@ const InputControl = ({ name, type, placeholder }:{ name:string, type:string, pl
 
   return (
     <label className={`${inputCss['input-control']} ${inputCss['with-placeholder-movement']} ${inputCss['profile-input']} ${profileCss['profile-input']} ${cssStateClass}`}>
-      <input name={name} className={inputCss['input-control__input']} value={state.value} type={type} onChange={enteredValue} onFocus={focus} />
+      {
+        (groupName === 'payments' && name === 'number') ? <input name={name} className={inputCss['input-control__input']} value={state.value} type={type} onChange={enteredValue} onFocus={focus} inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength={19} /> : <input name={name} className={inputCss['input-control__input']} value={state.value} type={type} onChange={enteredValue} onFocus={focus} />
+      }
       <span className={`${inputCss['input-control__placeholder']}  ${labelClassName} `}>{ (state.message) ? state.message : placeholder}</span>
       <span className={inputCss['input-control__state']}>
         {icon}
@@ -80,4 +91,4 @@ const InputControl = ({ name, type, placeholder }:{ name:string, type:string, pl
   );
 };
 
-export default InputControl;
+export default withUserData(InputControl);

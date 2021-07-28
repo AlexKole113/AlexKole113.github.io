@@ -894,7 +894,7 @@ body {
   .profile-group__title-block_title {
     font-family: var(--font-family-regular);
     font-weight: var(--font-weight-title);
-    text-transform: none;
+    text-transform: capitalize;
     font-size: 1.8rem;
     letter-spacing: .5px;
     color: var(--text-color-theme); }

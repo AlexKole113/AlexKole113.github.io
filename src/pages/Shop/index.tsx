@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { categoriesStateSelector } from '@/selectors/categories';
 import getActualIDFromCategories from '@/utils/getActualIDFromCategories';
 import setActualIDInCategory from '@/utils/setActualIDInCategorie';
-import withUserData from '@/hocs/withUserData';
 import { IFakeShopCategories } from '../../../mocks/fakeData/shop';
 
 const Shop = () => {
@@ -69,4 +68,4 @@ const Shop = () => {
   );
 };
 
-export default withUserData(Shop);
+export default Shop;
