@@ -18,16 +18,19 @@ sagaMiddleware.run(rootSaga);
 //  (V) 1.1 Create common API class with static functions
 //  (V) 1.2 Add hoc withAPIService - data
 //  (V) 1.2 Add hoc withAUserData - data
+//      1.3 profile fixing
 //  2. SAGA + REDUX
 //      2.1 Replace direct API handling to Saga handling
-//  3. CART + Favorites functionalities
-//  4. Settings functionalities
-//  5. Search functions
-//  6. Create pages: Demo page, 404, 505, Thank U
-//  7. Add PWA
-//  8. Try to remove all Typescript 'any' from project
-//  9. Refactoring
-//  10. Cypress testing, browser testing
+//  3. CART functionalities
+//  4. FAVORITES functionalities
+//  5. SETTINGS functionalities
+//  6. Search functions
+//  7. Fix all tod's in styles file
+//  8. Create pages: Demo page, 404, 505, Thank U
+//  9. Add PWA
+//  10. Try to remove all Typescript 'any' from project
+//  11. Refactoring
+//  12. Cypress testing, browser testing
 
 ReactDOM.render(
   <Provider store={store}>

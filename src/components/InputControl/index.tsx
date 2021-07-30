@@ -19,7 +19,7 @@ const InputControl = ({
   const [state, setState] = useInputControlState(userData, groupName, name);
 
   // TODO: replace to dispatch
-  // TODO: fix bug with delete value and uncorrect validation
+  // TODO: fix bug with delete value and not correct validation
   const sendAndChooseState = (newState:{ state : string, message: string, value: string }) => {
     setState((prevState) => ({ ...prevState, ...newState }));
     sendDataFromInput(newState.value)
