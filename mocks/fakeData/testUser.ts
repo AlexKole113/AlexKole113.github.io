@@ -9,7 +9,7 @@ const testUser:IUser = {
   },
   payments: {
     cards: [{
-      number: '1234-5678-9012-3456',
+      number: '1234567890123456',
       date: '09/28',
       name: 'JOHN DOE',
       cvv: '123',

@@ -10,11 +10,22 @@ const InputCreditCard = ({
   console.log(name);
 
   // TODO: Create payment input + card expires input
-  // const acceptedCreditCards = {
-  //   visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
-  //   mastercard: /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/,
-  //   diners_club: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
-  // };
+  const acceptedCreditCardNumbers = {
+    visa: /^\d+$/,
+    mastercard: /^\d+$/,
+    diners_club: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
+  };
+
+  const acceptedDateExpr = {
+    accept: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
+  };
+
+  const acceptedCvv = {
+    accept: /^\d+$/,
+  };
+  const acceptedName = {
+    accept: /(?<! )[-a-zA-Z' ]{2,26}/,
+  };
 
   const enteredValue = (e:FormEvent) => {
     const { value } = e.target as HTMLInputElement;
@@ -24,8 +35,12 @@ const InputCreditCard = ({
       return;
     }
 
-    if (!validateProfileInput(value)) {
-      blockSetState((state:IInputCotrol) => ({ ...state, state: 'invalid', message: 'invalid value' }));
+    const validatorPattern = (name === 'number') ? acceptedCreditCardNumbers : (name === 'date') ? acceptedDateExpr : (name === 'cvv') ? acceptedCvv : acceptedName;
+
+    if (!validateProfileInput(value, validatorPattern)) {
+      blockSetState((state:IInputCotrol) => ({
+        ...state, value, state: 'invalid', message: 'invalid value',
+      }));
       return;
     }
 
@@ -38,11 +53,11 @@ const InputCreditCard = ({
 
   switch (name) {
     case 'number':
-      return (<input name={name} className={inputCss['input-control__input']} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
+      return (<input name={name} className={inputCss['input-control__input']} maxLength={15} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
     case 'date':
-      return (<input name={name} className={inputCss['input-control__input']} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
+      return (<input name={name} className={inputCss['input-control__input']} maxLength={5} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
     case 'cvv':
-      return (<input name={name} className={inputCss['input-control__input']} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
+      return (<input name={name} className={inputCss['input-control__input']} maxLength={3} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
     default:
       return (<input name={name} className={inputCss['input-control__input']} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
   }
