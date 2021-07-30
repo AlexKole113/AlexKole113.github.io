@@ -45,8 +45,6 @@ const Shop = () => {
       lastActualID: prevState.actualID,
       actualID: id,
     }));
-
-    // TODO: current Active id add in URL
     updateCategories(() => setActualIDInCategory(categories, id));
   };
 

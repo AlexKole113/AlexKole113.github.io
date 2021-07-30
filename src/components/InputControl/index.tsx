@@ -1,12 +1,12 @@
 import ClearIcon from '@/components/InputControl/components/ClearIcon';
 import SuccessIcon from '@/components/InputControl/components/SuccessIcon';
-import { FormEvent, useEffect, useState } from 'react';
-import { validateProfileInput } from '@/utils/validators/validateProfileInput';
 import InvalidIcon from '@/components/InputControl/components/InvalidIcon';
-import { trottler } from '@/utils/trottler';
 import withUserData from '@/hocs/withUserData';
 
 import profileCss from '@/pages/Profile/styles/index.scss';
+import InputCreditCard from '@/components/InputCreditCard';
+import InputSingle from '@/components/InputSingle';
+import useInputControlState from '@/hooks/useInputControlState/useInputControlState';
 import { sendDataFromInput } from '../../../mocks/fakeData/sendDataFromInput';
 import inputCss from './styles/index.scss';
 import buttonSpinner from './assets/preloader-for-btn.gif';
@@ -16,19 +16,9 @@ const InputControl = ({
 }:{groupName:string, name:string, type:string, placeholder:string, userData:{[key:string]:any} }) => {
   if (!userData.data[groupName]) return null;
 
-  // temporary field check
-  // TODO: Create payment input + card expires input
-  const userDataFromStore = (typeof userData.data[groupName][name] === 'undefined') ? ((groupName === 'payments') ? userData.data[groupName].cards[0][name] : '') : userData.data[groupName][name];
+  const [state, setState] = useInputControlState(userData, groupName, name);
 
-  const [state, setState] = useState({ state: userDataFromStore ? 'received' : '', message: '', value: userDataFromStore });
-
-  useEffect(() => {
-    const { value, state: statement } = state;
-    if (!value && (statement !== '')) {
-      setState((prevState) => ({ ...prevState, state: '' }));
-    }
-  }, [state.value]);
-
+  // TODO: replace to dispatch
   const sendAndChooseState = (newState:{ state : string, message: string, value: string }) => {
     setState((prevState) => ({ ...prevState, ...newState }));
     sendDataFromInput(newState.value)
@@ -47,26 +37,6 @@ const InputControl = ({
 
   const clear = () => { sendAndChooseState({ state: 'loading', message: '', value: '' }); };
 
-  const enteredValue = (e:FormEvent) => {
-    const { value } = e.target as HTMLInputElement;
-
-    if (!value) {
-      sendAndChooseState({ state: 'loading', message: '', value: '' });
-      return;
-    }
-
-    if (!validateProfileInput(value)) {
-      setState((state) => ({ ...state, state: 'invalid', message: 'invalid value' }));
-      return;
-    }
-
-    trottler(() => { sendAndChooseState({ state: 'loading', message: '', value }); }, value);
-  };
-
-  const focus = () => {
-    if (state.value) setState((state) => ({ ...state, state: 'received' }));
-  };
-
   // visualisation
   const iconsCollection = new Map([
     ['received', <ClearIcon onClickFunc={clear} />],
@@ -75,13 +45,31 @@ const InputControl = ({
     ['loading', <img src={buttonSpinner} alt="loader" />],
   ]);
   const icon = iconsCollection.get(state.state) ?? '';
-  const cssStateClass = inputCss[`state-${state.state}`] ?? '';
   const labelClassName = (state.state !== '') ? inputCss['field-has-content'] : '';
-
+  const cssStateClass = inputCss[`state-${state.state}`] ?? '';
   return (
+  // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={`${inputCss['input-control']} ${inputCss['with-placeholder-movement']} ${inputCss['profile-input']} ${profileCss['profile-input']} ${cssStateClass}`}>
       {
-        (groupName === 'payments' && name === 'number') ? <input name={name} className={inputCss['input-control__input']} value={state.value} type={type} onChange={enteredValue} onFocus={focus} inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength={19} /> : <input name={name} className={inputCss['input-control__input']} value={state.value} type={type} onChange={enteredValue} onFocus={focus} />
+        (groupName === 'payments') ? (
+          <InputCreditCard
+            name={name}
+            value={state.value}
+            type={type}
+            blockState={state}
+            blockSetState={setState}
+            sendAndChooseState={sendAndChooseState}
+          />
+        ) : (
+          <InputSingle
+            name={name}
+            value={state.value}
+            type={type}
+            blockState={state}
+            blockSetState={setState}
+            sendAndChooseState={sendAndChooseState}
+          />
+        )
       }
       <span className={`${inputCss['input-control__placeholder']}  ${labelClassName} `}>{ (state.message) ? state.message : placeholder}</span>
       <span className={inputCss['input-control__state']}>

@@ -42,7 +42,7 @@ const fakeProfileFields:IFakeProfileFields = {
     id: 3,
     fields: [
       { name: 'number', type: 'tel', placeholder: 'Card number' },
-      { name: 'date', type: 'text', placeholder: 'Card Date' },
+      { name: 'date', type: 'text', placeholder: 'Card Expires' },
       { name: 'name', type: 'text', placeholder: 'Name Surname' },
       { name: 'cvv', type: 'password', placeholder: 'Card CVV' },
     ],

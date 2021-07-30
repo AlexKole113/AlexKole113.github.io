@@ -1,5 +1,5 @@
 export const sendDataFromInput = (value:string) => new Promise((resolve, reject) => {
-  const success = !((Math.random() > 0.98));
+  const success = !((Math.random() > 0.99));
   setTimeout(() => {
     if (success) {
       resolve(value);
