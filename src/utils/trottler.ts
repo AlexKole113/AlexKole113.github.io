@@ -1,21 +1,21 @@
-let reqSending  = false;
+let reqSending = false;
 let storedValue = '';
-let newValue    = '';
+let newValue = '';
 let newSender:CallableFunction;
-const delay     = 1000 / 10;
+const delay = 1000 / 15;
 
 export const trottler = (send:CallableFunction, value:string) => {
-    newValue  = value;
-    newSender = send;
+  newValue = value;
+  newSender = send;
 
-    if( !reqSending ) {
-        reqSending = true;
-        storedValue = value;
-        send();
-        setTimeout(() => {
-            reqSending = false;
-            if ( newValue === storedValue ) return;
-            newSender();
-        }, delay )
-    }
-}
+  if (!reqSending) {
+    reqSending = true;
+    storedValue = value;
+    send();
+    setTimeout(() => {
+      reqSending = false;
+      if (newValue === storedValue) return;
+      newSender();
+    }, delay);
+  }
+};

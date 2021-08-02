@@ -6,12 +6,7 @@ export interface IUser {
     email: string,
   },
   payments: {
-    cards: [{
-      number: string,
-      date: string,
-      name: string,
-      cvv: string,
-    }],
+    cards: string,
   },
   address: {
     streetHouse:string,

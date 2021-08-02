@@ -4,9 +4,10 @@ import InvalidIcon from '@/components/InputControl/components/InvalidIcon';
 import withUserData from '@/hocs/withUserData';
 
 import profileCss from '@/pages/Profile/styles/index.scss';
-import InputCreditCard from '@/components/InputCreditCard';
+
 import InputSingle from '@/components/InputSingle';
 import useInputControlState from '@/hooks/useInputControlState/useInputControlState';
+import InputCreditCard from '@/components/InputCreditCard';
 import { sendDataFromInput } from '../../../mocks/fakeData/sendDataFromInput';
 import inputCss from './styles/index.scss';
 import buttonSpinner from './assets/preloader-for-btn.gif';
@@ -23,16 +24,15 @@ const InputControl = ({
   const sendAndChooseState = (newState:{ state : string, message: string, value: string }) => {
     setState((prevState) => ({ ...prevState, ...newState }));
     sendDataFromInput(newState.value)
-      .then((value) => {
-        if (!value) {
+      .then((resp) => {
+        if (!resp) {
           setState({ state: '', message: '', value: '' });
           return;
         }
-
-        setState((state) => ({ ...state, state: 'received', message: '' }));
+        setState((prevState) => ({ ...prevState, state: 'received', message: '' }));
       })
       .catch((message) => {
-        setState((state) => ({ ...state, state: 'invalid', message }));
+        setState((prevState) => ({ ...prevState, state: 'invalid', message }));
       });
   };
 
@@ -48,19 +48,13 @@ const InputControl = ({
   const icon = iconsCollection.get(state.state) ?? '';
   const labelClassName = (state.state !== '') ? inputCss['field-has-content'] : '';
   const cssStateClass = inputCss[`state-${state.state}`] ?? '';
+
   return (
   // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={`${inputCss['input-control']} ${inputCss['with-placeholder-movement']} ${inputCss['profile-input']} ${profileCss['profile-input']} ${cssStateClass}`}>
       {
-        (groupName === 'payments') ? (
-          <InputCreditCard
-            name={name}
-            value={state.value}
-            type={type}
-            blockState={state}
-            blockSetState={setState}
-            sendAndChooseState={sendAndChooseState}
-          />
+        (groupName === 'payments' && name === 'cc-card') ? (
+          <InputCreditCard />
         ) : (
           <InputSingle
             name={name}

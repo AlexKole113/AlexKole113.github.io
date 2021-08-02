@@ -8,15 +8,10 @@ const testUser:IUser = {
     email: 'john@doe.com',
   },
   payments: {
-    cards: [{
-      number: '1234567890123456',
-      date: '09/28',
-      name: 'JOHN DOE',
-      cvv: '123',
-    }],
+    cards: 'use protected gateway',
   },
   address: {
-    streetHouse: 'Lenina, 1',
+    streetHouse: 'Somewhere, 1',
     countyCity: 'USA, Los-Angeles',
   },
 };
