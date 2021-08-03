@@ -20,8 +20,8 @@ export default class ErrorBoundary extends Component<any, any> {
 
     if (hasError) {
       return (
-        <div style={{ display: 'flex' }}>
-          <div>
+        <div style={{ display: 'flex', width: '18rem', margin: 'auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <svg height="30" viewBox="0 0 512 512" width="30">
               <g>
                 <path d="m507.606 145.568-141.174-141.174c-2.813-2.813-6.628-4.394-10.606-4.394h-199.652c-3.978 0-7.793 1.581-10.606 4.394l-141.174 141.174c-2.813 2.813-4.394 6.628-4.394 10.606v199.651c0 3.978 1.581 7.793 4.394 10.606l141.174 141.174c2.813 2.813 6.628 4.394 10.606 4.394h199.651c3.978 0 7.793-1.581 10.606-4.394l141.174-141.174c2.813-2.813 4.394-6.628 4.394-10.606v-199.651c.001-3.978-1.58-7.793-4.393-10.606z" fill="#f25a3c" />
@@ -33,7 +33,7 @@ export default class ErrorBoundary extends Component<any, any> {
               </g>
             </svg>
           </div>
-          <div>
+          <div style={{ paddingLeft: '.5rem' }}>
             An error has been detected. We are already working on it
           </div>
         </div>

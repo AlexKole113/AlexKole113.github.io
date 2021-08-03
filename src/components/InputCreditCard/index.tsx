@@ -1,66 +1,94 @@
-import inputCss from '@/components/InputControl/styles/index.scss';
-import { FormEvent } from 'react';
-import { validateProfileInput } from '@/utils/validators/validateProfileInput';
-import { trottler } from '@/utils/trottler';
-import { IInputCotrol } from '@/components/InputControl/IInputCotrol';
+// @ts-ignore
+import CreditCardInput from 'react-credit-card-input';
+import { FormEvent, useState } from 'react';
 
-const InputCreditCard = ({
-  name, value, type, blockState, blockSetState, sendAndChooseState,
-}:{name:string, value:string, type:string, blockState:IInputCotrol, blockSetState:CallableFunction, sendAndChooseState:any}) => {
-  console.log(name);
+import ClearIcon from '@/components/InputControl/components/ClearIcon';
+import SuccessIcon from '@/components/InputControl/components/SuccessIcon';
+import InvalidIcon from '@/components/InputControl/components/InvalidIcon';
+import buttonSpinner from '@/components/InputControl/assets/preloader-for-btn.gif';
+import inputCss from './styles/index.scss';
 
-  // TODO: Create payment input + card expires input
-  const acceptedCreditCardNumbers = {
-    visa: /^\d+$/,
-    mastercard: /^\d+$/,
-    diners_club: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
+const InputCreditCard = () => {
+  const [data, setData] = useState({
+    number: '',
+    expires: '',
+    cvc: '',
+    state: 'received',
+  });
+
+  const sendAndUpdateData = () => {
+    // use special service
+    setData((prevState) => ({ ...prevState, state: 'received' }));
   };
 
-  const acceptedDateExpr = {
-    accept: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
-  };
-
-  const acceptedCvv = {
-    accept: /^\d+$/,
-  };
-  const acceptedName = {
-    accept: /(?<! )[-a-zA-Z' ]{2,26}/,
-  };
-
-  const enteredValue = (e:FormEvent) => {
+  const creditCardNumberUpdate = (e:FormEvent) => {
     const { value } = e.target as HTMLInputElement;
-
-    if (!value) {
-      sendAndChooseState({ state: 'loading', message: '', value: '' });
-      return;
-    }
-
-    const validatorPattern = (name === 'number') ? acceptedCreditCardNumbers : (name === 'date') ? acceptedDateExpr : (name === 'cvv') ? acceptedCvv : acceptedName;
-
-    if (!validateProfileInput(value, validatorPattern)) {
-      blockSetState((state:IInputCotrol) => ({
-        ...state, value, state: 'invalid', message: 'invalid value',
-      }));
-      return;
-    }
-
-    trottler(() => { sendAndChooseState({ state: 'loading', message: '', value }); }, value);
+    // @ts-ignore
+    setData((prevState) => ({
+      ...prevState,
+      number: value,
+      state: 'loading',
+    }));
+    sendAndUpdateData();
   };
 
-  const focus = () => {
-    if (blockState.value) blockSetState((state:IInputCotrol) => ({ ...state, state: 'received' }));
+  const creditCardExpiresUpdate = (e:FormEvent) => {
+    const { value } = e.target as HTMLInputElement;
+    setData((prevState) => ({
+      ...prevState,
+      expires: value,
+      state: 'loading',
+    }));
+
+    sendAndUpdateData();
   };
 
-  switch (name) {
-    case 'number':
-      return (<input name={name} className={inputCss['input-control__input']} maxLength={15} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
-    case 'date':
-      return (<input name={name} className={inputCss['input-control__input']} maxLength={5} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
-    case 'cvv':
-      return (<input name={name} className={inputCss['input-control__input']} maxLength={3} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
-    default:
-      return (<input name={name} className={inputCss['input-control__input']} value={value} type={type} onChange={enteredValue} onFocus={focus} />);
-  }
+  const creditCardCVCUpdate = (e:FormEvent) => {
+    const { value } = e.target as HTMLInputElement;
+    // @ts-ignore
+    setData((prevState) => ({
+      ...prevState,
+      cvc: value,
+      state: 'loading',
+    }));
+    sendAndUpdateData();
+  };
+
+  const clear = () => {
+    // @ts-ignore
+    setData(() => ({
+      number: '',
+      expires: '',
+      cvc: '',
+    }));
+    sendAndUpdateData();
+  };
+
+  const iconsCollection = new Map([
+    ['received', <ClearIcon onClickFunc={clear} />],
+    ['success', <SuccessIcon />],
+    ['invalid', <InvalidIcon />],
+    ['loading', <img src={buttonSpinner} alt="loader" />],
+  ]);
+  const icon = iconsCollection.get(data.state) ?? '';
+
+  return (
+    <>
+      <CreditCardInput
+        cardNumberInputProps={{ value: data.number, onChange: creditCardNumberUpdate }}
+        cardExpiryInputProps={{ value: data.expires, onChange: creditCardExpiresUpdate }}
+        cardCVCInputProps={{ value: data.cvc, onChange: creditCardCVCUpdate }}
+        fieldClassName={inputCss['credit-card-input']}
+        containerClassName={inputCss.containerClassName}
+        dangerTextClassName={inputCss.dangerTextClassName}
+        inputClassName={inputCss.inputClassName}
+        invalidClassName={inputCss.invalidClassName}
+      />
+      <span className={inputCss['input-control__state']}>
+        {icon}
+      </span>
+    </>
+  );
 };
 
 export default InputCreditCard;

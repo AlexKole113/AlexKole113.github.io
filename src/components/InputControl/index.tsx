@@ -2,13 +2,11 @@ import ClearIcon from '@/components/InputControl/components/ClearIcon';
 import SuccessIcon from '@/components/InputControl/components/SuccessIcon';
 import InvalidIcon from '@/components/InputControl/components/InvalidIcon';
 import withUserData from '@/hocs/withUserData';
-
-import profileCss from '@/pages/Profile/styles/index.scss';
-
 import InputSingle from '@/components/InputSingle';
 import useInputControlState from '@/hooks/useInputControlState/useInputControlState';
 import InputCreditCard from '@/components/InputCreditCard';
-import { sendDataFromInput } from '../../../mocks/fakeData/sendDataFromInput';
+import profileCss from '@/pages/Profile/styles/index.scss';
+
 import inputCss from './styles/index.scss';
 import buttonSpinner from './assets/preloader-for-btn.gif';
 
@@ -18,25 +16,11 @@ const InputControl = ({
   if (!userData.data[groupName]) return null;
 
   const [state, setState] = useInputControlState(userData, groupName, name);
-
-  // TODO: replace to dispatch
-  // TODO: fix bug with delete value and not correct validation
   const sendAndChooseState = (newState:{ state : string, message: string, value: string }) => {
     setState((prevState) => ({ ...prevState, ...newState }));
-    sendDataFromInput(newState.value)
-      .then((resp) => {
-        if (!resp) {
-          setState({ state: '', message: '', value: '' });
-          return;
-        }
-        setState((prevState) => ({ ...prevState, state: 'received', message: '' }));
-      })
-      .catch((message) => {
-        setState((prevState) => ({ ...prevState, state: 'invalid', message }));
-      });
   };
 
-  const clear = () => { sendAndChooseState({ state: 'loading', message: '', value: '' }); };
+  const clear = () => { sendAndChooseState({ state: 'received', message: '', value: '' }); };
 
   // visualisation
   const iconsCollection = new Map([
@@ -49,6 +33,8 @@ const InputControl = ({
   const labelClassName = (state.state !== '') ? inputCss['field-has-content'] : '';
   const cssStateClass = inputCss[`state-${state.state}`] ?? '';
 
+  console.log(1, userData.data.profile);
+
   return (
   // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={`${inputCss['input-control']} ${inputCss['with-placeholder-movement']} ${inputCss['profile-input']} ${profileCss['profile-input']} ${cssStateClass}`}>
@@ -57,6 +43,8 @@ const InputControl = ({
           <InputCreditCard />
         ) : (
           <InputSingle
+            userData={userData}
+            groupName={groupName}
             name={name}
             value={state.value}
             type={type}

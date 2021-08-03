@@ -2,19 +2,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import User from '@/user/User';
 import { userStateSelector } from '@/selectors/user';
 import { userCreateAction, userInfoAction } from '@/actions/user';
+import { useEffect } from 'react';
 
 const withUserData = (Component:(props:any) => JSX.Element|null) => (props:any) => {
-  if (typeof Component === null) return null;
   const { userInfo: userInStore } = useSelector(userStateSelector);
-  if (typeof userInStore.data.id === 'undefined') {
-    const dispatch = useDispatch();
-    const userWasRegistered = User.wasRegistered();
-    if (userWasRegistered) {
-      dispatch(userInfoAction.request({ data: userWasRegistered }));
-    } else {
-      dispatch(userCreateAction.request());
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (typeof userInStore.data.id === 'undefined') {
+      const userWasRegistered = User.wasRegistered();
+      if (userWasRegistered) {
+        dispatch(userInfoAction.request({ data: userWasRegistered }));
+      } else {
+        dispatch(userCreateAction.request());
+      }
     }
-  }
+  }, [userInStore.data.id]);
+
   return (<Component {...props} userData={userInStore} />);
 };
 export default withUserData;

@@ -35,7 +35,7 @@ class User {
     if (section === 'payments') return false;
     if (typeof this.userData[section][field] !== 'undefined') {
       this.userData[section][field] = data;
-      return true;
+      return this.userData;
     }
     return false;
   };
@@ -47,24 +47,6 @@ class User {
     }
     return false;
   };
-
-  // // Shop Updates
-  // addToCart = (productID:string|number) => {};
-  //
-  // getCart = () => {};
-  //
-  // addToFavorites = (productID:string|number) => {};
-  //
-  // getFavorites = () => {};
-  //
-  // // Settings Updates
-  // setSettingsFieldData = (field:string, data:boolean) => {
-  //   if (typeof this.userData.settings[field] !== 'undefined') {
-  //     this.userData.settings[field] = data;
-  //     return true;
-  //   }
-  //   return false;
-  // };
 }
 
 export default User;

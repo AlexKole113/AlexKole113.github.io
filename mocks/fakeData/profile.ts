@@ -22,10 +22,10 @@ const fakeProfileCategories:IFakeProfileCategories = [
     id: 1, value: 'Profile', icon: 'plant', styling: 'shadow-pink', active: 'active',
   },
   {
-    id: 3, value: 'Payments', icon: 'plant', styling: 'shadow-green',
+    id: 4, value: 'Address', icon: 'plant', styling: 'shadow-blue',
   },
   {
-    id: 4, value: 'Address', icon: 'plant', styling: 'shadow-blue',
+    id: 3, value: 'Payments', icon: 'plant', styling: 'shadow-green',
   },
 ];
 

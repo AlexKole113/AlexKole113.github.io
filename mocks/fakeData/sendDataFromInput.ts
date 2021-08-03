@@ -1,11 +1,7 @@
-export const sendDataFromInput = (value:string) => new Promise((resolve, reject) => {
-  const success = !((Math.random() > 1));
-  setTimeout(() => {
-    if (success) {
-      resolve(value);
-    } else {
-      // eslint-disable-next-line prefer-promise-reject-errors
-      reject('BackEnd error');
-    }
-  }, (Math.random() * (300 - 100) + 100));
-});
+export const sendDataFromInput = ({ data }:{data:[{[key:string]:any}, string, string, any]}) => {
+  const [userInfo, groupName, field, value] = data;
+  if (!groupName || !field || !userInfo[groupName][field]) return null;
+  userInfo[groupName][field] = value;
+
+  // ...data send
+};

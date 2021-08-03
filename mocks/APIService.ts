@@ -12,7 +12,7 @@ class IApi {
 }
 
 class APIService implements IApi {
-  static sendDataFromInput = (value:string) => sendDataFromInput(value);
+  static sendDataFromInput = (obj:{data:[{[key:string]:any}, string, string, string|number|boolean]}) => sendDataFromInput(obj);
 
   static getProductsByCategoryID = (id:number|null = 1) => getProductsByCategoryID(id);
 
