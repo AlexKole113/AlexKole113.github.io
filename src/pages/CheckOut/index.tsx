@@ -21,17 +21,17 @@ const CheckOut = () => {
             </section>
             <section className={checkOutCss['check-out-group__profile-collection']}>
 
-              <InputControl name="test" type="text" placeholder="test placeholder" />
+              <InputControl name="test" type="text" placeholder="test placeholder" groupName="1" userData={{ id: '1' }} dataUpdate={() => {}} />
 
               <SettingsControl>
                 <Switcher />
               </SettingsControl>
 
-              <InputControl name="test" type="password" placeholder="test placeholder" />
+              <InputControl name="test" type="password" placeholder="test placeholder" groupName="1" userData={{ id: '1' }} dataUpdate={() => {}} />
 
-              <InputControl name="test" type="text" placeholder="test placeholder" />
+              <InputControl name="test" type="text" placeholder="test placeholder" groupName="1" userData={{ id: '1' }} dataUpdate={() => {}} />
 
-              <InputControl name="test" type="text" placeholder="test placeholder" />
+              <InputControl name="test" type="text" placeholder="test placeholder" groupName="1" userData={{ id: '1' }} dataUpdate={() => {}} />
 
             </section>
           </div>

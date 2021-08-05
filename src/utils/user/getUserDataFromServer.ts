@@ -4,7 +4,7 @@ import APIService from '../../../mocks/APIService';
 const getUserDataFromServer = (dataUser?:{[key:string]:{id:string, [key:string]:any}}) => {
   const dataFromServer = APIService.getUserByID(`${User.wasRegistered()}`);
   let user:{userData:{[key:string]:any}};
-  if (dataUser) {
+  if (dataUser?.data) {
     user = new User({ ...dataUser.data, id: dataUser.data?.id });
   } else if (dataFromServer) {
     user = new User(dataFromServer);
@@ -13,7 +13,6 @@ const getUserDataFromServer = (dataUser?:{[key:string]:{id:string, [key:string]:
   }
   return new Promise((resolve) => {
     setTimeout(() => {
-      console.log(2, user.userData);
       resolve(user.userData);
     }, 100);
   });

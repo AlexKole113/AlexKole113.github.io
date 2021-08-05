@@ -1,7 +1,7 @@
 import ClearIcon from '@/components/InputControl/components/ClearIcon';
 import SuccessIcon from '@/components/InputControl/components/SuccessIcon';
 import InvalidIcon from '@/components/InputControl/components/InvalidIcon';
-import withUserData from '@/hocs/withUserData';
+
 import InputSingle from '@/components/InputSingle';
 import useInputControlState from '@/hooks/useInputControlState/useInputControlState';
 import InputCreditCard from '@/components/InputCreditCard';
@@ -11,17 +11,15 @@ import inputCss from './styles/index.scss';
 import buttonSpinner from './assets/preloader-for-btn.gif';
 
 const InputControl = ({
-  groupName, name, type, placeholder, userData,
-}:{groupName:string, name:string, type:string, placeholder:string, userData:{[key:string]:any} }) => {
-  if (!userData.data[groupName]) return null;
+  groupName, name, type, placeholder, userData, dataUpdate,
+}:{groupName:string, name:string, type:string, placeholder:string, userData:{[key:string]:any}, dataUpdate:CallableFunction }) => {
+  if (!userData[groupName]) return null;
 
-  const [state, setState] = useInputControlState(userData, groupName, name);
-  const sendAndChooseState = (newState:{ state : string, message: string, value: string }) => {
-    setState((prevState) => ({ ...prevState, ...newState }));
+  const [inputState, setInputState] = useInputControlState(userData, groupName, name);
+  const chooseFieldState = (newState:{ state : string, value: string }) => {
+    setInputState((prevState) => ({ ...prevState, ...newState }));
   };
-
-  const clear = () => { sendAndChooseState({ state: 'received', message: '', value: '' }); };
-
+  const clear = () => { chooseFieldState({ state: 'received', value: '' }); };
   // visualisation
   const iconsCollection = new Map([
     ['received', <ClearIcon onClickFunc={clear} />],
@@ -29,11 +27,9 @@ const InputControl = ({
     ['invalid', <InvalidIcon />],
     ['loading', <img src={buttonSpinner} alt="loader" />],
   ]);
-  const icon = iconsCollection.get(state.state) ?? '';
-  const labelClassName = (state.state !== '') ? inputCss['field-has-content'] : '';
-  const cssStateClass = inputCss[`state-${state.state}`] ?? '';
-
-  console.log(1, userData.data.profile);
+  const icon = iconsCollection.get(inputState.state) ?? '';
+  const labelClassName = (inputState.state !== '') ? inputCss['field-has-content'] : '';
+  const cssStateClass = inputCss[`state-${inputState.state}`] ?? '';
 
   return (
   // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -43,23 +39,26 @@ const InputControl = ({
           <InputCreditCard />
         ) : (
           <InputSingle
-            userData={userData}
             groupName={groupName}
             name={name}
-            value={state.value}
+            value={inputState.value}
             type={type}
-            blockState={state}
-            blockSetState={setState}
-            sendAndChooseState={sendAndChooseState}
+            blockSetState={setInputState}
+            chooseFieldState={chooseFieldState}
+            dataUpdate={dataUpdate}
           />
         )
       }
-      <span className={`${inputCss['input-control__placeholder']}  ${labelClassName} `}>{ (state.message) ? state.message : placeholder}</span>
-      <span className={inputCss['input-control__state']}>
-        {icon}
-      </span>
+      <span className={`${inputCss['input-control__placeholder']}  ${labelClassName} `}>{ (inputState.message) ? inputState.message : placeholder}</span>
+      {
+        inputState.value?.length ? (
+          <span className={inputCss['input-control__state']}>
+            {icon}
+          </span>
+        ) : ''
+      }
     </label>
   );
 };
 
-export default withUserData(InputControl);
+export default InputControl;
