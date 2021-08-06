@@ -19,7 +19,7 @@ const InputControl = ({
   const chooseFieldState = (newState:{ state : string, value: string }) => {
     setInputState((prevState) => ({ ...prevState, ...newState }));
   };
-  const clear = () => { chooseFieldState({ state: 'received', value: '' }); };
+  const clear = () => { chooseFieldState({ state: '', value: '' }); };
   // visualisation
   const iconsCollection = new Map([
     ['received', <ClearIcon onClickFunc={clear} />],

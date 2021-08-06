@@ -13,9 +13,10 @@ const InputSingle = ({
       chooseFieldState({ state: 'received', message: '', value: '' });
       return;
     }
-    if (!validateProfileInput(value)) {
-      blockSetState((state:IInputCotrol) => ({ ...state, state: 'invalid', message: 'invalid value' }));
-      return;
+    if (!validateProfileInput(value, groupName, name)) {
+      blockSetState((state:IInputCotrol) => ({ ...state, state: 'invalid' }));
+    } else {
+      blockSetState((state:IInputCotrol) => ({ ...state, state: 'received' }));
     }
     chooseFieldState({ value });
     dataUpdate(groupName, name, value);
