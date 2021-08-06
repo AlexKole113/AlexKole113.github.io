@@ -14,8 +14,6 @@ import profileCss from './styles/index.scss';
 
 // TODO: profile:
 //  1. How send updated data?
-//  2. validation
-//  3. fix label up and down
 //  4. review
 //  5. add tests
 
