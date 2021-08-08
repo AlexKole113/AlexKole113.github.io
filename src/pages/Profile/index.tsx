@@ -13,7 +13,7 @@ import {
 import profileCss from './styles/index.scss';
 
 // TODO: profile:
-//  1. How send updated data?
+//  2. change validation on onBlur event
 //  4. review
 //  5. add tests
 
