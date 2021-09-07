@@ -24,12 +24,20 @@ const useScrollLoadProduct = (
   };
 
   useEffect(() => {
+    const addr = new URL(window.location.href);
     const footer:HTMLElement|null = document.querySelector('#footer');
     if (!footer) return;
-    if (state.done) {
-      footer.style.display = 'flex';
+    if( addr.pathname === '/shop' ||  addr.pathname === '/' ) {
+      if (state.done) {
+        footer.style.display = 'flex';
+      } else {
+        footer.style.display = 'none';
+      }
     } else {
-      footer.style.display = 'none';
+      footer.style.display = 'flex';
+    }
+    return ()=>{
+      footer.style.display = 'flex';
     }
   }, [state.done]);
 

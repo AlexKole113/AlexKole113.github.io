@@ -5,7 +5,8 @@ import { userCreateAction, userInfoAction } from '@/actions/user';
 import { useEffect } from 'react';
 
 const withUserData = (Component:(props:any) => JSX.Element|null) => (props:any) => {
-  const { userInfo: userInStore } = useSelector(userStateSelector);
+  let { userInfo: userInStore, userCreate: newUser } = useSelector(userStateSelector);
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (typeof userInStore.data.id === 'undefined') {
@@ -16,8 +17,8 @@ const withUserData = (Component:(props:any) => JSX.Element|null) => (props:any) 
         dispatch(userCreateAction.request());
       }
     }
-  }, [userInStore.data.id]);
+  }, [userInStore.data.id, ]);
 
-  return (<Component {...props} userData={userInStore} />);
+  return (<Component {...props} userData={ (userInStore.data.id) ? userInStore : newUser  } />);
 };
 export default withUserData;

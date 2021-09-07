@@ -1,27 +1,30 @@
 import footerAppMenuCss from './styles/index.scss'
+import {
+    Link
+} from 'react-router-dom';
 
 const FooterMenu = () => (
-    <nav className={footerAppMenuCss['footer-app-menu']} >
+    <nav data-test={`footer-menu`} className={footerAppMenuCss['footer-app-menu']} >
         <ul className={footerAppMenuCss['footer-app-menu__list']}>
             <li className={footerAppMenuCss['footer-app-menu__list_item']}>
-                <a className={footerAppMenuCss['footer-app-menu__list_item_link']} href="profile.html">
+                <Link className={footerAppMenuCss['footer-app-menu__list_item_link']} to={'/profile'}>
                     profile
-                </a>
+                </Link>
             </li>
             <li className={footerAppMenuCss['footer-app-menu__list_item']}>
-                <a className={footerAppMenuCss['footer-app-menu__list_item_link']} href="profile.html">
-                    explore
-                </a>
+                <Link className={footerAppMenuCss['footer-app-menu__list_item_link']} to={'/shop'}>
+                     explore
+                </Link>
             </li>
             <li className={footerAppMenuCss['footer-app-menu__list_item']}>
-                <a className={footerAppMenuCss['footer-app-menu__list_item_link']} href="profile.html">
+                <Link className={footerAppMenuCss['footer-app-menu__list_item_link']} to={'/settings'} >
                     settings
-                </a>
+                </Link>
             </li>
             <li className={footerAppMenuCss['footer-app-menu__list_item']}>
-                <a className={footerAppMenuCss['footer-app-menu__list_item_link']} href="profile.html">
+                <Link className={footerAppMenuCss['footer-app-menu__list_item_link']} to={'/contacts'} >
                     contact
-                </a>
+                </Link>
             </li>
         </ul>
     </nav>

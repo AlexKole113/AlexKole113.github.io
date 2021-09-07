@@ -84,7 +84,7 @@ const InputCreditCard = () => {
         inputClassName={inputCss.inputClassName}
         invalidClassName={inputCss.invalidClassName}
       />
-      <span className={inputCss['input-control__state']}>
+      <span data-test={``} className={inputCss['input-control__state']}>
         {icon}
       </span>
     </>

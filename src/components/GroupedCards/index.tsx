@@ -10,7 +10,7 @@ const GroupedCards = ({ products, actualCat, catId }:{products:IFakeProductItem[
   return (
     <section className={groupedCardsCss['shop-grouped']}>
       <div className={mainCss.container}>
-        <div className={groupedCardsCss['shop-grouped__collection']}>
+        <div data-test={`products-${catId}`} className={groupedCardsCss['shop-grouped__collection']}>
           { productsCollection }
           { (catId === actualCat) ? <ProductItemSlice actualCat={actualCat} /> : ''}
         </div>

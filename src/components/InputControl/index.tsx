@@ -14,7 +14,6 @@ const InputControl = ({
   groupName, name, type, placeholder, userData, dataUpdate,
 }:{groupName:string, name:string, type:string, placeholder:string, userData:{[key:string]:any}, dataUpdate:CallableFunction }) => {
   if (!userData[groupName]) return null;
-
   const [inputState, setInputState] = useInputControlState(userData, groupName, name);
   const chooseFieldState = (newState:{ state : string, value: string }) => {
     setInputState((prevState) => ({ ...prevState, ...newState }));
@@ -52,7 +51,7 @@ const InputControl = ({
       <span className={`${inputCss['input-control__placeholder']}  ${labelClassName} `}>{ (inputState.message) ? inputState.message : placeholder}</span>
       {
         inputState.value?.length ? (
-          <span className={inputCss['input-control__state']}>
+          <span data-test={inputState.state} className={inputCss['input-control__state']}>
             {icon}
           </span>
         ) : ''

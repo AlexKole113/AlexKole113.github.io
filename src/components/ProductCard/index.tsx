@@ -20,7 +20,7 @@ const ProductCard = ({ product }:{product:IFakeProductItem}) => {
   });
 
   return (
-    <div className={`${productCardCss['product-card']} ${cssShopAnimation['product-card']}`}>
+    <div data-test={`product-card`} className={`${productCardCss['product-card']} ${cssShopAnimation['product-card']}`}>
       <div className={productCardCss['product-card__buttons']}>
         <a href="" className={`${productCardCss['product-card__buttons_item']} ${productCardCss['add-to-fav']}`}>
           <svg

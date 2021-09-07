@@ -1179,7 +1179,8 @@ body {
     opacity: .4; }
     .input-control__placeholder.field-has-content {
       transform: translateY(-2rem); }
-  .input-control__state {
+  .input-control__state,
+  .input-control [data-test] {
     position: relative;
     display: flex;
     align-items: center;
@@ -1187,13 +1188,15 @@ body {
     width: 1.25rem;
     height: 1.25rem;
     z-index: 5; }
-    .input-control__state img {
+    .input-control__state img,
+    .input-control [data-test] img {
       width: 100%; }
-    .input-control__state.success-check {
+    .input-control__state.success-check,
+    .input-control [data-test].success-check {
       color: var(--green-middle); }
-    .input-control__state svg {
-      width: .9rem;
-      height: .9rem; }
+  .input-control svg {
+    width: .9rem;
+    height: .9rem; }
   .input-control.profile-input {
     padding: .5rem;
     margin: .5rem 0;

@@ -13,9 +13,7 @@ import {
 import profileCss from './styles/index.scss';
 
 // TODO: profile:
-//  2. change validation on onBlur event
-//  4. review
-//  5. add tests
+//  1. при тестировании если маленькая пауза между кликами <800ms по группам полей (address, payments ...) не срабатывает появление полей
 
 const Profile = ({ userData }:{userData:{[key:string]:any}}) => {
   const [actualCategories, updateActualCategories] = useState(categories);
@@ -24,6 +22,7 @@ const Profile = ({ userData }:{userData:{[key:string]:any}}) => {
   useEffect(() => {
     updateUserDataState(() => userData.data);
   }, [userData]);
+
   const updateUserDataField = (group:string, field:string, value:any) => {
     const dataUpdated = JSON.parse(JSON.stringify(userDataState));
     dataUpdated[group][field] = value;
@@ -52,14 +51,15 @@ const Profile = ({ userData }:{userData:{[key:string]:any}}) => {
   const getActiveID = (categories:IFakeProfileCategories) => categories.filter(({ active }:IFakeProfileCategory) => active && active === 'active')[0].id;
   const setActive = (id:number) => {
     if (pageState.loading) return;
+
     const currentActualID = actualCategories.filter(({ active }) => active === 'active')[0].id;
     if (id === currentActualID) return;
 
-    setPageState({
-      ...pageState,
+    setPageState((prevState) => ({
+      ...prevState,
       init: false,
       loading: true,
-    });
+    }));
 
     const updState = actualCategories.map((item) => {
       item.active = undefined;
@@ -67,7 +67,7 @@ const Profile = ({ userData }:{userData:{[key:string]:any}}) => {
       return item;
     });
 
-    updateActualCategories(updState);
+    updateActualCategories(() => [ ...updState]);
   };
   const componentHeight = useMemo(() => {
     let maxFieldsCount = 0;

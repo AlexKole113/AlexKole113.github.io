@@ -1,7 +1,7 @@
 import menuCss from "../../styles/index.scss";
 
 const Hamburger = () => (
-    <div className={menuCss['hamburger']}>
+    <div data-test={'main-menu-toggler'} className={menuCss['hamburger']}>
         <svg className={`${menuCss.ham} ${menuCss.hamRotate} ${menuCss['ham-item']}`}
              viewBox="0 0 100 100" width="80">
             <path

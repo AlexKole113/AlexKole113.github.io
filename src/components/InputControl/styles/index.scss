@@ -41,7 +41,8 @@
 
   }
 
-  &__state {
+  &__state,
+  [data-test]{
     position: relative;
     display: flex;
     align-items: center;
@@ -57,12 +58,11 @@
     &.success-check {
       color: var(--green-middle);
     }
+  }
 
-    svg {
-      width: .9rem;
-      height: .9rem;
-    }
-
+  svg {
+    width: .9rem;
+    height: .9rem;
   }
 
   &.profile-input {
