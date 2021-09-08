@@ -92,7 +92,6 @@ const Profile = ({ userData }:{userData:{[key:string]:any}}) => {
           { getProfileGroups(fields, getActiveID(actualCategories)) }
         </section>
       </div>
-      <input type="submit" className={profileCss['profile-group__save-btn']} value="save" />
     </form>
   );
 };
