@@ -10,6 +10,7 @@
   font-family: var(--font-family-regular);
   font-size: .9rem;
   position: relative;
+  transition: all .2s .1s;
 
   &_input {
 
@@ -36,14 +37,17 @@
 
     }
   }
-
   .input-control__placeholder {
     font-family: var(--font-family-regular);
     left: .25rem;
   }
 
-  &.profile-input,
+  &.open-list {
+    border-radius: 1.25rem 1.25rem 0 0;
+    transition: all .2s;
+  }
 
+  &.profile-input,
   &.cart-input {
     padding: .5rem;
     margin: .5rem 0;
