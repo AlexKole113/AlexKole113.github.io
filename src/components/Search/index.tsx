@@ -17,7 +17,7 @@ const Search = ({ styling }:{styling:string}) =>{
     }
 
     const getPopularSearchRequests = (searchText:string) => {
-        if( !searchText) {
+        if( searchText.length < 2) {
             setState((prevState)=>({
                 ...prevState,
                 hasResults: false
@@ -27,14 +27,25 @@ const Search = ({ styling }:{styling:string}) =>{
 
         APIService.searchInProducts(searchText , 2)
         .then((response)=>{
-            console.log(response)
+            if(Array.isArray(response) && response.length){
+
+                console.log(searchText, response)
+
+                setState((prevState)=>({
+                    ...prevState,
+                    hasResults: true
+                }))
+
+            } else {
+                setState((prevState)=>({
+                    ...prevState,
+                    hasResults: false
+                }))
+            }
+
         })
 
 
-        setState((prevState)=>({
-            ...prevState,
-            hasResults: true
-        }))
     }
 
     return(
