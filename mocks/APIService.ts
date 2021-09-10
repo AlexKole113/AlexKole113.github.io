@@ -1,7 +1,9 @@
 import { sendDataFromInput } from './fakeData/sendDataFromInput';
-import { getProductsByCategoryID, getCategories } from './fakeData/shop';
+import {getProductsByCategoryID, getCategories, searchInProducts} from './fakeData/shop';
 import { getThemeByID, getThemeByPath } from './fakeData/themes';
 import getTestUser from './fakeData/testUser';
+import getAllProductsSlice from "@/utils/getAllProductsSlice";
+import { IFakeShopCategories, } from './fakeData/shop';
 
 class IApi {
   static sendDataFromInput: (value:string) => Promise<any>;
@@ -23,6 +25,11 @@ class APIService implements IApi {
   static getThemeByPath = (path:string|null) => getThemeByPath(path);
 
   static getCategories = () => getCategories();
+
+  static getAllProductsSlice = (cats:IFakeShopCategories) => getAllProductsSlice(cats)
+
+  static searchInProducts = (value:string, limit = 9) => searchInProducts(value, limit)
+
 }
 
 export default APIService;

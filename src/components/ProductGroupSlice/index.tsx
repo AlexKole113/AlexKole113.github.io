@@ -1,7 +1,7 @@
-import getAllProductsSlice from '@/utils/getAllProductsSlice';
 import { useEffect, useState } from 'react';
 import ShopGroup from '@/components/ShopGroup';
 import { IFakeShopCategories, IFakeProducts } from '../../../mocks/fakeData/shop';
+import APIService from "../../../mocks/APIService";
 
 const ProductGroupSlice = ({
   cats, show, hide, shopStateUpdate,
@@ -13,10 +13,9 @@ const ProductGroupSlice = ({
   });
   useEffect(() => {
     setState((prevState) => ({ ...prevState, loading: true }));
-    getAllProductsSlice(cats)
+    APIService.getAllProductsSlice(cats)
       .then((response) => {
-        const productsSlice:IFakeProducts[] = response
-          .filter((item):item is IFakeProducts => !!item);
+        const productsSlice:IFakeProducts[] = response.filter((item):item is IFakeProducts => !!item);
         setState((prevState) => ({
           ...prevState, loading: false, success: true, error: false, items: productsSlice,
         }));

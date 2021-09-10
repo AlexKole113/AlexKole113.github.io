@@ -13,7 +13,6 @@
   transition: all .2s .1s;
 
   &_input {
-
     &_btn {
       position: absolute;
       top: 4px;
@@ -33,8 +32,6 @@
         height: .9rem;
         color: var(--white);
       }
-
-
     }
   }
   .input-control__placeholder {

@@ -4,6 +4,7 @@ import searchCss from './styles/index.scss';
 import mainCss from '../../styles/index.scss';
 import SearchList from "@/components/SearchList";
 import {useState} from "react";
+import APIService from "../../../mocks/APIService";
 
 const Search = ({ styling }:{styling:string}) =>{
 
@@ -24,7 +25,10 @@ const Search = ({ styling }:{styling:string}) =>{
             return;
         }
 
-        console.log(searchText)
+        APIService.searchInProducts(searchText , 2)
+        .then((response)=>{
+            console.log(response)
+        })
 
 
         setState((prevState)=>({
@@ -33,9 +37,6 @@ const Search = ({ styling }:{styling:string}) =>{
         }))
     }
 
-
-
-    console.log(state.hasResults)
     return(
         <section className={`${searchCss.search} ${cssShopAnimation.search}`}>
         <div className={mainCss.container}>

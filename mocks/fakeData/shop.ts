@@ -253,15 +253,14 @@ const fakeProductsPopular:IFakeProducts = (() => ({
     fakeProductsFlowers.items[11],
   ],
 }))();
+const allProductsGroups = new Map([
+  ['1', fakeProductsFlowers],
+  ['2', fakeProductsPlants],
+  ['3', fakeProductsTrees],
+  ['4', fakeProductsPopular],
+]);
 
 const getProductsByCategoryID = (id:number|null = 1, delay = 200):Promise<IFakeProducts|undefined> => {
-  const allProductsGroups = new Map([
-    ['1', fakeProductsFlowers],
-    ['2', fakeProductsPlants],
-    ['3', fakeProductsTrees],
-    ['4', fakeProductsPopular],
-  ]);
-
   return new Promise((res, rej) => {
     const randomNetworkError = (Math.random() > 0.9999);
     setTimeout(() => {
@@ -285,6 +284,50 @@ const getCategories = (delay = 200) :Promise<IFakeShopCategory[]|undefined> => n
   }, delay);
 });
 
+const searchInProducts = (text:string, limit:number = 9,  delay:number = 300) => {
+  let response:[string, string, IFakeProducts][] = [];
+  let limitReached = false;
+  const isFound = (value:string) => ((`${value}`).toLowerCase().indexOf(text.toLowerCase()) !== -1);
+  const excludeCurrentField = (key:string) => ( ['image','stock','currency'].findIndex( (item) => item === key) !== -1 )
+
+
+  for(const productGroup of allProductsGroups){
+    // @ts-ignore
+    const [,{items}] = Array.from(productGroup);
+    for(let productItem of items) {
+      if(limitReached) break;
+      for(let key in productItem){
+        if ( excludeCurrentField(key) ) continue;
+        if (key === 'data') {
+           for( const dataItem of productItem[key]) {
+             for( const dataItemName in dataItem){
+               if(isFound(dataItem[dataItemName])){
+                 if( response.length > limit ) {
+                   limitReached = true
+                   break;
+                 }
+                 response.push( [dataItem[dataItemName], dataItemName , productItem]);
+               }
+             }
+           }
+        } else if( isFound(productItem[key]) ){
+          if( response.length > limit ) {
+            limitReached = true
+            break;
+          }
+          response.push( [productItem[key], key , productItem]);
+        }
+      }
+    }
+  }
+
+  return new Promise((resolve => {
+    setTimeout(()=>{
+      resolve(response)
+    },delay)
+  }))
+}
+
 export {
-  getProductsByCategoryID, getCategories, fakeCategories, fakeProductsFlowers, fakeProductsPlants, fakeProductsTrees, fakeProductsPopular, IFakeShopCategories, IFakeShopCategory, IFakeProductItem, IFakeProducts,
+  getProductsByCategoryID, getCategories, searchInProducts, fakeCategories, fakeProductsFlowers, fakeProductsPlants, fakeProductsTrees, fakeProductsPopular, IFakeShopCategories, IFakeShopCategory, IFakeProductItem, IFakeProducts,
 };
