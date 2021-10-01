@@ -18,19 +18,17 @@ sagaMiddleware.run(rootSaga);
 //  (V) 1.1 Create common API class with static functions;
 //  (V) 1.2 Add hoc withAPIService - data;
 //  (V) 1.3 Add hoc withAUserData - data;
-//      1.4 Profile fixing;
-//      1.5 Cypress testing, Browser testing, Refactoring;
-//  2. SAGA + REDUX
-//      2.1 Replace direct API handling to Saga handling;
-//      2.2 Cypress testing, Browser testing, Refactoring;
+//  (V) 1.4 Profile fixing;
+//  (V) 1.5 Cypress testing, Browser testing, Refactoring;
+//  2. Search functions
+//      2.1 Cypress testing, Browser testing, Refactoring;
+//  2.  Add https://freegeoip.app/json/ to Settings and Profile;
 //  3. CART functionalities
 //      3.1 Cypress testing, Browser testing, Refactoring;
 //  4. FAVORITES functionalities
 //      4.1 Cypress testing, Browser testing, Refactoring;
 //  5. SETTINGS functionalities
 //      5.1 Cypress testing, Browser testing, Refactoring;
-//  6. Search functions
-//      6.1 Cypress testing, Browser testing, Refactoring;
 //  7. Fix all tod's in styles file
 //  8. Create pages: Demo page, 404, 505, Thank U
 //  9. Add PWA
