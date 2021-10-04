@@ -328,6 +328,68 @@ const searchInProducts = (text:string, limit:number = 9,  delay:number = 300) =>
   }))
 }
 
+const getProductByID = (id:string|null,  delay:number = 300) => {
+  let response = {};
+
+  if( !id )  {
+    return new Promise((res)=>{
+      setTimeout(()=>{
+        res(response)
+      },delay)
+    })
+  }
+
+  for(const [,{items:products}] of allProductsGroups){
+      for( const product of products ) {
+         if( `${product.id}` === id ) {
+           response = product;
+         }
+      }
+  }
+
+  return new Promise((res)=>{
+    setTimeout(()=>{
+      res(response)
+    },delay)
+  })
+}
+
+const searchByKeywordInFields = (keyword:string, fields: string[], delay:number = 300):Promise<{}[]> => {
+
+  let response:{}[] = []
+
+  if(!fields.length || !keyword) {
+    return new Promise((res)=>{
+      setTimeout(()=>{
+        res( response)
+      },delay)
+    })
+  }
+
+
+
+  for(const [,{items:products}] of allProductsGroups){
+    for( const product of products ) {
+      for(const field of fields) {
+        // @ts-ignore
+        if( ( `${product[field]}` ).toLowerCase().includes( (keyword).toLowerCase() ) ) {
+          response = [...response, product];
+          break;
+        }
+      }
+    }
+  }
+
+  console.log(response)
+
+  return new Promise((res)=>{
+    setTimeout(()=>{
+      res(response)
+    },delay)
+  })
+
+}
+
 export {
-  getProductsByCategoryID, getCategories, searchInProducts, fakeCategories, fakeProductsFlowers, fakeProductsPlants, fakeProductsTrees, fakeProductsPopular, IFakeShopCategories, IFakeShopCategory, IFakeProductItem, IFakeProducts,
+  getProductsByCategoryID, getCategories, searchInProducts, getProductByID, searchByKeywordInFields, fakeCategories, fakeProductsFlowers, fakeProductsPlants, fakeProductsTrees, fakeProductsPopular, IFakeShopCategories, IFakeShopCategory, IFakeProductItem, IFakeProducts,
 };

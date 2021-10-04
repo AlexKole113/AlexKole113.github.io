@@ -6,7 +6,7 @@ const ProductCard = ({ product }:{product:IFakeProductItem}) => {
   const {
     title, image, data, price, currency, stock,
   } = product;
-  const params = data.map((item:{[key:string]:string|number}) => {
+    const params = data.map((item:{[key:string]:string|number}) => {
     const param = Object.keys(item)[0];
     return (
       <span key={param}>

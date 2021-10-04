@@ -12,6 +12,7 @@ import Settings from '@/pages/Settings';
 import Shop from '@/pages/Shop';
 import Profile from '@/pages/Profile';
 import Preloader from '@/components/Preloader';
+import Search from "@/pages/Search";
 
 const themeAndMenuStatusDefault:{themeID:string|null, pageID:string|null, menuOpened:boolean, [key:string]:any} = {
   themeID: null, pageID: null, menuOpened: false,
@@ -58,6 +59,7 @@ export default () => {
                 <Route path="/favorites" component={Favorites} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/shop" component={Shop} />
+                <Route path="/search" component={Search} />
                 <Route path="/settings" component={Settings} />
                 <Route path="/contacts" component={Contact} />
 

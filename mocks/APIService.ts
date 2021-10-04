@@ -1,5 +1,11 @@
 import { sendDataFromInput } from './fakeData/sendDataFromInput';
-import {getProductsByCategoryID, getCategories, searchInProducts} from './fakeData/shop';
+import {
+    getProductsByCategoryID,
+    getCategories,
+    searchInProducts,
+    getProductByID,
+    searchByKeywordInFields
+} from './fakeData/shop';
 import { getThemeByID, getThemeByPath } from './fakeData/themes';
 import getTestUser from './fakeData/testUser';
 import getAllProductsSlice from "@/utils/getAllProductsSlice";
@@ -14,7 +20,10 @@ class IApi {
 }
 
 class APIService implements IApi {
-  static sendDataFromInput = (obj:{data:[{[key:string]:any}, string, string, string|number|boolean]}) => sendDataFromInput(obj);
+
+  static getProductByID = (id:string|null ) => getProductByID(id)
+
+  static searchByKeywordInFields = ( keyword:string, fields:string[] ) => searchByKeywordInFields(keyword, fields)
 
   static getProductsByCategoryID = (id:number|null = 1) => getProductsByCategoryID(id);
 
@@ -28,7 +37,9 @@ class APIService implements IApi {
 
   static getAllProductsSlice = (cats:IFakeShopCategories) => getAllProductsSlice(cats)
 
-  static searchInProducts = (value:string, limit = 9) => searchInProducts(value, limit)
+  static fastSearchInProducts = (value:string, limit = 9) => searchInProducts(value, limit)
+
+  static sendDataFromInput = (obj:{data:[{[key:string]:any}, string, string, string|number|boolean]}) => sendDataFromInput(obj);
 
 }
 

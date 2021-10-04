@@ -6,6 +6,7 @@ import SearchList from "@/components/SearchList";
 import {useEffect, useState} from "react";
 import APIService from "../../../mocks/APIService";
 import FastResultItem from "@/components/SearchList/components/FastResultItem";
+import { Redirect } from 'react-router-dom'
 
 
 const Search = ({ styling }:{styling:string}) =>{
@@ -13,10 +14,13 @@ const Search = ({ styling }:{styling:string}) =>{
     const [state,setState] = useState({
         hasResults: false,
         requestProcessing: false,
+        redirect: false,
         searchText: '',
     })
 
-    const [fastResults,setFastResults] = useState<[string,string,{title:string}][]>([]);
+    const [fastResults,setFastResults] = useState<[string,string,{title:string, id:number}][]>([]);
+
+    const needRedirect = () => (state.redirect) ? <Redirect to={{ pathname: "/search",search: `?keyword=${state.searchText}`}} /> : null
 
     useEffect(() => {
         if( state.searchText.length < 2) {
@@ -33,7 +37,7 @@ const Search = ({ styling }:{styling:string}) =>{
             requestProcessing: true,
         }));
 
-        APIService.searchInProducts(state.searchText , 2)
+        APIService.fastSearchInProducts(state.searchText , 2)
             .then((response) => {
                 if( Array.isArray(response) && response.length ){
                     setFastResults(() => [...response] )
@@ -63,7 +67,12 @@ const Search = ({ styling }:{styling:string}) =>{
     },[ state.searchText ] )
 
     const getSearchResults = (searchText:string) => {
-        console.log(searchText)
+       setState( (prevState) => ({
+           ...prevState,
+           searchText,
+           redirect: true
+       }) )
+
     }
 
     const getPopularSearchRequests = (searchText:string) => {
@@ -75,10 +84,11 @@ const Search = ({ styling }:{styling:string}) =>{
 
     return(
         <section className={`${searchCss.search} ${cssShopAnimation.search}`}>
+            {needRedirect()}
             <div className={mainCss.container}>
               <InputWithButton hasResults={state.hasResults} onClickHandler={getSearchResults} onChangeHandler={getPopularSearchRequests} styling={`search-input ${styling}`} />
               <SearchList isActive={state.hasResults} >
-                  {fastResults.map(([keyword,whereFound,{title}], num) => <FastResultItem key={num} keyword={keyword} whereFound={whereFound} productName={title} />)}
+                  {fastResults.map(([keyword,whereFound,{title,id}],num) => <FastResultItem key={`${id}-${num}`} id={id} keyword={keyword} whereFound={whereFound} productName={title} />)}
               </SearchList>
             </div>
         </section>

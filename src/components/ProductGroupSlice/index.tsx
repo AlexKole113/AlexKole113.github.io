@@ -26,13 +26,12 @@ const ProductGroupSlice = ({
         }));
       });
   }, []);
-
   return (
     <>
-      { (state.items) ? state.items.map(({ items, id }) => {
+      { (state.items) ? state.items.map(({ items, id }, num) => {
         // eslint-disable-next-line no-nested-ternary
         const showAnimation = (id === show) ? 'showFromTop' : (id === hide) ? 'hideToBottom' : '';
-        return (<ShopGroup key={id} catId={id} products={items} showAnimation={showAnimation} shopStateUpdate={shopStateUpdate} actualCat={show} />);
+        return (<ShopGroup key={`${id}-${num}`} catId={id} products={items} showAnimation={showAnimation} shopStateUpdate={shopStateUpdate} actualCat={show} />);
       }) : '' }
     </>
   );
