@@ -9,13 +9,17 @@ import FastResultItem from "@/components/SearchList/components/FastResultItem";
 import { Redirect } from 'react-router-dom'
 
 
-const Search = ({ styling }:{styling:string}) =>{
+const Search = ({ styling }:{styling:string}) => {
+
+    const {search} = new URL(`${window.location}`);
+    const searchParam = search.split('=')[0].slice(1);
+    const searchValue = search.split('=')[1];
 
     const [state,setState] = useState({
         hasResults: false,
         requestProcessing: false,
         redirect: false,
-        searchText: '',
+        searchText: ( searchParam === 'keyword') ? searchValue : '',
     })
 
     const [fastResults,setFastResults] = useState<[string,string,{title:string, id:number}][]>([]);
@@ -64,6 +68,15 @@ const Search = ({ styling }:{styling:string}) =>{
                 }
             })
 
+        return () => {
+            setState({
+                hasResults: false,
+                requestProcessing: false,
+                redirect: false,
+                searchText: '',
+            })
+        }
+
     },[ state.searchText ] )
 
     const getSearchResults = (searchText:string) => {
@@ -85,8 +98,8 @@ const Search = ({ styling }:{styling:string}) =>{
     return(
         <section className={`${searchCss.search} ${cssShopAnimation.search}`}>
             {needRedirect()}
-            <div className={mainCss.container}>
-              <InputWithButton hasResults={state.hasResults} onClickHandler={getSearchResults} onChangeHandler={getPopularSearchRequests} styling={`search-input ${styling}`} />
+            <div data-search={'product'} className={mainCss.container}>
+              <InputWithButton hasResults={state.hasResults} onClickHandler={getSearchResults} onChangeHandler={getPopularSearchRequests} styling={`search-input ${styling}`} startValue={state.searchText} />
               <SearchList isActive={state.hasResults} >
                   {fastResults.map(([keyword,whereFound,{title,id}],num) => <FastResultItem key={`${id}-${num}`} id={id} keyword={keyword} whereFound={whereFound} productName={title} />)}
               </SearchList>

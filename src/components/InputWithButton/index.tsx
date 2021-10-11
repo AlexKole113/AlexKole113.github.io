@@ -2,9 +2,9 @@ import Magnifier from '@/components/InputWithButton/components/magnifier';
 import inputWithBtnCss from './styles/index.scss';
 import {FormEvent, useState} from "react";
 
-const InputWithButton = ({ placeholder, onClickHandler, onChangeHandler, hasResults }:{onClickHandler: (val:string)=>void, onChangeHandler?: (val:string)=>void, value?:string, icon?:string, styling?:string, statement?:string, placeholder?:any, hasResults?:boolean,}) => {
+const InputWithButton = ({ placeholder, onClickHandler, onChangeHandler, hasResults , startValue }:{onClickHandler: (val:string)=>void, onChangeHandler?: (val:string)=>void, value?:string, icon?:string, styling?:string, statement?:string, placeholder?:any, hasResults?:boolean, startValue?:string }) => {
 
-    const[value, setValue] = useState('')
+    const[value, setValue] = useState(  startValue ?? '' );
 
     const formSumbitHandler = (e:FormEvent) => {
         e.preventDefault();
@@ -16,9 +16,6 @@ const InputWithButton = ({ placeholder, onClickHandler, onChangeHandler, hasResu
         if(onChangeHandler) onChangeHandler(value);
 
     }
-
-
-
 
     return(
         <form onSubmit={formSumbitHandler} className={`${inputWithBtnCss['input-with-btn']} ${inputWithBtnCss['with-placeholder-movement']}  ${ hasResults ? inputWithBtnCss['open-list'] : '' } `}>

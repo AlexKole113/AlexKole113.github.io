@@ -37,4 +37,12 @@ describe('Test Pages', () => {
     //footer menu surf
     setActions.footerMenuSurf({startFrom: 'profile',endTo:'profile'})
   });
+
+  it.only('Shop page', ()=>{
+    action.init({host, setScreenSize: 'xl'});
+    setActions.useSearchProducts('tree');
+
+  });
+
+
 });

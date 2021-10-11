@@ -10,19 +10,29 @@ const useSearchInProducts = (updateState:CallableFunction) => {
 
     useEffect(() => {
         if( searchParam === 'id' && searchValue ){
+            updateState((prevState:{loading:boolean}) => ({
+                ...prevState,
+                loading: true
+            }))
             APIService.getProductByID( searchValue )
                 .then((response)=>{
                     updateState((prevState:{searchResult:[]}) => ({
                       ...prevState,
+                      loading: false,
                       searchResult: [response]
                     }))
                 })
         }
         if( searchParam === 'keyword' && searchValue ) {
+            updateState((prevState:{loading:boolean}) => ({
+                ...prevState,
+                loading: true
+            }))
             APIService.searchByKeywordInFields(searchValue, ['title'])
                 .then((response)=>{
                     updateState((prevState:{searchResult:[]}) => ({
                         ...prevState,
+                        loading: false,
                         searchResult: [...response]
                     }))
                 })

@@ -379,9 +379,6 @@ const searchByKeywordInFields = (keyword:string, fields: string[], delay:number 
       }
     }
   }
-
-  console.log(response)
-
   return new Promise((res)=>{
     setTimeout(()=>{
       res(response)

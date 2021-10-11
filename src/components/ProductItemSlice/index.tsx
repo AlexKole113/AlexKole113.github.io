@@ -9,6 +9,7 @@ const ProductItemSlice = ({ actualCat }:{actualCat:number}) => {
     <>
       {products.map((item) => ((
         typeof item.id === 'string'
+          && actualCat !== -1
           && item.id.startsWith('loading')) ? <ProductCardLoading key={item.id} /> : <ProductCard key={item.id} product={item} />))}
       {
           // eslint-disable-next-line max-len

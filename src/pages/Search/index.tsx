@@ -7,8 +7,8 @@ import {IFakeProductItem} from "../../../mocks/fakeData/shop";
 
 const Search = () => {
 
-  const [state, updateState] = useState<{loading:boolean, error:boolean, init:boolean, searchResult: IFakeProductItem[] }>({
-    loading: false, error: false, init: true, searchResult: []
+  const [state, updateState] = useState<{loading:boolean|null, error:boolean, init:boolean, searchResult: IFakeProductItem[] }>({
+    loading: null, error: false, init: true, searchResult: []
   });
 
   useSearchInProducts( updateState );
@@ -17,7 +17,12 @@ const Search = () => {
   return (
     <div className={cssShopAnimation['shop-group']}>
       <section className={cssShopAnimation['shop-group-transition']}>
-        <ShopGroup catId={0} products={state.searchResult} showAnimation={'showFromTop'} shopStateUpdate={()=>{}} actualCat={0} />
+        {
+          (state.searchResult.length && state.loading === false) ? <ShopGroup catId={0} products={state.searchResult} showAnimation={'showFromTop'} shopStateUpdate={()=>{}} actualCat={-1} /> : ''
+        }
+        {
+          (!state.searchResult.length && state.loading === false) ? <p style={{marginTop: '3rem', textAlign: 'center'}}>No results</p> : ''
+        }
       </section>
     </div>
   );

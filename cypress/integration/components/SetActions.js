@@ -27,7 +27,6 @@ class SetActions {
         this.useMainMenuAndGoTo(endTo)
     }
 
-
     footerMenuSurf = ({startFrom, endTo}) => {
         if(startFrom === 'shop') this.scrollAndLoadAllProducts();
         this.action.clickOnElementWhereText('#footer a', 'profile');
@@ -44,7 +43,6 @@ class SetActions {
         this.action.clickOnElementWhereText('#footer a', 'upwork')
         this.action.checkURL('https://www.upwork.com/freelancers/alexkole113')
     }
-
 
     scrollAndLoadAllProducts = () => {
         cy.get('#content-group').scrollTo(0,2000,{duration: this.setupData.stepWaiting() })
@@ -118,6 +116,13 @@ class SetActions {
 
         this.openProfileTabPayments();
         this.action.checkProp('#card-expiry', 'have.value', '11 / 24' )
+
+    }
+
+    useSearchProducts = ( keyword ) => {
+        cy.wait(2000)
+        cy.get('[data-search="product"]:first-child input[type="text"]').first().type('tr' )
+
 
     }
 }
