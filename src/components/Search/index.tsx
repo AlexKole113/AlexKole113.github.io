@@ -16,6 +16,7 @@ const Search = ({ styling }:{styling:string}) => {
     const searchValue = search.split('=')[1];
 
     const [state,setState] = useState({
+        initial: true,
         hasResults: false,
         requestProcessing: false,
         redirect: false,
@@ -36,7 +37,7 @@ const Search = ({ styling }:{styling:string}) => {
         }
 
         if( state.requestProcessing ) return;
-             setState((prevState)=>({
+        setState((prevState)=>({
             ...prevState,
             requestProcessing: true,
         }));
@@ -46,18 +47,18 @@ const Search = ({ styling }:{styling:string}) => {
                 if( Array.isArray(response) && response.length ){
                     setFastResults(() => [...response] )
                     setState((prevState) => {
-                       if(prevState.searchText.length >= 2) {
-                           return {
-                               ...prevState,
-                               requestProcessing: false,
-                               hasResults: true
-                           }
-                       }
-                       return  {
-                           ...prevState,
-                           requestProcessing: false,
-                           hasResults: false
-                       }
+                        if(prevState.searchText.length >= 2) {
+                            return {
+                                ...prevState,
+                                requestProcessing: false,
+                                hasResults: true
+                            }
+                        }
+                        return  {
+                            ...prevState,
+                            requestProcessing: false,
+                            hasResults: false
+                        }
                     })
                 } else {
                     setState((prevState)=>({
@@ -69,40 +70,37 @@ const Search = ({ styling }:{styling:string}) => {
             })
 
         return () => {
-            setState({
-                hasResults: false,
-                requestProcessing: false,
-                redirect: false,
-                searchText: '',
-            })
+            setState((prevState)=>({...prevState}))
         }
 
     },[ state.searchText ] )
 
     const getSearchResults = (searchText:string) => {
-       setState( (prevState) => ({
-           ...prevState,
-           searchText,
-           redirect: true
-       }) )
+        setState( (prevState) => ({
+            ...prevState,
+            searchText,
+            redirect: true
+        }) )
 
     }
 
     const getPopularSearchRequests = (searchText:string) => {
         setState((prevState) => ({
             ...prevState,
+            initial: false,
             searchText
         }))
     }
 
+    console.log(state.hasResults)
     return(
         <section className={`${searchCss.search} ${cssShopAnimation.search}`}>
             {needRedirect()}
             <div data-search={'product'} className={mainCss.container}>
-              <InputWithButton hasResults={state.hasResults} onClickHandler={getSearchResults} onChangeHandler={getPopularSearchRequests} styling={`search-input ${styling}`} startValue={state.searchText} />
-              <SearchList isActive={state.hasResults} >
-                  {fastResults.map(([keyword,whereFound,{title,id}],num) => <FastResultItem key={`${id}-${num}`} id={id} keyword={keyword} whereFound={whereFound} productName={title} />)}
-              </SearchList>
+                <InputWithButton hasResults={state.hasResults && !state.initial} onClickHandler={getSearchResults} onChangeHandler={getPopularSearchRequests} styling={`search-input ${styling}`} startValue={state.searchText} />
+                <SearchList isActive={state.hasResults && !state.initial} >
+                    {fastResults.map(([keyword,whereFound,{title,id}],num) => <FastResultItem key={`${id}-${num}`} id={id} keyword={keyword} whereFound={whereFound} productName={title} />)}
+                </SearchList>
             </div>
         </section>
     )

@@ -92,13 +92,27 @@ class ActionTo {
   };
 
   typeAndEdit = (cssInputSelector, typeTextWrong, typeTextRight) => {
-    cy.get(cssInputSelector)
-      .type(typeTextWrong)
-      .should('have.value', typeTextWrong)
-      .clear()
-      .type(typeTextRight)
-      .get(cssInputSelector)
-      .should('have.value', typeTextRight);
+    if (typeof cssInputSelector === 'string') {
+      cy.get(cssInputSelector)
+          .type(typeTextWrong)
+          .should('have.value', typeTextWrong)
+          .clear()
+          .wait(600)
+          .type(typeTextRight)
+          .get(cssInputSelector)
+          .should('have.value', typeTextRight);
+    } else {
+      cssInputSelector
+          .type(typeTextWrong)
+          .should('have.value', typeTextWrong)
+          .clear()
+          .wait(600)
+          .type(typeTextRight);
+      cssInputSelector.should('have.value', typeTextRight);
+    }
+
+
+
   };
 
   clearFormFields = (formSelector) => {

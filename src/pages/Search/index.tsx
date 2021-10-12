@@ -1,9 +1,11 @@
 import cssShopAnimation from '@/styles/shop-animation.scss';
+import searchStyles from '@/components/Search/styles/index.scss';
 import { useState } from 'react';
 import useThemeSwitcher from '@/hooks/useThemeSwitcher';
 import useSearchInProducts from "@/hooks/useSearchInProducts";
 import ShopGroup from "@/components/ShopGroup";
 import {IFakeProductItem} from "../../../mocks/fakeData/shop";
+import {Link} from "react-router-dom";
 
 const Search = () => {
 
@@ -21,7 +23,7 @@ const Search = () => {
           (state.searchResult.length && state.loading === false) ? <ShopGroup catId={0} products={state.searchResult} showAnimation={'showFromTop'} shopStateUpdate={()=>{}} actualCat={-1} /> : ''
         }
         {
-          (!state.searchResult.length && state.loading === false) ? <p style={{marginTop: '3rem', textAlign: 'center'}}>No results</p> : ''
+            (!state.searchResult.length && state.loading === false) ? <div className={searchStyles['no-content']}><p data-test={`message-not-found`}>No results</p><Link className={searchStyles['no-content__go-back']} to={'/shop'}>{`Back to Shop`}</Link></div>: ''
         }
       </section>
     </div>

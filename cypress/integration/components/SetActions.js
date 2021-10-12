@@ -120,10 +120,29 @@ class SetActions {
     }
 
     useSearchProducts = ( keyword ) => {
-        cy.wait(2000)
-        cy.get('[data-search="product"]:first-child input[type="text"]').first().type('tr' )
+        cy.wait(1200)
+        this.action.typeAndEdit(cy.get('[data-search="product"]:first-child input[type="text"]').first(), 'plant', 'tree' )
+        cy.wait(1200)
+        this.action.clickOnElementWhereText(cy.get('[href="/search?id=131"] span').first(), 'Trees 1')
+        cy.wait(1200)
+        cy.get('[data-test*="products"]').should('be.visible')
+        cy.get('[data-test*="products"]').should('have.length', 1)
+        cy.go('back')
+        cy.wait(1200)
+
+        this.action.typeAndEdit(cy.get('[data-search="product"]:first-child input[type="text"]').first(), 'grass', 'fl' )
+        cy.get('[data-search="product"]:first-child [type="submit"]').first().click();
+
+        cy.wait(1200)
+        cy.get('[data-test="product-card"]').first().find('div:nth-child(3)').find('span:nth-child(1)').should('be.visible').contains('Flowers 1')
 
 
+        cy.get('[data-search="product"]:first-child input[type="text"]').clear();
+        this.action.typeAndEdit(cy.get('[data-search="product"]:first-child input[type="text"]'), 'plant', 'asasasasasasas' )
+        cy.get('[data-search="product"]:first-child [type="submit"]').click();
+
+        cy.wait(1200)
+        cy.get('[data-test="message-not-found"]').scrollIntoView().should('be.visible').contains('No results')
     }
 }
 
