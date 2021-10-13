@@ -7,7 +7,6 @@ const CartItem = () => (
                  src="https://source.unsplash.com/user/erondu/300x300"
                  alt="" />
         </div>
-
         <div className={cartItemCss['cart-item__price-amount-group']} >
             <div className={cartItemCss['cart-item__title']} >
                 <span className={cartItemCss['cart-item__title_title']} >

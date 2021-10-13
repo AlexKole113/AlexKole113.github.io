@@ -92,7 +92,6 @@ const Search = ({ styling }:{styling:string}) => {
         }))
     }
 
-    console.log(state.hasResults)
     return(
         <section className={`${searchCss.search} ${cssShopAnimation.search}`}>
             {needRedirect()}
