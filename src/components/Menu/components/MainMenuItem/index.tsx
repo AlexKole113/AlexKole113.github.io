@@ -12,7 +12,7 @@ const MainMenuItem = ({ value, path }:{ value:string, path:string}) => {
   const { setPageID } = useContext(LayoutContext);
 
   const iconsCollection = new Map([
-    ['explore', <ListIcon />],
+    ['shop', <ListIcon />],
     ['profile', <UserIcon />],
     ['settings', <CogIcon />],
     ['contact', <PhoneIcon />],
@@ -24,7 +24,8 @@ const MainMenuItem = ({ value, path }:{ value:string, path:string}) => {
     <li className={menuStyles['main-menu__items_item']}>
       <NavLink
         activeClassName={menuStyles['active-menu-item']}
-        isActive={(match) => {
+        isActive={(match, location) => {
+          if( location.pathname === '/' && path === '/shop') return true
           if (!match) return false;
           isActivePath = true;
           return isActivePath;

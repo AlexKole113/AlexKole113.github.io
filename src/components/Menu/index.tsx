@@ -8,7 +8,7 @@ import menuStyles from './styles/index.scss';
 const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
   const menu = [
     { title: 'profile', path: '/profile' },
-    { title: 'explore', path: '/shop' },
+    { title: 'shop', path: '/shop' },
     { title: 'settings', path: '/settings' },
     { title: 'contact', path: '/contacts' },
   ];

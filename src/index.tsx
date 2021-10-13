@@ -21,7 +21,7 @@ sagaMiddleware.run(rootSaga);
 //  (V) 1.4 Profile fixing;
 //  (V) 1.5 Cypress testing, Browser testing, Refactoring;
 //  2. Search functions
-//      2.1 Cypress testing, Browser testing, Refactoring;
+//  (V) 2.1 Cypress testing, Browser testing, Refactoring;
 //  2.  Add https://freegeoip.app/json/ to Settings and Profile;
 //  3. CART functionalities
 //      3.1 Cypress testing, Browser testing, Refactoring;
