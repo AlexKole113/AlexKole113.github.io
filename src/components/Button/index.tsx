@@ -1,12 +1,24 @@
 import css from './styles/index.scss';
 import buttonSpinner from './assets/preloader-for-btn.gif'
-import Plant from "@/components/Button/components/plant";
+import PlantIcon from "@/components/Button/components/PlantIcon";
+import ProfileIcon from "@/components/Button/components/ProfileIcon";
+import AddressIcon from "@/components/Button/components/AddressIcon";
+import CreditCardIcon from "@/components/Button/components/CreditCardIcon";
+import TreeIcon from "@/components/Button/components/TreeIcon";
+import FlowerIcon from "@/components/Button/components/FlowerIcon";
+import PepperIcon from "@/components/Button/components/PepperIcon";
 
 
 const Button = ( { value, icon, styling, statement, updateActiveItem }:{value:string, icon:string, styling?:string, statement?:string, updateActiveItem: ()=> void } ) => {
 
     const iconsCollection = new Map([
-        ['plant', <Plant />]
+        ['plant', <PlantIcon />],
+        ['profile', <ProfileIcon />],
+        ['address', <AddressIcon />],
+        ['payments', <CreditCardIcon />],
+        ['tree', <TreeIcon />],
+        ['flower', <FlowerIcon />],
+        ['pepper', <PepperIcon />],
     ])
 
     const stylingCssClass   = ( styling ) ? css[styling] : '';
@@ -22,7 +34,6 @@ const Button = ( { value, icon, styling, statement, updateActiveItem }:{value:st
                 {value}
             </span>
         </a>
-
     );
 };
 

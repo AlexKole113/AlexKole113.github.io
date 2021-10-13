@@ -12,9 +12,6 @@ import {
 
 import profileCss from './styles/index.scss';
 
-// TODO: profile:
-//  1. при тестировании если маленькая пауза между кликами <800ms по группам полей (address, payments ...) не срабатывает появление полей
-
 const Profile = ({ userData }:{userData:{[key:string]:any}}) => {
   const [actualCategories, updateActualCategories] = useState(categories);
   const [pageState, setPageState] = useState({ loading: false, error: false, init: true });

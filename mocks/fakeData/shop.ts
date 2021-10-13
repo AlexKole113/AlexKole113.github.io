@@ -21,16 +21,16 @@ interface IFakeProducts {
 
 const fakeCategories = [
   {
-    id: 1, value: 'Flowers', icon: 'plant', styling: 'shadow-pink', active: 'active',
+    id: 1, value: 'Flowers', icon: 'flower', styling: 'shadow-pink', active: 'active',
   },
   {
     id: 2, value: 'Plants', icon: 'plant', styling: 'shadow-green',
   },
   {
-    id: 3, value: 'Trees', icon: 'plant', styling: 'shadow-blue',
+    id: 3, value: 'Trees', icon: 'tree', styling: 'shadow-blue',
   },
   {
-    id: 4, value: 'Popular', icon: 'plant', styling: 'shadow-violet',
+    id: 4, value: 'Popular', icon: 'pepper', styling: 'shadow-violet',
   },
 ];
 const fakeProductsFlowers:IFakeProducts = {
