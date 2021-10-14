@@ -1,25 +1,45 @@
+import getParseJSONFromStorage from "@/utils/storage/getParseJSONFromStorage";
+import saveJSONInStorage from "@/utils/storage/saveJSONInStorage";
+import getDataFromStorage from "@/utils/storage/getDataFromStorage";
+
 class Favorites {
+    static storageKey = 'favorites';
 
     static addToFavorites = ({data:id}:{data:number}) => {
-        console.log('addToFavorites', id)
+        let userFavorites = Favorites.getAllFavorites();
+        if( userFavorites === null ) userFavorites = [];
+        if( userFavorites.indexOf(id) === -1 ) {
+            saveJSONInStorage(Favorites.storageKey, [...userFavorites, id] )
+        }
     }
 
     static removeFromFavorites = ({data:id}:{data:number}) => {
-        console.log('removeFromFavorites', id)
+        const userFavorites = Favorites.getAllFavorites();
+        if( userFavorites.indexOf(id) !== -1 ) {
+            saveJSONInStorage(Favorites.storageKey, userFavorites.filter((favoritesID:number) => `${favoritesID}` !== `${id}` ) )
+        }
+
     }
 
-    static _createFavorites = ({data:id}:{data:number}) => {
-        console.log('_createFavorites', id)
+    static _createFavorites = ({data:id}:{data?:number}) => {
+        if( !getDataFromStorage(Favorites.storageKey) ){
+            if(id){
+                saveJSONInStorage(Favorites.storageKey, [id])
+            } else {
+                saveJSONInStorage(Favorites.storageKey, [])
+            }
+        }
     }
 
     static isProductInFavorites = ({data:id}:{data:number}) => {
-        console.log('checkProductInFavorites', id)
+        const userFavorites = Favorites.getAllFavorites();
+        if( userFavorites.indexOf(id) === -1 ) {
+            return false;
+        }
+        return true
     }
 
-    static getAllFavorites = () => {
-        console.log('getAllFavorites')
-    }
-
+    static getAllFavorites = () => getParseJSONFromStorage(Favorites.storageKey)
 }
 
 export default Favorites;

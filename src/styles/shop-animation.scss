@@ -1,6 +1,6 @@
 .shop-group-transition {
   --timing-transition-1: .6s;
-  --timing-transition-2: .9s;
+  --timing-transition-2: .8s;
   min-height: 45rem;
   position: relative;
   background: transparent;
@@ -32,15 +32,11 @@
       position: absolute;
       left:0;
       top:0;
-
-
       .search {
         transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
         opacity: 1;
         transform: translateY(0rem);
       }
-
-
       .product-card:nth-child(1) {
         transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
         opacity: 1;
@@ -61,18 +57,14 @@
         opacity: 1;
         transform: translateY(0rem);
       }
-
     }
 
     &.shop-group-transition-end {
-
       .search {
         transition: transform var(--timing-transition-1), opacity .4s;
         opacity: 0;
         transform: translateY(16.35rem);
       }
-
-
       .product-card:nth-child(1) {
         transition: transform var(--timing-transition-1), opacity var(--timing-transition-1);
         opacity: 0;
@@ -93,9 +85,6 @@
         opacity: 0;
         transform: translateY(16.35rem);
       }
-
-
     }
-
   }
 }

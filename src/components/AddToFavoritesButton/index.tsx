@@ -1,18 +1,48 @@
 import style from '@/components/AddToFavoritesButton/styles/index.scss';
-import {favoritesAddAction} from "@/actions/favorites";
+import {favoritesAddAction, favoritesDeleteAction} from "@/actions/favorites";
 import {useDispatch} from "react-redux";
+import {useEffect, useState} from "react";
+import Favorites from "@/favorites/Favorites";
 
 const AddToFavoritesButton = ({id}:{id:number|string}) => {
 
     const dispatch = useDispatch();
 
+    const [state, setState ] = useState<{inFavorites: null|boolean, loading: boolean}>({inFavorites: null, loading: false})
+
+    useEffect(() => {
+        if( Favorites.isProductInFavorites({data: parseFloat(`${id}`) }) ){
+            setState((prevState)=>({
+                ...prevState,
+                loading: false,
+                inFavorites: true
+            }))
+        } else {
+            setState((prevState)=>({
+                ...prevState,
+                loading: false,
+                inFavorites: false
+            }))
+        }
+
+    },[state.inFavorites, state.loading]);
+
     const onClickHandler = (e:React.MouseEvent) => {
         e.preventDefault();
-        dispatch(favoritesAddAction.request({ params: { data: id } }));
+        setState((prevState) => ({
+            ...prevState,
+             loading: true
+        }))
+        if( state.inFavorites ) {
+            dispatch(favoritesDeleteAction.request({ params: { data: id } }));
+        } else {
+            dispatch(favoritesAddAction.request({ params: { data: id } }));
+        }
     }
 
+    if(state.inFavorites === null ) return null;
 
-    return(<a href="" onClick={onClickHandler} className={`${style['product-card__buttons_item']} ${style['add-to-fav']}`}>
+    return(<a href="" onClick={onClickHandler} className={`${style['product-card__buttons_item']} ${style['add-to-fav']} ${ (state.inFavorites) ? style['state-in-favorites'] : '' }`}>
         <svg
             aria-hidden="true"
             focusable="false"

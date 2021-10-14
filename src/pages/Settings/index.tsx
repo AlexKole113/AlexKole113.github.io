@@ -12,11 +12,11 @@ const Settings = () => {
     useThemeSwitcher('settings-theme' );
     return (
         <>
-            <section class={settingsCss['settings-group']} >
-            <div class={commonCss['container']} >
-                <div class={settingsCss['settings-group__group']}>
-                    <section class={settingsCss['settings-group__title-block']} >
-                        <h3 class={settingsCss['settings-group__title-block_title']}>
+            <section className={settingsCss['settings-group']} >
+            <div className={commonCss['container']} >
+                <div className={settingsCss['settings-group__group']}>
+                    <section className={settingsCss['settings-group__title-block']} >
+                        <h3 className={settingsCss['settings-group__title-block_title']}>
                             App settings
                         </h3>
                     </section>
