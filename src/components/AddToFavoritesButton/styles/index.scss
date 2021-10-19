@@ -16,7 +16,7 @@
       align-items: center;
       svg {
         width: 1rem;
-        transition: transform .3s cubic-bezier(0.55, 1.9, 0.88, 1.23);
+        transition: transform .3s cubic-bezier(0.55, 1.9, 0.88, 1.23), opacity var(--timing-transition-2), filter var(--timing-transition-2);
       }
 
       &.add-to-fav {

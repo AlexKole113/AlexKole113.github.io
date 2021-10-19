@@ -9,6 +9,10 @@
     min-height: 28rem;
     width: 100%;
 
+    [data-icon="heart"] {
+      opacity: 1;
+    }
+
     &.shop-group-hidden {
       position: absolute;
       left:0;
@@ -56,6 +60,12 @@
         transition: transform var(--timing-transition-2), opacity var(--timing-transition-2);
         opacity: 1;
         transform: translateY(0rem);
+      }
+
+
+      [data-icon="heart"] {
+        opacity: .8;
+        filter: grayscale(80%);
       }
     }
 

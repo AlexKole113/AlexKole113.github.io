@@ -11,7 +11,7 @@ interface IFakeProductItem {
   image: string,
   data: { [key:string]: string}[],
   price: number,
-  currency: '$' | '€',
+  currency: string,
   stock:number
 }
 interface IFakeProducts {
@@ -328,7 +328,7 @@ const searchInProducts = (text:string, limit:number = 9,  delay:number = 300) =>
   }))
 }
 
-const getProductByID = (id:string|null,  delay:number = 300) => {
+const getProductByID = (id:string|null,  delay:number = 300):Promise<{[key:string]:any}[]|{}> => {
   let response = {};
 
   if( !id )  {
