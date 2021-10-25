@@ -4,6 +4,10 @@ import AdditionalMenuItem from '@/components/Menu/components/AdditionalMenuItem'
 import PageTitle from '@/components/PageTitle';
 import Hamburger from './components/Hamburger';
 import menuStyles from './styles/index.scss';
+import {useEffect, useState} from "react";
+import Favorites from "@/favorites/Favorites";
+import {useSelector} from "react-redux";
+import {favoritesStateSelector} from "@/selectors/favorites";
 
 const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
   const menu = [
@@ -12,7 +16,17 @@ const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
     { title: 'settings', path: '/settings' },
     { title: 'contact', path: '/contacts' },
   ];
-
+  const favoritesStore = useSelector(favoritesStateSelector);
+  const [state, setState] = useState({
+    favoritesLength: 0
+  })
+  useEffect(()=>{
+    const favorites = Favorites.getAllFavorites();
+    setState(( prevState) => ({
+      ...prevState,
+      favoritesLength: favorites.length
+    }))
+  },[favoritesStore])
   return (
     <>
       <section className={menuStyles.menu}>
@@ -37,13 +51,12 @@ const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
       <nav className={menuStyles['additional-menu']}>
         <ul className={menuStyles['additional-menu__items']}>
 
-          <AdditionalMenuItem value="categories" amount={5} />
-          <AdditionalMenuItem value="favorites" amount={3} />
+          <AdditionalMenuItem value="cart" amount={5} />
+          <AdditionalMenuItem value="favorites" amount={state.favoritesLength} />
 
         </ul>
       </nav>
     </>
   );
 };
-
 export default Menu;

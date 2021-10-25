@@ -7,6 +7,8 @@ const Favorites = () => {
 
   const products =  useFavoritesProductList();
 
+  console.log(products)
+
   useThemeSwitcher('favorites-theme');
   return (
     <div className={favoritesCss['shop-group']}>
