@@ -26,7 +26,7 @@ const Button = ( { value, icon, styling, statement, updateActiveItem }:{value:st
     const image             = ( !icon ) ? '' : iconsCollection.get(icon) ?? '' ;
 
     return(
-        <a onClick={()=>{updateActiveItem()}} href="#" className={`${css['app-btn']} ${stylingCssClass} ${statementCssClass}`} >
+        <a data-test={`button`} onClick={()=>{updateActiveItem()}} href="#" className={`${css['app-btn']} ${stylingCssClass} ${statementCssClass}`} >
             <span className={css['app-btn__icon']}>
                 { statement === 'loading' ? <img src={buttonSpinner} /> : image }
             </span>

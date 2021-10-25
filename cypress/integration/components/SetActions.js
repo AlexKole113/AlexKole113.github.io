@@ -19,11 +19,10 @@ class SetActions {
 
     mainMenuSurf = ({startFrom,endTo}) => {
         if(startFrom !== 'profile') this.useMainMenuAndGoTo('profile');
-        if(startFrom !== 'shop') this.useMainMenuAndGoTo('explore', 'shop');
+        if(startFrom !== 'shop') this.useMainMenuAndGoTo('shop', 'shop');
         if(startFrom !== 'settings')  this.useMainMenuAndGoTo('settings')
         if(startFrom !== 'contacts')   this.useMainMenuAndGoTo('contact', 'contacts');
-        // favs and cart
-        this.action.click('header a[href="/favorites"]')
+
         this.useMainMenuAndGoTo(endTo)
     }
 
@@ -56,6 +55,14 @@ class SetActions {
         cy.get('#content-group').scrollTo(0,10000,{duration: this.setupData.stepWaiting() })
         cy.wait(this.setupData.stepWaiting())
         cy.get('#content-group').scrollTo(0,20000,{duration: this.setupData.stepWaiting() })
+    }
+
+    shopSurfAndCheck = () => {
+
+    }
+
+    openShopTab = (tabText) => {
+        this.action.clickOnElementWhereText('a[data-test="button"]', tabText);
     }
 
     openProfileTabPayments = () => {
@@ -143,6 +150,37 @@ class SetActions {
 
         cy.wait(1200)
         cy.get('[data-test="message-not-found"]').scrollIntoView().should('be.visible').contains('No results')
+    }
+
+    useFavorites = () => {
+        cy.wait(1200)
+        cy.get('[data-test="product-card"]:nth-child(1) a:first-child').first().click();
+        this.action.checkContent('#header a[href="/favorites"]', ' 1 ')
+        this.openShopTab('Plants')
+        cy.wait(800)
+        cy.get('[data-test="product-card"]:nth-child(2) a:first-child').eq(1).click();
+        this.action.checkContent('#header a[href="/favorites"]', ' 2 ')
+        this.openShopTab('Flowers')
+        cy.wait(800)
+        cy.get('[data-test="product-card"]:nth-child(2) a:first-child').eq(0).click();
+        this.action.checkContent('#header a[href="/favorites"]', ' 3 ')
+        this.openShopTab('Trees')
+        cy.wait(800)
+        this.scrollAndLoadAllProducts();
+        this.action.click('[data-test="product-card"]:nth-child(5) a:first-child');
+        this.action.checkContent('#header a[href="/favorites"]', ' 4 ')
+
+        this.action.click('#header a[href="/favorites"]')
+        this.action.checkURL('http://localhost:5000/favorites')
+        cy.get('[data-test="product-card"]').should('have.length', 4)
+
+        this.action.click('[data-test="product-card"]:nth-child(1) a:first-child');
+        this.action.checkContent('#header a[href="/favorites"]', ' 3 ')
+
+        this.useMainMenuAndGoTo('profile');
+
+        this.action.click('#header a[href="/favorites"]')
+        cy.get('[data-test="product-card"]').should('have.length', 3)
     }
 }
 

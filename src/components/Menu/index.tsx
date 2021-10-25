@@ -24,7 +24,7 @@ const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
     const favorites = Favorites.getAllFavorites();
     setState(( prevState) => ({
       ...prevState,
-      favoritesLength: favorites.length
+      favoritesLength: (Array.isArray(favorites)) ? favorites.length : 0
     }))
   },[favoritesStore])
   return (

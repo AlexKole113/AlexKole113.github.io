@@ -7,7 +7,7 @@ const action = new ActionTo(setupData);
 const setActions = new SetActions(setupData);
 
 describe('Test Pages', () => {
-  it('Profile page', () => {
+  it('Profile page surf', () => {
     action.init({host, setScreenSize: 'xl'});
     setActions.useMainMenuAndGoTo('profile')
 
@@ -38,10 +38,21 @@ describe('Test Pages', () => {
     setActions.footerMenuSurf({startFrom: 'profile',endTo:'profile'})
   });
 
-  it.only('Shop page', ()=>{
+  it('Shop page surf', ()=>{
+    action.init({host, setScreenSize: 'xl'});
+    // TODO: realize
+    setActions.shopSurfAndCheck()
+    setActions.useSearchProducts('tree');
+  });
+
+  it('Search Products', ()=>{
     action.init({host, setScreenSize: 'xl'});
     setActions.useSearchProducts('tree');
+  });
 
+  it('Favorites', ()=>{
+    action.init({host, setScreenSize: 'xl'});
+    setActions.useFavorites();
   });
 
 

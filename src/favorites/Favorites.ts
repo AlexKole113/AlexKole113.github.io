@@ -33,7 +33,7 @@ class Favorites {
 
     static isProductInFavorites = ({data:id}:{data:number}) => {
         const userFavorites = Favorites.getAllFavorites();
-        if( userFavorites.indexOf(id) === -1 ) {
+        if( !Array.isArray( userFavorites ) || userFavorites.indexOf(id) === -1 ) {
             return false;
         }
         return true
