@@ -18,7 +18,7 @@ const InputWithButton = ({ placeholder, onClickHandler, onChangeHandler, hasResu
     }
 
     return(
-        <form onSubmit={formSumbitHandler} className={`${inputWithBtnCss['input-with-btn']} ${inputWithBtnCss['with-placeholder-movement']}  ${ hasResults ? inputWithBtnCss['open-list'] : '' } `}>
+        <form onSubmit={formSumbitHandler} className={`${inputWithBtnCss['input-with-btn']}  ${ hasResults ? inputWithBtnCss['open-list'] : '' } `}>
             <div className={`${inputWithBtnCss['input-control']} ${inputWithBtnCss['search-input']} ${inputWithBtnCss['state-loading']}`}>
               <input value={value} onChange={ (e) => {onType(e.target.value)} } className={inputWithBtnCss['input-control__input']} type="text" placeholder={placeholder ?? 'Search'} />
             </div>

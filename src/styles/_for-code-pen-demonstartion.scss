@@ -1,31 +1,39 @@
-@media (min-width: 1366px ) {
+@import "./partials/mixins";
+.tech-stack {
+  display: none;
+  padding: 0rem 1rem 2rem;
+  order: 10;
+  @include sm {
+    display: block;
+  }
+  @include xl {
+    order: -1;
+  }
+  &__title {
+    font-size: 2.75rem;
+    margin: 1rem 0;
+  }
+  &__list {
 
+  }
+  &__item {
+    margin-bottom: .5rem
+  }
+}
+@include sm {
   :root {
     --content-size: 16px;
     --body-perspective: 1400px
   }
-
   body {
     perspective: var(--body-perspective);
     backface-visibility: hidden;
     perspective-origin: 50% 50%;
     transform-style: preserve-3d;
-
-
-    &:after {
-      content: ' ';
-      width: 437px;
-      height: 812px;
-      position: absolute;
-      top: -3px;
-      left: calc(50% - 218px);
-      background-image: url(../../demo-assets/phone_demo.png);
-      background-size: 100%;
-      background-repeat: no-repeat;
-      z-index: -1;
-    }
+    background: url('https://weblium.com/blog/wp-content/uploads/2019/11/image13-1000x600.jpg?x20863');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-
   .demo-preloader {
     display: block;
     &__1 {
@@ -73,6 +81,15 @@
     &__2 {
 
     }
+  }
+  main {
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 991px;
+    margin: auto;
   }
 }
 

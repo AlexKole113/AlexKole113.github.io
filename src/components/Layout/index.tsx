@@ -38,15 +38,27 @@ const Layout = ({ children, toggleMenuCallback }: LayoutProps) => {
 
   return (
     <main className={themesCss[`cat-${pageThemeID}`] ?? themesCss[pageThemeID ?? '']}>
-      <section className={`${codePenDemoCss['mobile-wrapper']} ${(menuOpened) ? menuStyles['menu-opened'] : ''}`} id="content-group">
-        <Preloader />
-        <Header>
-          <Menu toggleMenuCallback={toggleMenuCallback} />
-        </Header>
-        <section className={codePenDemoCss.content}>
-          {children}
+      <div className={codePenDemoCss['tech-stack']}>
+        <h1 className={codePenDemoCss['tech-stack__title']}>Stack</h1>
+        <ul className={codePenDemoCss['tech-stack__list']}>
+          <li className={codePenDemoCss['tech-stack__item']}>Typescript</li>
+          <li className={codePenDemoCss['tech-stack__item']}>React, Redux, Saga</li>
+          <li className={codePenDemoCss['tech-stack__item']}>SCSS + Style modules</li>
+          <li className={codePenDemoCss['tech-stack__item']}>Cypres</li>
+          <li className={codePenDemoCss['tech-stack__item']}>PWA, localstorage</li>
+        </ul>
+      </div>
+      <section className={codePenDemoCss['mobile-frame']}>
+        <section className={`${codePenDemoCss['mobile-wrapper']} ${(menuOpened) ? menuStyles['menu-opened'] : ''}`} id="content-group">
+          <Preloader />
+          <Header>
+            <Menu toggleMenuCallback={toggleMenuCallback} />
+          </Header>
+          <section className={codePenDemoCss.content}>
+            {children}
+          </section>
+          <Footer />
         </section>
-        <Footer />
       </section>
     </main>
   );

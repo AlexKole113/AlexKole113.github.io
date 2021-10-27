@@ -30,10 +30,19 @@ export default () => {
       return themeID;
     },
     toggleMenu: () => {
-      setMenuAndTheme((prevState) => ({
+      setMenuAndTheme((prevState) => {
+
+        if( prevState.menuOpened ) {
+          document.body.style.overflowX = 'hidden';
+        } else {
+          document.body.style.overflow = 'hidden';
+        }
+
+         return {
         ...prevState,
         menuOpened: !prevState.menuOpened,
-      }));
+      }
+      });
     },
     setPageID: (pageID:string) => {
       setMenuAndTheme((prevState) => ({
