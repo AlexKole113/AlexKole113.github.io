@@ -1,5 +1,6 @@
 .mobile-wrapper {
   background: var(--background-theme);
+  z-index: 1;
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -18,9 +19,9 @@
     min-height: 260px;
     width: 320px;
     height: 691px;
-    left: calc(50% - 160px);
-    top: 44px;
-    border-radius: 28px;
+    left: calc(50% - 165px);
+    top: 46px;
+    border-radius: 36px;
   }
 
 
@@ -30,7 +31,6 @@
     margin-bottom: 5rem;
     padding-top: 8.65rem;
   }
-
   &:before {
     content: '';
     transition: all var(--transition-main);
@@ -45,13 +45,11 @@
     width: 86%;
     box-shadow: -2px 3px 10px #0000004a;
   }
-
   &.state {
     &-loading {
       overflow: hidden;
     }
   }
-
   .preloader {
     background-color: #ffffff;
     position: absolute;
@@ -70,7 +68,6 @@
     }
 
   }
-
   .additional-menu {
     &__items {
       &_item {
@@ -91,7 +88,6 @@
       }
     }
   }
-
   .shop-grouped__collection {
     grid-template-columns: 1fr 1fr;
   }
@@ -110,7 +106,7 @@
     height: 812px;
     position: relative;
     background-image: url(../../demo-assets/phone_demo.png);
-    background-size: 100%;
+    background-size: 97.5% 97.5%;
     background-repeat: no-repeat;
   }
 }
