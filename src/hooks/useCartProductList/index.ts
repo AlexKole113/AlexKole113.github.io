@@ -1,20 +1,12 @@
-import {useSelector} from "react-redux";
-import {cartStateSelector} from "@/selectors/cart";
 import {useEffect, useState} from "react";
-import Cart from "@/cart/Cart";
 import APIService from "../../../mocks/APIService";
 
-const useCartProductList = () => {
-
-    let {cartInfo: {data:cartIDs}} = useSelector(cartStateSelector);
+const useCartProductList = (cart:[]) => {
     let [products, setProducts] = useState([])
-
     useEffect(() => {
-        if( !cartIDs || !Object.keys(cartIDs).length ) {
-            cartIDs = Cart.getAllFavorites();
-        }
-        if( cartIDs.length ) {
-            cartIDs.forEach( (id:string) => {
+        if(cart && cart.length ) {
+            setProducts(() => [])
+            cart.forEach( (id:string) => {
                 APIService.getProductByID( `${id}` )
                     .then((product) => {
                         if(product && Object.keys(product).length ){
@@ -24,9 +16,7 @@ const useCartProductList = () => {
                     })
             })
         }
-    },[])
-
-
+    },[cart])
     return products;
 }
 

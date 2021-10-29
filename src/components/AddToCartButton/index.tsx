@@ -1,5 +1,5 @@
 import style from '@/components/AddToCartButton/styles/index.scss';
-import {cartAddAction, cartDeleteAction} from "@/actions/cart";
+import {cartAddAction, cartDeleteAction, cartInfoAction } from "@/actions/cart";
 import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import Cart from "@/cart/Cart";
@@ -39,6 +39,7 @@ const AddToCartButton = ({id}:{id:number|string}) => {
         } else {
             dispatch(cartAddAction.request({ params: { data: id } }));
         }
+        dispatch(cartInfoAction.request());
     }
 
     if(state.inCart === null ) return null;

@@ -11,6 +11,8 @@ class Favorites {
         if( userFavorites.indexOf(id) === -1 ) {
             saveJSONInStorage(Favorites.storageKey, [...userFavorites, id] )
         }
+
+        return Favorites.getAllFavorites();
     }
 
     static removeFromFavorites = ({data:id}:{data:number}) => {
@@ -19,6 +21,7 @@ class Favorites {
             saveJSONInStorage(Favorites.storageKey, userFavorites.filter((favoritesID:number) => `${favoritesID}` !== `${id}` ) )
         }
 
+        return Favorites.getAllFavorites();
     }
 
     static _createFavorites = ({data:id}:{data?:number}) => {
@@ -29,6 +32,8 @@ class Favorites {
                 saveJSONInStorage(Favorites.storageKey, [])
             }
         }
+
+        return Favorites.getAllFavorites();
     }
 
     static isProductInFavorites = ({data:id}:{data:number}) => {

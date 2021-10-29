@@ -1,3 +1,3 @@
 import { RootState } from '@/reducers';
 
-export const cartStateSelector = (state:RootState) => state.cart;
+export const cartStateSelector = (state:RootState) => state.cart.cartInfo;

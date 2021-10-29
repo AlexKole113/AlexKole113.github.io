@@ -1,15 +1,10 @@
 import commonStyles from '@/styles/index.scss';
 import MainMenuItem from '@/components/Menu/components/MainMenuItem';
-import AdditionalMenuItem from '@/components/Menu/components/AdditionalMenuItem';
 import PageTitle from '@/components/PageTitle';
 import Hamburger from './components/Hamburger';
 import menuStyles from './styles/index.scss';
-import {useEffect, useState} from "react";
-import Favorites from "@/favorites/Favorites";
-import {useSelector} from "react-redux";
-import {favoritesStateSelector} from "@/selectors/favorites";
-import Cart from "@/cart/Cart";
-import {cartStateSelector} from "@/selectors/cart";
+import AdditionalCartLink from "@/components/Menu/components/AdditionalCartLink";
+import AdditionalFavoritesLink from "@/components/Menu/components/AdditionalFavoritesLink";
 
 const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
   const menu = [
@@ -18,23 +13,6 @@ const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
     { title: 'settings', path: '/settings' },
     { title: 'contact', path: '/contacts' },
   ];
-  const favoritesStore = useSelector(favoritesStateSelector);
-  const cartStore = useSelector(cartStateSelector);
-
-  const [state, setState] = useState({
-    favoritesLength: 0,
-    cartLength:0,
-  })
-
-  useEffect(()=>{
-    const favorites = Favorites.getAllFavorites();
-    const cart = Cart.getAllCart();
-    setState(( prevState) => ({
-      ...prevState,
-      favoritesLength: (Array.isArray(favorites)) ? favorites.length : 0,
-      cartLength: (Array.isArray(cart)) ? cart.length : 0
-    }))
-  },[favoritesStore, cartStore])
 
   return (
     <>
@@ -60,8 +38,8 @@ const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
       <nav className={menuStyles['additional-menu']}>
         <ul className={menuStyles['additional-menu__items']}>
 
-          <AdditionalMenuItem value="cart" amount={state.cartLength} />
-          <AdditionalMenuItem value="favorites" amount={state.favoritesLength} />
+          <AdditionalCartLink  />
+          <AdditionalFavoritesLink  />
 
         </ul>
       </nav>

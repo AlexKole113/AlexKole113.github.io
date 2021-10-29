@@ -6,7 +6,7 @@ import APIService from "../../../mocks/APIService";
 
 const useFavoritesProductList = () => {
 
-    let {favoritesInfo: {data:favoritesIDs}} = useSelector(favoritesStateSelector);
+    let {data:favoritesIDs} = useSelector(favoritesStateSelector);
     let [products, setProducts] = useState([])
 
     useEffect(() => {

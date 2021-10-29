@@ -1,5 +1,5 @@
 import style from '@/components/AddToFavoritesButton/styles/index.scss';
-import {favoritesAddAction, favoritesDeleteAction} from "@/actions/favorites";
+import {favoritesAddAction, favoritesDeleteAction, favoritesInfoAction} from "@/actions/favorites";
 import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import Favorites from "@/favorites/Favorites";
@@ -38,6 +38,7 @@ const AddToFavoritesButton = ({id}:{id:number|string}) => {
         } else {
             dispatch(favoritesAddAction.request({ params: { data: id } }));
         }
+        dispatch(favoritesInfoAction.request())
     }
 
     if(state.inFavorites === null ) return null;

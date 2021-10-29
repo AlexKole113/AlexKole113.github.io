@@ -4,7 +4,6 @@ import categories from '@/reducers/categories';
 import user from '@/reducers/users';
 import favorites from '@/reducers/favorites';
 import cart from "@/reducers/cart";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { History } from 'history';
 
 const rootReducer = (history: History) => combineReducers({

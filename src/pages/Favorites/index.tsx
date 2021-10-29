@@ -5,9 +5,7 @@ import useFavoritesProductList from "@/hooks/useFavoritesProductList";
 
 const Favorites = () => {
 
-  const products =  useFavoritesProductList();
-
-  console.log(products)
+  const products = useFavoritesProductList();
 
   useThemeSwitcher('favorites-theme');
   return (
