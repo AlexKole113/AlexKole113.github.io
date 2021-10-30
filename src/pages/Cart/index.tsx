@@ -9,12 +9,11 @@ import cartCss from './styles/index.scss';
 import useCartProductList from "@/hooks/useCartProductList";
 import {cartAddAction, cartDeleteAction, cartDeleteAllAction, cartInfoAction} from "@/actions/cart";
 import {useDispatch} from "react-redux";
-import {connect} from "react-redux";
 
 
-const Cart = ({cart}:{cart:[]}) => {
+const Cart = () => {
 
-  const products = useCartProductList(cart);
+  const products = useCartProductList();
 
   const dispatch = useDispatch();
   const addItemProduct = (id:number|string) => {
@@ -33,7 +32,6 @@ const Cart = ({cart}:{cart:[]}) => {
   useThemeSwitcher('cart-theme');
 
   console.log(products)
-
   return (
     <section className={cartCss['cart-group']}>
       <div className={commonCss.container}>
@@ -46,7 +44,7 @@ const Cart = ({cart}:{cart:[]}) => {
           </section>
 
           <section className={cartCss['cart-group__collection']}>
-            { products.map(({title,image,price,currency,id},key) => <CartItem addItemProduct={()=>{addItemProduct(id)}} removeItemProduct={()=>{removeItemProduct(id)} } removeProduct={()=>{removeProduct(id)}}  key={key} title={title} image={image} price={price} currency={currency} />)}
+            { products.map(({title,image,price,currency,id,inCart},key) => <CartItem inCart={inCart} addItemProduct={()=>{addItemProduct(id)}} removeItemProduct={()=>{removeItemProduct(id)} } removeProduct={()=>{removeProduct(id)}}  key={key} title={title} image={image} price={price} currency={currency} />)}
           </section>
 
           <section className={cartCss['promocode-group']}>
@@ -63,5 +61,4 @@ const Cart = ({cart}:{cart:[]}) => {
   );
 };
 
-// @ts-ignore
-export default connect(({cart:{cartInfo}}) => ({cart:cartInfo.data}),null)(Cart);
+export default Cart;

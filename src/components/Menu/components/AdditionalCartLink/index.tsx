@@ -16,11 +16,13 @@ const AdditionalCartLink = () => {
         dispatch(cartInfoAction.request())
     },[])
 
+    console.log(data)
+
     return(
         <li className={menuStyles['additional-menu__items_item']}>
-            <Link className={`${menuStyles['additional-menu__link']} ${menuStyles[`link-cart`]}`} to={ data.length ? '/cart' : '#' }>
+            <Link className={`${menuStyles['additional-menu__link']} ${menuStyles[`link-cart`]}`} to={ Object.keys(data).length ? '/cart' : '#' }>
                 <CartIcon />
-                { data.length ? <span className={menuStyles['amount-now']}> { data.length } </span> : '' }
+                { Object.keys(data).length ? <span className={menuStyles['amount-now']}> { Object.keys(data).length } </span> : '' }
             </Link>
         </li>
     )

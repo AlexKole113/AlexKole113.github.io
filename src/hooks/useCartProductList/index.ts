@@ -1,22 +1,26 @@
 import {useEffect, useState} from "react";
 import APIService from "../../../mocks/APIService";
+import {useSelector} from "react-redux";
+import {cartStateSelector} from "@/selectors/cart";
 
-const useCartProductList = (cart:[]) => {
+const useCartProductList = () => {
+
+    let {data:cart} = useSelector(cartStateSelector);
     let [products, setProducts] = useState([])
     useEffect(() => {
-        if(cart && cart.length ) {
+        if(cart && Object.keys(cart).length ) {
             setProducts(() => [])
-            cart.forEach( (id:string) => {
+            for( const id in cart ){
                 APIService.getProductByID( `${id}` )
                     .then((product) => {
                         if(product && Object.keys(product).length ){
                             // @ts-ignore
-                            setProducts((prevProducts) => [...prevProducts, product])
+                            setProducts((prevProducts) => [...prevProducts, {...product, inCart: cart[id] }])
                         }
                     })
-            })
+            }
         }
-    },[cart])
+    },[Object.keys(cart).length])
     return products;
 }
 

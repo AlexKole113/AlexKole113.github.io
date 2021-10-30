@@ -1,40 +1,42 @@
 import getParseJSONFromStorage from "@/utils/storage/getParseJSONFromStorage";
 import saveJSONInStorage from "@/utils/storage/saveJSONInStorage";
-import getDataFromStorage from "@/utils/storage/getDataFromStorage";
 
 class Cart {
     static storageKey = 'cart';
 
     static addToCart = ({data:id}:{data:number}) => {
         let userCart = Cart.getAllCart();
-        if( userCart === null ) userCart = [];
-        saveJSONInStorage(Cart.storageKey, [...userCart, id] )
+        if( userCart === null ) userCart = {};
+        if( typeof userCart[`${id}`] !== 'undefined' ) {
+            userCart[`${id}`] += 1;
+        } else {
+            userCart[`${id}`] = 1;
+        }
+        saveJSONInStorage(Cart.storageKey, {...userCart} )
     }
 
     static removeFromCart = ({data:id}:{data:number}) => {
         const userCart = Cart.getAllCart();
-        const updatedCart = [...userCart.slice(0, userCart.indexOf(id) ), ...userCart.slice(userCart.indexOf(id) + 1, userCart.length)]
-        saveJSONInStorage(Cart.storageKey, updatedCart )
+        if( typeof userCart[`${id}`] !== 'undefined' ) {
+            userCart[`${id}`] -= 1;
+            if( userCart[`${id}`] < 1 ){
+                delete userCart[`${id}`];
+            }
+        }
+        saveJSONInStorage(Cart.storageKey, {...userCart} )
     }
 
     static removeIDFromCart =  ({data:id}:{data:number}) => {
         const userCart = Cart.getAllCart();
-        saveJSONInStorage(Cart.storageKey, userCart.filter((cartID:number) => `${cartID}` !== `${id}` ) )
-    }
-
-    static _createFavorites = ({data:id}:{data?:number}) => {
-        if( !getDataFromStorage(Cart.storageKey) ){
-            if(id){
-                saveJSONInStorage(Cart.storageKey, [id])
-            } else {
-                saveJSONInStorage(Cart.storageKey, [])
-            }
+        if( typeof userCart[`${id}`] !== 'undefined' ) {
+            delete userCart[`${id}`];
         }
+        saveJSONInStorage(Cart.storageKey, {...userCart} )
     }
 
     static isProductInCart = ({data:id}:{data:number}) => {
         const userCart = Cart.getAllCart();
-        if( !Array.isArray( userCart ) || userCart.indexOf(id) === -1 ) {
+        if( Object.keys(userCart).indexOf(`${id}`) === -1 ) {
             return false;
         }
         return true
