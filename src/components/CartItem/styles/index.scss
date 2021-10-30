@@ -60,18 +60,16 @@
       cursor: pointer;
       color: var(--text-color-theme);
       font-family: var(--font-family-regular);
-      font-weight: var(--font-weight-regular);
+      font-weight: 800;
       font-size: 1.25rem;
     }
-
     &_plus {
       cursor: pointer;
       color: var(--text-color-theme);
       font-family: var(--font-family-regular);
-      font-weight: var(--font-weight-regular);
+      font-weight: 800;
       font-size: 1.25rem;
     }
-
     &_current {
       color: var(--text-color-theme);
       font-family: var(--font-family-regular);
@@ -80,6 +78,10 @@
       text-align: center;
       border: none;
       background: transparent;
+    }
+
+    a {
+      text-decoration: none;
     }
   }
 
