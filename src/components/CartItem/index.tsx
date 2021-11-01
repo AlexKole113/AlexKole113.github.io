@@ -7,8 +7,6 @@ const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
 
     const { product } = useProductDataByID(id)
 
-    console.log(product)
-
     const dispatch = useDispatch();
     const addItemProduct = () => {
         dispatch(cartAddAction.request({ params: { data: id } }));
