@@ -27,26 +27,36 @@ const useTotalPriceCart = () => {
             allRequests.push(
                 APIService.getProductByID(id)
                     // @ts-ignore
-                    .then(({price, currency}) => {
-                        setTotalCart(( prevState) => {
-                            return {
-                                ...prevState,
-                                cart: {
-                                    total: prevState.cart.total + (price * cart[id]),
-                                    currency
-                                },
-                            }
-                        })
-                    })
+                    .then(({price, currency}) => [price * cart[id], currency])
             )
 
         }
         Promise.all(allRequests)
-            .then(() => {
-                setTotalCart((prevState) => ({
-                    ...prevState,
-                    loading:false
+            .then((allresponces) => {
+
+                let total = 0;
+                let currency = '';
+
+                allresponces.forEach(([priceTotalItem,curencyItem], index) => {
+                    total += priceTotalItem;
+                    if( index === 0 ){
+                        currency = curencyItem;
+                    } else {
+                        if(currency !== curencyItem) {
+                            throw new Error('Products has different currency')
+                        }
+                    }
+                })
+
+                // @ts-ignore
+                setTotalCart(()=>({
+                    cart: {
+                        total,
+                        currency
+                    },
+                    loading: true
                 }))
+
             })
 
     }, [cart] )
