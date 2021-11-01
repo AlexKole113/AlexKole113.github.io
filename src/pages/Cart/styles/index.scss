@@ -20,14 +20,12 @@
 
   }
 
-
   &__collection {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
 
   }
-
 
   .app-btn {
     font-size: 1.25rem;
@@ -36,5 +34,18 @@
   }
 
 
+  &__loader {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-color-theme);
+    font-family: var(--font-family-regular);
+    font-weight: var(--font-weight-title);
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.25rem;
+  }
 
 }

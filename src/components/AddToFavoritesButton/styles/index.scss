@@ -6,7 +6,7 @@
     align-items: center;
     padding: 0 .5rem;
 
-    &_item {
+    &-item {
       border-radius: 100%;
       width: 2rem;
       height: 2rem;
@@ -38,7 +38,6 @@
         color: var(--blue-link);
         &.state-in-cart {
           color: var(--blue-link);
-          //transform: scale(1.25);
           position: relative;
 
           svg {

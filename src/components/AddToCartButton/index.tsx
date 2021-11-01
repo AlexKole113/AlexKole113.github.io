@@ -44,7 +44,7 @@ const AddToCartButton = ({id}:{id:number|string}) => {
 
     if(state.inCart === null ) return null;
 
-    return(  <a href="" onClick={onClickHandler} className={`${style['product-card__buttons_item']} ${style['add-to-cart']} ${ (state.inCart) ? style['state-in-cart'] : '' }`}>
+    return(  <a href="" onClick={onClickHandler} className={`${style['product-card__buttons-item']} ${style['add-to-cart']} ${ (state.inCart) ? style['state-in-cart'] : '' }`}>
         <svg
             aria-hidden="true"
             focusable="false"

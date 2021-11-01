@@ -43,7 +43,7 @@ const AddToFavoritesButton = ({id}:{id:number|string}) => {
 
     if(state.inFavorites === null ) return null;
 
-    return(<a href="" onClick={onClickHandler} className={`${style['product-card__buttons_item']} ${style['add-to-fav']} ${ (state.inFavorites) ? style['state-in-favorites'] : '' }`}>
+    return(<a href="" onClick={onClickHandler} className={`${style['product-card__buttons-item']} ${style['add-to-fav']} ${ (state.inFavorites) ? style['state-in-favorites'] : '' }`}>
         <svg
             aria-hidden="true"
             focusable="false"

@@ -203,7 +203,7 @@ const fakeProductsTrees:IFakeProducts = {
   id: 3,
   items: [
     {
-      id: 131, sku: 131, title: 'Trees 1', image: 'https://assets.codepen.io/2736535/trees-1.jpeg', data: [{ length: '50cm' }], price: 301.99, currency: '$', stock: 20,
+      id: 131, sku: 131, title: 'Trees 1', image: 'https://assets.codepen.io/2736535/trees-1.jpeg', data: [{ length: '50cm' }], price: 100, currency: '$', stock: 20,
     },
     {
       id: 132, sku: 132, title: 'Trees 2', image: 'https://assets.codepen.io/2736535/trees-2.jpeg', data: [{ length: '50cm' }], price: 302.99, currency: '$', stock: 20,
@@ -328,7 +328,7 @@ const searchInProducts = (text:string, limit:number = 9,  delay:number = 300) =>
   }))
 }
 
-const getProductByID = (id:string|null,  delay:number = 300):Promise<{[key:string]:any}[]|{}> => {
+const getProductByID = (id:string|null,  delay:number = 180):Promise<{[key:string]:any}[]|{}> => {
   let response = {};
 
   if( !id )  {

@@ -16,8 +16,6 @@ const AdditionalCartLink = () => {
         dispatch(cartInfoAction.request())
     },[])
 
-    console.log(data)
-
     return(
         <li className={menuStyles['additional-menu__items_item']}>
             <Link className={`${menuStyles['additional-menu__link']} ${menuStyles[`link-cart`]}`} to={ Object.keys(data).length ? '/cart' : '#' }>

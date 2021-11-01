@@ -1,44 +1,49 @@
 import cartItemCss from './styles/index.scss'
-import {useState} from "react";
+import {cartAddAction, cartDeleteAction, cartDeleteAllAction, cartInfoAction} from "@/actions/cart";
+import {useDispatch} from "react-redux";
+import useProductDataByID from "@/hooks/useProductDataByID";
 
-const CartItem = ({title, image, price, currency, addItemProduct, removeItemProduct, removeProduct, inCart }:{title:string,image:string, price:number, currency: string, inCart:number, addItemProduct: () => void ,removeItemProduct:() => void, removeProduct:() => void  }) => {
+const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
 
-    const [state,setState] = useState(inCart);
-    const increase = () => {
-        setState((prevState) => prevState += 1 )
+    const { product } = useProductDataByID(id)
+
+    const dispatch = useDispatch();
+    const addItemProduct = () => {
+        dispatch(cartAddAction.request({ params: { data: id } }));
+        dispatch(cartInfoAction.request());
     }
-    const decrease = () => {
-        setState((prevState) => prevState -= 1 )
+    const removeItemProduct = () => {
+        dispatch(cartDeleteAction.request({ params: { data: id } }));
+        dispatch(cartInfoAction.request());
     }
-    const addItemHandler = () => {
-        addItemProduct();
-        increase();
+    const removeProduct = () => {
+        dispatch(cartDeleteAllAction.request({ params: { data: id } }));
+        dispatch(cartInfoAction.request());
     }
-    const removeItemHandler = () => {
-        removeItemProduct();
-        decrease()
-    }
+
+    if(amount < 1 ) return null;
+    if(product === null) return null;
 
     return (
         <div className={cartItemCss['cart-item']}>
             <div className={cartItemCss['cart-item__img']}>
-                <img className={cartItemCss['cart-item__img_img']} src={image} alt={title} />
+                <img className={cartItemCss['cart-item__img_img']} src={product.image} alt={product?.title} />
             </div>
             <div className={cartItemCss['cart-item__price-amount-group']} >
                 <div className={cartItemCss['cart-item__title']} >
-                    <span className={cartItemCss['cart-item__title_title']} > {title} </span>
+                    <span className={cartItemCss['cart-item__title_title']} > {product?.title} </span>
                 </div>
                 <div className={cartItemCss['cart-item__amount']} >
-                    <a href="#" onClick={(e) => { e.preventDefault(); removeItemHandler();  } } className={cartItemCss['cart-item__amount_minus']} >-</a>
-                    <input type="text" className={cartItemCss['cart-item__amount_current']} value={state} onChange={()=>{}} />
-                    <a href="#" onClick={(e) => { e.preventDefault(); addItemHandler(); } } className={cartItemCss['cart-item__amount_plus']} >+</a>
+                    <a href="#" onClick={(e) => { e.preventDefault(); removeItemProduct();  } } className={cartItemCss['cart-item__amount_minus']} >-</a>
+                    <input type="text" className={cartItemCss['cart-item__amount_current']} value={amount} onChange={()=>{}} />
+                    <a href="#" onClick={(e) => { e.preventDefault(); addItemProduct(); } } className={cartItemCss['cart-item__amount_plus']} >+</a>
                 </div>
                 <div className={cartItemCss['cart-item__total']} >
                 <span className={cartItemCss['cart-item__total_total']} >
-                    {price}
+                    { (product?.price * amount).toFixed(2) }
                 </span>
                     <span className={cartItemCss['cart-item__total_currency']} >
-                    {currency}
+                    {product?.currency}
                 </span>
                 </div>
             </div>
@@ -54,6 +59,7 @@ const CartItem = ({title, image, price, currency, addItemProduct, removeItemProd
             </a>
         </div>
     )
+
 
 }
 
