@@ -11,7 +11,7 @@ const TotalInCart = () => {
         </span>
         <span className={totalInCartCss['total-in-cart__value']}>
           <span className={totalInCartCss['total-in-cart__value_number']}>
-            {cart.total.toFixed(2)}
+            { cart.total > 0 && cart.total.toFixed(2)}
           </span>
           <span className={totalInCartCss['total-in-cart__value_currency']}>
             {cart.currency}
