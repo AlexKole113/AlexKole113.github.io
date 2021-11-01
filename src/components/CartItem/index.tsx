@@ -7,6 +7,8 @@ const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
 
     const { product } = useProductDataByID(id)
 
+    console.log(product)
+
     const dispatch = useDispatch();
     const addItemProduct = () => {
         dispatch(cartAddAction.request({ params: { data: id } }));
@@ -31,7 +33,9 @@ const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
             </div>
             <div className={cartItemCss['cart-item__price-amount-group']} >
                 <div className={cartItemCss['cart-item__title']} >
-                    <span className={cartItemCss['cart-item__title_title']} > {product?.title} </span>
+                    <span className={cartItemCss['cart-item__title_title']} > {product?.title}
+                        {amount > product.stock && <span className={cartItemCss['cart-item__stock-alert']}>Available in stock now: {product.stock} </span> }
+                    </span>
                 </div>
                 <div className={cartItemCss['cart-item__amount']} >
                     <a href="#" onClick={(e) => { e.preventDefault(); removeItemProduct();  } } className={cartItemCss['cart-item__amount_minus']} >-</a>

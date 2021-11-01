@@ -77,20 +77,23 @@
     flex-flow: column;
     text-align: center;
 
-    &_title {
+    &-title {
       font-weight: var(--font-weight-title);
       font-family: var(--font-family-title);
       margin-top: .4rem;
       font-size: .9rem;
     }
 
-    &_params {
+    &-params {
       font-size: .7rem;
       margin-top: .15rem;
       font-family: var(--font-family-regular);
+      &-name {
+        margin-right: .25rem;
+      }
     }
 
-    &_price {
+    &-price {
       color: var(--pink);
       font-weight: var(--font-weight-title);
       font-family: var(--font-family-price);
@@ -102,6 +105,10 @@
 
 
 
+  }
+
+  &__params-name {
+    margin-right: .25rem;
   }
 
   &__additional-info {

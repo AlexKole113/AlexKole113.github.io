@@ -12,11 +12,11 @@ const ProductCard = ({ product }:{product:IFakeProductItem}) => {
     const param = Object.keys(item)[0];
     return (
       <span key={param}>
-        <span className={productCardCss['product-card__info_params-name']}>
+        <span className={productCardCss['product-card__info-params-name']}>
           {param}
           :
         </span>
-        <span className={productCardCss['product-card__info_params-value']}>{item[param]}</span>
+        <span className={productCardCss['product-card__info-params-value']}>{item[param]}</span>
       </span>
     );
   });
@@ -38,19 +38,19 @@ const ProductCard = ({ product }:{product:IFakeProductItem}) => {
         />
       </div>
       <div className={productCardCss['product-card__info']}>
-        <span className={productCardCss['product-card__info_title']}>{title}</span>
-        <span className={productCardCss['product-card__info_params']}>
+        <span className={productCardCss['product-card__info-title']}>{title}</span>
+        <span className={productCardCss['product-card__info-params']}>
           {params}
         </span>
-        <span className={productCardCss['product-card__info_price']}>
-          <span className={productCardCss['product-card__info_price-currency']}>{currency}</span>
-          <span className={productCardCss['product-card__info_price-value']}>{price}</span>
+        <span className={productCardCss['product-card__info-price']}>
+          <span className={productCardCss['product-card__info-price-currency']}>{currency}</span>
+          <span className={productCardCss['product-card__info-price-value']}>{price}</span>
         </span>
       </div>
       <div className={productCardCss['product-card__additional-info']}>
-        <span className={productCardCss['product-card__additional-info_params']}>
-          <span className={productCardCss['product-card__additional-info_params-name']}>Bunch of</span>
-          <span className={productCardCss['product-card__additional-info_params-value']}>{stock}</span>
+        <span className={productCardCss['product-card__params']}>
+          <span className={productCardCss['product-card__params-name']}>Bunch of</span>
+          <span className={productCardCss['product-card__params-value']}>{stock}</span>
         </span>
       </div>
     </div>
