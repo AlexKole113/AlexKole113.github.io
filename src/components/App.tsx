@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import Layout from '@/components/Layout';
-import Preloader from "@/components/Preloader";
+//import Preloader from "@/components/Preloader";
 
 const Shop = React.lazy(() => import('@/pages/Shop'));
 const CheckOut = React.lazy(() => import('@/pages/CheckOut'));

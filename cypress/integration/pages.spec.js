@@ -55,5 +55,10 @@ describe('Test Pages', () => {
     setActions.useFavorites();
   });
 
+  it.only('Cart', () => {
+    action.init({host, setScreenSize: 'xl'});
+    setActions.useCart();
+  })
+
 
 });

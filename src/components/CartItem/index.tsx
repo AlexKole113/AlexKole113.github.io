@@ -25,7 +25,7 @@ const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
     if(product === null) return null;
 
     return (
-        <div className={cartItemCss['cart-item']}>
+        <div data-test={'cart-item'} className={cartItemCss['cart-item']}>
             <div className={cartItemCss['cart-item__img']}>
                 <img className={cartItemCss['cart-item__img_img']} src={product.image} alt={product?.title} />
             </div>
@@ -37,11 +37,11 @@ const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
                 </div>
                 <div className={cartItemCss['cart-item__amount']} >
                     <a href="#" onClick={(e) => { e.preventDefault(); removeItemProduct();  } } className={cartItemCss['cart-item__amount_minus']} >-</a>
-                    <input type="text" className={cartItemCss['cart-item__amount_current']} value={amount} onChange={()=>{}} />
+                    <input data-test={'cart-item-amount'} type="text" className={cartItemCss['cart-item__amount_current']} value={amount} onChange={()=>{}} />
                     <a href="#" onClick={(e) => { e.preventDefault(); addItemProduct(); } } className={cartItemCss['cart-item__amount_plus']} >+</a>
                 </div>
                 <div className={cartItemCss['cart-item__total']} >
-                <span className={cartItemCss['cart-item__total_total']} >
+                <span data-test={'cart-item-price'} className={cartItemCss['cart-item__total_total']} >
                     { (product?.price * amount).toFixed(2) }
                 </span>
                     <span className={cartItemCss['cart-item__total_currency']} >

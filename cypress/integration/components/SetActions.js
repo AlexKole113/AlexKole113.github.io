@@ -154,20 +154,20 @@ class SetActions {
 
     useFavorites = () => {
         cy.wait(1200)
-        cy.get('[data-test="product-card"]:nth-child(1) a:first-child').first().click();
+        cy.get(`[data-test="product-card"]:nth-child(${Math.round(  Math.random() * (4 - 1) + 1 )}) a:first-child`).first().click();
         this.action.checkContent('#header a[href="/favorites"]', ' 1 ')
         this.openShopTab('Plants')
-        cy.wait(800)
-        cy.get('[data-test="product-card"]:nth-child(2) a:first-child').eq(1).click();
+        cy.wait(1200)
+        cy.get(`[data-test="product-card"]:nth-child(${Math.round(  Math.random() * (4 - 1) + 1 )}) a:first-child`).eq(1).click();
         this.action.checkContent('#header a[href="/favorites"]', ' 2 ')
         this.openShopTab('Flowers')
-        cy.wait(800)
-        cy.get('[data-test="product-card"]:nth-child(2) a:first-child').eq(0).click();
+        cy.wait(1200)
+        cy.get(`[data-test="product-card"]:nth-child(${Math.round(  Math.random() * (4 - 1) + 1 )}) a:first-child`).eq(0).click();
         this.action.checkContent('#header a[href="/favorites"]', ' 3 ')
         this.openShopTab('Trees')
-        cy.wait(800)
+        cy.wait(1200)
         this.scrollAndLoadAllProducts();
-        this.action.click('[data-test="product-card"]:nth-child(5) a:first-child');
+        this.action.click(`[data-test="product-card"]:nth-child(${Math.round(  Math.random() * (8 - 4) + 4 )}) a:first-child`);
         this.action.checkContent('#header a[href="/favorites"]', ' 4 ')
 
         this.action.click('#header a[href="/favorites"]')
@@ -181,6 +181,37 @@ class SetActions {
 
         this.action.click('#header a[href="/favorites"]')
         cy.get('[data-test="product-card"]').should('have.length', 3)
+    }
+
+    useCart = () => {
+        const randomCardsLength = Math.round(  Math.random() * (8 - 3) + 3 );
+        const randomCards = () => {
+            let generateNewNumber = true;
+            const cards = [];
+            while( generateNewNumber ) {
+                const card =  Math.ceil( Math.random() * 10);
+                if( !cards.includes(card) ) cards.push(card)
+                if (cards.length === randomCardsLength) generateNewNumber = false;
+            }
+            return cards;
+        };
+        cy.wait(1200)
+        this.scrollAndLoadAllProducts();
+        const cardNumbers = randomCards();
+        cardNumbers.forEach((cardNum)=>{
+            cy.get(`[data-test="product-card"]:nth-child(${cardNum}) a:nth-child(2)`).first().click();
+            cy.wait(1000)
+        });
+
+        this.action.checkContent('#header a[href="/cart"]', ` ${randomCardsLength} `);
+        this.action.click('#header a[href="/cart"]')
+        cy.get('[data-test="cart-item"]').should('have.length', randomCardsLength)
+
+        // change amount and check price (first get price for item)
+        // delete item (via button and via "0")
+        // add item from different categories
+        // change amount and check price
+
     }
 }
 
