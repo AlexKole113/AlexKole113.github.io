@@ -36,7 +36,7 @@ class Cart {
 
     static isProductInCart = ({data:id}:{data:number}) => {
         const userCart = Cart.getAllCart();
-        if( Object.keys(userCart).indexOf(`${id}`) === -1 ) {
+        if( !userCart || Object.keys(userCart).indexOf(`${id}`) === -1 ) {
             return false;
         }
         return true

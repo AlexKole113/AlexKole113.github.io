@@ -65,11 +65,28 @@
     z-index: 0;
     background-color: #8080802e;
 
-    &_img {
+    &-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: none;
     }
+
+    [data-attachment="preloader"] {
+      display: flex;
+    }
+
+    &.loaded {
+      [data-attachment="preloader"] {
+        display: none;
+      }
+
+      .product-card__image-img {
+        display: inline;
+      }
+
+    }
+
   }
 
   &__info {

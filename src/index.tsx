@@ -1,3 +1,4 @@
+import React from "react";
 import { ConnectedRouter } from 'connected-react-router';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -6,6 +7,7 @@ import createStore from '@/store';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from '@/saga';
 import App from './components/App';
+
 
 import './styles/index.scss';
 
@@ -20,13 +22,13 @@ sagaMiddleware.run(rootSaga);
 //  (V) 1.3 Add hoc withAUserData - data;
 //  (V) 1.4 Profile fixing;
 //  (V) 1.5 Cypress testing, Browser testing, Refactoring;
-//  2. Search functions
+//  (V) 2. Search functions
 //  (V) 2.1 Cypress testing, Browser testing, Refactoring;
-//  2.  Add https://freegeoip.app/json/ to Settings and Profile;
-//  3. CART functionalities
+//  (?) 2.  Add https://freegeoip.app/json/ to Settings and Profile;
+//  (V) 3. CART functionalities
 //      3.1 Cypress testing, Browser testing, Refactoring;
-//  4. FAVORITES functionalities
-//      4.1 Cypress testing, Browser testing, Refactoring;
+//  (V) 4. FAVORITES functionalities
+//  (V) 4.1 Cypress testing, Browser testing, Refactoring;
 //  5. SETTINGS functionalities
 //      5.1 Cypress testing, Browser testing, Refactoring;
 //  7. Fix all tod's in styles file

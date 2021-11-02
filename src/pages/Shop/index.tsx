@@ -18,11 +18,9 @@ const Shop = () => {
   const [state, setState] = useState<IShopState>({
     loading: false, error: false, init: true, actualID: 1, lastActualID: null,
   });
-
   useEffect(() => {
     dispatch(categoriesInfoAction.request());
   }, []);
-
   useEffect(() => {
     if (!allCategories.length) return;
     updateCategories(() => allCategories);
@@ -31,7 +29,6 @@ const Shop = () => {
       actualID: getActualIDFromCategories(allCategories),
     }));
   }, [allCategories]);
-
   const setActive = (id:number) => {
     if (state.loading || !categories.length) return;
     const currentActualID = getActualIDFromCategories(categories);
@@ -47,9 +44,7 @@ const Shop = () => {
     }));
     updateCategories(() => setActualIDInCategory(categories, id));
   };
-
   useThemeSwitcher(`${state.actualID}`);
-
   if (!categories.length) return null;
   return (
     <div className={cssShopAnimation['shop-group']}>

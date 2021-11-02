@@ -1,8 +1,8 @@
 import styles from "./styles/index.scss";
 import spinner from './assets/preloader-for-page.gif'
 
-const Preloader = () => (
-    <div id="preloader" className={styles.preloader}>
+const Preloader = ({type}:{type?:string}) => (
+    <div data-attachment={'preloader'} className={`${styles.preloader} ${ type ? styles[type] : '' }` }>
         <img src={spinner} />
     </div>
 );

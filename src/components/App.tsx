@@ -1,18 +1,19 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router, Route, Switch, Redirect,
 } from 'react-router-dom';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import Layout from '@/components/Layout';
-import Cart from '@/pages/Cart';
-import CheckOut from '@/pages/CheckOut';
-import Contact from '@/pages/Contact';
-import Favorites from '@/pages/Favorites';
-import Settings from '@/pages/Settings';
-import Shop from '@/pages/Shop';
-import Profile from '@/pages/Profile';
-import Preloader from '@/components/Preloader';
-import Search from "@/pages/Search";
+import Preloader from "@/components/Preloader";
+
+const Shop = React.lazy(() => import('@/pages/Shop'));
+const CheckOut = React.lazy(() => import('@/pages/CheckOut'));
+const Cart = React.lazy(() => import('@/pages/Cart'));
+const Favorites = React.lazy(() => import('@/pages/Favorites'));
+const Contact = React.lazy(() => import('@/pages/Contact'));
+const Settings = React.lazy(() => import('@/pages/Settings'));
+const Profile = React.lazy(() => import('@/pages/Profile'));
+const Search = React.lazy(() => import('@/pages/Search'));
 
 const themeAndMenuStatusDefault:{themeID:string|null, pageID:string|null, menuOpened:boolean, [key:string]:any} = {
   themeID: null, pageID: null, menuOpened: false,
@@ -51,32 +52,27 @@ export default () => {
       }));
     },
   });
-
-  // TODO: add Lazyload from "Snake"
   return (
     <LayoutContext.Provider value={themeAndMenu}>
       <Router>
         <Layout toggleMenuCallback={themeAndMenu.toggleMenu}>
           <ErrorBoundary>
-            <Suspense fallback={<Preloader />}>
+            <React.Suspense fallback={null}>
               <Switch>
-
-                <Route path="/" component={Shop} exact />
-                <Route path="/check-out" component={CheckOut} />
-                {/* Thank U page */}
-                <Route path="/cart" component={Cart} />
-                <Route path="/favorites" component={Favorites} />
-                <Route path="/profile" component={Profile} />
-                <Route path="/shop" component={Shop} />
-                <Route path="/search" component={Search} />
-                <Route path="/settings" component={Settings} />
-                <Route path="/contacts" component={Contact} />
-
-                <Redirect to="/404" />
-                {/* 404 page */}
-
+                  <Route path="/" component={Shop} exact />
+                  <Route path="/check-out" component={CheckOut} />
+                  {/* Thank U page */}
+                  <Route path="/cart" component={Cart} />
+                  <Route path="/favorites" component={Favorites} />
+                  <Route path="/profile" component={Profile} />
+                  <Route path="/shop" component={Shop} />
+                  <Route path="/search" component={Search} />
+                  <Route path="/settings" component={Settings} />
+                  <Route path="/contacts" component={Contact} />
+                  <Redirect to="/404" />
+                  {/* 404 page */}
               </Switch>
-            </Suspense>
+            </React.Suspense>
           </ErrorBoundary>
         </Layout>
       </Router>

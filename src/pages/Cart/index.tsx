@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import CartItem from '@/components/CartItem';
 import InputWithButton from '@/components/InputWithButton';
 import TotalInCart from '@/components/TotalInCart';
 import btnCss from '@/components/Button/styles/index.scss';
@@ -8,7 +7,9 @@ import useThemeSwitcher from '@/hooks/useThemeSwitcher';
 import cartCss from './styles/index.scss';
 import {useSelector} from "react-redux";
 import {cartStateSelector} from "@/selectors/cart";
+import React from "react";
 
+const CartItem = React.lazy(() => import('@/components/CartItem') );
 
 const Cart = () => {
   const {data:cart} = useSelector(cartStateSelector)
@@ -25,7 +26,9 @@ const Cart = () => {
             </h3>
           </section>
           <section className={cartCss['cart-group__collection']}>
-            { itemsArray.map(([id,amount])=> <CartItem key={id} id={id} amount={amount} />) }
+            <React.Suspense fallback={<p className={cartCss['cart-group__loader']}>Loading...</p>} >
+              { itemsArray.map(([id,amount]) => <CartItem key={id} id={id} amount={amount} />) }
+            </React.Suspense>
           </section>
           <section className={cartCss['promocode-group']}>
             <InputWithButton styling="categories-input" onClickHandler={()=>{ console.log('btn pressed') }}  />

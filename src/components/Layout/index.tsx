@@ -4,7 +4,6 @@ import {
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Menu from '@/components/Menu';
-import Preloader from '@/components/Preloader';
 import themesCss from '@/styles/_themes.scss';
 import codePenDemoCss from '@/styles/_for-code-pen-demonstartion.scss';
 import menuStyles from '@/components/Menu/styles/index.scss';
@@ -46,11 +45,11 @@ const Layout = ({ children, toggleMenuCallback }: LayoutProps) => {
           <li className={codePenDemoCss['tech-stack__item']}>SCSS + Style modules</li>
           <li className={codePenDemoCss['tech-stack__item']}>Cypres</li>
           <li className={codePenDemoCss['tech-stack__item']}>PWA, localstorage</li>
+          <li className={codePenDemoCss['tech-stack__item']}>React lazyload</li>
         </ul>
       </div>
       <section className={codePenDemoCss['mobile-frame']}>
         <section className={`${codePenDemoCss['mobile-wrapper']} ${(menuOpened) ? menuStyles['menu-opened'] : ''}`} id="content-group">
-          <Preloader />
           <Header>
             <Menu toggleMenuCallback={toggleMenuCallback} />
           </Header>

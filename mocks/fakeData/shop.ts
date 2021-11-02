@@ -37,40 +37,40 @@ const fakeProductsFlowers:IFakeProducts = {
   id: 1,
   items: [
     {
-      id: 211, sku: 211, title: 'Flowers 1', image: 'https://assets.codepen.io/2736535/flowers-1.jpeg', data: [{ length: '10cm' }], price: 9.15, currency: '$', stock: 10,
+      id: 211, sku: 211, title: 'Flowers 1', image: 'https://assets.codepen.io/2736535/flowers-1.jpeg', data: [{ length: '10cm' }], price: 9.15, currency: '$', stock: 2,
     },
     {
-      id: 212, sku: 212, title: 'Flowers 2', image: 'https://assets.codepen.io/2736535/flowers-2.jpeg', data: [{ length: '20cm' }], price: 9.25, currency: '$', stock: 20,
+      id: 212, sku: 212, title: 'Flowers 2', image: 'https://assets.codepen.io/2736535/flowers-2.jpeg', data: [{ length: '20cm' }], price: 9.25, currency: '$', stock: 1,
     },
     {
-      id: 213, sku: 213, title: 'Flowers 3', image: 'https://assets.codepen.io/2736535/flowers-3.jpeg', data: [{ length: '30cm' }], price: 9.35, currency: '$', stock: 30,
+      id: 213, sku: 213, title: 'Flowers 3', image: 'https://assets.codepen.io/2736535/flowers-3.jpeg', data: [{ length: '30cm' }], price: 9.35, currency: '$', stock: 2,
     },
     {
-      id: 214, sku: 214, title: 'Flowers 4', image: 'https://assets.codepen.io/2736535/flowers-4.jpg', data: [{ length: '40cm' }], price: 9.45, currency: '$', stock: 40,
+      id: 214, sku: 214, title: 'Flowers 4', image: 'https://assets.codepen.io/2736535/flowers-4.jpg', data: [{ length: '40cm' }], price: 9.45, currency: '$', stock: 3,
     },
     {
-      id: 215, sku: 215, title: 'Flowers 5', image: 'https://assets.codepen.io/2736535/flowers-5.jpeg', data: [{ length: '40cm' }], price: 3.13, currency: '$', stock: 40,
+      id: 215, sku: 215, title: 'Flowers 5', image: 'https://assets.codepen.io/2736535/flowers-5.jpeg', data: [{ length: '40cm' }], price: 3.13, currency: '$', stock: 2,
     },
     {
-      id: 216, sku: 216, title: 'Flowers 6', image: 'https://assets.codepen.io/2736535/flowers-6.jpeg', data: [{ length: '40cm' }], price: 8.15, currency: '$', stock: 40,
+      id: 216, sku: 216, title: 'Flowers 6', image: 'https://assets.codepen.io/2736535/flowers-6.jpeg', data: [{ length: '40cm' }], price: 8.15, currency: '$', stock: 5,
     },
     {
-      id: 217, sku: 217, title: 'Flowers 7', image: 'https://assets.codepen.io/2736535/flowers-7.jpeg', data: [{ length: '40cm' }], price: 9.05, currency: '$', stock: 40,
+      id: 217, sku: 217, title: 'Flowers 7', image: 'https://assets.codepen.io/2736535/flowers-7.jpeg', data: [{ length: '40cm' }], price: 9.05, currency: '$', stock: 5,
     },
     {
-      id: 218, sku: 218, title: 'Flowers 8', image: 'https://assets.codepen.io/2736535/flowers-8.jpeg', data: [{ length: '40cm' }], price: 9.99, currency: '$', stock: 40,
+      id: 218, sku: 218, title: 'Flowers 8', image: 'https://assets.codepen.io/2736535/flowers-8.jpeg', data: [{ length: '40cm' }], price: 9.99, currency: '$', stock: 7,
     },
     {
-      id: 219, sku: 219, title: 'Flowers 9', image: 'https://assets.codepen.io/2736535/flowers-9.jpeg', data: [{ length: '40cm' }], price: 9.99, currency: '$', stock: 40,
+      id: 219, sku: 219, title: 'Flowers 9', image: 'https://assets.codepen.io/2736535/flowers-9.jpeg', data: [{ length: '40cm' }], price: 9.99, currency: '$', stock: 10,
     },
     {
-      id: 220, sku: 220, title: 'Flowers 10', image: 'https://assets.codepen.io/2736535/flowers-10.jpeg', data: [{ length: '40cm' }], price: 10.25, currency: '$', stock: 40,
+      id: 220, sku: 220, title: 'Flowers 10', image: 'https://assets.codepen.io/2736535/flowers-10.jpeg', data: [{ length: '40cm' }], price: 10.25, currency: '$', stock: 6,
     },
     {
-      id: 221, sku: 221, title: 'Flowers 11', image: 'https://assets.codepen.io/2736535/flowers-11.jpeg', data: [{ length: '40cm' }], price: 10.25, currency: '$', stock: 40,
+      id: 221, sku: 221, title: 'Flowers 11', image: 'https://assets.codepen.io/2736535/flowers-11.jpeg', data: [{ length: '40cm' }], price: 10.25, currency: '$', stock: 3,
     },
     {
-      id: 222, sku: 222, title: 'Flowers 12', image: 'https://assets.codepen.io/2736535/flowers-12.jpeg', data: [{ length: '40cm' }], price: 10.25, currency: '$', stock: 40,
+      id: 222, sku: 222, title: 'Flowers 12', image: 'https://assets.codepen.io/2736535/flowers-12.jpeg', data: [{ length: '40cm' }], price: 10.25, currency: '$', stock: 3,
     },
   ],
 };
@@ -85,7 +85,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '200cm' }],
       price: 9.15,
       currency: '$',
-      stock: 10,
+      stock: 3,
     },
     {
       id: 22,
@@ -95,7 +95,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '30cm' }],
       price: 9.25,
       currency: '$',
-      stock: 20,
+      stock: 3,
     },
     {
       id: 23,
@@ -105,7 +105,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '40cm' }],
       price: 9.35,
       currency: '$',
-      stock: 30,
+      stock: 3,
     },
     {
       id: 24,
@@ -115,7 +115,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '50cm' }],
       price: 9.45,
       currency: '$',
-      stock: 40,
+      stock: 4,
     },
     {
       id: 25,
@@ -125,7 +125,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '50cm' }],
       price: 8.45,
       currency: '$',
-      stock: 40,
+      stock: 4,
     },
     {
       id: 26,
@@ -135,7 +135,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '20cm' }],
       price: 10.45,
       currency: '$',
-      stock: 5,
+      stock: 2,
     },
     {
       id: 27,
@@ -145,7 +145,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '20cm' }],
       price: 9.99,
       currency: '$',
-      stock: 15,
+      stock: 2,
     },
     {
       id: 28,
@@ -155,7 +155,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '20cm' }],
       price: 9.99,
       currency: '$',
-      stock: 15,
+      stock: 2,
     },
     {
       id: 29,
@@ -165,7 +165,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '40cm' }],
       price: 1.31,
       currency: '$',
-      stock: 50,
+      stock: 2,
     },
     {
       id: 30,
@@ -175,7 +175,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '40cm' }],
       price: 3.33,
       currency: '$',
-      stock: 50,
+      stock: 2,
     },
     {
       id: 31,
@@ -185,7 +185,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '40cm' }],
       price: 2.00,
       currency: '$',
-      stock: 50,
+      stock: 2,
     },
     {
       id: 32,
@@ -195,7 +195,7 @@ const fakeProductsPlants:IFakeProducts = {
       data: [{ length: '40cm' }],
       price: 1.25,
       currency: '$',
-      stock: 50,
+      stock: 2,
     },
   ],
 };
@@ -203,35 +203,35 @@ const fakeProductsTrees:IFakeProducts = {
   id: 3,
   items: [
     {
-      id: 131, sku: 131, title: 'Trees 1', image: 'https://assets.codepen.io/2736535/trees-1.jpeg', data: [{ length: '50cm' }], price: 100, currency: '$', stock: 20,
+      id: 131, sku: 131, title: 'Trees 1', image: 'https://assets.codepen.io/2736535/trees-1.jpeg', data: [{ length: '50cm' }], price: 100, currency: '$', stock: 5,
     },
     {
-      id: 132, sku: 132, title: 'Trees 2', image: 'https://assets.codepen.io/2736535/trees-2.jpeg', data: [{ length: '50cm' }], price: 302.99, currency: '$', stock: 20,
+      id: 132, sku: 132, title: 'Trees 2', image: 'https://assets.codepen.io/2736535/trees-2.jpeg', data: [{ length: '50cm' }], price: 302.99, currency: '$', stock: 7,
     },
     {
-      id: 133, sku: 133, title: 'Trees 3', image: 'https://assets.codepen.io/2736535/trees-3.jpeg', data: [{ length: '50cm' }], price: 303.99, currency: '$', stock: 20,
+      id: 133, sku: 133, title: 'Trees 3', image: 'https://assets.codepen.io/2736535/trees-3.jpeg', data: [{ length: '50cm' }], price: 303.99, currency: '$', stock: 8,
     },
     {
-      id: 134, sku: 134, title: 'Trees 4', image: 'https://assets.codepen.io/2736535/trees-4.jpeg', data: [{ length: '50cm' }], price: 304.99, currency: '$', stock: 20,
+      id: 134, sku: 134, title: 'Trees 4', image: 'https://assets.codepen.io/2736535/trees-4.jpeg', data: [{ length: '50cm' }], price: 304.99, currency: '$', stock: 10,
     },
 
     {
-      id: 135, sku: 135, title: 'Trees 5', image: 'https://assets.codepen.io/2736535/trees-5.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 20,
+      id: 135, sku: 135, title: 'Trees 5', image: 'https://assets.codepen.io/2736535/trees-5.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 3,
     },
     {
-      id: 136, sku: 136, title: 'Trees 6', image: 'https://assets.codepen.io/2736535/trees-6.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 20,
+      id: 136, sku: 136, title: 'Trees 6', image: 'https://assets.codepen.io/2736535/trees-6.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 4,
     },
     {
-      id: 137, sku: 137, title: 'Trees 7', image: 'https://assets.codepen.io/2736535/trees-7.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 20,
+      id: 137, sku: 137, title: 'Trees 7', image: 'https://assets.codepen.io/2736535/trees-7.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 5,
     },
     {
-      id: 138, sku: 138, title: 'Trees 8', image: 'https://assets.codepen.io/2736535/trees-8.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 20,
+      id: 138, sku: 138, title: 'Trees 8', image: 'https://assets.codepen.io/2736535/trees-8.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 5,
     },
     {
-      id: 139, sku: 139, title: 'Trees 9', image: 'https://assets.codepen.io/2736535/trees-9.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 20,
+      id: 139, sku: 139, title: 'Trees 9', image: 'https://assets.codepen.io/2736535/trees-9.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 3,
     },
     {
-      id: 140, sku: 140, title: 'Trees 10', image: 'https://assets.codepen.io/2736535/trees-10.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 20,
+      id: 140, sku: 140, title: 'Trees 10', image: 'https://assets.codepen.io/2736535/trees-10.jpeg', data: [{ length: '50cm' }], price: 305.99, currency: '$', stock: 3,
     },
 
   ],

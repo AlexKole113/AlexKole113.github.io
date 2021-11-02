@@ -1,8 +1,12 @@
+import React from "react";
 import cssShopAnimation from '@/styles/shop-animation.scss';
 import productCardCss from './styles/index.scss';
 import { IFakeProductItem } from '../../../mocks/fakeData/shop';
 import AddToFavoritesButton from "@/components/AddToFavoritesButton";
 import AddToCartButton from "@/components/AddToCartButton";
+import LoadableProductCardImage from "@/components/ProductCard/components/ProductCardImage";
+
+
 
 const ProductCard = ({ product }:{product:IFakeProductItem}) => {
   const {
@@ -24,19 +28,10 @@ const ProductCard = ({ product }:{product:IFakeProductItem}) => {
   return (
     <div data-test={`product-card`} className={`${productCardCss['product-card']} ${cssShopAnimation['product-card']}`}>
       <div className={productCardCss['product-card__buttons']}>
-
         <AddToFavoritesButton id={id} />
         <AddToCartButton id={id} />
-
       </div>
-      <div className={productCardCss['product-card__image']}>
-        <img
-          className={productCardCss['product-card__image_img']}
-          src={image}
-          alt={title}
-          title={title}
-        />
-      </div>
+      <LoadableProductCardImage src={image} title={title} />
       <div className={productCardCss['product-card__info']}>
         <span className={productCardCss['product-card__info-title']}>{title}</span>
         <span className={productCardCss['product-card__info-params']}>

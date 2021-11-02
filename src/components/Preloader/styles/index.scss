@@ -1,20 +1,27 @@
 .preloader {
 
   background-color: #ffffff;
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  //display: flex;
-  display: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
 
 
   img {
-    width: 150px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.main {
+    position: absolute;
+    top:0;
+
+    img {
+      height: auto;
+    }
+
   }
 
 }
