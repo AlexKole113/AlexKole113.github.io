@@ -24,7 +24,7 @@
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-
+    margin-bottom: 1.5rem;
   }
 
   .app-btn {
@@ -32,7 +32,6 @@
     background: var(--btn-theme);
     color: var(--white);
   }
-
 
   &__loader {
     text-align: center;
@@ -47,5 +46,4 @@
     overflow: hidden;
     font-size: 1.25rem;
   }
-
 }

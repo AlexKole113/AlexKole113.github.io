@@ -36,9 +36,9 @@ const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
                     </span>
                 </div>
                 <div className={cartItemCss['cart-item__amount']} >
-                    <a href="#" onClick={(e) => { e.preventDefault(); removeItemProduct();  } } className={cartItemCss['cart-item__amount_minus']} >-</a>
+                    <a data-test={'minus-item'} href="#" onClick={(e) => { e.preventDefault(); removeItemProduct();  } } className={cartItemCss['cart-item__amount_minus']} >-</a>
                     <input data-test={'cart-item-amount'} type="text" className={cartItemCss['cart-item__amount_current']} value={amount} onChange={()=>{}} />
-                    <a href="#" onClick={(e) => { e.preventDefault(); addItemProduct(); } } className={cartItemCss['cart-item__amount_plus']} >+</a>
+                    <a data-test={'plus-item'} href="#" onClick={(e) => { e.preventDefault(); addItemProduct(); } } className={cartItemCss['cart-item__amount_plus']} >+</a>
                 </div>
                 <div className={cartItemCss['cart-item__total']} >
                 <span data-test={'cart-item-price'} className={cartItemCss['cart-item__total_total']} >
@@ -49,7 +49,7 @@ const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
                 </span>
                 </div>
             </div>
-            <a href="#" onClick={(e)=> {e.preventDefault(); removeProduct()} } className={cartItemCss['cart-item__del']} >
+            <a data-test={'remove-product'} href="#" onClick={(e)=> {e.preventDefault(); removeProduct()} } className={cartItemCss['cart-item__del']} >
             <span  className={cartItemCss['cart-item__del_del']} >
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times"
                      className="svg-inline--fa fa-times fa-w-11" role="img"

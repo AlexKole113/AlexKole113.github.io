@@ -185,6 +185,31 @@ class SetActions {
 
     useCart = () => {
         const randomCardsLength = Math.round(  Math.random() * (8 - 3) + 3 );
+        const checkTotalPrice = () => {
+            let totalPrice = 0;
+            cy.get('[data-test="cart-item-price"]').each((item, index, list) => {
+                totalPrice += parseFloat(item[0].innerText)
+                if(index ===  list.length - 1) {
+                    this.action.checkContent('[data-test="total-in-cart"]', totalPrice.toFixed(2))
+                }
+            })
+        }
+        const changeAndCheckItemAmmount = ({item, ammountTo}) => {
+         cy.get(`[data-test="cart-item"]:nth-child(${item})`).find('[data-test="cart-item-price"]')
+                .invoke('text').then((itemPrice)=>{
+                cy.get(`[data-test="cart-item"]:nth-child(${item})`).find('[data-test="cart-item-amount"]').should('have.value', 1);
+                for(let i = 0; i < ammountTo-1; i++ ) {
+                    cy.get(`[data-test="cart-item"]:nth-child(${item})`).find('[data-test="plus-item"]').click()
+                }
+                cy.get(`[data-test="cart-item"]:nth-child(${item})`).find('[data-test="cart-item-amount"]').should('have.value',  ammountTo)
+                cy.get(`[data-test="cart-item"]:nth-child(${item})`).find('[data-test="cart-item-price"]').should('have.text', ( ammountTo * itemPrice).toFixed(2))
+                checkTotalPrice()
+                for(let i = 0; i < ammountTo-1; i++ ) {
+                     cy.get(`[data-test="cart-item"]:nth-child(${item})`).find('[data-test="minus-item"]').click()
+                 }
+                 cy.get(`[data-test="cart-item"]:nth-child(${item})`).find('[data-test="cart-item-amount"]').should('have.value', 1);
+         });
+        }
         const randomCards = () => {
             let generateNewNumber = true;
             const cards = [];
@@ -195,6 +220,7 @@ class SetActions {
             }
             return cards;
         };
+
         cy.wait(1200)
         this.scrollAndLoadAllProducts();
         const cardNumbers = randomCards();
@@ -202,16 +228,32 @@ class SetActions {
             cy.get(`[data-test="product-card"]:nth-child(${cardNum}) a:nth-child(2)`).first().click();
             cy.wait(1000)
         });
-
         this.action.checkContent('#header a[href="/cart"]', ` ${randomCardsLength} `);
         this.action.click('#header a[href="/cart"]')
         cy.get('[data-test="cart-item"]').should('have.length', randomCardsLength)
+        checkTotalPrice();
+        changeAndCheckItemAmmount({item: 1, ammountTo: 8})
+        changeAndCheckItemAmmount({item: 2, ammountTo: 6})
+        changeAndCheckItemAmmount({item: 3, ammountTo: 3})
+        cy.get('[data-test="cart-item"]:nth-child(1) a[data-test="remove-product"]').click();
+        cy.get('[data-test="cart-item"]:nth-child(1) a[data-test="minus-item"]').click();
+        cy.get('[data-test="cart-item"]').should('have.length', randomCardsLength - 2)
 
-        // change amount and check price (first get price for item)
-        // delete item (via button and via "0")
-        // add item from different categories
-        // change amount and check price
+        this.useMainMenuAndGoTo('shop');
+        this.openShopTab('Trees')
+        cy.wait(1200)
+        cy.get(`[data-test="product-card"]:nth-child(3) a:nth-child(2)`).eq(2).click();
+        this.action.checkContent('#header a[href="/cart"]', ` ${randomCardsLength - 2 + 1} `);
+        this.action.click('#header a[href="/cart"]')
+        cy.get('[data-test="cart-item"]').should('have.length', randomCardsLength - 2 + 1)
 
+        this.useMainMenuAndGoTo('shop');
+        this.openShopTab('Plant')
+        cy.wait(1200)
+        cy.get(`[data-test="product-card"]:nth-child(3) a:nth-child(2)`).eq(1).click();
+        this.action.checkContent('#header a[href="/cart"]', ` ${randomCardsLength} `);
+        this.action.click('#header a[href="/cart"]')
+        cy.get('[data-test="cart-item"]').should('have.length', randomCardsLength)
     }
 }
 

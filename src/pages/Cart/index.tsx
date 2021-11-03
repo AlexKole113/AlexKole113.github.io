@@ -8,6 +8,7 @@ import cartCss from './styles/index.scss';
 import {useSelector} from "react-redux";
 import {cartStateSelector} from "@/selectors/cart";
 import React from "react";
+import Arrow from "@/components/InputWithButton/components/arrow";
 
 const CartItem = React.lazy(() => import('@/components/CartItem') );
 
@@ -31,7 +32,9 @@ const Cart = () => {
             </React.Suspense>
           </section>
           <section className={cartCss['promocode-group']}>
-            <InputWithButton styling="categories-input" onClickHandler={()=>{ console.log('btn pressed') }}  />
+            <InputWithButton styling="categories-input" onClickHandler={()=>{ console.log('btn pressed') }} placeholder={'Enter promo code'} >
+              <Arrow />
+            </InputWithButton>
           </section>
           <TotalInCart />
           <Link to="/check-out" className={`${btnCss['app-btn']} ${btnCss['check-out-btn']}`}> Next </Link>

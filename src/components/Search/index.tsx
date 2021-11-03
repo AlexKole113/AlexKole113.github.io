@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import APIService from "../../../mocks/APIService";
 import FastResultItem from "@/components/SearchList/components/FastResultItem";
 import { Redirect } from 'react-router-dom'
+import Magnifier from "@/components/InputWithButton/components/magnifier";
 
 
 const Search = ({ styling }:{styling:string}) => {
@@ -96,7 +97,9 @@ const Search = ({ styling }:{styling:string}) => {
         <section className={`${searchCss.search} ${cssShopAnimation.search}`}>
             {needRedirect()}
             <div data-search={'product'} className={mainCss.container}>
-                <InputWithButton hasResults={state.hasResults && !state.initial} onClickHandler={getSearchResults} onChangeHandler={getPopularSearchRequests} styling={`search-input ${styling}`} startValue={state.searchText} />
+                <InputWithButton hasResults={state.hasResults && !state.initial} onClickHandler={getSearchResults} onChangeHandler={getPopularSearchRequests} styling={`search-input ${styling}`} startValue={state.searchText} >
+                    <Magnifier />
+                </InputWithButton>
                 <SearchList isActive={state.hasResults && !state.initial} >
                     {fastResults.map(([keyword,whereFound,{title,id}],num) => <FastResultItem key={`${id}-${num}`} id={id} keyword={keyword} whereFound={whereFound} productName={title} />)}
                 </SearchList>

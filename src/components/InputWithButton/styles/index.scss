@@ -12,8 +12,7 @@
   position: relative;
   transition: all .2s .1s;
 
-  &_input {
-    &_btn {
+  &_input-btn {
       position: absolute;
       top: 4px;
       right: 4px;
@@ -26,13 +25,13 @@
       align-items: center;
       justify-content: center;
       border: none;
+      cursor: pointer;
 
       svg {
         width: .9rem;
         height: .9rem;
         color: var(--white);
       }
-    }
   }
   .input-control__placeholder {
     font-family: var(--font-family-regular);
