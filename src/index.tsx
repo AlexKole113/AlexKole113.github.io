@@ -16,7 +16,7 @@ const { store, history } = createStore({ sagaMiddleware });
 sagaMiddleware.run(rootSaga);
 
 // TODO: reorganize project:
-//  1. API
+//  (V) 1. API
 //  (V) 1.1 Create common API class with static functions;
 //  (V) 1.2 Add hoc withAPIService - data;
 //  (V) 1.3 Add hoc withAUserData - data;
@@ -26,7 +26,7 @@ sagaMiddleware.run(rootSaga);
 //  (V) 2.1 Cypress testing, Browser testing, Refactoring;
 //  (?) 2.  Add https://freegeoip.app/json/ to Settings and Profile;
 //  (V) 3. CART functionalities
-//      3.1 Cypress testing, Browser testing, Refactoring;
+//  (V) 3.1 Cypress testing, Browser testing, Refactoring;
 //  (V) 4. FAVORITES functionalities
 //  (V) 4.1 Cypress testing, Browser testing, Refactoring;
 //  5. SETTINGS functionalities
@@ -37,6 +37,7 @@ sagaMiddleware.run(rootSaga);
 //      9.1 Cypress testing, Browser testing, Refactoring;
 //  10. Try to remove all Typescript 'any' from project
 //  11. Refactoring
+//  12. Readme.md creating (describe you features: content all dynamic (category etc.), random data in cypress tests etc)
 
 ReactDOM.render(
   <Provider store={store}>

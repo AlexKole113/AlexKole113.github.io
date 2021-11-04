@@ -9,6 +9,7 @@ const usePageTitle = (defaultTitle:string) => {
     ['profile', 'Profile'],
     ['settings', 'Settings'],
     ['search', 'Search'],
+    ['check-out', 'Check out']
   ]);
   const title = titlesMap.get(getPath());
   if (title && typeof title === 'string') return title;
