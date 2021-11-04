@@ -1,0 +1,14 @@
+.page404 {
+   &__container {
+      display: flex;
+      flex-flow: column;
+      text-align: center;
+      color: var(--gray-main-menu-back);
+   }
+   &__title {
+      font-size: 6rem;
+   }
+   &__text {
+      font-size: 1.5rem;
+   }
+}

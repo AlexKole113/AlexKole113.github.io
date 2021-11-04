@@ -32,7 +32,7 @@ sagaMiddleware.run(rootSaga);
 //  5. SETTINGS functionalities
 //      5.1 Cypress testing, Browser testing, Refactoring;
 //  7. Fix all tod's in styles file
-//  8. Create pages: Demo page, 404, 505, Thank U
+//  (V) 8. Create pages: Demo page, 404
 //  9. Add PWA
 //      9.1 Cypress testing, Browser testing, Refactoring;
 //  10. Try to remove all Typescript 'any' from project

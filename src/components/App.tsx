@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  BrowserRouter as Router, Route, Switch, Redirect,
+  BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import Layout from '@/components/Layout';
@@ -14,6 +14,7 @@ const Contact = React.lazy(() => import('@/pages/Contact'));
 const Settings = React.lazy(() => import('@/pages/Settings'));
 const Profile = React.lazy(() => import('@/pages/Profile'));
 const Search = React.lazy(() => import('@/pages/Search'));
+const Page404 = React.lazy(() => import('@/pages/Page404'));
 
 const themeAndMenuStatusDefault:{themeID:string|null, pageID:string|null, menuOpened:boolean, [key:string]:any} = {
   themeID: null, pageID: null, menuOpened: false,
@@ -69,7 +70,7 @@ export default () => {
                   <Route path="/search" component={Search} />
                   <Route path="/settings" component={Settings} />
                   <Route path="/contacts" component={Contact} />
-                  <Redirect to="/404" />
+                  <Route path="*" component={Page404} />
                   {/* 404 page */}
               </Switch>
             </React.Suspense>
