@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import Layout from '@/components/Layout';
+import {useDispatch} from "react-redux";
+import {settingsInfoAction} from "@/actions/settings";
 //import Preloader from "@/components/Preloader";
 
 const Shop = React.lazy(() => import('@/pages/Shop'));
@@ -53,6 +55,13 @@ export default () => {
       }));
     },
   });
+  const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(settingsInfoAction.request());
+
+
+
+    },[])
   return (
     <LayoutContext.Provider value={themeAndMenu}>
       <Router>
@@ -62,7 +71,6 @@ export default () => {
               <Switch>
                   <Route path="/" component={Shop} exact />
                   <Route path="/check-out" component={CheckOut} />
-                  {/* Thank U page */}
                   <Route path="/cart" component={Cart} />
                   <Route path="/favorites" component={Favorites} />
                   <Route path="/profile" component={Profile} />
@@ -71,7 +79,6 @@ export default () => {
                   <Route path="/settings" component={Settings} />
                   <Route path="/contacts" component={Contact} />
                   <Route path="*" component={Page404} />
-                  {/* 404 page */}
               </Switch>
             </React.Suspense>
           </ErrorBoundary>

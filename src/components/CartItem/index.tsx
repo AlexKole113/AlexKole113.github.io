@@ -2,9 +2,10 @@ import cartItemCss from './styles/index.scss'
 import {cartAddAction, cartDeleteAction, cartDeleteAllAction, cartInfoAction} from "@/actions/cart";
 import {useDispatch} from "react-redux";
 import useProductDataByID from "@/hooks/useProductDataByID";
+import useMultiLanguage from "@/hooks/useMultiLanguage";
 
 const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
-
+    const __translate = useMultiLanguage();
     const { product } = useProductDataByID(id)
 
     const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const CartItem = ({id,amount}:{id:number|string, amount:number}) => {
             <div className={cartItemCss['cart-item__price-amount-group']} >
                 <div className={cartItemCss['cart-item__title']} >
                     <span className={cartItemCss['cart-item__title_title']} > {product?.title}
-                        {amount > product.stock && <span className={cartItemCss['cart-item__stock-alert']}>Available in stock now: {product.stock} </span> }
+                        {amount > product.stock && <span className={cartItemCss['cart-item__stock-alert']}>{__translate('Available in stock now')} : {product.stock} </span> }
                     </span>
                 </div>
                 <div className={cartItemCss['cart-item__amount']} >

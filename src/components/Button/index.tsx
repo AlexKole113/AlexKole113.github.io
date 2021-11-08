@@ -7,10 +7,11 @@ import CreditCardIcon from "@/components/Button/components/CreditCardIcon";
 import TreeIcon from "@/components/Button/components/TreeIcon";
 import FlowerIcon from "@/components/Button/components/FlowerIcon";
 import PepperIcon from "@/components/Button/components/PepperIcon";
-
+import useMultiLanguage from "@/hooks/useMultiLanguage";
 
 const Button = ( { value, icon, styling, statement, updateActiveItem }:{value:string, icon:string, styling?:string, statement?:string, updateActiveItem: ()=> void } ) => {
 
+    const __translate = useMultiLanguage();
     const iconsCollection = new Map([
         ['plant', <PlantIcon />],
         ['profile', <ProfileIcon />],
@@ -31,7 +32,7 @@ const Button = ( { value, icon, styling, statement, updateActiveItem }:{value:st
                 { statement === 'loading' ? <img src={buttonSpinner} /> : image }
             </span>
             <span className={css['app-btn__text']}>
-                {value}
+                {__translate(value)}
             </span>
         </a>
     );

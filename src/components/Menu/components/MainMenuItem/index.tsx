@@ -6,10 +6,12 @@ import PhoneIcon from '@/components/Menu/components/MainMenuItem/components/Phon
 import menuStyles from '@/components/Menu/styles/index.scss';
 import { useContext } from 'react';
 import { LayoutContext } from '@/components/App';
+import useMultiLanguage from "@/hooks/useMultiLanguage";
 
 const MainMenuItem = ({ value, path }:{ value:string, path:string}) => {
   let isActivePath = false;
   const { setPageID } = useContext(LayoutContext);
+    const __translate = useMultiLanguage();
 
   const iconsCollection = new Map([
     ['shop', <ListIcon />],
@@ -38,7 +40,7 @@ const MainMenuItem = ({ value, path }:{ value:string, path:string}) => {
           {image}
         </span>
         <span className={menuStyles['main-menu__link-text']}>
-          {value}
+          {__translate(value)}
         </span>
         <span className={menuStyles['main-menu__link-extra']}>
           <svg

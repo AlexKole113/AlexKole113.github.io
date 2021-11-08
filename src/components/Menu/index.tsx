@@ -6,7 +6,9 @@ import menuStyles from './styles/index.scss';
 import AdditionalCartLink from "@/components/Menu/components/AdditionalCartLink";
 import AdditionalFavoritesLink from "@/components/Menu/components/AdditionalFavoritesLink";
 
+
 const Menu = ({ toggleMenuCallback }:{toggleMenuCallback: () => void }) => {
+
   const menu = [
     { title: 'profile', path: '/profile' },
     { title: 'shop', path: '/shop' },

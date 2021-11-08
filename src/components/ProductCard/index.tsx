@@ -5,10 +5,11 @@ import { IFakeProductItem } from '../../../mocks/fakeData/shop';
 import AddToFavoritesButton from "@/components/AddToFavoritesButton";
 import AddToCartButton from "@/components/AddToCartButton";
 import LoadableProductCardImage from "@/components/ProductCard/components/ProductCardImage";
-
+import useMultiLanguage from "@/hooks/useMultiLanguage";
 
 
 const ProductCard = ({ product }:{product:IFakeProductItem}) => {
+  const __translate = useMultiLanguage();
   const {
     title, image, data, price, currency, stock, id
   } = product;
@@ -17,7 +18,7 @@ const ProductCard = ({ product }:{product:IFakeProductItem}) => {
     return (
       <span key={param}>
         <span className={productCardCss['product-card__info-params-name']}>
-          {param}
+          {__translate(param)}
           :
         </span>
         <span className={productCardCss['product-card__info-params-value']}>{item[param]}</span>
@@ -33,7 +34,7 @@ const ProductCard = ({ product }:{product:IFakeProductItem}) => {
       </div>
       <LoadableProductCardImage src={image} title={title} />
       <div className={productCardCss['product-card__info']}>
-        <span className={productCardCss['product-card__info-title']}>{title}</span>
+        <span className={productCardCss['product-card__info-title']}>{__translate(title)}</span>
         <span className={productCardCss['product-card__info-params']}>
           {params}
         </span>
@@ -44,7 +45,7 @@ const ProductCard = ({ product }:{product:IFakeProductItem}) => {
       </div>
       <div className={productCardCss['product-card__additional-info']}>
         <span className={productCardCss['product-card__params']}>
-          <span className={productCardCss['product-card__params-name']}>Bunch of</span>
+          <span className={productCardCss['product-card__params-name']}>{__translate('In Stock')}</span>
           <span className={productCardCss['product-card__params-value']}>{stock}</span>
         </span>
       </div>

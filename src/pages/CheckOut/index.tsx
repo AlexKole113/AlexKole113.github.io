@@ -4,8 +4,10 @@ import btnCss from '@/components/Button/styles/index.scss';
 import useThemeSwitcher from '@/hooks/useThemeSwitcher';
 import checkOutCss from './styles/index.scss';
 import withUserData from "@/hocs/withUserData";
+import useMultiLanguage from "@/hooks/useMultiLanguage";
 
 const CheckOut = ({ userData }:{userData:{[key:string]:any}}) => {
+  const __translate = useMultiLanguage();
   useThemeSwitcher('cart-theme');
   return (
     <>
@@ -14,7 +16,7 @@ const CheckOut = ({ userData }:{userData:{[key:string]:any}}) => {
           <div className={checkOutCss['check-out-group__group']}>
             <section className={checkOutCss['check-out-group__title-block']}>
               <h3 className={checkOutCss['check-out-group__title-block_title']}>
-                User details
+                {__translate('User details')}
               </h3>
             </section>
             <section className={checkOutCss['check-out-group__profile-collection']}>
@@ -26,7 +28,7 @@ const CheckOut = ({ userData }:{userData:{[key:string]:any}}) => {
           <div className={checkOutCss['check-out-group__group']}>
             <section className={checkOutCss['check-out-group__title-block']}>
               <h3 className={checkOutCss['check-out-group__title-block_title']}>
-                Delivery address
+                {__translate('Delivery address')}
               </h3>
             </section>
             <section className={checkOutCss['check-out-group__profile-collection']}>
@@ -37,7 +39,7 @@ const CheckOut = ({ userData }:{userData:{[key:string]:any}}) => {
           <div className={checkOutCss['check-out-group__group']}>
             <section className={checkOutCss['check-out-group__title-block']}>
               <h3 className={checkOutCss['check-out-group__title-block_title']}>
-                Payment details
+                {__translate('Payment details')}
               </h3>
             </section>
             <section className={checkOutCss['check-out-group__profile-collection']}>
@@ -50,7 +52,7 @@ const CheckOut = ({ userData }:{userData:{[key:string]:any}}) => {
         <div className={commonCss.container}>
           <div className={checkOutCss['check-out-group__group']}>
             <a href="#" className={`${btnCss['app-btn']} ${btnCss['check-out-btn']}`}>
-              Pay and Check Out
+              {__translate('Pay and Check Out')}
             </a>
           </div>
         </div>

@@ -3,9 +3,11 @@ import ContactItem from "@/components/ContactItem";
 import contactCss from './styles/index.scss';
 import commonCss from '@/styles/_common.scss'
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
+import useMultiLanguage from "@/hooks/useMultiLanguage";
 
 
 const Contact = () => {
+    const __translate = useMultiLanguage();
     useThemeSwitcher('contact-theme' );
     return (
        <>
@@ -25,7 +27,7 @@ const Contact = () => {
 
                        <section className={contactCss['contact-group__title-block']}>
                            <h3 className={contactCss['contact-group__title-block_title']}>
-                               Email and Phone
+                               {__translate('Email and Phone')}
                            </h3>
                        </section>
 

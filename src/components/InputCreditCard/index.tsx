@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 import CreditCardInput from 'react-credit-card-input';
 import { FormEvent, useState } from 'react';
 
@@ -7,8 +7,10 @@ import SuccessIcon from '@/components/InputControl/components/SuccessIcon';
 import InvalidIcon from '@/components/InputControl/components/InvalidIcon';
 import buttonSpinner from '@/components/InputControl/assets/preloader-for-btn.gif';
 import inputCss from './styles/index.scss';
+import useMultiLanguage from "@/hooks/useMultiLanguage";
 
 const InputCreditCard = () => {
+  const __translate = useMultiLanguage();
   const [data, setData] = useState({
     number: '',
     expires: '',
@@ -23,7 +25,6 @@ const InputCreditCard = () => {
 
   const creditCardNumberUpdate = (e:FormEvent) => {
     const { value } = e.target as HTMLInputElement;
-    // @ts-ignore
     setData((prevState) => ({
       ...prevState,
       number: value,
@@ -45,7 +46,6 @@ const InputCreditCard = () => {
 
   const creditCardCVCUpdate = (e:FormEvent) => {
     const { value } = e.target as HTMLInputElement;
-    // @ts-ignore
     setData((prevState) => ({
       ...prevState,
       cvc: value,
@@ -55,7 +55,6 @@ const InputCreditCard = () => {
   };
 
   const clear = () => {
-    // @ts-ignore
     setData(() => ({
       number: '',
       expires: '',
@@ -83,6 +82,7 @@ const InputCreditCard = () => {
         dangerTextClassName={inputCss.dangerTextClassName}
         inputClassName={inputCss.inputClassName}
         invalidClassName={inputCss.invalidClassName}
+        customTextLabels={{ invalidCardNumber: __translate('Card number is invalid'),}}
       />
       <span data-test={``} className={inputCss['input-control__state']}>
         {icon}
