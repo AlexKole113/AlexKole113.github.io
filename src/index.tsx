@@ -32,12 +32,11 @@ sagaMiddleware.run(rootSaga);
 //  5. SETTINGS functionalities
 //      5.1 Cypress testing, Browser testing, Refactoring;
 //  7. Fix all tod's in styles file
-//  (V) 8. Create pages: Demo page, 404
+//  8. Fix Animation problems with Profile field change and Menu opens lugs
 //  9. Add PWA
 //      9.1 Cypress testing, Browser testing, Refactoring;
 //  10. Try to remove all Typescript 'any' from project
-//  11. Refactoring
-//  12. Readme.md creating (describe you features: content all dynamic (category etc.), random data in cypress tests etc)
+//  11. Readme.md creating (describe you features: content all dynamic (category etc.), random data in cypress tests etc)
 
 ReactDOM.render(
   <Provider store={store}>
