@@ -83,6 +83,9 @@ const RU = new Map([
     ['Tree 8', 'Дерево 8'],
     ['Tree 9', 'Дерево 9'],
     ['Tree 10', 'Дерево 10'],
+    ['My super option 1', 'Моя суперопция 1'],
+    ['My super option 2', 'Моя суперопция 2'],
+    ['My super option 3', 'Моя суперопция 3'],
 
     ['of',' '],
 

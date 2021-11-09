@@ -82,6 +82,10 @@ const PL = new Map([
     ['Tree 9', 'Drzewo 9'],
     ['Tree 10', 'Drzewo 10'],
 
+    ['My super option 1', 'Moja super opcja 1'],
+    ['My super option 2', 'Moja super opcja 2'],
+    ['My super option 3', 'Moja super opcja 3'],
+
     ['of',' '],
     ['title', 'tytule'],
 

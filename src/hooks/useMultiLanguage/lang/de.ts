@@ -82,6 +82,10 @@ const DE = new Map([
     ['Tree 9', 'Baum 9'],
     ['Tree 10', 'Baum 10'],
 
+    ['My super option 1', 'Meine Superoption 1'],
+    ['My super option 2', 'Meine Superoption 2'],
+    ['My super option 3', 'Meine Superoption 3'],
+
     ['of','von'],
     ['title', 'titel'],
 

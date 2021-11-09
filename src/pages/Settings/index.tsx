@@ -23,6 +23,21 @@ const Settings = () => {
             defaultValue: true,
             label: 'Push notifications',
             options: [true, false]
+        },
+        testOption1: {
+            defaultValue: true,
+            label: 'My super option 1',
+            options: [true, false]
+        },
+        testOption2: {
+            defaultValue: true,
+            label: 'My super option 2',
+            options: [true, false]
+        },
+        testOption3: {
+            defaultValue: true,
+            label: 'My super option 3',
+            options: [true, false]
         }
     }
     const { data:settings } = useSelector( settingsStateSelector );
@@ -44,7 +59,7 @@ const Settings = () => {
         if( options.length > 2) {
             controls = [...controls, <SettingsControl key={key} label={__translate(label)}><SelectSettings value={ settings[key] ?? defaultValue} options={options} onSelect={(v)=>{selectHandler(key,v)}} /></SettingsControl> ]
         } else {
-            controls = [...controls, <SettingsControl key={key} label={ __translate('Push notifications')}><Switcher value={ settings[key] ?? defaultValue} options={options} onToggle={(v)=>{switcherHandler(key,v)}} /></SettingsControl> ]
+            controls = [...controls, <SettingsControl key={key} label={ __translate(label)}><Switcher value={ settings[key] ?? defaultValue} options={options} onToggle={(v)=>{switcherHandler(key,v)}} /></SettingsControl> ]
         }
     }
     return (
