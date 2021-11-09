@@ -1,5 +1,9 @@
 // const __translate = useMultiLanguage();
 const RU = new Map([
+    ['in','в'],
+    ['Back to Shop','Вернуться в магазин'],
+    ['No results', 'Результатов Нет'],
+    ['title', 'названии'],
     ['App settings','Настройки приложения'],
     ['Push notifications','Push-уведомления'],
     ['Language','Язык'],
@@ -24,16 +28,13 @@ const RU = new Map([
     ['Name and Surname', 'Имя и Фамилия'],
     ['Phone', 'Телефон'],
     ['Street, house', 'Улица, дом'],
-    ['Street, house', 'Улица, дом'],
     ['Country, City', 'Страна, Город'],
     ['Card number is invalid', 'Не корректный номер карты'],
     ['Flowers', 'Цветы'],
     ['Plants', 'Растения'],
     ['Trees', 'Деревья'],
     ['Popular', 'Популярное'],
-    ['Search', 'Поиск'],
     ['These are all products', 'Это все товары в разделе'],
-    ['Page not found', 'Страница не найдена'],
     ['Your order', 'Ваш заказ'],
     ['Enter promo code', 'Введите промокод'],
     ['Total', 'Итого'],
@@ -82,6 +83,8 @@ const RU = new Map([
     ['Tree 8', 'Дерево 8'],
     ['Tree 9', 'Дерево 9'],
     ['Tree 10', 'Дерево 10'],
+
+    ['of',' '],
 
 ])
 export default RU;
