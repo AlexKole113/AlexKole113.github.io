@@ -40,8 +40,6 @@ describe('Test Pages', () => {
 
   it('Shop page surf', ()=>{
     action.init({host, setScreenSize: 'xl'});
-    // TODO: realize
-    setActions.shopSurfAndCheck()
     setActions.useSearchProducts('tree');
   });
 
@@ -55,9 +53,15 @@ describe('Test Pages', () => {
     setActions.useFavorites();
   });
 
-  it.only('Cart', () => {
+  it('Cart', () => {
     action.init({host, setScreenSize: 'xl'});
     setActions.useCart();
+  })
+
+
+  it('Settings', () => {
+    action.init({host, setScreenSize: 'xl'});
+    setActions.useSettings();
   })
 
 

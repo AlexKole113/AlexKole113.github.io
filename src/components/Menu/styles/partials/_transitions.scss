@@ -11,17 +11,16 @@
 }
 
 .additional-menu__items_item:first-child {
-  transition: top .3s .1s, right .3s;
+  transition: transform .25s .05s;
 }
 
 .additional-menu__items_item:last-child {
-   transition: bottom .25s .12s, right .25s .12s;
+   transition: transform .25s .1s;
 }
 
 .menu-opened {
-
   .additional-menu__items_item:last-child {
-    transition: bottom .3s, right .3s;
+    transition: transform .35s;
   }
 
   .menu:before {

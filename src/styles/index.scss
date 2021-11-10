@@ -9,11 +9,13 @@
 @import "for-code-pen-demonstartion";
 
 //TODO:
-// 1. fix crossbrowser issues
-// 2. fix mobile version
-// 3. check and fix slowly animation of menu opening + add border-radius: x x x x / x x x x;
-// 4. fix overflow hidden of page (explore,profile,settings) after favorites page visit
-// 5. create demo background
+// (V) 1. fix mobile version
+// 2. check and fix slowly animation of menu opening + add border-radius: x x x x / x x x x;
+//    Fix Animation problems with Profile field change and Menu opens lugs
+// 3. fix overflow hidden of page (explore,profile,settings) after favorites page visit
+// 4. create demo background.
+// 5. Deploy and fix crossbrowser issues.
+// 6. Check page speed.
 
 @import "../components/Menu/styles/index.scss";
 @import "../components/CategoryList/styles/index.scss";

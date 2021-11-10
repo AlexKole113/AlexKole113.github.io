@@ -31,7 +31,7 @@ class SetActions {
         this.action.clickOnElementWhereText('#footer a', 'profile');
         this.action.clickOnElementWhereText('#footer a', 'settings');
         this.action.clickOnElementWhereText('#footer a', 'contact');
-        this.action.clickOnElementWhereText('#footer a', 'explore');
+        this.action.clickOnElementWhereText('#footer a', 'shop');
         this.scrollAndLoadAllProducts();
         this.action.clickOnElementWhereText('#footer a', endTo)
     }
@@ -55,10 +55,6 @@ class SetActions {
         cy.get('#content-group').scrollTo(0,10000,{duration: this.setupData.stepWaiting() })
         cy.wait(this.setupData.stepWaiting())
         cy.get('#content-group').scrollTo(0,20000,{duration: this.setupData.stepWaiting() })
-    }
-
-    shopSurfAndCheck = () => {
-
     }
 
     openShopTab = (tabText) => {
@@ -130,7 +126,7 @@ class SetActions {
         cy.wait(1200)
         this.action.typeAndEdit(cy.get('[data-search="product"]:first-child input[type="text"]').first(), 'plant', 'tree' )
         cy.wait(1200)
-        this.action.clickOnElementWhereText(cy.get('[href="/search?id=131"] span').first(), 'Trees 1')
+        this.action.clickOnElementWhereText(cy.get('[href="/search?id=131"] span').first(), 'Tree 1')
         cy.wait(1200)
         cy.get('[data-test*="products"]').should('be.visible')
         cy.get('[data-test*="products"]').should('have.length', 1)
@@ -254,6 +250,70 @@ class SetActions {
         this.action.checkContent('#header a[href="/cart"]', ` ${randomCardsLength} `);
         this.action.click('#header a[href="/cart"]')
         cy.get('[data-test="cart-item"]').should('have.length', randomCardsLength)
+    }
+
+
+    useSettings = () => {
+
+        const checkLangPL = () => {
+            cy.get('[data-test="setting-section"] select').select('🇵🇱')
+            .should(()=>{
+                expect( JSON.parse( localStorage.getItem('settings') ).language ).to.eq( 'pl')
+            });
+            cy.wait(600);
+            cy.get('[data-test="setting-section-title"]').should('have.text', 'Ustawienia aplikacji' );
+            this.useMainMenuAndGoTo('sklep', 'shop');
+            cy.wait(600);
+            this.openShopTab('Drzewa');
+            cy.wait(600);
+            this.useMainMenuAndGoTo('profil', 'profile');
+            cy.wait(600);
+            this.action.clickOnElementWhereText('#footer a', 'ustawienia');
+            cy.wait(600);
+            cy.get('[data-test="setting-section"] select').select('🇬🇧').should(()=>{
+                expect( JSON.parse( localStorage.getItem('settings') ).language ).to.eq( 'en')
+            });
+        }
+
+        const checkLangRU = () => {
+            cy.get('[data-test="setting-section"] select').select('🇷🇺')
+            .should(()=>{
+                expect( JSON.parse( localStorage.getItem('settings') ).language ).to.eq( 'ru')
+            });
+
+            cy.wait(600);
+            cy.get('[data-test="setting-section-title"]').should('have.text', 'Настройки приложения' );
+            this.useMainMenuAndGoTo('витрина', 'shop');
+            cy.wait(600);
+            this.openShopTab('Деревья');
+            cy.wait(600);
+            this.useMainMenuAndGoTo('профиль', 'profile');
+            cy.wait(600);
+            this.action.clickOnElementWhereText('#footer a', 'настройки');
+            cy.get('[data-test="setting-section"] select').select('🇬🇧')
+            .should(()=>{
+                expect( JSON.parse( localStorage.getItem('settings') ).language ).to.eq( 'en')
+            });
+        }
+
+
+        this.useMainMenuAndGoTo('settings');
+        cy.wait(1200);
+        cy.get('[data-test="setting-section-title"]').should('have.text', 'App settings' );
+        cy.get('[data-test="switcher"]').first().click().should(()=>{
+            expect( JSON.parse( localStorage.getItem('settings') ).pushNotification ).to.eq(false)
+        });
+        cy.wait(600);
+        cy.get('[data-test="switcher"]').first().click().should(()=>{
+            expect( JSON.parse( localStorage.getItem('settings') ).pushNotification ).to.eq(true)
+        });
+        cy.wait(600);
+        cy.get('[data-test="switcher"]').first().click().should(()=>{
+            expect( JSON.parse( localStorage.getItem('settings') ).pushNotification ).to.eq(false)
+        });
+
+        checkLangPL();
+        checkLangRU();
     }
 }
 

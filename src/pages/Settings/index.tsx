@@ -65,9 +65,9 @@ const Settings = () => {
     return (
         <section className={settingsCss['settings-group']} >
             <div className={commonCss['container']} >
-                <div className={settingsCss['settings-group__group']}>
+                <div data-test={'setting-section'} className={settingsCss['settings-group__group']}>
                     <section className={settingsCss['settings-group__title-block']} >
-                        <h3 className={settingsCss['settings-group__title-block_title']}>
+                        <h3 data-test={'setting-section-title'} className={settingsCss['settings-group__title-block_title']}>
                             { __translate('App settings') }
                         </h3>
                     </section>
