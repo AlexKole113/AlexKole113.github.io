@@ -10,10 +10,10 @@
     position: absolute;
     transform: translateX(-1.5rem) translateY(-11.875rem);
     will-change: transform;
-    height: 270%;
+    height: 260%;
     background-color: #f4f4f4;
     z-index: -1;
-    width: 115%;
+    width: 110%;
     box-shadow: -2px 3px 10px #0000004a;
     transition: transform .6s;
     border-radius: 0 0 100% 70%;
@@ -49,7 +49,7 @@
   .menu {
     height: 100%;
     &:before {
-      transform: translateX(-27%) translateY(-9rem) scale(1.75);
+      transform: translateX(-27%) translateY(-9rem) scale(1.85);
     }
   }
 }

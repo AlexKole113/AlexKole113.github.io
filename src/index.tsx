@@ -8,7 +8,6 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from '@/saga';
 import App from './components/App';
 
-
 import './styles/index.scss';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -35,7 +34,7 @@ sagaMiddleware.run(rootSaga);
 //      (V) 7.1 fix mobile version
 //      (V) 7.2 check and fix slowly animation of menu opening + add border-radius: x x x x / x x x x;
 //      (V) 7.3 Fix Animation problems with Profile field change and Menu opens lugs
-//      7.4 Fix crossbrowser issues. (Phone Input in Profile)
+//      (V) 7.4 Fix crossbrowser issues. (Phone Input in Profile)
 //      7.5 Minify CSS result
 //      7.6 Check page speed.
 //  8. fix Safari problem with loading images on Shop

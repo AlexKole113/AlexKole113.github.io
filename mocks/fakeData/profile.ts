@@ -34,7 +34,7 @@ const fakeProfileFields:IFakeProfileFields = {
     id: 1,
     fields: [
       { name: 'name', type: 'text', placeholder: 'Name and Surname' },
-      { name: 'phone', type: 'number', placeholder: 'Phone' },
+      { name: 'phone', type: 'text', placeholder: 'Phone' },
       { name: 'email', type: 'email', placeholder: 'Email' },
     ],
   },
