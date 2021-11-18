@@ -37,7 +37,7 @@ sagaMiddleware.run(rootSaga);
 //      (V) 7.4 Fix crossbrowser issues. (Phone Input in Profile)
 //      7.5 Minify CSS result
 //      7.6 Check page speed.
-//  8. fix Safari problem with loading images on Shop
+//  (V) 8. fix Safari problem with loading images on Shop
 //  9. Add PWA
 //      9.1 Cypress testing, Browser testing, Refactoring;
 //  10. Try to remove all Typescript 'any' from project
