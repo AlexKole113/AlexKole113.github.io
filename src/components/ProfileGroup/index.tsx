@@ -24,7 +24,7 @@ const ProfileGroup = ({
         error: false,
         loading: false,
       },
-      850,
+      950,
     );
   }, [active]);
   const groupName = name;

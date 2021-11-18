@@ -8,8 +8,6 @@
     top:0rem;
     width: 100%;
   }
-
-
   .profile-group-hidden {
     width: 100%;
     z-index: -1;
@@ -32,24 +30,20 @@
       transition: transform .2s;
       transform: translateX(0);
     }
-
     .profile-input:nth-child(1) {
-      transition: transform .3s .1s;
-      transform: translateX(0);
-    }
-
-    .profile-input:nth-child(2) {
       transition: transform .4s .2s;
       transform: translateX(0);
     }
-
-    .profile-input:nth-child(3) {
+    .profile-input:nth-child(2) {
       transition: transform .5s .3s;
       transform: translateX(0);
     }
-
-    .profile-input:nth-child(4) {
+    .profile-input:nth-child(3) {
       transition: transform .6s .4s;
+      transform: translateX(0);
+    }
+    .profile-input:nth-child(4) {
+      transition: transform .7s .5s;
       transform: translateX(0);
     }
   }
@@ -59,25 +53,20 @@
       transition: transform .2s;
       transform: translateX(-150%);
     }
-
-
     .profile-input:nth-child(1) {
-      transition: transform .4s .1s;
+      transition: transform .5s;
       transform: translateX(-150%);
     }
-
     .profile-input:nth-child(2) {
-      transition: transform .5s .2s;
+      transition: transform .6s;
       transform: translateX(-150%);
     }
-
     .profile-input:nth-child(3) {
-      transition: transform .6s .3s;
+      transition: transform .7s;
       transform: translateX(-150%);
     }
-
     .profile-input:nth-child(4) {
-      transition: transform .7s .4s;
+      transition: transform .8s;
       transform: translateX(-150%);
     }
   }

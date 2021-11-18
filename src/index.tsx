@@ -31,7 +31,13 @@ sagaMiddleware.run(rootSaga);
 //  (V) 4.1 Cypress testing, Browser testing, Refactoring;
 //  (V) 5. SETTINGS functionalities
 //  (V) 5.1 Cypress testing, Browser testing, Refactoring;
-//  7. Close all style problems, tod's in styles file
+//  7. Close all style problems:
+//      (V) 7.1 fix mobile version
+//      (V) 7.2 check and fix slowly animation of menu opening + add border-radius: x x x x / x x x x;
+//      (V) 7.3 Fix Animation problems with Profile field change and Menu opens lugs
+//      7.4 Fix crossbrowser issues. (Phone Input in Profile)
+//      7.5 Minify CSS result
+//      7.6 Check page speed.
 //  8. fix Safari problem with loading images on Shop
 //  9. Add PWA
 //      9.1 Cypress testing, Browser testing, Refactoring;
