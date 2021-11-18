@@ -6,10 +6,6 @@
   --mode-1: cubic-bezier(0.15, 0.97, 0.73, 1);
 }
 
-.menu:before {
-  transition: all var(--transition-fast);
-}
-
 .additional-menu__items_item:first-child {
   transition: transform .25s .05s;
 }
@@ -24,17 +20,10 @@
   }
 
   .menu:before {
-    transition:
-            left var(--transition-fast) cubic-bezier(.33,.92,.64,1.41),
-            top var(--transition-fast) cubic-bezier(.66,.56,.36,1),
-            width .475s cubic-bezier(0.23, 2.54, 0.63, 2.8),
-            height var(--transition-main) cubic-bezier(.22,.61,.36,1);
-
-    backface-visibility: hidden;
+    transition: transform var(--transition-fast);
   }
 
   .main-menu {
-
     &__items_item {
       transition: all 0s;
     }
@@ -54,5 +43,4 @@
       transition: opacity var(--transition-fast) .5s, transform .4s .5s var(--custom-bezier-menu-items);
     }
   }
-
 }

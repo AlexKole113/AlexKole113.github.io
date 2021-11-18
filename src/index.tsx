@@ -32,6 +32,7 @@ sagaMiddleware.run(rootSaga);
 //  (V) 5. SETTINGS functionalities
 //  (V) 5.1 Cypress testing, Browser testing, Refactoring;
 //  7. Close all style problems, tod's in styles file
+//  8. fix Safari problem with loading images on Shop
 //  9. Add PWA
 //      9.1 Cypress testing, Browser testing, Refactoring;
 //  10. Try to remove all Typescript 'any' from project
