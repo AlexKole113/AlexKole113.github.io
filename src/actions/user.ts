@@ -1,6 +1,5 @@
 import { createAsyncActions } from '@/utils/redux/actions';
 
-export const signUpActions = createAsyncActions('USER_SIGN_UP');
-export const signInActions = createAsyncActions('USER_SIGN_IN');
-export const signOutActions = createAsyncActions('USER_SIGN_OUT');
-export const userInfoActions = createAsyncActions('USER_INFO_ACTIONS');
+export const userInfoAction = createAsyncActions('USER_INFO');
+export const userCreateAction = createAsyncActions('USER_CREATE');
+export const userUpdateAction = createAsyncActions('USER_UPDATE');

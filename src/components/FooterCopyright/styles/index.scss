@@ -1,0 +1,17 @@
+.footer__copy {
+  background: var(--dark-footer-background);
+  &_content {
+    padding: .75rem 0;
+    font-size: .7rem;
+    text-align: center;
+    font-weight: 800;
+    color: var(--light-footer-text-color);
+    a {
+      color: var(--green-light);
+    }
+
+    span {
+      color: currentColor;
+    }
+  }
+}

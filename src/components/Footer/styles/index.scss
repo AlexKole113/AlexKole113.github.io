@@ -1,9 +1,15 @@
 .footer {
-  background: var(--black-footer-background);
+  grid-area: footer;
+  max-width: 100vw;
+  margin-top: auto;
+  background: transparent;
   height: 12.5rem;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  position: relative;
+  border-top: 1px solid #ffffff1c;
+  color: var(--light-footer-text-color);
 
   &__body {
     padding: 2rem 0;
@@ -13,63 +19,6 @@
     }
   }
 
-  &__copy {
-    background: var(--dark-footer-background);
-    &_content {
-      padding: .5rem 0;
-      font-size: .7rem;
-      text-align: center;
-      color: var(--light-footer-text-color);
-
-      span {
-        color: currentColor;
-      }
-    }
-  }
-
-
-  .footer-app-menu {
-    text-transform: uppercase;
-
-    &__list {
-      list-style: none;
-      padding: 0;
-      &_item {
-        padding-top: .5rem;
-
-        &_link{
-          color: var(--light-footer-text-color);
-          text-decoration: none;
-          font-size: .75rem;
-        }
-      }
-    }
-
-  }
-
-  .footer-smm-menu {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    &__list {
-      width: 80%;
-      list-style: none;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
-      grid-gap: .25rem;
-      &_item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &_link{
-          color: var(--light-footer-text-color);
-          text-decoration: none;
-        }
-      }
-    }
-
-  }
 
     svg, img {
       width: 20px;

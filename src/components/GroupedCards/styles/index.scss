@@ -1,0 +1,26 @@
+@import "../../../styles/partials/_mixins.scss";
+
+.shop-grouped {
+  padding: 1.7rem 0;
+
+  &__collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: .8rem;
+    row-gap: 2rem;
+
+    //@include sm {
+    //  grid-template-columns: 1fr 1fr 1fr;
+    //}
+    //@include md {
+    //  grid-template-columns: 1fr 1fr 1fr 1fr;
+    //}
+    //@include lg {
+    //  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    //}
+    //@media (min-width: 1366px) {
+    //  grid-template-columns: 1fr 1fr;
+    //}
+  }
+}
+

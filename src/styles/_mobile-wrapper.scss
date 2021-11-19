@@ -1,0 +1,112 @@
+.mobile-wrapper {
+  background: var(--background-theme);
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-areas:
+            "header"
+            "content"
+            "footer";
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overscroll-behavior-y: none;
+
+  @include sm {
+    max-width: 100vw;
+    position: relative;
+    min-height: 260px;
+    width: 320px;
+    height: 691px;
+    left: calc(50% - 165px);
+    top: 46px;
+    border-radius: 36px;
+  }
+
+
+  .content {
+    grid-area: content;
+    max-width: 100vw;
+    margin-bottom: 5rem;
+    padding-top: 8.65rem;
+  }
+  &:before {
+    content: '';
+    transition: all var(--transition-main);
+    position: absolute;
+    background: var(--mobile-wrapper-menu-theme);
+    z-index: 100;
+    opacity: .6;
+    left: -0.5rem;
+    top: -2.3125rem;
+    height: 10.3rem;
+    border-radius: 0 0 180% 95%;
+    width: 86%;
+    box-shadow: -2px 3px 10px #0000004a;
+  }
+  &.state {
+    &-loading {
+      overflow: hidden;
+    }
+  }
+  .preloader {
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    img {
+      width: 150px;
+    }
+
+  }
+  .additional-menu {
+    &__items {
+      &_item {
+        &:first-child {
+          right: -0.5rem;
+          top: -3.4rem;
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+
+        &:last-child {
+          right: 3rem;
+          bottom: -1.5rem;
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+
+      }
+    }
+  }
+  .shop-grouped__collection {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  //scroll
+  &::-webkit-scrollbar { width: 0; }
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+.mobile-frame {
+    width: 100vw;
+    height: 100vh;
+  @include sm {
+    width: 437px;
+    height: 812px;
+    position: relative;
+    background-image: url(../../demo-assets/phone_demo.png);
+    background-size: 97.5% 97.5%;
+    background-repeat: no-repeat;
+  }
+}

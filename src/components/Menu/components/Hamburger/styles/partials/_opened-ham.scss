@@ -1,0 +1,20 @@
+.menu-opened .hamRotate {
+  transform: rotate(45deg);
+}
+
+.menu-opened .hamRotate180 {
+  transform: rotate(180deg);
+}
+
+.menu-opened .ham-item .top {
+  stroke-dashoffset: -64px;
+}
+
+.menu-opened .ham-item .middle {
+  //stroke-dashoffset: -20px;
+  transform: rotate(90deg);
+}
+
+.menu-opened .ham-item .bottom {
+  stroke-dashoffset: -64px;
+}

@@ -1,21 +1,15 @@
-import { spawn, take, put } from 'redux-saga/effects';
 import { takeLatestRequest } from '@/utils/redux/sagas';
 import {
-  signInActions, signOutActions, signUpActions, userInfoActions,
+  userInfoAction,
+  userCreateAction,
+  userUpdateAction,
 } from '@/actions/user';
-import {
-  getUserInfo, signIn, signOut, signUp,
-} from '@/api/auth';
+import getUserDataFromServer from '@/utils/user/getUserDataFromServer';
+import getNewUser from '@/utils/user/getNewUser';
+import APIService from '../../mocks/APIService';
 
-function* afterSignIn() {
-  yield take([signInActions.success.toString(), signUpActions.success.toString()]);
-  yield put(userInfoActions.request());
-}
-
-export default function* userSaga() {
-  yield takeLatestRequest(userInfoActions, getUserInfo);
-  yield takeLatestRequest(signInActions, signIn);
-  yield takeLatestRequest(signUpActions, signUp);
-  yield takeLatestRequest(signOutActions, signOut);
-  yield spawn(afterSignIn);
+export function* userSaga() {
+  yield takeLatestRequest(userInfoAction, getUserDataFromServer);
+  yield takeLatestRequest(userCreateAction, getNewUser);
+  yield takeLatestRequest(userUpdateAction, APIService.sendDataFromInput);
 }

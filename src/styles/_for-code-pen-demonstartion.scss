@@ -1,180 +1,54 @@
-@media (min-width: 1366px ) {
+@import "./partials/mixins";
+.tech-stack {
+  display: none;
+  padding: 0rem 1rem 2rem;
+  order: 10;
+  @include sm {
+    display: block;
+  }
+  @include xl {
+    order: -1;
+  }
+  &__title {
+    font-size: 2.75rem;
+    margin: 1rem 0;
+  }
+  &__list {
 
+  }
+  &__item {
+    margin-bottom: .5rem
+  }
+}
+@include sm {
   :root {
     --content-size: 16px;
     --body-perspective: 1400px
   }
-
   body {
     perspective: var(--body-perspective);
     backface-visibility: hidden;
     perspective-origin: 50% 50%;
     transform-style: preserve-3d;
-
-
-    &:after {
-      content: ' ';
-      width: 437px;
-      height: 812px;
-      position: absolute;
-      top: -3px;
-      left: calc(50% - 218px);
-      background-image: url(../../demo-assets/phone_demo.png);
-      background-size: 100%;
-      background-repeat: no-repeat;
-      z-index: -1;
-    }
+    background: url('../../demo-assets/background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-
-  .mobile-wrapper {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: absolute;
-    min-height: 260px;
-    width: 320px;
-    height: 691px;
-    left: calc(50% - 160px);
-    top: 44px;
-    border-radius: 28px;
-
-    &.state {
-      &-loading {
-        overflow: hidden;
-      }
-    }
-
-    &.menu-opened {
-      overflow: hidden;
-    }
-
-    #preloader {
-      background-color: #ffffff;
-      position: absolute;
-      z-index: 9999;
-      top: 0;
-      left:0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-
-      img {
-        width: 150px;
-      }
-
-    }
-
-    .additional-menu {
-      &__items {
-        &_item {
-          &:first-child {
-            right: -0.5rem;
-            top: -3.4rem;
-            width: 3.5rem;
-            height: 3.5rem;
-          }
-
-          &:last-child {
-            right: 3rem;
-            bottom: -1.5rem;
-            width: 2.5rem;
-            height: 2.5rem;
-          }
-
-        }
-      }
-    }
-
-    .shop-grouped__collection {
-      grid-template-columns: 1fr 1fr;
-    }
-
-
-    //scroll
-    &::-webkit-scrollbar { width: 0; }
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-
-  }
-
-  .demo-preloader {
-    &__1 {
-      position: absolute;
-      top: 50%;
-      left: 15%;
-      width: 300px;
-      height: 300px;
-      transform: rotate3d( 0, 1, 0, 0deg );
-
-    &_top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      transform: rotate3d(1, 1, 0,
-              0deg
-      ) translate(0) translateZ(0px) rotate(
-                      0deg
-      );
-      transition: all .8s;
-      border-radius: 100%;
-      border-top: 5px solid violet;
-      //animation: load 2s infinite;
-    }
-
-    &:after {
-        content: '';
-        position: absolute;
-      background: linear-gradient(
-                      90deg
-              , #ff00ff05 10%, #ee82ee57 50%, #ee82ee1a 90%);
-        width: 100%;
-        height: 60px;
-        left: 0;
-        top: 0;
-        transform: rotate3d(1, 1, 1,
-                -0deg
-        );
-      }
-
-
-    }
-    &__2 {
-
-    }
+  main {
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    max-width: 991px;
+    min-width: 450px;
+    margin: auto;
   }
 }
 
+@import "mobile-wrapper";
 
-
-@keyframes load {
-  0% {
-    transform: rotate3d(0, 1, 0, 0deg) translate(0) translateZ(0px);
-    z-index: -1;
-  }
-
-  45% {
-    z-index: 1000;
-  }
-
-  50% {
-    transform: rotate3d(0, 1, 0, 90deg) translate(150px) translateZ(600px);
-    z-index: 1000;
-  }
-
-  55% {
-    z-index: -1;
-  }
-
-  100% {
-    transform: rotate3d(0, 1, 0, 180deg) translate(0px) translateZ(0px);
-    z-index: -1;
-  }
-
-}
 
 
 
