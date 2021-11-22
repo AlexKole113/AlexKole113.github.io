@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -20,8 +20,6 @@ sagaMiddleware.run(rootSaga);
 //      (V) 7.2 check and fix slowly animation of menu opening + add border-radius: x x x x / x x x x;
 //      (V) 7.3 Fix Animation problems with Profile field change and Menu opens lugs
 //      (V) 7.4 Fix crossbrowser issues. (Phone Input in Profile)
-//  8. Add PWA
-//      8.1 Cypress testing, Browser testing, Refactoring;
 //  10. Final cross browser checking.
 //      10.1 Deploying & Check page speed.
 //      10.2 Minify CSS result
@@ -37,3 +35,14 @@ ReactDOM.render(
   </Provider>,
   document.querySelector('#app'),
 );
+
+if ('serviceWorker' in navigator) {
+  self.addEventListener('load', async () => {
+    const container = navigator.serviceWorker;
+    if (container.controller === null) {
+        console.log('sw start');
+      // @ts-ignore
+      const reg = await container.register('../sw.js');
+    }
+  });
+}

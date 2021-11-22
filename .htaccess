@@ -1,7 +1,9 @@
-DirectoryIndex /dist/index.html
+FallBackResource /
+RewriteEngine On
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ https://react-demo.alex-kole.com/ [R=301,L]
 
 <IfModule mod_rewrite.c>
-
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
@@ -9,6 +11,7 @@ DirectoryIndex /dist/index.html
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
   RewriteRule . /dist/index.html [L]
-
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 

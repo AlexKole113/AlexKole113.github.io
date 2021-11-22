@@ -5,11 +5,10 @@
   "display": "fullscreen",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "../logo.png",
       "sizes": "144x144",
       "type": "image/png"
     }
   ],
   "start_url": "index.html"
 }
-
