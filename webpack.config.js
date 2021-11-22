@@ -17,7 +17,7 @@ module.exports = function (env, argv) {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: `${ASSETS_DIR}/js/[name].[contenthash].js`,
-      publicPath: '/',
+      publicPath: '/dist/',
       assetModuleFilename: `${ASSETS_DIR}/resources/[name].[contenthash][ext]`,
     },
     devServer: {
