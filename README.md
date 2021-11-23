@@ -15,7 +15,10 @@ Page with Demo https://react-demo.alex-kole.com/
 4. Open in localhost:5000
 
 ### Testing.
-4. Running Cypress tests "npm run tests"
+4. Running Cypress tests
+```bash
+ npm run tests
+```   
 
 ---
 Developer AlexKole113 https://github.com/AlexKole113  
