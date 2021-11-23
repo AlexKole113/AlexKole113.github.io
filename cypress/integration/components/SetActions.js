@@ -150,15 +150,23 @@ class SetActions {
 
     useFavorites = () => {
         cy.wait(1200)
-        cy.get(`[data-test="product-card"]:nth-child(${Math.round(  Math.random() * (4 - 1) + 1 )}) a:first-child`).first().click();
+        const randomProds = [];
+        while(randomProds.length < 3 ){
+            const getRandom = Math.round(  Math.random() * (4 - 1) + 1 );
+            if( randomProds.indexOf(getRandom) === -1 ){
+                randomProds.push(getRandom)
+            }
+        }
+
+        cy.get(`[data-test="product-card"]:nth-child(${randomProds[0]}) a:first-child`).first().click();
         this.action.checkContent('#header a[href="/favorites"]', ' 1 ')
         this.openShopTab('Plants')
         cy.wait(1200)
-        cy.get(`[data-test="product-card"]:nth-child(${Math.round(  Math.random() * (4 - 1) + 1 )}) a:first-child`).eq(1).click();
+        cy.get(`[data-test="product-card"]:nth-child(${randomProds[1]}) a:first-child`).eq(1).click();
         this.action.checkContent('#header a[href="/favorites"]', ' 2 ')
         this.openShopTab('Flowers')
         cy.wait(1200)
-        cy.get(`[data-test="product-card"]:nth-child(${Math.round(  Math.random() * (4 - 1) + 1 )}) a:first-child`).eq(0).click();
+        cy.get(`[data-test="product-card"]:nth-child(${randomProds[2]}) a:first-child`).eq(0).click();
         this.action.checkContent('#header a[href="/favorites"]', ' 3 ')
         this.openShopTab('Trees')
         cy.wait(1200)
@@ -167,7 +175,7 @@ class SetActions {
         this.action.checkContent('#header a[href="/favorites"]', ' 4 ')
 
         this.action.click('#header a[href="/favorites"]')
-        this.action.checkURL('http://localhost:5000/favorites')
+        this.action.checkURL(this.setupData.host + 'favorites')
         cy.get('[data-test="product-card"]').should('have.length', 4)
 
         this.action.click('[data-test="product-card"]:nth-child(1) a:first-child');

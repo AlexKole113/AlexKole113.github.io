@@ -1,18 +1,25 @@
-# React with WordPress REST (Demo mvp).
+# React + WordPress REST API (Demo mvp).
 
-### Testing.  
+Page with Demo https://react-demo.alex-kole.com/
 
-Demo page https://react-demo.alex-kole.com/
+### Running a project locally.  
 
-Running a project locally:
-1. Install dependencies -> "npm i"
-2. Start project -> "npm start"
-3. Open in localhost:5000
+1. Install dependencies 
+```bash
+ npm i
+``` 
+3. Start project
+```bash
+   npm start
+```   
+4. Open in localhost:5000
 
-### Testing
+### Testing.
 4. Running Cypress tests "npm run tests"
 
-=========
+---
+Developer AlexKole113 https://github.com/AlexKole113  
 Design concept by @Khalid Saied
 https://www.behance.net/mist_4227cbfe
+
 

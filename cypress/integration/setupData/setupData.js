@@ -1,5 +1,5 @@
 const setupData = {
-  host: 'http://localhost:5000/',
+  host: 'https://react-demo.alex-kole.com/',
   stepWaiting: () => Math.round((Math.random() * ( 1500 - 800 )) + 800),
   screenSizes: {
     xsm: { width: 320, height: 568 },

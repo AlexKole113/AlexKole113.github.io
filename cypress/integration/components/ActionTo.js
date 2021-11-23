@@ -138,9 +138,8 @@ class ActionTo {
   };
 
   // GO TO URL
-  goToSite = (site) => {
-    cy.visit(site);
-    cy.url().should('eq', site);
+  goToSite = (url) => {
+    cy.visit({url,failOnStatusCode: false});
   };
 
   useInputCorrect = (inputCssSelector , inputText, editedText ) => {

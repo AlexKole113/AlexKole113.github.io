@@ -58,11 +58,8 @@ describe('Test Pages', () => {
     setActions.useCart();
   })
 
-
   it('Settings', () => {
     action.init({host, setScreenSize: 'xl'});
     setActions.useSettings();
   })
-
-
 });
