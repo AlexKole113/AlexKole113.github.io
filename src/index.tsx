@@ -21,11 +21,10 @@ sagaMiddleware.run(rootSaga);
 //      (V) 7.3 Fix Animation problems with Profile field change and Menu opens lugs
 //      (V) 7.4 Fix crossbrowser issues. (Phone Input in Profile)
 //  10. Final cross browser checking.
-//      10.1 Deploying & Check page speed.
-//      10.2 Minify CSS result
 //  11. Readme.md creating (describe you features: content all dynamic (category etc.), random data in cypress tests etc).
 //      Necessarily indicate where i got design
 //  12. Upwork page creating. Video demo creation. Cypress work demonstration via video.  Necessarily indicate where i got design
+//  13. Add Yandex tracker
 
 ReactDOM.render(
   <Provider store={store}>
