@@ -10,7 +10,7 @@ Page with Demo https://react-demo.alex-kole.com/
 ``` 
 3. Start project
 ```bash
-   npm start
+ npm start
 ```   
 4. Open in localhost:5000
 
