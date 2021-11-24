@@ -6,7 +6,7 @@ const {host} = setupData;
 const action = new ActionTo(setupData);
 const setActions = new SetActions(setupData);
 
-describe('Test Pages', () => {
+describe('Test Pages v2.0', () => {
   it('Profile page surf', () => {
     action.init({host, setScreenSize: 'xl'});
     setActions.useMainMenuAndGoTo('profile')

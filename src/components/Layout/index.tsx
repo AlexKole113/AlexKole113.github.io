@@ -38,14 +38,15 @@ const Layout = ({ children, toggleMenuCallback }: LayoutProps) => {
   return (
     <main className={themesCss[`cat-${pageThemeID}`] ?? themesCss[pageThemeID ?? '']}>
       <div className={codePenDemoCss['tech-stack']}>
-        <h1 className={codePenDemoCss['tech-stack__title']}>Stack</h1>
+        <h1 className={codePenDemoCss['tech-stack__title']}>Stack and <br/> Sources</h1>
         <ul className={codePenDemoCss['tech-stack__list']}>
           <li className={codePenDemoCss['tech-stack__item']}>Typescript</li>
           <li className={codePenDemoCss['tech-stack__item']}>React, Redux, Saga</li>
           <li className={codePenDemoCss['tech-stack__item']}>SCSS + Style modules</li>
           <li className={codePenDemoCss['tech-stack__item']}>Cypres</li>
-          <li className={codePenDemoCss['tech-stack__item']}>PWA, localstorage</li>
           <li className={codePenDemoCss['tech-stack__item']}>React lazyload</li>
+          <li className={codePenDemoCss['tech-stack__item']}>Project on <a href={'https://github.com/AlexKole113/mobile-shop-app'}>GitHub</a></li>
+          <li className={codePenDemoCss['tech-stack__item']}>Design concept by <a href={'https://www.behance.net/mist_4227cbfe'}>@Khalid Saied</a></li>
         </ul>
       </div>
       <section className={codePenDemoCss['mobile-frame']}>

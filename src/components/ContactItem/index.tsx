@@ -6,7 +6,7 @@ const ContactItem = () => (
             Email:
         </span>
         <a href="mailto:alexander.koledov@gmail.com" className={contactItemCss['contact-item__value']}>
-            alexander.koledov@gmail.com
+            email@email.com
         </a>
     </div>
 )
