@@ -10997,7 +10997,7 @@ const saveJSONInStorage = (key, data) => {
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/mobile-shop-app/dist/";
+/******/ 		__webpack_require__.p = "https://alexkole113.github.io/mobile-shop-app/dist/";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/css loading */
