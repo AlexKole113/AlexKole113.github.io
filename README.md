@@ -1,6 +1,6 @@
 # React + WordPress REST API (Demo mvp).
 
-Page with Demo https://alexkole113.github.io/shop
+Page with Demo https://alexkole113.github.io
 
 ### Running a project locally.  
 
