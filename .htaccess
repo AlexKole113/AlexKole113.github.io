@@ -1,7 +1,7 @@
 FallBackResource /
 RewriteEngine On
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
-RewriteRule ^index\.html$ https://alexkole113.github.io/mobile-shop-app/ [R=301,L]
+RewriteRule ^index\.html$ https://alexkole113.github.io/ [R=301,L]
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
