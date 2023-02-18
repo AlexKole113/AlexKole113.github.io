@@ -17,14 +17,14 @@ module.exports = function (env, argv) {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: `${ASSETS_DIR}/js/[name].[contenthash].js`,
-      publicPath: isProduction ? '/dist/' : '/',
+      publicPath: isProduction ? '/mobile-shop-app/dist/' : '/',
       assetModuleFilename: `${ASSETS_DIR}/resources/[name].[contenthash][ext]`,
     },
     devServer: {
       historyApiFallback: true,
       contentBase: path.join(__dirname, public),
       compress: true,
-      port: 5000,
+      port: 5600,
     },
     devtool: isProduction ? false : 'inline-source-map',
     // watch: true,
